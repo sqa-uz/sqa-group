@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import AccreditationRibbon from "@/components/public/AccreditationRibbon";
+import HeroVideo from "@/components/public/HeroVideo";
 import PartnerMarquee from "@/components/public/PartnerMarquee";
 import SectionHeading from "@/components/public/SectionHeading";
 import StaffCard from "@/components/public/StaffCard";
@@ -53,44 +54,31 @@ export default async function HomePage({
 
   return (
     <>
-      {/* HERO — thesis + logo */}
-      <section className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #2003bd 0%, transparent 70%)" }}
-        />
-        <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-16 sm:py-20 lg:grid-cols-[1.2fr_0.8fr]">
-          <Reveal>
-            <p className="eyebrow mb-3">{t("heroEyebrow")}</p>
-            <h1 className="text-3xl font-black leading-[1.12] tracking-tight text-ink sm:text-5xl">
+      {/* HERO — thesis over footage: paperwork first, then the laboratory */}
+      <section className="relative overflow-hidden bg-primary-deep text-white">
+        <HeroVideo sources={["/videos/hero-office.mp4", "/videos/hero-lab.mp4"]} />
+        <div aria-hidden="true" className="hero-shade" />
+        <div className="hero-copy relative mx-auto max-w-[1200px] px-4 py-20 sm:py-24">
+          <Reveal className="max-w-2xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/85">{t("heroEyebrow")}</p>
+            <h1 className="text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-5xl">
               {t("heroTitle")}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">{t("heroText")}</p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">{t("heroText")}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/certification-body"
-                className="rounded-card bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-bright"
+                className="rounded-card bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-band"
               >
                 {t("heroCtaCert")}
               </Link>
               <Link
                 href="/laboratories"
-                className="rounded-card bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-bright"
+                className="rounded-card border border-white/60 bg-primary-deep/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
                 {t("heroCtaLab")}
               </Link>
             </div>
-          </Reveal>
-          <Reveal delay={120} className="hidden justify-center lg:flex">
-            <Image
-              src="/images/logo/logo-black.jpg"
-              alt="SQA Group"
-              width={300}
-              height={300}
-              priority
-              className="rounded-card"
-            />
           </Reveal>
         </div>
       </section>
@@ -288,7 +276,7 @@ export default async function HomePage({
       )}
 
       {/* APPLY: submit certification application via official government portals */}
-      <section className="bg-primary">
+      <section className="guilloche-soft bg-primary">
         <div className="mx-auto max-w-[1200px] px-4 py-16">
           <Reveal>
             <div className="text-center">
