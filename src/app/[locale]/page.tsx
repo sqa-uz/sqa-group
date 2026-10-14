@@ -54,9 +54,17 @@ export default async function HomePage({
 
   return (
     <>
-      {/* HERO — thesis over footage: paperwork first, then the laboratory */}
+      {/* HERO — thesis over footage: paperwork, laboratory, product testing, logistics, safety */}
       <section className="relative overflow-hidden bg-primary-deep text-white">
-        <HeroVideo sources={["/videos/hero-office.mp4", "/videos/hero-lab.mp4"]} />
+        <HeroVideo
+          sources={[
+            "/videos/hero-office.mp4",
+            "/videos/hero-lab.mp4",
+            "/videos/hero-testing.mp4",
+            "/videos/hero-logistics.mp4",
+            "/videos/hero-safety.mp4",
+          ]}
+        />
         <div aria-hidden="true" className="hero-shade" />
         <div className="hero-copy relative mx-auto max-w-[1200px] px-4 py-20 sm:py-24">
           <Reveal className="max-w-2xl">
