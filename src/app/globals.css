@@ -56,22 +56,32 @@ body,
   opacity: 1;
 }
 .hero-shade {
+  /* dissolves the footage into the accreditation ribbon below */
+  --hero-fade: linear-gradient(
+    to top,
+    var(--color-primary-deep) 0%,
+    rgb(22 2 127 / 0.82) 12%,
+    rgb(22 2 127 / 0.45) 30%,
+    rgb(22 2 127 / 0) 55%
+  );
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgb(16 2 95 / 0.78), rgb(22 2 127 / 0.6));
+  background: var(--hero-fade), linear-gradient(180deg, rgb(16 2 95 / 0.78), rgb(22 2 127 / 0.6));
 }
 @media (min-width: 1024px) {
   /* text sits left; the shade eases off so the footage shows on the right */
   .hero-shade {
-    background: linear-gradient(
-      90deg,
-      rgb(16 2 95 / 0.8) 0%,
-      rgb(17 2 100 / 0.72) 20%,
-      rgb(19 2 110 / 0.56) 40%,
-      rgb(21 2 120 / 0.36) 60%,
-      rgb(22 2 127 / 0.2) 80%,
-      rgb(22 2 127 / 0.12) 100%
-    );
+    background:
+      var(--hero-fade),
+      linear-gradient(
+        90deg,
+        rgb(16 2 95 / 0.8) 0%,
+        rgb(17 2 100 / 0.72) 20%,
+        rgb(19 2 110 / 0.56) 40%,
+        rgb(21 2 120 / 0.36) 60%,
+        rgb(22 2 127 / 0.2) 80%,
+        rgb(22 2 127 / 0.12) 100%
+      );
   }
 }
 .hero-copy {
