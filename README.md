@@ -56,12 +56,17 @@ E2E covers: homepage desktop+mobile, carousel directions, staff/news card → de
 
 ## Website email notifications
 
-Applications, complaints, and appeals use the company Mail.ru mailbox over TLS.
-Set `SMTP_HOST=smtp.mail.ru`, `SMTP_PORT=465`, `SMTP_USER=info@sqa.uz`,
+Applications, complaints, and appeals are sent through the company's Resend
+account over TLS to `info@sqa.uz`. The inbox remains hosted by Mail.ru.
+Verify `sqa.uz` in Resend by adding its DKIM and sending DNS records; preserve the
+existing Mail.ru MX record. Keep Resend receiving disabled for the root domain.
+
+Set `SMTP_HOST=smtp.resend.com`, `SMTP_PORT=465`, `SMTP_USER=resend`,
 `SMTP_FROM=SQA Group <info@sqa.uz>`, and `COMPANY_RECEIVER_EMAIL=info@sqa.uz`
-in the company's Vercel project. Store `SMTP_PASSWORD` as a **production Secret**.
-Use a Mail.ru app password with **sending-only access**, not the normal mailbox
-password. Create it in the mailbox's Security → Passwords for external apps.
+in the company's Vercel project. Create a Resend API key with **Sending access**
+restricted to `sqa.uz`, and store it as the **production Secret `SMTP_PASSWORD`**.
+Neither the normal mailbox password nor a Mail.ru app password is needed.
+See [Resend SMTP configuration](https://resend.com/docs/send-with-smtp).
 
 Redeploy after configuring the variables. Submit a clearly labeled test through
 each public form and check delivery in the company inbox. Complaints and appeals
