@@ -54,6 +54,22 @@ E2E covers: homepage desktop+mobile, carousel directions, staff/news card → de
 - **Vercel**: set `DATABASE_URL`, `AUTH_SECRET` (generate: `openssl rand -base64 32`), `AUTH_TRUST_HOST=true`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `BLOB_READ_WRITE_TOKEN`, and `NEXT_PUBLIC_SITE_URL=https://www.sqa.uz`. Vercel Blob is required for durable admin image uploads. Run `npx prisma migrate deploy` against production before deploying migrations; seed only when bootstrapping an empty database.
 - Old certificates/team photos/partner logos are already migrated into `/public/images`.
 
+## Website email notifications
+
+Applications, complaints, and appeals use the company Mail.ru mailbox over TLS.
+Set `SMTP_HOST=smtp.mail.ru`, `SMTP_PORT=465`, `SMTP_USER=info@sqa.uz`,
+`SMTP_FROM=SQA Group <info@sqa.uz>`, and `COMPANY_RECEIVER_EMAIL=info@sqa.uz`
+in the company's Vercel project. Store `SMTP_PASSWORD` as a **production Secret**.
+Use a Mail.ru app password with **sending-only access**, not the normal mailbox
+password. Create it in the mailbox's Security → Passwords for external apps.
+
+Redeploy after configuring the variables. Submit a clearly labeled test through
+each public form and check delivery in the company inbox. Complaints and appeals
+include the completed DOCX attachment. Applications are saved in the admin inbox
+before email delivery is attempted; a sending failure never discards that record.
+Complaints and appeals currently rely on email delivery and report an error if
+the mail server does not accept them.
+
 ## Known follow-ups
 
 - Second laboratory: the client plan mentions two labs; only one accreditation certificate exists publicly (SL.0162). Lab #2 currently has neutral copy — update `messages/*.json` → `laboratories.lab2*` when real details arrive.
