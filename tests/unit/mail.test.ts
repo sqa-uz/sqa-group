@@ -10,10 +10,10 @@ const message = { subject: "Website request\r\nTest", text: "Request details", h
 
 beforeEach(() => {
   vi.clearAllMocks();
-  vi.stubEnv("SMTP_HOST", "smtp.mail.ru");
+  vi.stubEnv("SMTP_HOST", "smtp.resend.com");
   vi.stubEnv("SMTP_PORT", "465");
-  vi.stubEnv("SMTP_USER", "info@sqa.uz");
-  vi.stubEnv("SMTP_PASSWORD", "test-app-password");
+  vi.stubEnv("SMTP_USER", "resend");
+  vi.stubEnv("SMTP_PASSWORD", "test-sending-key");
   vi.stubEnv("SMTP_FROM", "SQA Group <info@sqa.uz>");
   mocks.createTransport.mockReturnValue({ sendMail: mocks.sendMail });
   mocks.sendMail.mockResolvedValue({ accepted: ["info@sqa.uz"], messageId: "test-message" });
@@ -24,7 +24,7 @@ describe("company mailbox delivery", () => {
   it("sends text, HTML, and generated DOCX attachments to the company over TLS", async () => {
     const attachment = { filename: "complaint.docx", content: Buffer.from("test document"), contentType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
     await expect(sendCompanyEmail({ ...message, attachments: [attachment] })).resolves.toEqual({ sent: true, skipped: false, id: "test-message" });
-    expect(mocks.createTransport).toHaveBeenCalledWith(expect.objectContaining({ host: "smtp.mail.ru", port: 465, secure: true, disableFileAccess: true, disableUrlAccess: true }));
+    expect(mocks.createTransport).toHaveBeenCalledWith(expect.objectContaining({ host: "smtp.resend.com", port: 465, secure: true, disableFileAccess: true, disableUrlAccess: true }));
     expect(mocks.sendMail).toHaveBeenCalledWith({ ...message, subject: "Website request Test", from: "SQA Group <info@sqa.uz>", to: "info@sqa.uz", attachments: [attachment] });
   });
 
@@ -34,7 +34,7 @@ describe("company mailbox delivery", () => {
     expect(mocks.createTransport).toHaveBeenCalledWith(expect.objectContaining({ port: 587, secure: false, requireTLS: true }));
   });
 
-  it("does not attempt delivery without the app password", async () => {
+  it("does not attempt delivery without the sending key", async () => {
     vi.stubEnv("SMTP_PASSWORD", "");
     await expect(sendCompanyEmail(message)).resolves.toEqual({ sent: false, skipped: true });
     expect(mocks.createTransport).not.toHaveBeenCalled();
