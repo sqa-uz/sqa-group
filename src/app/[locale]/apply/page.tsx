@@ -27,7 +27,7 @@ export default async function ApplyPage({ params }: { params: Promise<{ locale: 
           <h2 className="text-sm font-bold uppercase tracking-wide text-ink-soft">{t("docsTitle")}</h2>
           <ul className="mt-4 space-y-3">
             {(["doc1", "doc2", "doc3", "doc4", "doc5"] as const).map((k) => (
-              <li key={k} className="flex items-start gap-3 rounded-card border border-line bg-white p-4 text-sm font-medium">
+              <li key={k} className="flex items-start gap-3 rounded-card border border-line bg-paper p-4 text-sm font-medium">
                 <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-0.5 shrink-0 text-primary">
                   <path d="M3 8.5l3.5 3.5L13 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
