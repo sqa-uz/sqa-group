@@ -6,6 +6,7 @@ import { OFFICE } from "@/lib/site";
 const NAV = [
   { href: "/about", key: "about" },
   { href: "/certification-body", key: "certificationBody" },
+  { href: "/what-we-certify", key: "products" },
   { href: "/laboratories", key: "laboratories" },
   { href: "/team", key: "team" },
   { href: "/news", key: "news" },
