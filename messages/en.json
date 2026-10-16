@@ -16,7 +16,7 @@
     "certificationBody": "Certification body",
     "laboratories": "Laboratories",
     "team": "Team",
-    "news": "News",
+    "news": "Blog",
     "financing": "Financing",
     "schemes": "Certification schemes",
     "accreditation": "Accreditation",
@@ -47,8 +47,8 @@
     "certificatesSubtitle": "Official documents",
     "teamTitle": "Our team",
     "teamSubtitle": "Our specialists",
-    "newsTitle": "Latest news",
-    "newsSubtitle": "News",
+    "newsTitle": "Latest from the blog",
+    "newsSubtitle": "Blog",
     "financingTitle": "Sources of financing",
     "financingTeaser": "Information about the body's sources of financing and guarantees of financial independence.",
     "schemesTitle": "Certification schemes",
@@ -123,11 +123,11 @@
     "emptyState": "Team members will appear here soon."
   },
   "news": {
-    "title": "News",
+    "title": "Blog",
     "subtitle": "Latest updates",
     "intro": "Company activities, accreditation and industry news.",
-    "latestTitle": "Latest news",
-    "emptyState": "No news yet.",
+    "latestTitle": "Latest posts",
+    "emptyState": "No posts yet.",
     "publishedOn": "Published on"
   },
   "financing": {
