@@ -63,6 +63,10 @@ body,
   --blueprint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cpath d='M26 30h8M30 26v8M146 150h8M150 146v8' stroke='%23ab9fff' stroke-opacity='0.16' stroke-width='0.8' fill='none'/%3E%3Cpath d='M150 50h50M150 47v6M200 47v6' stroke='%23ab9fff' stroke-opacity='0.1' stroke-width='0.7' fill='none'/%3E%3C/svg%3E");
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 -0.44'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 }
+/* Full-width violet bands stay deep at night instead of the brighter button violet. */
+:root[data-theme="dark"] .guilloche-soft.bg-primary {
+  background-color: #2a1ca6;
+}
 /* Violet text needs the lighter shade on dark surfaces; white buttons keep the brand colour. */
 :root[data-theme="dark"] :is(.text-primary, .eyebrow):not([class*="bg-white"]),
 :root[data-theme="dark"] [class*="hover:text-primary"]:not([class*="bg-white"]):hover {
