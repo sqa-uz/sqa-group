@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { submitApplication, type LeadState } from "@/lib/leads";
 
 const inputCls =
-  "w-full rounded-card border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-primary";
+  "w-full rounded-card border border-line bg-paper px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-primary";
 
 export default function ApplicationForm({ defaultService }: { defaultService?: string }) {
   const t = useTranslations("apply");

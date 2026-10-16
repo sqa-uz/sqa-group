@@ -54,7 +54,7 @@ export default async function CertificationBodyPage({ params }: { params: Promis
               <h2 className="text-xl font-bold">{t("processTitle")}</h2>
               <ol className="mt-5 space-y-3">
                 {(["step1", "step2", "step3", "step4", "step5"] as const).map((k, i) => (
-                  <li key={k} className="flex items-start gap-4 rounded-card border border-line bg-white p-4">
+                  <li key={k} className="flex items-start gap-4 rounded-card border border-line bg-paper p-4">
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
                       {i + 1}
                     </span>

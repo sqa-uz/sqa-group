@@ -8,6 +8,7 @@ import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import { getDisabledPageKeys } from "@/lib/pageSettings";
 import { PAGES } from "@/lib/pages";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
@@ -54,7 +55,11 @@ export default async function LocaleLayout({
   const hiddenHrefs = PAGES.filter((p) => disabled.has(p.key)).map((p) => p.href);
 
   return (
-    <html lang={locale}>
+    // The theme script sets data-theme on <html> before hydration.
+    <html lang={locale} data-theme="light" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className={`${golos.variable} font-sans`}>
         <NextIntlClientProvider>
           <Header hiddenHrefs={hiddenHrefs} />

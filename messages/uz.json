@@ -8,7 +8,9 @@
     "loading": "Yuklanmoqda...",
     "notFoundTitle": "Sahifa topilmadi",
     "notFoundText": "Siz izlagan sahifa mavjud emas yoki ko'chirilgan.",
-    "goHome": "Bosh sahifaga qaytish"
+    "goHome": "Bosh sahifaga qaytish",
+    "themeDark": "Tungi rejimni yoqish",
+    "themeLight": "Kunduzgi rejimni yoqish"
   },
   "nav": {
     "home": "Bosh sahifa",
@@ -25,14 +27,13 @@
     "accreditationLaboratories": "Laboratoriyalar sohasi",
     "appeals": "Shikoyat va takliflar",
     "contacts": "Aloqa",
-    "apply": "Ariza berish"
+    "apply": "Ariza berish",
+    "request": "So'rov yuborish"
   },
   "home": {
     "heroEyebrow": "O'ZAKK tomonidan akkreditatsiyalangan",
     "heroTitle": "Mahsulot sertifikatlashtirish va sinov bo'yicha ishonchli hamkoringiz",
     "heroText": "SQA Group — mahsulotlarni sertifikatlashtirish organi va akkreditatsiyalangan sinov laboratoriyalari. Biz O'zbekiston va xalqaro standartlarga muvofiqlikni xolis baholaymiz.",
-    "heroCtaCert": "Sertifikatlash xizmatlari",
-    "heroCtaLab": "Sinov laboratoriyalari",
     "ribbonCertBody": "Sertifikatlash organi",
     "ribbonLab": "Sinov laboratoriyasi",
     "ribbonValid": "Amal qilish muddati",
