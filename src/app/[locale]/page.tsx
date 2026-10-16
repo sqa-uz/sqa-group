@@ -76,20 +76,6 @@ export default async function HomePage({
               {t("heroTitle")}
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">{t("heroText")}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/certification-body"
-                className="rounded-card bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-band"
-              >
-                {t("heroCtaCert")}
-              </Link>
-              <Link
-                href="/laboratories"
-                className="rounded-card border border-white/60 bg-primary-deep/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                {t("heroCtaLab")}
-              </Link>
-            </div>
           </Reveal>
         </div>
       </section>
@@ -144,7 +130,7 @@ export default async function HomePage({
                   type="search"
                   autoComplete="off"
                   placeholder={tp("searchPlaceholder")}
-                  className="h-12 min-w-0 flex-1 rounded-card border border-line bg-white px-4 text-sm text-ink outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
+                  className="h-12 min-w-0 flex-1 rounded-card border border-line bg-paper px-4 text-sm text-ink outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
                 />
                 <button
                   type="submit"
