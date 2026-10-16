@@ -410,7 +410,7 @@
   },
   "apply": {
     "title": "Apply",
-    "intro": "Submit an application for certification or testing — our specialists will contact you within one business day.",
+    "intro": "Submit an application for certification or testing.",
     "name": "Full name *",
     "phone": "Phone *",
     "email": "Email",
