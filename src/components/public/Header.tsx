@@ -46,7 +46,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[6px]" priority />
-          <span className="hidden text-sm font-bold leading-tight sm:block xl:hidden min-[1360px]:block">
+          <span className="hidden text-sm font-bold leading-tight sm:block xl:max-[1359px]:hidden">
             Standart and Quality
             <br />
             Assessment Group
