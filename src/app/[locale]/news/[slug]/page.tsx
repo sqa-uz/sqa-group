@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     include: { translations: { where: { locale } } },
   });
   const tr = article?.translations[0];
-  return { title: tr?.title ?? "News", description: tr?.summary ?? undefined };
+  return { title: tr?.title ?? "Blog", description: tr?.summary ?? undefined };
 }
 
 export default async function NewsDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
