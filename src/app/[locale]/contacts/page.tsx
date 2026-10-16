@@ -43,9 +43,6 @@ export default async function ContactsPage({ params }: { params: Promise<{ local
                 <a href="mailto:info@sqa.uz" className="mt-2 block text-lg font-bold text-primary hover:underline">
                   info@sqa.uz
                 </a>
-                <a href="mailto:director@sqa.uz" className="mt-1 block text-sm font-medium text-ink-soft hover:text-primary">
-                  director@sqa.uz · {t("directorEmailLabel")}
-                </a>
               </div>
             </div>
           </Reveal>
