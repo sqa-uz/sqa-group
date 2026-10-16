@@ -70,7 +70,7 @@ function ItemCard({ item, prefix, tokens }: { item: ScopeItem; prefix: string; t
                 <li
                   key={c}
                   className={`rounded-[6px] border px-2 py-0.5 font-mono text-[13px] tabular-nums ${
-                    hit ? "border-primary bg-primary text-white" : "border-line bg-white text-ink"
+                    hit ? "border-primary bg-primary text-white" : "border-line bg-paper text-ink"
                   }`}
                 >
                   {formatCode(c)}
@@ -144,7 +144,7 @@ export default function ScopeSearch({ initialQuery = "" }: { initialQuery?: stri
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="h-14 w-full rounded-card border border-line bg-white pl-12 pr-4 text-base text-ink shadow-card outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
+            className="h-14 w-full rounded-card border border-line bg-paper pl-12 pr-4 text-base text-ink shadow-card outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
           />
         </div>
         <p className="mt-2 text-sm text-ink-soft" aria-live="polite">

@@ -30,7 +30,7 @@ export default async function ApplySection({ defaultService }: { defaultService?
           </a>
         </p>
       </div>
-      <div className="rounded-card border border-line bg-white p-5 sm:p-6">
+      <div className="rounded-card border border-line bg-paper p-5 sm:p-6">
         <ApplicationForm defaultService={defaultService} />
       </div>
     </section>

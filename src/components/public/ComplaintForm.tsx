@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { submitComplaint, type ComplaintState } from "@/lib/complaints";
 
 const inputCls =
-  "w-full rounded-card border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-primary";
+  "w-full rounded-card border border-line bg-paper px-3 py-2.5 text-sm text-ink outline-none transition-colors focus:border-primary";
 
 export default function ComplaintForm() {
   const t = useTranslations("appeals");

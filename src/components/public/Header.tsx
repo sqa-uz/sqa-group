@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
   { href: "/about", key: "about" },
@@ -42,11 +43,38 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
     }`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
+    <>
+    {/* Utility bar: contacts, theme, language and the request button */}
+    <div className="border-b border-line bg-band">
+      <div className="mx-auto flex h-11 max-w-[1320px] items-center justify-between gap-3 px-4">
+        <div className="hidden items-center gap-5 text-xs font-medium text-ink-soft md:flex">
+          <a href="tel:+998951958040" className="whitespace-nowrap transition-colors hover:text-primary">
+            +998 95 195 80 40
+          </a>
+          <a href="mailto:info@sqa.uz" className="transition-colors hover:text-primary">
+            info@sqa.uz
+          </a>
+        </div>
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <ThemeToggle />
+          <LanguageSwitcher />
+          {!hidden.has("/apply") && (
+            <Link
+              href="/apply"
+              className="whitespace-nowrap rounded-card bg-primary px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-primary-bright sm:px-4"
+            >
+              {t("request")}
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[6px]" priority />
-          <span className="hidden text-sm font-bold leading-tight sm:block xl:max-[1359px]:hidden">
+          <span className="hidden text-sm font-bold leading-tight sm:block">
             Standart and Quality
             <br />
             Assessment Group
@@ -74,7 +102,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
               </svg>
             </button>
             {moreOpen && (
-              <div className="absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-white p-2 shadow-card">
+              <div className="absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card">
                 {more.map((item) => (
                   <Link
                     key={item.href}
@@ -90,8 +118,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
           )}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher />
+        <div className="flex items-center gap-3 xl:hidden">
           <button
             className="flex h-9 w-9 items-center justify-center rounded-card border border-line xl:hidden"
             onClick={() => setOpen((v) => !v)}
@@ -110,7 +137,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-4 py-3 xl:hidden" aria-label="Mobile">
+        <nav className="border-t border-line bg-paper px-4 py-3 xl:hidden" aria-label="Mobile">
           {[...nav, ...more].map((item) => (
             <Link
               key={item.href}
@@ -124,5 +151,6 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
         </nav>
       )}
     </header>
+    </>
   );
 }

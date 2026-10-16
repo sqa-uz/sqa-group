@@ -26,7 +26,7 @@ export default function AppealTemplate({
   return (
     <div className="card overflow-hidden">
       <pre className="whitespace-pre-wrap bg-band p-6 font-sans text-sm leading-relaxed text-ink">{body}</pre>
-      <div className="flex justify-end border-t border-line bg-white px-4 py-3">
+      <div className="flex justify-end border-t border-line bg-paper px-4 py-3">
         <button
           onClick={copy}
           className="rounded-card bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-bright"
