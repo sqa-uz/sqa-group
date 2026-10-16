@@ -16,7 +16,7 @@
     "certificationBody": "Sertifikatlash organi",
     "laboratories": "Laboratoriyalar",
     "team": "Jamoa",
-    "news": "Yangiliklar",
+    "news": "Blog",
     "financing": "Moliyalashtirish",
     "schemes": "Sertifikatlash sxemalari",
     "accreditation": "Akkreditatsiya",
@@ -47,8 +47,8 @@
     "certificatesSubtitle": "Rasmiy hujjatlar",
     "teamTitle": "Bizning jamoa",
     "teamSubtitle": "Mutaxassislarimiz",
-    "newsTitle": "So'nggi yangiliklar",
-    "newsSubtitle": "Yangiliklar",
+    "newsTitle": "Blogdagi so'nggi maqolalar",
+    "newsSubtitle": "Blog",
     "financingTitle": "Moliyalashtirish manbalari",
     "financingTeaser": "Idoraning moliyalashtirish manbalari va moliyaviy mustaqillik kafolatlari haqida ma'lumot.",
     "schemesTitle": "Sertifikatlash sxemalari",
@@ -123,11 +123,11 @@
     "emptyState": "Jamoa a'zolari tez orada qo'shiladi."
   },
   "news": {
-    "title": "Yangiliklar",
+    "title": "Blog",
     "subtitle": "So'nggi xabarlar",
     "intro": "Kompaniya faoliyati, akkreditatsiya va soha yangiliklari.",
-    "latestTitle": "So'nggi yangiliklar",
-    "emptyState": "Hozircha yangiliklar yo'q.",
+    "latestTitle": "So'nggi maqolalar",
+    "emptyState": "Hozircha maqolalar yo'q.",
     "publishedOn": "Chop etilgan sana"
   },
   "financing": {

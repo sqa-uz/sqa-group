@@ -13,7 +13,7 @@ export const PAGES: PageDef[] = [
   { key: "certification-body", href: "/certification-body", navKey: "certificationBody", label: "Certification body", group: "main" },
   { key: "laboratories", href: "/laboratories", navKey: "laboratories", label: "Laboratories", group: "main" },
   { key: "team", href: "/team", navKey: "team", label: "Team", group: "main" },
-  { key: "news", href: "/news", navKey: "news", label: "News", group: "main" },
+  { key: "news", href: "/news", navKey: "news", label: "Blog", group: "main" },
   { key: "contacts", href: "/contacts", navKey: "contacts", label: "Contacts", group: "main" },
   { key: "apply", href: "/apply", navKey: "apply", label: "Apply", group: "more" },
   { key: "financing", href: "/financing", navKey: "financing", label: "Financing", group: "more" },
