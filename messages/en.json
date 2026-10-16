@@ -8,7 +8,9 @@
     "loading": "Loading...",
     "notFoundTitle": "Page not found",
     "notFoundText": "The page you are looking for does not exist or has been moved.",
-    "goHome": "Go to homepage"
+    "goHome": "Go to homepage",
+    "themeDark": "Switch to dark theme",
+    "themeLight": "Switch to light theme"
   },
   "nav": {
     "home": "Home",
@@ -25,14 +27,13 @@
     "accreditationLaboratories": "Laboratory scope",
     "appeals": "Appeals & complaints",
     "contacts": "Contacts",
-    "apply": "Apply"
+    "apply": "Apply",
+    "request": "Send a request"
   },
   "home": {
     "heroEyebrow": "Accredited by the Uzbek Accreditation Centre (O'ZAKK)",
     "heroTitle": "Your trusted partner in product certification and testing",
     "heroText": "SQA Group is a product certification body with accredited testing laboratories. We provide impartial conformity assessment against national and international standards.",
-    "heroCtaCert": "Certification services",
-    "heroCtaLab": "Testing laboratories",
     "ribbonCertBody": "Certification body",
     "ribbonLab": "Testing laboratory",
     "ribbonValid": "Valid until",
