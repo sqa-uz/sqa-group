@@ -9,6 +9,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 const NAV = [
   { href: "/about", key: "about" },
   { href: "/certification-body", key: "certificationBody" },
+  { href: "/what-we-certify", key: "products" },
   { href: "/laboratories", key: "laboratories" },
   { href: "/team", key: "team" },
   { href: "/news", key: "news" },
@@ -36,23 +37,23 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
   const more = MORE.filter((i) => !hidden.has(i.href));
 
   const linkCls = (href: string) =>
-    `text-sm font-medium transition-colors hover:text-primary ${
+    `whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
       pathname === href ? "text-primary" : "text-ink"
     }`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-4">
+      <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[6px]" priority />
-          <span className="hidden text-sm font-bold leading-tight sm:block">
+          <span className="hidden text-sm font-bold leading-tight sm:block xl:max-[1359px]:hidden">
             Standart and Quality
             <br />
             Assessment Group
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
           {nav.map((item) => (
             <Link key={item.href} href={item.href} className={linkCls(item.href)}>
               {t(item.key)}
@@ -61,7 +62,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
           {more.length > 0 && (
           <div className="relative">
             <button
-              className="flex items-center gap-1 text-sm font-medium text-ink transition-colors hover:text-primary"
+              className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-ink transition-colors hover:text-primary"
               onClick={() => setMoreOpen((v) => !v)}
               onBlur={() => setTimeout(() => setMoreOpen(false), 150)}
               aria-expanded={moreOpen}
@@ -92,7 +93,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-card border border-line lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-card border border-line xl:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Menu"
@@ -109,7 +110,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-4 py-3 lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-line bg-white px-4 py-3 xl:hidden" aria-label="Mobile">
           {[...nav, ...more].map((item) => (
             <Link
               key={item.href}

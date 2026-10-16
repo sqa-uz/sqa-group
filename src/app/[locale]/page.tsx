@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
+import { getDisabledPageKeys } from "@/lib/pageSettings";
 import AccreditationRibbon from "@/components/public/AccreditationRibbon";
 import HeroVideo from "@/components/public/HeroVideo";
 import PartnerMarquee from "@/components/public/PartnerMarquee";
@@ -22,6 +23,8 @@ export default async function HomePage({
   const t = await getTranslations("home");
   const tt = await getTranslations("team");
   const tc = await getTranslations("common");
+  const tp = await getTranslations("products");
+  const disabledPages = await getDisabledPageKeys();
 
   const [staff, news, partners] = await Promise.all([
     prisma.staff.findMany({
@@ -117,6 +120,42 @@ export default async function HomePage({
             </Reveal>
           ))}
         </div>
+
+        {/* SCOPE LOOKUP: jump straight into the "what we certify" search */}
+        {!disabledPages.includes("what-we-certify") && (
+          <Reveal delay={120}>
+            <form
+              action={`/${locale}/what-we-certify`}
+              method="get"
+              role="search"
+              className="card mt-6 grid gap-4 p-6 md:grid-cols-[1fr_minmax(0,1.15fr)] md:items-center"
+            >
+              <div>
+                <h3 className="text-lg font-bold text-ink">{tp("homeTitle")}</h3>
+                <p className="mt-1 text-sm text-ink-soft">{tp("homeText")}</p>
+              </div>
+              <div className="flex gap-2">
+                <label htmlFor="home-scope-q" className="sr-only">
+                  {tp("searchLabel")}
+                </label>
+                <input
+                  id="home-scope-q"
+                  name="q"
+                  type="search"
+                  autoComplete="off"
+                  placeholder={tp("searchPlaceholder")}
+                  className="h-12 min-w-0 flex-1 rounded-card border border-line bg-white px-4 text-sm text-ink outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
+                />
+                <button
+                  type="submit"
+                  className="h-12 shrink-0 rounded-card bg-primary px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-bright"
+                >
+                  {tp("homeButton")}
+                </button>
+              </div>
+            </form>
+          </Reveal>
+        )}
       </section>
 
       {/* CERTIFICATES: 3 accreditation visuals */}
