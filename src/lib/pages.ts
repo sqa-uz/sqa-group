@@ -11,6 +11,7 @@ export type PageDef = {
 export const PAGES: PageDef[] = [
   { key: "about", href: "/about", navKey: "about", label: "About", group: "main" },
   { key: "certification-body", href: "/certification-body", navKey: "certificationBody", label: "Certification body", group: "main" },
+  { key: "what-we-certify", href: "/what-we-certify", navKey: "products", label: "What we certify", group: "main" },
   { key: "laboratories", href: "/laboratories", navKey: "laboratories", label: "Laboratories", group: "main" },
   { key: "team", href: "/team", navKey: "team", label: "Team", group: "main" },
   { key: "news", href: "/news", navKey: "news", label: "Blog", group: "main" },
