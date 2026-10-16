@@ -68,19 +68,117 @@
   },
   "about": {
     "title": "About us",
-    "intro": "Standart and Quality Assessment Group LLC is a conformity assessment company uniting a product certification body and testing laboratories.",
-    "p1": "Our mission is impartial, competent and transparent assessment of product conformity with the requirements of the standards of the Republic of Uzbekistan and international standards.",
-    "p2": "Our certification body is accredited by the Uzbek Accreditation Centre (O'ZAKK) to O'z DSt ISO/IEC 17065:2015, and our testing laboratory to O'z DSt ISO/IEC 17025:2019.",
-    "p3": "We have deep knowledge and experience in conformity assessment, quality assurance and permitting procedures. By becoming our client, you gain access to the company's extensive capabilities.",
-    "p4": "We are a driving force for innovation in this field of services, continuously developing new, more efficient and smarter services.",
-    "p5": "SQA Group is your partner in making the best decisions and ensuring world-class quality.",
-    "factsTitle": "Key facts",
-    "fact1Label": "Certification body",
-    "fact1Value": "O'ZAKK.MS.0052 · O'z DSt ISO/IEC 17065:2015",
-    "fact2Label": "Testing laboratory",
-    "fact2Value": "O'ZAKK.SL.0162 · O'z DSt ISO/IEC 17025:2019",
-    "fact3Label": "Location",
-    "fact3Value": "Tashkent, Uzbekistan"
+    "intro": "Standart and Quality Assessment Group LLC (SQA Group) is a conformity assessment company based in Tashkent. It brings together a product certification body and two accredited testing laboratories.",
+    "p1": "We confirm that products meet the requirements of the technical regulations and standards of the Republic of Uzbekistan. Manufacturers and importers obtain certificates of conformity from us for mandatory and voluntary certification, and samples are tested in our own accredited laboratories.",
+    "p2": "All three units are accredited by the Uzbek Accreditation Centre (O'ZAKK): the certification body to O'z DSt ISO/IEC 17065:2015 and the laboratories to O'z DSt ISO/IEC 17025:2019. Accreditation status can be checked at akkred.uz.",
+    "p3": "We certify under the Regulation on the product certification procedure approved by Cabinet of Ministers Resolution No. 502 of 14 August 2024. Certificates of conformity are issued in a single electronic format and signed with the electronic signature of the head of the certification body.",
+    "p4": "Since October 2026 SQA Group has been the official partner of the German company AC Inorms GmbH (INORMS). Together we help Uzbek exporters obtain certificates and permits for the European market without leaving Uzbekistan.",
+    "statAccreditations": "O'ZAKK accreditation certificates",
+    "statProducts": "product types in the accreditation scope",
+    "statCodes": "HS (TN VED) codes",
+    "statTeam": "specialists on the team",
+    "unitsTitle": "Our units",
+    "unitsEyebrow": "O'ZAKK accreditation",
+    "units": [
+      {
+        "title": "Product certification body",
+        "code": "O'ZAKK.MS.0052",
+        "standard": "O'z DSt ISO/IEC 17065:2015",
+        "text": "Mandatory and voluntary certification of products made locally and imported.",
+        "valid": "Certificate valid until 11.01.2027",
+        "href": "/certification-body"
+      },
+      {
+        "title": "SQA testing laboratory",
+        "code": "O'ZAKK.SL.0162",
+        "standard": "O'z DSt ISO/IEC 17025:2019",
+        "text": "Testing and measurement of product samples for certification.",
+        "valid": "Certificate valid until 10.01.2027",
+        "href": "/laboratories"
+      },
+      {
+        "title": "S-LAB testing laboratory",
+        "code": "O'ZAKK.SL.0437",
+        "standard": "O'z DSt ISO/IEC 17025:2019",
+        "text": "The group's second accredited testing laboratory.",
+        "valid": "",
+        "href": "/laboratories"
+      }
+    ],
+    "groupsEyebrow": "Accreditation scope",
+    "groupsTitle": "What we certify",
+    "groupsText": "The certification body's accreditation scope covers 188 product types. The main groups are:",
+    "groups": [
+      "Plastic pipes, films, packaging and other plastic articles",
+      "Tableware and kitchenware made of plastic, glass and metal",
+      "Particleboard and fibreboard, plywood and wooden articles",
+      "Paper, sanitary and hygiene products and paper containers",
+      "Ceramic tiles, bricks and sanitary ware",
+      "Linoleum and decorative natural-stone slabs",
+      "Furniture, including furniture for schools",
+      "Toys, sports equipment and playground equipment",
+      "Bicycles, bicycle tyres and carts",
+      "Footwear, bags and backpacks",
+      "Sacks, aluminium foil and other packaging",
+      "Candles, vacuum flasks and other household goods"
+    ],
+    "groupsLink": "Find a product by HS (TN VED) code",
+    "principlesEyebrow": "How we work",
+    "principlesTitle": "Our principles",
+    "principles": [
+      {
+        "title": "Impartiality",
+        "text": "Certification decisions are made independently of commercial interests. We regularly analyse risks to impartiality and eliminate them."
+      },
+      {
+        "title": "Competence",
+        "text": "Work is carried out by qualified specialists, and testing takes place in laboratories accredited to ISO/IEC 17025."
+      },
+      {
+        "title": "Confidentiality",
+        "text": "Information about the applicant and its products obtained during certification is not disclosed to third parties, except where the law requires it."
+      },
+      {
+        "title": "Openness",
+        "text": "Our certification procedure and schemes are published on this site. Any of our decisions can be appealed, and complaints can be filed online."
+      }
+    ],
+    "stepsEyebrow": "Certification procedure",
+    "stepsTitle": "How certification works",
+    "steps": [
+      {
+        "title": "Application",
+        "text": "Submitted online via the Single Window, TRIS or the form on our website."
+      },
+      {
+        "title": "Application review",
+        "text": "We check the documents and choose the certification scheme together with the applicant."
+      },
+      {
+        "title": "Samples and testing",
+        "text": "We identify the product, take samples and test them in an accredited laboratory."
+      },
+      {
+        "title": "Production assessment",
+        "text": "Carried out when the chosen certification scheme provides for it."
+      },
+      {
+        "title": "Certificate",
+        "text": "We make the decision and issue the certificate of conformity in electronic form."
+      },
+      {
+        "title": "Periodic assessment",
+        "text": "For serial products, during the certificate's validity, where the scheme provides for it."
+      }
+    ],
+    "detailsTitle": "Company details",
+    "detailsName": "Name",
+    "detailsNameValue": "Standart and Quality Assessment Group LLC",
+    "detailsAddress": "Address",
+    "detailsPhone": "Phone",
+    "detailsEmail": "Email",
+    "ctaTitle": "Need product certification?",
+    "ctaText": "Send us a request and we will advise on the certification scheme, timing and required documents."
   },
   "certificationBody": {
     "title": "Certification body",
@@ -141,16 +239,86 @@
   },
   "schemes": {
     "title": "Certification schemes",
-    "intro": "Schemes applied depending on the product type and form of supply.",
-    "p1": "The certification scheme is selected based on product characteristics, production volume and supply conditions. The most commonly applied schemes are listed below.",
-    "scheme1Title": "Batch certification",
-    "scheme1Text": "A specific batch of products is tested and a certificate is issued for that batch.",
-    "scheme2Title": "Serial production",
-    "scheme2Text": "A certificate for serial production is issued based on sample testing and production assessment, with periodic surveillance.",
-    "scheme3Title": "Per-item certificate",
-    "scheme3Text": "For single or unique items, each item is tested individually.",
-    "noteTitle": "Choosing a scheme",
-    "noteText": "Our specialists will advise you free of charge on the most suitable scheme — get in touch."
+    "intro": "The product certification schemes currently in force in the Republic of Uzbekistan and how they differ.",
+    "noticeTitle": "What changed in 2026",
+    "noticeText": "Cabinet of Ministers Resolution No. 318 of 06.07.2004 lost force on 9 September 2026 under Resolution No. 472 of 07.09.2026. Product certification, like all conformity assessment, is now carried out under the Regulation on the product certification procedure (Annex 2 to Resolution No. 502 of 14.08.2024).",
+    "schemesEyebrow": "Paragraph 93 of the Regulation",
+    "schemesTitle": "Schemes in force",
+    "schemesText": "The scheme depends on the product and how it is supplied: serial production, a consignment or a single item. Where a technical regulation allows several schemes, the applicant chooses.",
+    "inScope": "In our accreditation scope",
+    "applicantLabel": "Applicant",
+    "markLabel": "Conformity mark",
+    "markYes": "Products are marked",
+    "markNo": "Not required",
+    "applicantMaker": "Manufacturer or its authorised representative",
+    "applicantMakerOrSeller": "Manufacturer (authorised representative) or seller (importer)",
+    "schemes": {
+      "1S": {
+        "title": "Serial products",
+        "text": "For serially produced products."
+      },
+      "2S": {
+        "title": "Serial products with a certified management system",
+        "text": "For serial products of a manufacturer holding a management system certificate."
+      },
+      "3S": {
+        "title": "Consignment",
+        "text": "For a consignment of products. Certification can be done before import into Uzbekistan; the applicant is responsible for sampling and delivering the samples to the certification body. Imported products are marked in a form convenient to the applicant."
+      },
+      "3A": {
+        "title": "Supplies under one foreign trade contract",
+        "text": "For identical goods imported under one foreign trade contract, except vehicles. The certificate is issued once, for no longer than one calendar year. Introduced by Resolution No. 472 of 07.09.2026."
+      },
+      "4S": {
+        "title": "Single item",
+        "text": "For one item, provided the tests and measurements required by the technical regulation do not damage it."
+      },
+      "5S": {
+        "title": "Serial products not fully verifiable by testing",
+        "text": "For serial products whose conformity cannot be fully confirmed by testing and measuring the finished product."
+      },
+      "6S": {
+        "title": "The same, with a management system",
+        "text": "For serial products whose conformity cannot be fully confirmed by testing the finished product, where the manufacturer holds a management system certificate."
+      },
+      "7S": {
+        "title": "Serial products with modifications",
+        "text": "For serial products where the manufacturer plans to release modifications."
+      },
+      "8S": {
+        "title": "Modifications with a management system",
+        "text": "For serial products with planned modifications, where the manufacturer holds a management system certificate."
+      },
+      "9S": {
+        "title": "Equipment for enterprises",
+        "text": "For single items intended to equip enterprises in Uzbekistan. Certification is based on an analysis of the technical documentation."
+      }
+    },
+    "validityTitle": "Certificate validity",
+    "validity": [
+      {
+        "title": "Serial products",
+        "text": "3 years. Products made during this period count as certified and are not re-certified."
+      },
+      {
+        "title": "Consignment",
+        "text": "For the product's shelf life or warranty period."
+      },
+      {
+        "title": "Scheme 3A",
+        "text": "Issued once, for no longer than one calendar year."
+      }
+    ],
+    "markTitle": "Conformity mark",
+    "markText1": "Products certified under schemes 1C, 2C, 3C, 3A, 5C, 6C, 7C and 8C are marked with the conformity mark.",
+    "markText2": "From 12 October 2026 the national information system \"Technical Regulation\" automatically adds the conformity mark to certificates issued under these schemes.",
+    "markText3": "Manufacturers and importers receive the right to use the mark under an agreement with the body that issued the certificate; a one-time fee is charged for its use (Article 28 of the Law \"On Technical Regulation\").",
+    "noteTitle": "Not sure which scheme fits?",
+    "noteText": "Our specialists will advise free of charge on the right scheme, timing and documents. Send us a request.",
+    "sourcesTitle": "Legal basis",
+    "source502": "Cabinet of Ministers Resolution No. 502 of 14.08.2024 (lex.uz)",
+    "source318": "Cabinet of Ministers Resolution No. 318 of 06.07.2004, no longer in force (lex.uz)",
+    "sourceLetter": "Letter of the Uzbek Agency for Technical Regulation No. 04-16-4581 of 05.10.2026"
   },
   "accreditation": {
     "certTitle": "Certification body accreditation scope",

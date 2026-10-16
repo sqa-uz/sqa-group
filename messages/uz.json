@@ -68,19 +68,117 @@
   },
   "about": {
     "title": "Biz haqimizda",
-    "intro": "\"Standart and Quality Assessment Group\" MChJ — mahsulotlarni sertifikatlashtirish organi va sinov laboratoriyalarini birlashtirgan muvofiqlikni baholash kompaniyasi.",
-    "p1": "Bizning vazifamiz — mahsulotlarning O'zbekiston Respublikasi va xalqaro standartlar talablariga muvofiqligini xolis, malakali va shaffof baholash.",
-    "p2": "Sertifikatlash organimiz O'z DSt ISO/IEC 17065:2015 standarti bo'yicha, sinov laboratoriyamiz esa O'z DSt ISO/IEC 17025:2019 standarti bo'yicha O'zbekiston akkreditatsiya markazi (O'ZAKK) tomonidan akkreditatsiyalangan.",
-    "p3": "Biz muvofiqlikni baholash, sifatni ta'minlash va ruxsat berish tartib-taomillari bo'yicha chuqur bilim va tajribaga egamiz. Mijozimiz bo'lib, siz bizning keng imkoniyatlarimizdan foydalanasiz.",
-    "p4": "Biz ushbu sohada innovatsiyalarni joriy etishda yetakchi kuchmiz: yangi, samaraliroq va aqlliroq xizmatlarni doimiy ravishda rivojlantiramiz.",
-    "p5": "SQA Group — eng to'g'ri qarorlar qabul qilish va jahon darajasidagi sifatni ta'minlash yo'lidagi hamkoringiz.",
-    "factsTitle": "Asosiy faktlar",
-    "fact1Label": "Sertifikatlash organi",
-    "fact1Value": "O'ZAKK.MS.0052 · O'z DSt ISO/IEC 17065:2015",
-    "fact2Label": "Sinov laboratoriyasi",
-    "fact2Value": "O'ZAKK.SL.0162 · O'z DSt ISO/IEC 17025:2019",
-    "fact3Label": "Joylashuv",
-    "fact3Value": "Toshkent shahri, O'zbekiston"
+    "intro": "\"Standart and Quality Assessment Group\" MChJ (SQA Group) — Toshkentdagi muvofiqlikni baholash kompaniyasi. Uning tarkibida mahsulotlarni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi bor.",
+    "p1": "Biz mahsulotlarning O'zbekiston Respublikasi texnik reglamentlari va standartlari talablariga muvofiqligini tasdiqlaymiz. Ishlab chiqaruvchilar va import qiluvchilar bizda majburiy va ixtiyoriy sertifikatlashtirish bo'yicha muvofiqlik sertifikatlarini oladi, namunalar sinovi esa o'zimizning akkreditatsiyalangan laboratoriyalarimizda o'tkaziladi.",
+    "p2": "Uchala bo'linma ham O'zbekiston akkreditatsiya markazi (O'ZAKK) tomonidan akkreditatsiyalangan: sertifikatlashtirish organi — O'z DSt ISO/IEC 17065:2015 standarti bo'yicha, laboratoriyalar — O'z DSt ISO/IEC 17025:2019 bo'yicha. Akkreditatsiya holatini akkred.uz saytida tekshirish mumkin.",
+    "p3": "Sertifikatlashtirishni Vazirlar Mahkamasining 2024-yil 14-avgustdagi 502-son qarori bilan tasdiqlangan Mahsulotlarni sertifikatlashtirish tartibi to'g'risidagi nizom asosida o'tkazamiz. Muvofiqlik sertifikatlari yagona elektron shaklda rasmiylashtiriladi va organ rahbarining elektron imzosi bilan tasdiqlanadi.",
+    "p4": "2026-yil oktabridan SQA Group Germaniyaning AC Inorms GmbH (INORMS) kompaniyasining rasmiy hamkori. Birgalikda o'zbek eksportchilariga O'zbekistondan chiqmasdan Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlarni olishda yordam beramiz.",
+    "statAccreditations": "ta O'ZAKK akkreditatsiya guvohnomasi",
+    "statProducts": "turdagi mahsulot akkreditatsiya sohasida",
+    "statCodes": "ta TIF TN kodi",
+    "statTeam": "nafar mutaxassis jamoada",
+    "unitsTitle": "Bo'linmalarimiz",
+    "unitsEyebrow": "O'ZAKK akkreditatsiyasi",
+    "units": [
+      {
+        "title": "Mahsulotlarni sertifikatlashtirish organi",
+        "code": "O'ZAKK.MS.0052",
+        "standard": "O'z DSt ISO/IEC 17065:2015",
+        "text": "Mahalliy ishlab chiqaruvchilar va import qiluvchilar mahsulotlarini majburiy va ixtiyoriy sertifikatlashtirish.",
+        "valid": "Guvohnoma 11.01.2027 gacha amal qiladi",
+        "href": "/certification-body"
+      },
+      {
+        "title": "SQA sinov laboratoriyasi",
+        "code": "O'ZAKK.SL.0162",
+        "standard": "O'z DSt ISO/IEC 17025:2019",
+        "text": "Sertifikatlashtirish maqsadida mahsulot namunalarini sinash va o'lchash.",
+        "valid": "Guvohnoma 10.01.2027 gacha amal qiladi",
+        "href": "/laboratories"
+      },
+      {
+        "title": "S-LAB sinov laboratoriyasi",
+        "code": "O'ZAKK.SL.0437",
+        "standard": "O'z DSt ISO/IEC 17025:2019",
+        "text": "Guruhning ikkinchi akkreditatsiyalangan sinov laboratoriyasi.",
+        "valid": "",
+        "href": "/laboratories"
+      }
+    ],
+    "groupsEyebrow": "Akkreditatsiya sohasi",
+    "groupsTitle": "Nimalarni sertifikatlaymiz",
+    "groupsText": "Sertifikatlashtirish organining akkreditatsiya sohasi 188 turdagi mahsulotni o'z ichiga oladi. Asosiy guruhlar:",
+    "groups": [
+      "Plastmassadan quvurlar, plyonkalar, qadoqlar va boshqa buyumlar",
+      "Plastmassa, shisha va metalldan idish-tovoq va oshxona anjomlari",
+      "YoTP va YoVP plitalari, fanera va yog'och buyumlar",
+      "Qog'oz, sanitariya-gigiyena buyumlari va qog'oz idishlar",
+      "Keramik plitkalar, g'isht va sanitariya-texnika buyumlari",
+      "Linoleum va tabiiy toshdan dekorativ plitalar",
+      "Mebel, jumladan ta'lim muassasalari uchun",
+      "O'yinchoqlar, sport anjomlari va bolalar maydonchalari jihozlari",
+      "Velosipedlar, velosiped shinalari va aravachalar",
+      "Poyabzal, sumkalar va ryukzaklar",
+      "Qoplar, alyuminiy folga va boshqa qadoqlar",
+      "Shamlar, termoslar va boshqa uy-ro'zg'or buyumlari"
+    ],
+    "groupsLink": "Mahsulotni TIF TN kodi bo'yicha topish",
+    "principlesEyebrow": "Qanday ishlaymiz",
+    "principlesTitle": "Tamoyillarimiz",
+    "principles": [
+      {
+        "title": "Xolislik",
+        "text": "Sertifikatlashtirish bo'yicha qarorlar tijorat manfaatlaridan mustaqil qabul qilinadi. Xolislikka tahdid soluvchi xavflarni muntazam tahlil qilamiz va bartaraf etamiz."
+      },
+      {
+        "title": "Malaka",
+        "text": "Ishlarni malakali mutaxassislar bajaradi, sinovlar esa ISO/IEC 17025 bo'yicha akkreditatsiyalangan laboratoriyalarda o'tkaziladi."
+      },
+      {
+        "title": "Maxfiylik",
+        "text": "Sertifikatlashtirish jarayonida olingan ariza beruvchi va uning mahsuloti haqidagi ma'lumotlar qonunchilikda nazarda tutilgan hollardan tashqari uchinchi shaxslarga berilmaydi."
+      },
+      {
+        "title": "Ochiqlik",
+        "text": "Sertifikatlashtirish tartibi va sxemalari saytda e'lon qilingan. Har qanday qarorimiz ustidan shikoyat qilish, shikoyatni esa onlayn yuborish mumkin."
+      }
+    ],
+    "stepsEyebrow": "Sertifikatlashtirish tartibi",
+    "stepsTitle": "Sertifikatlashtirish qanday o'tadi",
+    "steps": [
+      {
+        "title": "Ariza",
+        "text": "\"Yagona darcha\", TRIS yoki saytimizdagi shakl orqali onlayn yuboriladi."
+      },
+      {
+        "title": "Arizani tahlil qilish",
+        "text": "Hujjatlarni tekshiramiz va ariza beruvchi bilan birga sertifikatlashtirish sxemasini tanlaymiz."
+      },
+      {
+        "title": "Namunalar va sinovlar",
+        "text": "Mahsulotni identifikatsiya qilamiz, namunalar olamiz va ularni akkreditatsiyalangan laboratoriyada sinaymiz."
+      },
+      {
+        "title": "Ishlab chiqarishni baholash",
+        "text": "Agar tanlangan sertifikatlashtirish sxemasida nazarda tutilgan bo'lsa, o'tkaziladi."
+      },
+      {
+        "title": "Sertifikat",
+        "text": "Qaror qabul qilamiz va muvofiqlik sertifikatini elektron shaklda rasmiylashtiramiz."
+      },
+      {
+        "title": "Davriy baholash",
+        "text": "Seriyali mahsulot uchun — sertifikat amal qilish muddati davomida, agar sxemada nazarda tutilgan bo'lsa."
+      }
+    ],
+    "detailsTitle": "Rekvizitlar",
+    "detailsName": "Nomi",
+    "detailsNameValue": "\"Standart and Quality Assessment Group\" MChJ",
+    "detailsAddress": "Manzil",
+    "detailsPhone": "Telefon",
+    "detailsEmail": "Elektron pochta",
+    "ctaTitle": "Mahsulotni sertifikatlashtirish kerakmi?",
+    "ctaText": "So'rov yuboring — sertifikatlashtirish sxemasi, muddatlari va hujjatlar ro'yxati bo'yicha maslahat beramiz."
   },
   "certificationBody": {
     "title": "Sertifikatlash organi",
@@ -141,16 +239,86 @@
   },
   "schemes": {
     "title": "Sertifikatlash sxemalari",
-    "intro": "Mahsulot turi va yetkazib berish shakliga qarab qo'llaniladigan sxemalar.",
-    "p1": "Sertifikatlash sxemasi mahsulotning xususiyatlari, ishlab chiqarish hajmi va yetkazib berish shartlaridan kelib chiqib tanlanadi. Quyida eng ko'p qo'llaniladigan sxemalar keltirilgan.",
-    "scheme1Title": "Partiya sertifikatlashtirish",
-    "scheme1Text": "Muayyan mahsulot partiyasi sinovdan o'tkazilib, shu partiyaga sertifikat beriladi.",
-    "scheme2Title": "Seriyali ishlab chiqarish",
-    "scheme2Text": "Namunalar sinovi va ishlab chiqarish holatini tahlil qilish asosida seriyali ishlab chiqarishga sertifikat beriladi, davriy inspeksiya nazorati bilan.",
-    "scheme3Title": "Har bir buyum sertifikati",
-    "scheme3Text": "Yakka tartibdagi yoki noyob buyumlar uchun har bir buyum alohida sinovdan o'tkaziladi.",
-    "noteTitle": "Sxema tanlash",
-    "noteText": "Mos sxemani tanlashda mutaxassislarimiz bepul maslahat berishadi — biz bilan bog'laning."
+    "intro": "O'zbekiston Respublikasida amaldagi mahsulotlarni sertifikatlashtirish sxemalari va ularning farqlari.",
+    "noticeTitle": "2026-yilda nima o'zgardi",
+    "noticeText": "Vazirlar Mahkamasining 06.07.2004-yildagi 318-son qarori 07.09.2026-yildagi 472-son qaror asosida 2026-yil 9-sentabrdan o'z kuchini yo'qotdi. Endi mahsulotlarni sertifikatlashtirish, butun muvofiqlikni baholash kabi, Mahsulotlarni sertifikatlashtirish tartibi to'g'risidagi nizom (14.08.2024-yildagi 502-son qarorga 2-ilova) asosida o'tkaziladi.",
+    "schemesEyebrow": "Nizomning 93-bandi",
+    "schemesTitle": "Amaldagi sxemalar",
+    "schemesText": "Sxema mahsulot turi va yetkazib berish shakliga qarab tanlanadi: seriyali ishlab chiqarish, tovarlar to'pi yoki yagona buyum. Agar texnik reglament bir nechta sxemaga yo'l qo'ysa, tanlovni ariza beruvchi qiladi.",
+    "inScope": "Akkreditatsiya sohamizda",
+    "applicantLabel": "Ariza beruvchi",
+    "markLabel": "Muvofiqlik belgisi",
+    "markYes": "Mahsulot tamg'alanadi",
+    "markNo": "Nazarda tutilmagan",
+    "applicantMaker": "Ishlab chiqaruvchi yoki u vakolat bergan shaxs",
+    "applicantMakerOrSeller": "Ishlab chiqaruvchi (vakolatli shaxs) yoki sotuvchi (import qiluvchi)",
+    "schemes": {
+      "1S": {
+        "title": "Seriyali mahsulot",
+        "text": "Seriyali ishlab chiqariladigan mahsulotlar uchun."
+      },
+      "2S": {
+        "title": "Sertifikatlangan menejment tizimi mavjud seriyali mahsulot",
+        "text": "Menejment tizimi sertifikatiga ega ishlab chiqaruvchining seriyali mahsulotlari uchun."
+      },
+      "3S": {
+        "title": "Mahsulotlar to'pi",
+        "text": "Mahsulotlar to'pi uchun. O'zbekistonga olib kirilgunga qadar sertifikatlashtirish mumkin: namunalarni tanlash va ularni sertifikatlashtirish organiga yetkazish uchun ariza beruvchi javobgar. Import mahsulotlar ariza beruvchiga qulay shaklda tamg'alanadi."
+      },
+      "3A": {
+        "title": "Bitta tashqi savdo shartnomasi bo'yicha yetkazib berish",
+        "text": "Bitta tashqi savdo shartnomasi (kontrakti) doirasida olib kelinadigan aynan bir xil tovarlar uchun (transport vositalaridan tashqari). Sertifikat bir marta, bir kalendar yildan oshmaydigan muddatga beriladi. Sxema 07.09.2026-yildagi 472-son qaror bilan kiritilgan."
+      },
+      "4S": {
+        "title": "Yagona buyum",
+        "text": "Agar texnik reglamentdagi sinov va o'lchashlar unga zarar yetkazmasa, bitta buyum uchun."
+      },
+      "5S": {
+        "title": "Sinovlar bilan to'liq tekshirib bo'lmaydigan seriyali mahsulot",
+        "text": "Tayyor mahsulotni sinash va o'lchash orqali muvofiqligini to'liq tasdiqlab bo'lmaydigan seriyali mahsulotlar uchun."
+      },
+      "6S": {
+        "title": "Xuddi shu, menejment tizimi mavjud bo'lganda",
+        "text": "Tayyor mahsulot sinovlari orqali muvofiqligini to'liq tasdiqlab bo'lmaydigan seriyali mahsulotlar uchun, ishlab chiqaruvchida menejment tizimi sertifikati bo'lsa."
+      },
+      "7S": {
+        "title": "Modifikatsiyali seriyali mahsulot",
+        "text": "Ishlab chiqaruvchi mahsulot modifikatsiyalarini chiqarishni rejalashtirgan seriyali mahsulotlar uchun."
+      },
+      "8S": {
+        "title": "Menejment tizimi mavjud bo'lganda modifikatsiyalar",
+        "text": "Modifikatsiyalari rejalashtirilgan seriyali mahsulotlar uchun, ishlab chiqaruvchida menejment tizimi sertifikati bo'lsa."
+      },
+      "9S": {
+        "title": "Korxonalarni jihozlash",
+        "text": "Respublika korxonalarini jihozlash uchun mo'ljallangan yagona buyumlar uchun. Sertifikatlashtirish texnik hujjatlarni tahlil qilish asosida o'tkaziladi."
+      }
+    },
+    "validityTitle": "Sertifikatning amal qilish muddati",
+    "validity": [
+      {
+        "title": "Seriyali mahsulot",
+        "text": "3 yil. Shu davrda ishlab chiqarilgan mahsulot sertifikatlangan hisoblanadi va qayta sertifikatlashtirilmaydi."
+      },
+      {
+        "title": "Mahsulotlar to'pi",
+        "text": "Mahsulotning yaroqlilik yoki kafolat muddatiga."
+      },
+      {
+        "title": "3A sxema",
+        "text": "Bir marta, bir kalendar yildan oshmaydigan muddatga beriladi."
+      }
+    ],
+    "markTitle": "Muvofiqlik belgisi",
+    "markText1": "1S, 2S, 3S, 3A, 5S, 6S, 7S va 8S sxemalari bo'yicha sertifikatlangan mahsulot muvofiqlik belgisi bilan tamg'alanadi.",
+    "markText2": "2026-yil 12-oktabrdan \"Texnik tartibga solish\" milliy axborot tizimi ushbu sxemalar bo'yicha berilgan sertifikatga muvofiqlik belgisini avtomatik qo'yadi.",
+    "markText3": "Belgidan foydalanish huquqi ishlab chiqaruvchi yoki import qiluvchiga sertifikat bergan organ bilan tuzilgan kelishuv asosida beriladi; belgidan foydalanganlik uchun bir martalik to'lov undiriladi (\"Texnik jihatdan tartibga solish to'g'risida\"gi Qonunning 28-moddasi).",
+    "noteTitle": "Qaysi sxema mos kelishini bilmaysizmi?",
+    "noteText": "Mutaxassislarimiz mos sxema, muddatlar va hujjatlar ro'yxati bo'yicha bepul maslahat berishadi — so'rov yuboring.",
+    "sourcesTitle": "Normativ asos",
+    "source502": "VMning 14.08.2024-yildagi 502-son qarori (lex.uz)",
+    "source318": "VMning 06.07.2004-yildagi 318-son qarori — o'z kuchini yo'qotgan (lex.uz)",
+    "sourceLetter": "O'zbekiston texnik jihatdan tartibga solish agentligining 05.10.2026-yildagi 04-16-4581-son xati"
   },
   "accreditation": {
     "certTitle": "Sertifikatlash organining akkreditatsiya sohasi",
