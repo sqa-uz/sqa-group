@@ -10,6 +10,15 @@ export function normalize(s: string) {
   return s.toLowerCase().replace(/ё/g, "е").replace(/[’‘`ʻʼ]/g, "'");
 }
 
+/** Drop a word's inflectional ending so "плёнки" finds "плёнка" and "трубы" finds "трубки". */
+const ENDING = /[аеиоуыэюяйь']+$/;
+export function stem(word: string) {
+  if (word.length < 5 || /\d/.test(word)) return word;
+  // Long words lose their last two letters (-ых, -ами, -ого), then any trailing vowels.
+  const s = (word.length >= 7 ? word.slice(0, -2) : word).replace(ENDING, "");
+  return s.length >= 4 ? s : word;
+}
+
 const HAYSTACK = ITEMS.map((i) => normalize(`${i.name} ${i.norms.join(" ")}`));
 
 export type Result =
@@ -36,7 +45,7 @@ export function search(query: string): Result {
     return { mode: "code", digits, prefix: digits, exact: true, items: [] };
   }
 
-  const tokens = normalize(q).split(/\s+/).filter(Boolean);
+  const tokens = normalize(q).split(/\s+/).filter(Boolean).map(stem);
   const items = ITEMS.filter((_, idx) => tokens.every((t) => HAYSTACK[idx].includes(t)));
   return { mode: "text", tokens, items };
 }
