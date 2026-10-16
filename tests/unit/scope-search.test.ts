@@ -50,6 +50,10 @@ describe("search by name", () => {
     expect(search("СВЕЧИ").items.map((i) => i.n)).toEqual(["1.1"]);
     expect(search("плёнка").items.length).toBeGreaterThan(0);
   });
+  it("finds other word forms", () => {
+    expect(search("плёнки").items.length).toBe(search("пленка").items.length);
+    expect(search("свечей парафиновых").items.map((i) => i.n)).toEqual(["1.1"]);
+  });
   it("requires every word to match", () => {
     const both = search("линолеум подоснове").items;
     expect(both.length).toBeGreaterThan(0);
