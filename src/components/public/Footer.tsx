@@ -74,12 +74,6 @@ export default function Footer({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
                 info@sqa.uz
               </a>
             </li>
-            <li className="text-xs">
-              {tc("directorEmailLabel")}:{" "}
-              <a href="mailto:director@sqa.uz" className="font-medium text-ink transition-colors hover:text-primary">
-                director@sqa.uz
-              </a>
-            </li>
           </ul>
         </div>
 
