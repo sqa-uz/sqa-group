@@ -31,21 +31,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- texture: security-paper language of our certificates ---------- */
-:root {
-  /* sparse registration marks and dimension ticks for the page background, tiled 240px */
-  --blueprint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cpath d='M26 30h8M30 26v8M146 150h8M150 146v8' stroke='%232003bd' stroke-opacity='0.13' stroke-width='0.8' fill='none'/%3E%3Cpath d='M150 50h50M150 47v6M200 47v6' stroke='%232003bd' stroke-opacity='0.08' stroke-width='0.7' fill='none'/%3E%3C/svg%3E");
-  /* fine ink-tinted paper grain, tiled 180px */
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.063 0 0 0 0 0.082 0 0 0 0 0.227 1 0 0 0 -0.44'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-}
-body,
-.bg-band {
-  /* sparse technical-drawing marks, the language of measurement and testing, over the grain */
-  background-image: var(--blueprint), var(--grain);
-  background-size: 240px 240px, 180px 180px;
-  background-position: center top, 0 0;
-}
-
 /* ---------- dark theme: chosen with the toggle in the top bar ---------- */
 :root[data-theme="dark"] {
   --color-primary: #6a57ff; /* still carries white button text at AA contrast */
@@ -59,9 +44,6 @@ body,
   --color-accent-text: #ab9fff; /* brand violet lightened for text on dark surfaces */
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.25);
   --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.4), 0 12px 28px rgb(106 87 255 / 0.22);
-  /* same marks and grain, drawn light so they read on the dark paper */
-  --blueprint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cpath d='M26 30h8M30 26v8M146 150h8M150 146v8' stroke='%23ab9fff' stroke-opacity='0.16' stroke-width='0.8' fill='none'/%3E%3Cpath d='M150 50h50M150 47v6M200 47v6' stroke='%23ab9fff' stroke-opacity='0.1' stroke-width='0.7' fill='none'/%3E%3C/svg%3E");
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 -0.44'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 }
 /* Full-width violet bands stay deep at night instead of the brighter button violet. */
 :root[data-theme="dark"] .guilloche-soft.bg-primary {
