@@ -131,7 +131,7 @@ body {
   background-size: 120px 24px;
 }
 
-/* ---------- partner marquee (dual rows, opposite directions) ---------- */
+/* ---------- partner marquee (one row of frameless logos) ---------- */
 @keyframes marquee-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -154,6 +154,22 @@ body {
 .marquee-track--left { animation: marquee-left 36s linear infinite; }
 .marquee-track--right { animation: marquee-right 36s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track--left { animation-duration: 48s; }
+/* logos sit straight on the page; multiply melts the white backgrounds of JPG logos into it */
+.partner-logo img {
+  mix-blend-mode: multiply;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+/* on the dark theme logos are drawn light and monochrome so their white backgrounds disappear */
+:root[data-theme="dark"] .partner-logo img {
+  /* invert turns the white background black, and screen drops black on the dark page */
+  mix-blend-mode: screen;
+  filter: grayscale(1) invert(1);
+  opacity: 0.8;
+}
+:root[data-theme="dark"] .partner-logo:hover img {
+  opacity: 1;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track--left,
