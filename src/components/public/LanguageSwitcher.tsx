@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
           key={l}
           onClick={() => router.replace(pathname, { locale: l })}
           aria-current={l === locale ? "true" : undefined}
-          className={`rounded-[6px] px-2.5 py-1 text-xs font-semibold transition-colors ${
+          className={`rounded-[2px] px-2.5 py-1 text-xs font-semibold transition-colors ${
             l === locale ? "bg-primary text-white" : "text-ink-soft hover:text-primary"
           }`}
         >

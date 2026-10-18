@@ -65,7 +65,7 @@ export default async function StaffDetailPage({ params }: { params: Promise<{ lo
         </Reveal>
 
         <Reveal delay={80}>
-          <span className="inline-block rounded-[6px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+          <span className="inline-block rounded-[2px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
             {deptLabel(member.department)}
           </span>
           <h1 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">{tr.name}</h1>
@@ -81,7 +81,7 @@ export default async function StaffDetailPage({ params }: { params: Promise<{ lo
           {tr.expertise && (
             <div className="mt-6 flex flex-wrap gap-2">
               {tr.expertise.split(",").map((e) => (
-                <span key={e} className="rounded-[6px] border border-line bg-band px-3 py-1.5 text-xs font-semibold text-ink">
+                <span key={e} className="rounded-[2px] border border-line bg-band px-3 py-1.5 text-xs font-semibold text-ink">
                   {e.trim()}
                 </span>
               ))}

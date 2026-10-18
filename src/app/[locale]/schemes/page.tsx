@@ -79,7 +79,7 @@ export default async function SchemesPage({ params }: { params: Promise<{ locale
                   <div className="min-w-0">
                     <h3 className="font-bold leading-snug text-ink">{t(`schemes.${s.key}.title`)}</h3>
                     {s.inScope && (
-                      <span className="mt-1.5 inline-block rounded-[6px] bg-band px-2 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="mt-1.5 inline-block rounded-[2px] bg-band px-2 py-0.5 text-[11px] font-semibold text-primary">
                         {t("inScope")}
                       </span>
                     )}

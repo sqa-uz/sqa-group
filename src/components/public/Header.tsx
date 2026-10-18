@@ -73,7 +73,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
-          <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[6px]" priority />
+          <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[2px]" priority />
           <span className="hidden text-sm font-bold leading-tight sm:block">
             Standart and Quality
             <br />
@@ -107,7 +107,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block rounded-[6px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
+                    className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
                   >
                     {t(item.key)}
                   </Link>
@@ -143,7 +143,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block rounded-[6px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
+              className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
             >
               {t(item.key)}
             </Link>
