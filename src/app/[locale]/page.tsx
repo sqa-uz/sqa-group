@@ -141,7 +141,7 @@ export default async function HomePage({
           ].map((c, i) => (
             <Reveal key={i} delay={i * 80}>
               <Link href={c.href} className="card card-hover group block h-full p-6">
-                <span className="inline-block rounded-none bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+                <span className="inline-block rounded-[2px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
                   {c.badge}
                 </span>
                 <h3 className="mt-4 text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
