@@ -27,7 +27,7 @@ function Highlight({ text, tokens }: { text: string; tokens: string[] }) {
     const start = Math.max(a, pos);
     if (start > pos) parts.push(text.slice(pos, start));
     parts.push(
-      <mark key={start} className="rounded-[3px] bg-primary/12 px-0.5 text-primary">
+      <mark key={start} className="rounded-[2px] bg-primary/12 px-0.5 text-primary">
         {text.slice(start, b)}
       </mark>,
     );
@@ -53,7 +53,7 @@ function ItemCard({ item, prefix, tokens }: { item: ScopeItem; prefix: string; t
           <Highlight text={item.name} tokens={tokens} />
         </h3>
         <span
-          className="shrink-0 rounded-[6px] bg-band px-2 py-0.5 text-[11px] font-semibold tracking-wide text-ink-soft"
+          className="shrink-0 rounded-[2px] bg-band px-2 py-0.5 text-[11px] font-semibold tracking-wide text-ink-soft"
           title={t(item.s === "502" ? "scheme502Full" : "scheme318Full")}
         >
           {t(item.s === "502" ? "scheme502" : "scheme318")}
@@ -69,7 +69,7 @@ function ItemCard({ item, prefix, tokens }: { item: ScopeItem; prefix: string; t
               return (
                 <li
                   key={c}
-                  className={`rounded-[6px] border px-2 py-0.5 font-mono text-[13px] tabular-nums ${
+                  className={`rounded-[2px] border px-2 py-0.5 font-mono text-[13px] tabular-nums ${
                     hit ? "border-primary bg-primary text-white" : "border-line bg-paper text-ink"
                   }`}
                 >
@@ -82,7 +82,7 @@ function ItemCard({ item, prefix, tokens }: { item: ScopeItem; prefix: string; t
                 <button
                   type="button"
                   onClick={() => setOpen(true)}
-                  className="rounded-[6px] px-2 py-0.5 text-[13px] font-semibold text-primary hover:underline"
+                  className="rounded-[2px] px-2 py-0.5 text-[13px] font-semibold text-primary hover:underline"
                 >
                   {t("moreCodes", { count: hidden })}
                 </button>

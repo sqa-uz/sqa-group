@@ -28,7 +28,7 @@ export default function Footer({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
       <div className="mx-auto grid max-w-[1200px] gap-10 px-4 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
-            <Image src="/images/logo/logo-black.jpg" alt="" width={44} height={44} className="rounded-[6px]" />
+            <Image src="/images/logo/logo-black.jpg" alt="" width={44} height={44} className="rounded-[2px]" />
             <span className="text-sm font-bold leading-tight">
               Standart and Quality
               <br />

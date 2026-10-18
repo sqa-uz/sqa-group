@@ -32,7 +32,7 @@ export default function StaffCard({
             {name.charAt(0)}
           </div>
         )}
-        <span className="absolute left-3 top-3 rounded-[6px] bg-white/92 px-2 py-1 text-[11px] font-semibold text-primary backdrop-blur">
+        <span className="absolute left-3 top-3 rounded-[2px] bg-white/92 px-2 py-1 text-[11px] font-semibold text-primary backdrop-blur">
           {department}
         </span>
       </div>
