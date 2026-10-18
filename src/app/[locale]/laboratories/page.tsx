@@ -31,7 +31,7 @@ export default async function LaboratoriesPage({ params }: { params: Promise<{ l
         ] as const).map(([title, text, badge], i) => (
           <Reveal key={title} delay={i * 80}>
             <section className="card h-full p-7">
-              <span className="inline-block rounded-[6px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+              <span className="inline-block rounded-none bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
                 {t(badge)}
               </span>
               <h2 className="mt-4 text-xl font-bold">{t(title)}</h2>
