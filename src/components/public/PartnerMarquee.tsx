@@ -11,7 +11,7 @@ function Row({ partners, direction }: { partners: PartnerItem[]; direction: "lef
       <div className={`marquee-track marquee-track--${direction}`}>
         {track.map((p, i) => {
           const tile = (
-            <div className="flex h-24 w-44 items-center justify-center rounded-2xl border border-line bg-white px-7 shadow-[0_1px_3px_rgba(16,21,58,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_28px_rgba(16,21,58,0.12)]">
+            <div className="partner-logo flex h-20 w-44 items-center justify-center px-4">
               <Image
                 src={p.logoUrl}
                 alt={p.name}
@@ -45,25 +45,11 @@ function Row({ partners, direction }: { partners: PartnerItem[]; direction: "lef
   );
 }
 
-/** Two logo rows moving in opposite directions; pauses on hover, static grid under reduced motion. */
+/** One row of partner logos drifting left; pauses on hover, static grid under reduced motion. */
 export default function PartnerMarquee({ partners }: { partners: PartnerItem[] }) {
   if (partners.length === 0) return null;
-  const half = Math.ceil(partners.length / 2);
-  let rowA = partners.slice(0, half);
-  let rowB = partners.length > 1 ? partners.slice(half) : partners;
   // Densify: short partner lists would leave visible gaps in the loop
-  const densify = (row: PartnerItem[]) => {
-    let out = row;
-    while (out.length < 8) out = [...out, ...row];
-    return out;
-  };
-  rowA = densify(rowA.length ? rowA : partners);
-  rowB = densify(rowB.length ? rowB : partners);
-
-  return (
-    <div className="space-y-2">
-      <Row partners={rowA} direction="left" />
-      <Row partners={rowB} direction="right" />
-    </div>
-  );
+  let row = partners;
+  while (row.length < 10) row = [...row, ...partners];
+  return <Row partners={row} direction="left" />;
 }
