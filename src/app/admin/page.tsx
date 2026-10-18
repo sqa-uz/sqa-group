@@ -4,8 +4,22 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import AdminShell from "@/components/admin/AdminShell";
 import { adminHref, adminMessages, getAdminLocale } from "@/i18n/admin";
+import { ensurePageViewTable } from "@/lib/analytics";
 
 export const dynamic = "force-dynamic";
+
+/** Page views and daily-unique visitors over the last 7 days; zeros if analytics are unavailable. */
+async function getWeekTraffic() {
+  try {
+    await ensurePageViewTable();
+    const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const [row] = await prisma.$queryRaw<{ views: bigint; visitors: bigint }[]>`
+      SELECT COUNT(*) AS views, COUNT(DISTINCT "visitor") AS visitors FROM "PageView" WHERE "createdAt" >= ${since}`;
+    return { views: Number(row?.views ?? 0), visitors: Number(row?.visitors ?? 0) };
+  } catch {
+    return { views: 0, visitors: 0 };
+  }
+}
 
 async function getLeadCounts() {
   const [total, fresh] = await Promise.all([
@@ -35,6 +49,7 @@ export default async function AdminDashboard({
       prisma.partner.count({ where: { published: true } }),
       getLeadCounts(),
     ]);
+  const traffic = await getWeekTraffic();
 
   const cards = [
     { href: "/admin/staff", label: t.nav.staff, total: staffTotal, published: staffPublished },
@@ -72,6 +87,17 @@ export default async function AdminDashboard({
           </Link>
         ))}
       </div>
+      <Link href={adminHref("/admin/analytics", locale)} className="card card-hover mt-4 flex flex-wrap items-center justify-between gap-4 bg-white p-6">
+        <div>
+          <p className="text-sm font-semibold text-ink-soft">{t.nav.analytics}</p>
+          <p className="mt-2 text-3xl font-black text-ink">
+            {traffic.views} <span className="text-base font-semibold text-ink-soft">{t.analytics.weekViews}</span>
+          </p>
+        </div>
+        <p className="text-sm text-ink-soft">
+          {traffic.visitors} {t.analytics.visitors.toLowerCase()} · <span className="font-semibold text-primary">→</span>
+        </p>
+      </Link>
       <div className="card mt-6 bg-white p-6">
         <h2 className="text-sm font-bold uppercase tracking-wide text-ink-soft">{t.dashboard.quickActions}</h2>
         <div className="mt-3 flex flex-wrap gap-2">
