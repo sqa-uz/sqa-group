@@ -282,7 +282,7 @@ export default async function HomePage({
         ))}
       </section>
 
-      {/* PARTNERS: dual-direction carousel */}
+      {/* PARTNERS: one row of logos drifting left */}
       {partners.length > 0 && (
         <section className="border-t border-line">
           <div className="mx-auto max-w-[1200px] px-4 py-16">

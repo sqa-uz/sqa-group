@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+import PageViewTracker from "@/components/public/PageViewTracker";
 import { getDisabledPageKeys } from "@/lib/pageSettings";
 import { PAGES } from "@/lib/pages";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
           <Header hiddenHrefs={hiddenHrefs} />
           <main>{children}</main>
           <Footer hiddenHrefs={hiddenHrefs} />
+          <PageViewTracker />
         </NextIntlClientProvider>
       </body>
     </html>
