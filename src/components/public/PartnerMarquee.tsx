@@ -11,7 +11,7 @@ function Row({ partners, direction }: { partners: PartnerItem[]; direction: "lef
       <div className={`marquee-track marquee-track--${direction}`}>
         {track.map((p, i) => {
           const tile = (
-            <div className="flex h-24 w-44 items-center justify-center rounded-2xl border border-line bg-white px-7 shadow-[0_1px_3px_rgba(16,21,58,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_28px_rgba(16,21,58,0.12)]">
+            <div className="flex h-24 w-44 items-center justify-center rounded-none border border-line bg-white px-7 shadow-[0_1px_3px_rgba(16,21,58,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_28px_rgba(16,21,58,0.12)]">
               <Image
                 src={p.logoUrl}
                 alt={p.name}
