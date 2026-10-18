@@ -47,7 +47,7 @@ export default function StepsTimeline({ steps }: { steps: Step[] }) {
         return (
           <li key={s.title} className="relative flex gap-4 lg:flex-col lg:items-center lg:gap-3 lg:text-center">
             <span
-              className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-none border-2 text-sm font-bold transition-colors duration-300 ${
+              className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] border-2 text-sm font-bold transition-colors duration-300 ${
                 on ? "border-primary bg-primary text-white" : "border-line bg-paper text-ink-soft"
               }`}
             >
