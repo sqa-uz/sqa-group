@@ -117,3 +117,21 @@ model PageSetting {
   enabled   Boolean  @default(true)
   updatedAt DateTime @updatedAt
 }
+
+/**
+ * One public page view, for the visitor analytics in the admin panel.
+ * No IP address or cookie is stored: `visitor` is a hash of IP + browser that changes every day,
+ * so it can count unique visitors per day but cannot follow anyone across days.
+ */
+model PageView {
+  id        String   @id @default(cuid())
+  path      String // without the locale prefix, e.g. "/what-we-certify"
+  locale    String
+  referrer  String? // host of the referring site, null for direct visits and internal navigation
+  country   String? // ISO code from the hosting edge, when known
+  device    String // mobile | tablet | desktop
+  visitor   String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
