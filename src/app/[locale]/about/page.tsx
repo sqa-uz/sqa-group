@@ -106,7 +106,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             {units.map((u, i) => (
               <Reveal key={u.code} delay={i * 80}>
                 <Link href={u.href} className="card card-hover group flex h-full flex-col p-6">
-                  <span className="self-start rounded-[6px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">{u.code}</span>
+                  <span className="self-start rounded-[2px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">{u.code}</span>
                   <h3 className="mt-4 text-lg font-bold text-ink group-hover:text-primary">{u.title}</h3>
                   <p className="mt-1 text-xs font-semibold text-ink-soft">{u.standard}</p>
                   <p className="mt-3 text-sm leading-relaxed text-ink-soft">{u.text}</p>
@@ -128,7 +128,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
             {groups.map((g) => (
               <li key={g} className="flex gap-3 text-sm leading-snug text-ink">
-                <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-[2px] bg-primary" />
                 {g}
               </li>
             ))}
@@ -172,7 +172,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           {steps.map((s, i) => (
             <li key={s.title}>
               <Reveal delay={i * 50} className="flex h-full gap-4 rounded-card border border-line bg-paper p-5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] bg-primary text-sm font-bold text-white">
                   {i + 1}
                 </span>
                 <div>
