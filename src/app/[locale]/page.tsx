@@ -11,6 +11,7 @@ import StaffCard from "@/components/public/StaffCard";
 import NewsCard from "@/components/public/NewsCard";
 import Reveal from "@/components/public/Reveal";
 import CountUp from "@/components/public/CountUp";
+import BeyondServices from "@/components/public/BeyondServices";
 import StepsTimeline from "@/components/public/StepsTimeline";
 import { ITEMS } from "@/lib/scopeSearch";
 
@@ -187,6 +188,11 @@ export default async function HomePage({
             </form>
           </Reveal>
         )}
+
+        {/* BEYOND: management systems, export to Europe, conformity mark */}
+        <div className="mt-16">
+          <BeyondServices />
+        </div>
       </section>
 
       {/* HOW CERTIFICATION WORKS: the rail fills as you scroll */}
