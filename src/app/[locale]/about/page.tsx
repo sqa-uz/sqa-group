@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/public/Reveal";
 import SectionHeading from "@/components/public/SectionHeading";
 import { ITEMS } from "@/lib/scopeSearch";
+import BeyondServices from "@/components/public/BeyondServices";
 
 type Unit = { title: string; code: string; standard: string; text: string; valid: string; href: string };
 type Card = { title: string; text: string };
@@ -32,6 +33,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const groups = t.raw("groups") as string[];
   const principles = t.raw("principles") as Card[];
   const steps = t.raw("steps") as Card[];
+  const story = t.raw("story") as string[];
+  const timeline = t.raw("timeline") as { year: string; text: string }[];
 
   const stats = [
     { value: units.length, label: t("statAccreditations") },
@@ -49,10 +52,16 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{t("intro")}</p>
         </Reveal>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <Reveal className="article-body max-w-3xl">
-            {(["p1", "p2", "p3", "p4"] as const).map((k) => (
-              <p key={k}>{t(k)}</p>
-            ))}
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow mb-2">{t("storyEyebrow")}</p>
+            <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{t("storyTitle")}</h2>
+            <div className="article-body mt-5">
+              {story.map((p, i) => (
+                <p key={i} className={i === story.length - 1 ? "font-semibold text-ink" : undefined}>
+                  {p}
+                </p>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={100}>
             <div className="card p-6">
@@ -96,6 +105,24 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </Reveal>
       </div>
 
+      {/* milestones */}
+      <section className="mx-auto max-w-[1200px] px-4 pb-16">
+        <ol className="relative grid gap-6 border-l-2 border-line pl-6 md:grid-cols-4 md:gap-5 md:border-l-0 md:border-t-2 md:pl-0 md:pt-6">
+          {timeline.map((m, i) => (
+            <li key={m.year} className="relative">
+              <span
+                aria-hidden="true"
+                className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-card bg-primary md:-top-[31px] md:left-0"
+              />
+              <Reveal delay={i * 80}>
+                <p className="text-3xl font-black tracking-tight text-primary">{m.year}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.text}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       {/* accredited units */}
       <section className="bg-band">
         <div className="mx-auto max-w-[1200px] px-4 py-16">
@@ -116,6 +143,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             ))}
           </div>
         </div>
+      </section>
+
+      {/* beyond the accredited scope */}
+      <section className="mx-auto max-w-[1200px] px-4 py-16">
+        <BeyondServices />
       </section>
 
       {/* product groups */}
