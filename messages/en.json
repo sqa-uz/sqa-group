@@ -10,7 +10,9 @@
     "notFoundText": "The page you are looking for does not exist or has been moved.",
     "goHome": "Go to homepage",
     "themeDark": "Switch to dark theme",
-    "themeLight": "Switch to light theme"
+    "themeLight": "Switch to light theme",
+    "tashkent": "Tashkent",
+    "weatherLabel": "Time and weather in Tashkent"
   },
   "nav": {
     "home": "Home",
@@ -69,11 +71,7 @@
   },
   "about": {
     "title": "About us",
-    "intro": "Standart and Quality Assessment Group LLC (SQA Group) is a conformity assessment company based in Tashkent. It brings together a product certification body and two accredited testing laboratories.",
-    "p1": "We confirm that products meet the requirements of the technical regulations and standards of the Republic of Uzbekistan. Manufacturers and importers obtain certificates of conformity from us for mandatory and voluntary certification, and samples are tested in our own accredited laboratories.",
-    "p2": "All three units are accredited by the Uzbek Accreditation Centre (O'ZAKK): the certification body to O'z DSt ISO/IEC 17065:2015 and the laboratories to O'z DSt ISO/IEC 17025:2019. Accreditation status can be checked at akkred.uz.",
-    "p3": "We certify under the Regulation on the product certification procedure approved by Cabinet of Ministers Resolution No. 502 of 14 August 2024. Certificates of conformity are issued in a single electronic format and signed with the electronic signature of the head of the certification body.",
-    "p4": "Since October 2026 SQA Group has been the official partner of the German company AC Inorms GmbH (INORMS). Together we help Uzbek exporters obtain certificates and permits for the European market without leaving Uzbekistan.",
+    "intro": "Standart and Quality Assessment Group LLC (SQA Group) is a conformity assessment company based in Tashkent and working since 2013. It brings together a product certification body and two accredited testing laboratories.",
     "statAccreditations": "O'ZAKK accreditation certificates",
     "statProducts": "product types in the accreditation scope",
     "statCodes": "HS (TN VED) codes",
@@ -102,7 +100,7 @@
         "code": "O'ZAKK.SL.0437",
         "standard": "O'z DSt ISO/IEC 17025:2019",
         "text": "The group's second accredited testing laboratory.",
-        "valid": "",
+        "valid": "Certificate valid until 11.05.2031",
         "href": "/laboratories"
       }
     ],
@@ -179,7 +177,34 @@
     "detailsPhone": "Phone",
     "detailsEmail": "Email",
     "ctaTitle": "Need product certification?",
-    "ctaText": "Send us a request and we will advise on the certification scheme, timing and required documents."
+    "ctaText": "Send us a request and we will advise on the certification scheme, timing and required documents.",
+    "storyEyebrow": "Since 2013",
+    "storyTitle": "Our story",
+    "story": [
+      "SQA Group was founded in Tashkent in 2013. From day one we have worked with manufacturers and importers in Uzbekistan, helping them prove what matters most: that their products are safe and meet the requirements.",
+      "The experience built up over those years became the basis for accreditation. In January 2022 the Uzbek Accreditation Centre (O'ZAKK) accredited our certification body to ISO/IEC 17065 and our testing laboratory to ISO/IEC 17025.",
+      "In 2025 the accreditation certificates were reissued, and in May 2026 a second accredited laboratory, S-LAB, joined us. Today the certification body's scope covers 188 product types, from polymer pipes and linoleum to furniture, tableware and playground equipment.",
+      "Our work now goes beyond product certification. We help companies prepare for management system certification and, together with our German partner AC Inorms GmbH, obtain certificates and permits for export to Europe. Exporters from Uzbekistan and across Central Asia handle all of this with us in Tashkent, in Russian or Uzbek.",
+      "What matters most to us has not changed since 2013: impartiality, precision and respect for our clients' time."
+    ],
+    "timeline": [
+      {
+        "year": "2013",
+        "text": "SQA Group founded in Tashkent"
+      },
+      {
+        "year": "2022",
+        "text": "O'ZAKK accreditation: certification body (O'ZAKK.MS.0052, ISO/IEC 17065) and testing laboratory (O'ZAKK.SL.0162, ISO/IEC 17025)"
+      },
+      {
+        "year": "2025",
+        "text": "Accreditation certificates reissued"
+      },
+      {
+        "year": "2026",
+        "text": "Second laboratory S-LAB (O'ZAKK.SL.0437), accreditation scope of 188 product types, partnership with AC Inorms GmbH (Germany)"
+      }
+    ]
   },
   "certificationBody": {
     "title": "Certification body",
@@ -462,5 +487,29 @@
     "homeTitle": "Do we certify your product?",
     "homeText": "Enter an HS (TN VED) code or a product name to check it against our accreditation scope.",
     "homeButton": "Search"
+  },
+  "beyond": {
+    "eyebrow": "Beyond accredited services",
+    "title": "More than a product certificate",
+    "items": [
+      {
+        "key": "management",
+        "title": "Management systems",
+        "text": "We help you prepare for and pass management system certification — ISO 9001 (quality), ISO 14001 (environment), ISO 45001 (occupational safety), ISO 22000 (food safety): documentation, internal audit and support until the certificate is issued by an accredited body.",
+        "link": "Send a request"
+      },
+      {
+        "key": "export",
+        "title": "Export to Europe",
+        "text": "Certificates and permits for the European market for exporters from Uzbekistan and across Central Asia. We work with AC Inorms GmbH (Germany): you deal with us in Tashkent, and we handle the European side.",
+        "link": "About the INORMS partnership"
+      },
+      {
+        "key": "mark",
+        "title": "Conformity mark",
+        "text": "Products certified under schemes 1C, 2C, 3C, 3A and 5C–8C carry the conformity mark (muvofiqlik belgisi). From 12 October 2026 the mark is added to the certificate automatically in the national \"Technical Regulation\" system.",
+        "link": "More about the schemes"
+      }
+    ]
   }
 }
