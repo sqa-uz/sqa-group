@@ -107,7 +107,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       {/* milestones */}
       <section className="mx-auto max-w-[1200px] px-4 pb-16">
-        <ol className="relative grid gap-6 border-l-2 border-line pl-6 md:grid-cols-4 md:gap-5 md:border-l-0 md:border-t-2 md:pl-0 md:pt-6">
+        <ol className="relative grid gap-6 border-l-2 border-line pl-6 md:grid-cols-3 md:gap-5 md:border-l-0 md:border-t-2 md:pl-0 md:pt-6">
           {timeline.map((m, i) => (
             <li key={m.year} className="relative">
               <span
