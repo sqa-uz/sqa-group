@@ -45,7 +45,7 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
     }`;
 
   return (
-    <>
+    <div className="sticky top-0 z-50">
     {/* Utility bar: contacts, theme, language and the request button */}
     <div className="border-b border-line bg-band">
       <div className="mx-auto flex h-11 max-w-[1320px] items-center justify-between gap-3 px-4">
@@ -74,7 +74,7 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
       </div>
     </div>
 
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+    <header className="relative border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[2px]" priority />
@@ -155,6 +155,6 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
         </nav>
       )}
     </header>
-    </>
+    </div>
   );
 }

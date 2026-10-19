@@ -7,7 +7,7 @@ type Item = { key: "management" | "export" | "mark"; title: string; text: string
 
 const HREF: Record<Item["key"], string> = {
   management: "/apply",
-  export: "/news/sqa-group-and-ac-inorms-gmbh-our-official-partner-in-germany",
+  export: "/apply",
   mark: "/schemes",
 };
 
