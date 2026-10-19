@@ -182,9 +182,9 @@
     "storyTitle": "Our story",
     "story": [
       "SQA Group was founded in Tashkent in 2013. From day one we have worked with manufacturers and importers in Uzbekistan, helping them prove what matters most: that their products are safe and meet the requirements.",
-      "The experience built up over those years became the basis for accreditation. In January 2022 the Uzbek Accreditation Centre (O'ZAKK) accredited our certification body to ISO/IEC 17065 and our testing laboratory to ISO/IEC 17025.",
-      "In 2025 the accreditation certificates were reissued, and in May 2026 a second accredited laboratory, S-LAB, joined us. Today the certification body's scope covers 188 product types, from polymer pipes and linoleum to furniture, tableware and playground equipment.",
-      "Our work now goes beyond product certification. We help companies prepare for management system certification and, together with our German partner AC Inorms GmbH, obtain certificates and permits for export to Europe. Exporters from Uzbekistan and across Central Asia handle all of this with us in Tashkent, in Russian or Uzbek.",
+      "We were accredited before 2022, and in January 2022 we successfully passed re-accreditation with the Uzbek Accreditation Centre (O'ZAKK): the certification body to ISO/IEC 17065 and the testing laboratory to ISO/IEC 17025.",
+      "In May 2026 a second accredited laboratory, S-LAB, joined us. Today the certification body's scope covers 188 product types, from polymer pipes and linoleum to furniture, tableware and playground equipment.",
+      "Our work now goes beyond product certification. We help companies prepare for management system certification and, together with our European partners, obtain certificates and permits for export to Europe. Exporters from Uzbekistan and across Central Asia handle all of this with us in Tashkent, in Russian or Uzbek.",
       "What matters most to us has not changed since 2013: impartiality, precision and respect for our clients' time."
     ],
     "timeline": [
@@ -194,15 +194,11 @@
       },
       {
         "year": "2022",
-        "text": "O'ZAKK accreditation: certification body (O'ZAKK.MS.0052, ISO/IEC 17065) and testing laboratory (O'ZAKK.SL.0162, ISO/IEC 17025)"
-      },
-      {
-        "year": "2025",
-        "text": "Accreditation certificates reissued"
+        "text": "O'ZAKK re-accreditation: certification body (O'ZAKK.MS.0052, ISO/IEC 17065) and testing laboratory (O'ZAKK.SL.0162, ISO/IEC 17025)"
       },
       {
         "year": "2026",
-        "text": "Second laboratory S-LAB (O'ZAKK.SL.0437), accreditation scope of 188 product types, partnership with AC Inorms GmbH (Germany)"
+        "text": "Second laboratory S-LAB (O'ZAKK.SL.0437), accreditation scope of 188 product types, cooperation with European partners"
       }
     ]
   },
@@ -501,8 +497,8 @@
       {
         "key": "export",
         "title": "Export to Europe",
-        "text": "Certificates and permits for the European market for exporters from Uzbekistan and across Central Asia. We work with AC Inorms GmbH (Germany): you deal with us in Tashkent, and we handle the European side.",
-        "link": "About the INORMS partnership"
+        "text": "Certificates and permits for the European market for exporters from Uzbekistan and across Central Asia. We work with European partners: you deal with us in Tashkent, and we handle the European side.",
+        "link": "Send a request"
       },
       {
         "key": "mark",

@@ -182,9 +182,9 @@
     "storyTitle": "Bizning tariximiz",
     "story": [
       "SQA Group 2013-yilda Toshkentda tashkil etilgan. Birinchi kundan boshlab O'zbekistonning ishlab chiqaruvchilari va import qiluvchilari bilan ishlaymiz va ularga eng muhim narsani isbotlashda yordam beramiz: mahsuloti xavfsiz va talablarga javob beradi.",
-      "Shu yillar davomida to'plangan tajriba akkreditatsiya uchun asos bo'ldi. 2022-yil yanvarida O'zbekiston akkreditatsiya markazi (O'ZAKK) sertifikatlashtirish organimizni ISO/IEC 17065, sinov laboratoriyamizni esa ISO/IEC 17025 bo'yicha akkreditatsiyadan o'tkazdi.",
-      "2025-yilda guvohnomalar qayta rasmiylashtirildi, 2026-yil mayida esa ikkinchi akkreditatsiyalangan laboratoriya — S-LAB qo'shildi. Bugun organning akkreditatsiya sohasi 188 turdagi mahsulotni qamrab oladi: polimer quvurlar va linoleumdan tortib mebel, idish-tovoq va bolalar maydonchalari jihozlarigacha.",
-      "Biz allaqachon faqat mahsulotni sertifikatlashtirish bilan cheklanmaymiz. Kompaniyalarga menejment tizimlarini sertifikatlashtirishga tayyorlanishda, nemis hamkorimiz AC Inorms GmbH bilan birga esa Yevropaga eksport uchun sertifikat va ruxsat beruvchi hujjatlarni olishda yordam beramiz. O'zbekiston va butun Markaziy Osiyo eksportchilari bu masalalarni Toshkentda, o'zbek yoki rus tilida hal qiladi.",
+      "Akkreditatsiyani 2022-yilgacha olganmiz, 2022-yil yanvarida esa O'zbekiston akkreditatsiya markazida (O'ZAKK) qayta akkreditatsiyadan muvaffaqiyatli o'tdik: sertifikatlashtirish organi — ISO/IEC 17065, sinov laboratoriyasi — ISO/IEC 17025 bo'yicha.",
+      "2026-yil mayida ikkinchi akkreditatsiyalangan laboratoriya — S-LAB qo'shildi. Bugun organning akkreditatsiya sohasi 188 turdagi mahsulotni qamrab oladi: polimer quvurlar va linoleumdan tortib mebel, idish-tovoq va bolalar maydonchalari jihozlarigacha.",
+      "Biz allaqachon faqat mahsulotni sertifikatlashtirish bilan cheklanmaymiz. Kompaniyalarga menejment tizimlarini sertifikatlashtirishga tayyorlanishda, yevropalik hamkorlarimiz bilan birga esa Yevropaga eksport uchun sertifikat va ruxsat beruvchi hujjatlarni olishda yordam beramiz. O'zbekiston va butun Markaziy Osiyo eksportchilari bu masalalarni Toshkentda, o'zbek yoki rus tilida hal qiladi.",
       "Biz uchun eng muhimi 2013-yildan beri o'zgarmagan: xolislik, aniqlik va mijoz vaqtini qadrlash."
     ],
     "timeline": [
@@ -194,15 +194,11 @@
       },
       {
         "year": "2022",
-        "text": "O'ZAKK akkreditatsiyasi: sertifikatlashtirish organi (O'ZAKK.MS.0052, ISO/IEC 17065) va sinov laboratoriyasi (O'ZAKK.SL.0162, ISO/IEC 17025)"
-      },
-      {
-        "year": "2025",
-        "text": "Akkreditatsiya guvohnomalari qayta rasmiylashtirildi"
+        "text": "O'ZAKK qayta akkreditatsiyasi: sertifikatlashtirish organi (O'ZAKK.MS.0052, ISO/IEC 17065) va sinov laboratoriyasi (O'ZAKK.SL.0162, ISO/IEC 17025)"
       },
       {
         "year": "2026",
-        "text": "Ikkinchi laboratoriya S-LAB (O'ZAKK.SL.0437), 188 turdagi mahsulotni qamragan akkreditatsiya sohasi, AC Inorms GmbH (Germaniya) bilan hamkorlik"
+        "text": "Ikkinchi laboratoriya S-LAB (O'ZAKK.SL.0437), 188 turdagi mahsulotni qamragan akkreditatsiya sohasi, yevropalik hamkorlar bilan hamkorlik"
       }
     ]
   },
@@ -501,8 +497,8 @@
       {
         "key": "export",
         "title": "Yevropaga eksport",
-        "text": "Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlar — O'zbekiston va butun Markaziy Osiyo eksportchilari uchun. AC Inorms GmbH (Germaniya) bilan birga ishlaymiz: siz biz bilan Toshkentda muloqot qilasiz, Yevropa tomoni bilan ishni esa o'zimiz olib boramiz.",
-        "link": "INORMS bilan hamkorlik haqida"
+        "text": "Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlar — O'zbekiston va butun Markaziy Osiyo eksportchilari uchun. Yevropalik hamkorlarimiz bilan birga ishlaymiz: siz biz bilan Toshkentda muloqot qilasiz, Yevropa tomoni bilan ishni esa o'zimiz olib boramiz.",
+        "link": "So'rov yuborish"
       },
       {
         "key": "mark",
