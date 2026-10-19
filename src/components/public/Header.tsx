@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
+import TashkentNow from "./TashkentNow";
+import type { Weather } from "@/lib/weather";
 
 const NAV = [
   { href: "/about", key: "about" },
@@ -26,7 +28,7 @@ const MORE = [
   { href: "/appeals", key: "appeals" },
 ] as const;
 
-export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] }) {
+export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHrefs?: string[]; weather?: Weather | null }) {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
   const pathname = usePathname();
@@ -43,11 +45,13 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
     }`;
 
   return (
-    <>
+    <div className="sticky top-0 z-50">
     {/* Utility bar: contacts, theme, language and the request button */}
     <div className="border-b border-line bg-band">
       <div className="mx-auto flex h-11 max-w-[1320px] items-center justify-between gap-3 px-4">
         <div className="hidden items-center gap-5 text-xs font-medium text-ink-soft md:flex">
+          <TashkentNow weather={weather} />
+          <span aria-hidden="true" className="h-3 w-px bg-line" />
           <a href="tel:+998951958040" className="whitespace-nowrap transition-colors hover:text-primary">
             +998 95 195 80 40
           </a>
@@ -70,7 +74,7 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
       </div>
     </div>
 
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+    <header className="relative border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[2px]" priority />
@@ -151,6 +155,6 @@ export default function Header({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
         </nav>
       )}
     </header>
-    </>
+    </div>
   );
 }

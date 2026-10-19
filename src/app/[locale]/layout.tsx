@@ -10,6 +10,7 @@ import PageViewTracker from "@/components/public/PageViewTracker";
 import { getDisabledPageKeys } from "@/lib/pageSettings";
 import { PAGES } from "@/lib/pages";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
+import { getTashkentWeather } from "@/lib/weather";
 
 const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
@@ -52,7 +53,8 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
-  const disabled = new Set(await getDisabledPageKeys());
+  const [disabledKeys, weather] = await Promise.all([getDisabledPageKeys(), getTashkentWeather()]);
+  const disabled = new Set(disabledKeys);
   const hiddenHrefs = PAGES.filter((p) => disabled.has(p.key)).map((p) => p.href);
 
   return (
@@ -63,7 +65,7 @@ export default async function LocaleLayout({
       </head>
       <body className={`${golos.variable} font-sans`}>
         <NextIntlClientProvider>
-          <Header hiddenHrefs={hiddenHrefs} />
+          <Header hiddenHrefs={hiddenHrefs} weather={weather} />
           <main>{children}</main>
           <Footer hiddenHrefs={hiddenHrefs} />
           <PageViewTracker />

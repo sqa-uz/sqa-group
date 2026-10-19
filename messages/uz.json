@@ -10,7 +10,9 @@
     "notFoundText": "Siz izlagan sahifa mavjud emas yoki ko'chirilgan.",
     "goHome": "Bosh sahifaga qaytish",
     "themeDark": "Tungi rejimni yoqish",
-    "themeLight": "Kunduzgi rejimni yoqish"
+    "themeLight": "Kunduzgi rejimni yoqish",
+    "tashkent": "Toshkent",
+    "weatherLabel": "Toshkentda vaqt va ob-havo"
   },
   "nav": {
     "home": "Bosh sahifa",
@@ -69,11 +71,7 @@
   },
   "about": {
     "title": "Biz haqimizda",
-    "intro": "\"Standart and Quality Assessment Group\" MChJ (SQA Group) — Toshkentdagi muvofiqlikni baholash kompaniyasi. Uning tarkibida mahsulotlarni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi bor.",
-    "p1": "Biz mahsulotlarning O'zbekiston Respublikasi texnik reglamentlari va standartlari talablariga muvofiqligini tasdiqlaymiz. Ishlab chiqaruvchilar va import qiluvchilar bizda majburiy va ixtiyoriy sertifikatlashtirish bo'yicha muvofiqlik sertifikatlarini oladi, namunalar sinovi esa o'zimizning akkreditatsiyalangan laboratoriyalarimizda o'tkaziladi.",
-    "p2": "Uchala bo'linma ham O'zbekiston akkreditatsiya markazi (O'ZAKK) tomonidan akkreditatsiyalangan: sertifikatlashtirish organi — O'z DSt ISO/IEC 17065:2015 standarti bo'yicha, laboratoriyalar — O'z DSt ISO/IEC 17025:2019 bo'yicha. Akkreditatsiya holatini akkred.uz saytida tekshirish mumkin.",
-    "p3": "Sertifikatlashtirishni Vazirlar Mahkamasining 2024-yil 14-avgustdagi 502-son qarori bilan tasdiqlangan Mahsulotlarni sertifikatlashtirish tartibi to'g'risidagi nizom asosida o'tkazamiz. Muvofiqlik sertifikatlari yagona elektron shaklda rasmiylashtiriladi va organ rahbarining elektron imzosi bilan tasdiqlanadi.",
-    "p4": "2026-yil oktabridan SQA Group Germaniyaning AC Inorms GmbH (INORMS) kompaniyasining rasmiy hamkori. Birgalikda o'zbek eksportchilariga O'zbekistondan chiqmasdan Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlarni olishda yordam beramiz.",
+    "intro": "\"Standart and Quality Assessment Group\" MChJ (SQA Group) — 2013-yildan beri faoliyat yuritayotgan Toshkentdagi muvofiqlikni baholash kompaniyasi. Uning tarkibida mahsulotlarni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi bor.",
     "statAccreditations": "ta O'ZAKK akkreditatsiya guvohnomasi",
     "statProducts": "turdagi mahsulot akkreditatsiya sohasida",
     "statCodes": "ta TIF TN kodi",
@@ -102,7 +100,7 @@
         "code": "O'ZAKK.SL.0437",
         "standard": "O'z DSt ISO/IEC 17025:2019",
         "text": "Guruhning ikkinchi akkreditatsiyalangan sinov laboratoriyasi.",
-        "valid": "",
+        "valid": "Guvohnoma 11.05.2031 gacha amal qiladi",
         "href": "/laboratories"
       }
     ],
@@ -179,7 +177,30 @@
     "detailsPhone": "Telefon",
     "detailsEmail": "Elektron pochta",
     "ctaTitle": "Mahsulotni sertifikatlashtirish kerakmi?",
-    "ctaText": "So'rov yuboring — sertifikatlashtirish sxemasi, muddatlari va hujjatlar ro'yxati bo'yicha maslahat beramiz."
+    "ctaText": "So'rov yuboring — sertifikatlashtirish sxemasi, muddatlari va hujjatlar ro'yxati bo'yicha maslahat beramiz.",
+    "storyEyebrow": "2013-yildan beri",
+    "storyTitle": "Bizning tariximiz",
+    "story": [
+      "SQA Group 2013-yilda Toshkentda tashkil etilgan. Birinchi kundan boshlab O'zbekistonning ishlab chiqaruvchilari va import qiluvchilari bilan ishlaymiz va ularga eng muhim narsani isbotlashda yordam beramiz: mahsuloti xavfsiz va talablarga javob beradi.",
+      "Akkreditatsiyani 2022-yilgacha olganmiz, 2022-yil yanvarida esa O'zbekiston akkreditatsiya markazida (O'ZAKK) qayta akkreditatsiyadan muvaffaqiyatli o'tdik: sertifikatlashtirish organi — ISO/IEC 17065, sinov laboratoriyasi — ISO/IEC 17025 bo'yicha.",
+      "2026-yil mayida ikkinchi akkreditatsiyalangan laboratoriya — S-LAB qo'shildi. Bugun organning akkreditatsiya sohasi 188 turdagi mahsulotni qamrab oladi: polimer quvurlar va linoleumdan tortib mebel, idish-tovoq va bolalar maydonchalari jihozlarigacha.",
+      "Biz allaqachon faqat mahsulotni sertifikatlashtirish bilan cheklanmaymiz. Kompaniyalarga menejment tizimlarini sertifikatlashtirishga tayyorlanishda, yevropalik hamkorlarimiz bilan birga esa Yevropaga eksport uchun sertifikat va ruxsat beruvchi hujjatlarni olishda yordam beramiz. O'zbekiston va butun Markaziy Osiyo eksportchilari bu masalalarni Toshkentda, o'zbek yoki rus tilida hal qiladi.",
+      "Biz uchun eng muhimi 2013-yildan beri o'zgarmagan: xolislik, aniqlik va mijoz vaqtini qadrlash."
+    ],
+    "timeline": [
+      {
+        "year": "2013",
+        "text": "SQA Group Toshkentda tashkil etildi"
+      },
+      {
+        "year": "2022",
+        "text": "O'ZAKK qayta akkreditatsiyasi: sertifikatlashtirish organi (O'ZAKK.MS.0052, ISO/IEC 17065) va sinov laboratoriyasi (O'ZAKK.SL.0162, ISO/IEC 17025)"
+      },
+      {
+        "year": "2026",
+        "text": "Ikkinchi laboratoriya S-LAB (O'ZAKK.SL.0437), 188 turdagi mahsulotni qamragan akkreditatsiya sohasi, yevropalik hamkorlar bilan hamkorlik"
+      }
+    ]
   },
   "certificationBody": {
     "title": "Sertifikatlash organi",
@@ -462,5 +483,29 @@
     "homeTitle": "Mahsulotingizni sertifikatlaymizmi?",
     "homeText": "TIF TN kodi yoki nomini kiriting — akkreditatsiya sohasi bo'yicha tekshiramiz.",
     "homeButton": "Qidirish"
+  },
+  "beyond": {
+    "eyebrow": "Nafaqat akkreditatsiyalangan xizmatlar",
+    "title": "Mahsulot sertifikatidan ko'proq",
+    "items": [
+      {
+        "key": "management",
+        "title": "Menejment tizimlari",
+        "text": "Menejment tizimlarini sertifikatlashtirishga tayyorlanish va undan o'tishda yordam beramiz — ISO 9001 (sifat), ISO 14001 (ekologiya), ISO 45001 (mehnat muhofazasi), ISO 22000 (oziq-ovqat xavfsizligi): hujjatlar, ichki audit va akkreditatsiyalangan organda sertifikat olgunga qadar hamrohlik.",
+        "link": "So'rov yuborish"
+      },
+      {
+        "key": "export",
+        "title": "Yevropaga eksport",
+        "text": "Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlar — O'zbekiston va butun Markaziy Osiyo eksportchilari uchun. Yevropalik hamkorlarimiz bilan birga ishlaymiz: siz biz bilan Toshkentda muloqot qilasiz, Yevropa tomoni bilan ishni esa o'zimiz olib boramiz.",
+        "link": "So'rov yuborish"
+      },
+      {
+        "key": "mark",
+        "title": "Muvofiqlik belgisi",
+        "text": "1S, 2S, 3S, 3A va 5S–8S sxemalari bo'yicha sertifikatlangan mahsulot muvofiqlik belgisi bilan tamg'alanadi. 2026-yil 12-oktabrdan belgi \"Texnik tartibga solish\" milliy axborot tizimida sertifikatga avtomatik qo'yiladi.",
+        "link": "Sxemalar haqida batafsil"
+      }
+    ]
   }
 }
