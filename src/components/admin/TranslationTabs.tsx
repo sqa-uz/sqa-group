@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { locales } from "@/i18n/routing";
 
-const LABELS: Record<string, string> = { uz: "O'zbekcha", ru: "Русский", en: "English" };
+const LABELS: Record<string, string> = { uz: "Özbekça", ru: "Русский", en: "English" };
 
 /**
  * Tabbed translation editor. All locales' fields stay mounted (hidden, not

@@ -8,7 +8,7 @@ import { adminHref, adminMessages, type AdminLocale } from "@/i18n/admin";
 import { locales } from "@/i18n/routing";
 import { ADMIN_TAB_SESSION_KEY } from "./AdminTabSessionGuard";
 
-const LANGUAGE_LABELS: Record<AdminLocale, string> = { uz: "O'z", ru: "Рус", en: "Eng" };
+const LANGUAGE_LABELS: Record<AdminLocale, string> = { uz: "Öz", ru: "Рус", en: "Eng" };
 
 export default function AdminLoginForm({ locale }: { locale: AdminLocale }) {
   const [state, action, pending] = useActionState(loginAction, undefined);
