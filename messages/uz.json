@@ -3,507 +3,507 @@
     "companyName": "Standart and Quality Assessment Group",
     "companyShort": "SQA Group",
     "readMore": "Batafsil",
-    "viewAll": "Barçasini köriş",
+    "viewAll": "Barchasini ko'rish",
     "back": "Orqaga",
     "loading": "Yuklanmoqda...",
     "notFoundTitle": "Sahifa topilmadi",
-    "notFoundText": "Siz izlagan sahifa mavjud emas yoki köçirilgan.",
-    "goHome": "Boş sahifaga qaytiş",
-    "themeDark": "Tungi rejimni yoqiş",
-    "themeLight": "Kunduzgi rejimni yoqiş",
-    "tashkent": "Toşkent",
-    "weatherLabel": "Toşkentda vaqt va ob-havo"
+    "notFoundText": "Siz izlagan sahifa mavjud emas yoki ko'chirilgan.",
+    "goHome": "Bosh sahifaga qaytish",
+    "themeDark": "Tungi rejimni yoqish",
+    "themeLight": "Kunduzgi rejimni yoqish",
+    "tashkent": "Toshkent",
+    "weatherLabel": "Toshkentda vaqt va ob-havo"
   },
   "nav": {
-    "home": "Boş sahifa",
+    "home": "Bosh sahifa",
     "about": "Biz haqimizda",
-    "certificationBody": "Sertifikatlaş organi",
+    "certificationBody": "Sertifikatlash organi",
     "products": "Nimalarni sertifikatlaymiz",
     "laboratories": "Laboratoriyalar",
     "team": "Jamoa",
     "news": "Blog",
-    "financing": "Moliyalaştiriş",
-    "schemes": "Sertifikatlaş sxemalari",
+    "financing": "Moliyalashtirish",
+    "schemes": "Sertifikatlash sxemalari",
     "accreditation": "Akkreditatsiya",
-    "accreditationCertification": "Sertifikatlaş sohasi",
+    "accreditationCertification": "Sertifikatlash sohasi",
     "accreditationLaboratories": "Laboratoriyalar sohasi",
-    "appeals": "Şikoyat va takliflar",
+    "appeals": "Shikoyat va takliflar",
     "contacts": "Aloqa",
-    "apply": "Ariza beriş",
-    "request": "Sörov yuboriş"
+    "apply": "Ariza berish",
+    "request": "So'rov yuborish"
   },
   "home": {
     "heroEyebrow": "O'ZAKK tomonidan akkreditatsiyalangan",
-    "heroTitle": "Mahsulot sertifikatlaştiriş va sinov böyiça işonçli hamkoringiz",
-    "heroText": "SQA Group — mahsulotlarni sertifikatlaştiriş organi va akkreditatsiyalangan sinov laboratoriyalari. Biz Özbekiston va xalqaro standartlarga muvofiqlikni xolis baholaymiz.",
-    "ribbonCertBody": "Sertifikatlaş organi",
+    "heroTitle": "Mahsulot sertifikatlashtirish va sinov bo'yicha ishonchli hamkoringiz",
+    "heroText": "SQA Group — mahsulotlarni sertifikatlashtirish organi va akkreditatsiyalangan sinov laboratoriyalari. Biz O'zbekiston va xalqaro standartlarga muvofiqlikni xolis baholaymiz.",
+    "ribbonCertBody": "Sertifikatlash organi",
     "ribbonLab": "Sinov laboratoriyasi",
-    "ribbonValid": "Amal qiliş muddati",
-    "servicesTitle": "Faoliyat yönalişlarimiz",
+    "ribbonValid": "Amal qilish muddati",
+    "servicesTitle": "Faoliyat yo'nalishlarimiz",
     "servicesSubtitle": "Akkreditatsiya doirasidagi xizmatlar",
-    "certBodyCardTitle": "SQA Sertifikatlaş idorasi",
-    "certBodyCardText": "O'z DSt ISO/IEC 17065:2015 talablariga muvofiq mahsulotlarni majburiy va ixtiyoriy sertifikatlaştiriş.",
+    "certBodyCardTitle": "SQA Sertifikatlash idorasi",
+    "certBodyCardText": "O'z DSt ISO/IEC 17065:2015 talablariga muvofiq mahsulotlarni majburiy va ixtiyoriy sertifikatlashtirish.",
     "lab1CardTitle": "SQA sinov laboratoriyasi",
-    "lab1CardText": "O'z DSt ISO/IEC 17025:2019 böyiça akkreditatsiyalangan laboratoriyada mahsulot sinovlari.",
+    "lab1CardText": "O'z DSt ISO/IEC 17025:2019 bo'yicha akkreditatsiyalangan laboratoriyada mahsulot sinovlari.",
     "lab2CardTitle": "S-LAB sinov laboratoriyasi",
-    "lab2CardText": "O'z DSt ISO/IEC 17025:2019 böyiça akkreditatsiyalangan ikkinçi sinov laboratoriyamiz.",
+    "lab2CardText": "O'z DSt ISO/IEC 17025:2019 bo'yicha akkreditatsiyalangan ikkinchi sinov laboratoriyamiz.",
     "certificatesTitle": "Akkreditatsiya guvohnomalari",
-    "certificatesText": "Uçala bölinma ham Özbekiston akkreditatsiya markazi (O'ZAKK) tomonidan akkreditatsiyalangan. Guvohnomani PDF şaklida oçiş uçun ustiga bosing, holatini esa rasmiy saytda tekşiriş mumkin.",
+    "certificatesText": "Uchala bo'linma ham O'zbekiston akkreditatsiya markazi (O'ZAKK) tomonidan akkreditatsiyalangan. Guvohnomani PDF shaklida ochish uchun ustiga bosing, holatini esa rasmiy saytda tekshirish mumkin.",
     "certificatesSubtitle": "Rasmiy hujjatlar",
     "teamTitle": "Bizning jamoa",
     "teamSubtitle": "Mutaxassislarimiz",
-    "newsTitle": "Blogdagi sönggi maqolalar",
+    "newsTitle": "Blogdagi so'nggi maqolalar",
     "newsSubtitle": "Blog",
-    "financingTitle": "Moliyalaştiriş manbalari",
-    "financingTeaser": "Idoraning moliyalaştiriş manbalari va moliyaviy mustaqillik kafolatlari haqida maʼlumot.",
-    "schemesTitle": "Sertifikatlaş sxemalari",
-    "schemesTeaser": "Mahsulot turiga qarab qöllaniladigan sertifikatlaş sxemalari va ularning tartibi.",
-    "accredCertTitle": "Sertifikatlaş organining akkreditatsiya sohasi",
-    "accredCertTeaser": "Sertifikatlaş organi akkreditatsiyalangan mahsulot guruhlari röyxati.",
+    "financingTitle": "Moliyalashtirish manbalari",
+    "financingTeaser": "Idoraning moliyalashtirish manbalari va moliyaviy mustaqillik kafolatlari haqida ma'lumot.",
+    "schemesTitle": "Sertifikatlash sxemalari",
+    "schemesTeaser": "Mahsulot turiga qarab qo'llaniladigan sertifikatlash sxemalari va ularning tartibi.",
+    "accredCertTitle": "Sertifikatlash organining akkreditatsiya sohasi",
+    "accredCertTeaser": "Sertifikatlash organi akkreditatsiyalangan mahsulot guruhlari ro'yxati.",
     "accredLabTitle": "Laboratoriyalarning akkreditatsiya sohasi",
     "accredLabTeaser": "Sinov laboratoriyalarimiz akkreditatsiyalangan sinov turlari va usullari.",
     "partnersTitle": "Hamkorlarimiz",
-    "partnersSubtitle": "Biz işonçli kompaniyalar bilan işlaymiz",
-    "applyTitle": "Sertifikat uçun ariza topşiriş",
-    "applyText": "Sertifikatlaştiriş uçun arizani rasmiy davlat portallari orqali onlayn topşiring.",
-    "applySingleWindow": "Yagona darça — singlewindow.uz",
+    "partnersSubtitle": "Biz ishonchli kompaniyalar bilan ishlaymiz",
+    "applyTitle": "Sertifikat uchun ariza topshirish",
+    "applyText": "Sertifikatlashtirish uchun arizani rasmiy davlat portallari orqali onlayn topshiring.",
+    "applySingleWindow": "Yagona darcha — singlewindow.uz",
     "applyTris": "TRIS — tris.uz"
   },
   "about": {
     "title": "Biz haqimizda",
-    "intro": "\"Standart and Quality Assessment Group\" MÇJ (SQA Group) — 2013-yildan beri faoliyat yuritayotgan Toşkentdagi muvofiqlikni baholaş kompaniyasi. Uning tarkibida mahsulotlarni sertifikatlaştiriş organi va ikkita akkreditatsiyalangan sinov laboratoriyasi bor.",
+    "intro": "\"Standart and Quality Assessment Group\" MChJ (SQA Group) — 2013-yildan beri faoliyat yuritayotgan Toshkentdagi muvofiqlikni baholash kompaniyasi. Uning tarkibida mahsulotlarni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi bor.",
     "statAccreditations": "ta O'ZAKK akkreditatsiya guvohnomasi",
     "statProducts": "turdagi mahsulot akkreditatsiya sohasida",
     "statCodes": "ta TIF TN kodi",
     "statTeam": "nafar mutaxassis jamoada",
-    "unitsTitle": "Bölinmalarimiz",
+    "unitsTitle": "Bo'linmalarimiz",
     "unitsEyebrow": "O'ZAKK akkreditatsiyasi",
     "units": [
       {
-        "title": "Mahsulotlarni sertifikatlaştiriş organi",
+        "title": "Mahsulotlarni sertifikatlashtirish organi",
         "code": "O'ZAKK.MS.0052",
         "standard": "O'z DSt ISO/IEC 17065:2015",
-        "text": "Mahalliy işlab çiqaruvçilar va import qiluvçilar mahsulotlarini majburiy va ixtiyoriy sertifikatlaştiriş.",
-        "valid": "Guvohnoma 11.01.2027 gaça amal qiladi",
+        "text": "Mahalliy ishlab chiqaruvchilar va import qiluvchilar mahsulotlarini majburiy va ixtiyoriy sertifikatlashtirish.",
+        "valid": "Guvohnoma 11.01.2027 gacha amal qiladi",
         "href": "/certification-body"
       },
       {
         "title": "SQA sinov laboratoriyasi",
         "code": "O'ZAKK.SL.0162",
         "standard": "O'z DSt ISO/IEC 17025:2019",
-        "text": "Sertifikatlaştiriş maqsadida mahsulot namunalarini sinaş va ölçaş.",
-        "valid": "Guvohnoma 10.01.2027 gaça amal qiladi",
+        "text": "Sertifikatlashtirish maqsadida mahsulot namunalarini sinash va o'lchash.",
+        "valid": "Guvohnoma 10.01.2027 gacha amal qiladi",
         "href": "/laboratories"
       },
       {
         "title": "S-LAB sinov laboratoriyasi",
         "code": "O'ZAKK.SL.0437",
         "standard": "O'z DSt ISO/IEC 17025:2019",
-        "text": "Guruhning ikkinçi akkreditatsiyalangan sinov laboratoriyasi.",
-        "valid": "Guvohnoma 11.05.2031 gaça amal qiladi",
+        "text": "Guruhning ikkinchi akkreditatsiyalangan sinov laboratoriyasi.",
+        "valid": "Guvohnoma 11.05.2031 gacha amal qiladi",
         "href": "/laboratories"
       }
     ],
     "groupsEyebrow": "Akkreditatsiya sohasi",
     "groupsTitle": "Nimalarni sertifikatlaymiz",
-    "groupsText": "Sertifikatlaştiriş organining akkreditatsiya sohasi 188 turdagi mahsulotni öz içiga oladi. Asosiy guruhlar:",
+    "groupsText": "Sertifikatlashtirish organining akkreditatsiya sohasi 188 turdagi mahsulotni o'z ichiga oladi. Asosiy guruhlar:",
     "groups": [
-      "Plastmassadan quvurlar, plyonkalar, qadoqlar va boşqa buyumlar",
-      "Plastmassa, şişa va metalldan idiş-tovoq va oşxona anjomlari",
-      "YoTP va YoVP plitalari, fanera va yoğoç buyumlar",
-      "Qoğoz, sanitariya-gigiyena buyumlari va qoğoz idişlar",
-      "Keramik plitkalar, ğişt va sanitariya-texnika buyumlari",
-      "Linoleum va tabiiy toşdan dekorativ plitalar",
-      "Mebel, jumladan taʼlim muassasalari uçun",
-      "Öyinçoqlar, sport anjomlari va bolalar maydonçalari jihozlari",
-      "Velosipedlar, velosiped şinalari va aravaçalar",
+      "Plastmassadan quvurlar, plyonkalar, qadoqlar va boshqa buyumlar",
+      "Plastmassa, shisha va metalldan idish-tovoq va oshxona anjomlari",
+      "YoTP va YoVP plitalari, fanera va yog'och buyumlar",
+      "Qog'oz, sanitariya-gigiyena buyumlari va qog'oz idishlar",
+      "Keramik plitkalar, g'isht va sanitariya-texnika buyumlari",
+      "Linoleum va tabiiy toshdan dekorativ plitalar",
+      "Mebel, jumladan ta'lim muassasalari uchun",
+      "O'yinchoqlar, sport anjomlari va bolalar maydonchalari jihozlari",
+      "Velosipedlar, velosiped shinalari va aravachalar",
       "Poyabzal, sumkalar va ryukzaklar",
-      "Qoplar, alyuminiy folga va boşqa qadoqlar",
-      "Şamlar, termoslar va boşqa uy-rözğor buyumlari"
+      "Qoplar, alyuminiy folga va boshqa qadoqlar",
+      "Shamlar, termoslar va boshqa uy-ro'zg'or buyumlari"
     ],
-    "groupsLink": "Mahsulotni TIF TN kodi böyiça topiş",
-    "principlesEyebrow": "Qanday işlaymiz",
+    "groupsLink": "Mahsulotni TIF TN kodi bo'yicha topish",
+    "principlesEyebrow": "Qanday ishlaymiz",
     "principlesTitle": "Tamoyillarimiz",
     "principles": [
       {
         "title": "Xolislik",
-        "text": "Sertifikatlaştiriş böyiça qarorlar tijorat manfaatlaridan mustaqil qabul qilinadi. Xolislikka tahdid soluvçi xavflarni muntazam tahlil qilamiz va bartaraf etamiz."
+        "text": "Sertifikatlashtirish bo'yicha qarorlar tijorat manfaatlaridan mustaqil qabul qilinadi. Xolislikka tahdid soluvchi xavflarni muntazam tahlil qilamiz va bartaraf etamiz."
       },
       {
         "title": "Malaka",
-        "text": "Işlarni malakali mutaxassislar bajaradi, sinovlar esa ISO/IEC 17025 böyiça akkreditatsiyalangan laboratoriyalarda ötkaziladi."
+        "text": "Ishlarni malakali mutaxassislar bajaradi, sinovlar esa ISO/IEC 17025 bo'yicha akkreditatsiyalangan laboratoriyalarda o'tkaziladi."
       },
       {
         "title": "Maxfiylik",
-        "text": "Sertifikatlaştiriş jarayonida olingan ariza beruvçi va uning mahsuloti haqidagi maʼlumotlar qonunçilikda nazarda tutilgan hollardan taşqari uçinçi şaxslarga berilmaydi."
+        "text": "Sertifikatlashtirish jarayonida olingan ariza beruvchi va uning mahsuloti haqidagi ma'lumotlar qonunchilikda nazarda tutilgan hollardan tashqari uchinchi shaxslarga berilmaydi."
       },
       {
-        "title": "Oçiqlik",
-        "text": "Sertifikatlaştiriş tartibi va sxemalari saytda eʼlon qilingan. Har qanday qarorimiz ustidan şikoyat qiliş, şikoyatni esa onlayn yuboriş mumkin."
+        "title": "Ochiqlik",
+        "text": "Sertifikatlashtirish tartibi va sxemalari saytda e'lon qilingan. Har qanday qarorimiz ustidan shikoyat qilish, shikoyatni esa onlayn yuborish mumkin."
       }
     ],
-    "stepsEyebrow": "Sertifikatlaştiriş tartibi",
-    "stepsTitle": "Sertifikatlaştiriş qanday ötadi",
+    "stepsEyebrow": "Sertifikatlashtirish tartibi",
+    "stepsTitle": "Sertifikatlashtirish qanday o'tadi",
     "steps": [
       {
         "title": "Ariza",
-        "text": "\"Yagona darça\", TRIS yoki saytimizdagi şakl orqali onlayn yuboriladi."
+        "text": "\"Yagona darcha\", TRIS yoki saytimizdagi shakl orqali onlayn yuboriladi."
       },
       {
-        "title": "Arizani tahlil qiliş",
-        "text": "Hujjatlarni tekşiramiz va ariza beruvçi bilan birga sertifikatlaştiriş sxemasini tanlaymiz."
+        "title": "Arizani tahlil qilish",
+        "text": "Hujjatlarni tekshiramiz va ariza beruvchi bilan birga sertifikatlashtirish sxemasini tanlaymiz."
       },
       {
         "title": "Namunalar va sinovlar",
         "text": "Mahsulotni identifikatsiya qilamiz, namunalar olamiz va ularni akkreditatsiyalangan laboratoriyada sinaymiz."
       },
       {
-        "title": "Işlab çiqarişni baholaş",
-        "text": "Agar tanlangan sertifikatlaştiriş sxemasida nazarda tutilgan bölsa, ötkaziladi."
+        "title": "Ishlab chiqarishni baholash",
+        "text": "Agar tanlangan sertifikatlashtirish sxemasida nazarda tutilgan bo'lsa, o'tkaziladi."
       },
       {
         "title": "Sertifikat",
-        "text": "Qaror qabul qilamiz va muvofiqlik sertifikatini elektron şaklda rasmiylaştiramiz."
+        "text": "Qaror qabul qilamiz va muvofiqlik sertifikatini elektron shaklda rasmiylashtiramiz."
       },
       {
-        "title": "Davriy baholaş",
-        "text": "Seriyali mahsulot uçun — sertifikat amal qiliş muddati davomida, agar sxemada nazarda tutilgan bölsa."
+        "title": "Davriy baholash",
+        "text": "Seriyali mahsulot uchun — sertifikat amal qilish muddati davomida, agar sxemada nazarda tutilgan bo'lsa."
       }
     ],
     "detailsTitle": "Rekvizitlar",
     "detailsName": "Nomi",
-    "detailsNameValue": "\"Standart and Quality Assessment Group\" MÇJ",
+    "detailsNameValue": "\"Standart and Quality Assessment Group\" MChJ",
     "detailsAddress": "Manzil",
     "detailsPhone": "Telefon",
-    "detailsEmail": "Elektron poçta",
-    "ctaTitle": "Mahsulotni sertifikatlaştiriş kerakmi?",
-    "ctaText": "Sörov yuboring — sertifikatlaştiriş sxemasi, muddatlari va hujjatlar röyxati böyiça maslahat beramiz.",
+    "detailsEmail": "Elektron pochta",
+    "ctaTitle": "Mahsulotni sertifikatlashtirish kerakmi?",
+    "ctaText": "So'rov yuboring — sertifikatlashtirish sxemasi, muddatlari va hujjatlar ro'yxati bo'yicha maslahat beramiz.",
     "storyEyebrow": "2013-yildan beri",
     "storyTitle": "Bizning tariximiz",
     "story": [
-      "SQA Group 2013-yilda Toşkentda taşkil etilgan. Birinçi kundan boşlab Özbekistonning işlab çiqaruvçilari va import qiluvçilari bilan işlaymiz va ularga eng muhim narsani isbotlaşda yordam beramiz: mahsuloti xavfsiz va talablarga javob beradi.",
-      "Akkreditatsiyani 2022-yilgaça olganmiz, 2022-yil yanvarida esa Özbekiston akkreditatsiya markazida (O'ZAKK) qayta akkreditatsiyadan muvaffaqiyatli ötdik: sertifikatlaştiriş organi — ISO/IEC 17065, sinov laboratoriyasi — ISO/IEC 17025 böyiça.",
-      "2026-yil mayida ikkinçi akkreditatsiyalangan laboratoriya — S-LAB qöşildi. Bugun organning akkreditatsiya sohasi 188 turdagi mahsulotni qamrab oladi: polimer quvurlar va linoleumdan tortib mebel, idiş-tovoq va bolalar maydonçalari jihozlarigaça.",
-      "Biz allaqaçon faqat mahsulotni sertifikatlaştiriş bilan çeklanmaymiz. Kompaniyalarga menejment tizimlarini sertifikatlaştirişga tayyorlanişda, yevropalik hamkorlarimiz bilan birga esa Yevropaga eksport uçun sertifikat va ruxsat beruvçi hujjatlarni olişda yordam beramiz. Özbekiston va butun Markaziy Osiyo eksportçilari bu masalalarni Toşkentda, özbek yoki rus tilida hal qiladi.",
-      "Biz uçun eng muhimi 2013-yildan beri özgarmagan: xolislik, aniqlik va mijoz vaqtini qadrlaş."
+      "SQA Group 2013-yilda Toshkentda tashkil etilgan. Birinchi kundan boshlab O'zbekistonning ishlab chiqaruvchilari va import qiluvchilari bilan ishlaymiz va ularga eng muhim narsani isbotlashda yordam beramiz: mahsuloti xavfsiz va talablarga javob beradi.",
+      "Akkreditatsiyani 2022-yilgacha olganmiz, 2022-yil yanvarida esa O'zbekiston akkreditatsiya markazida (O'ZAKK) qayta akkreditatsiyadan muvaffaqiyatli o'tdik: sertifikatlashtirish organi — ISO/IEC 17065, sinov laboratoriyasi — ISO/IEC 17025 bo'yicha.",
+      "2026-yil mayida ikkinchi akkreditatsiyalangan laboratoriya — S-LAB qo'shildi. Bugun organning akkreditatsiya sohasi 188 turdagi mahsulotni qamrab oladi: polimer quvurlar va linoleumdan tortib mebel, idish-tovoq va bolalar maydonchalari jihozlarigacha.",
+      "Biz allaqachon faqat mahsulotni sertifikatlashtirish bilan cheklanmaymiz. Kompaniyalarga menejment tizimlarini sertifikatlashtirishga tayyorlanishda, yevropalik hamkorlarimiz bilan birga esa Yevropaga eksport uchun sertifikat va ruxsat beruvchi hujjatlarni olishda yordam beramiz. O'zbekiston va butun Markaziy Osiyo eksportchilari bu masalalarni Toshkentda, o'zbek yoki rus tilida hal qiladi.",
+      "Biz uchun eng muhimi 2013-yildan beri o'zgarmagan: xolislik, aniqlik va mijoz vaqtini qadrlash."
     ],
     "timeline": [
       {
         "year": "2013",
-        "text": "SQA Group Toşkentda taşkil etildi"
+        "text": "SQA Group Toshkentda tashkil etildi"
       },
       {
         "year": "2022",
-        "text": "O'ZAKK qayta akkreditatsiyasi: sertifikatlaştiriş organi (O'ZAKK.MS.0052, ISO/IEC 17065) va sinov laboratoriyasi (O'ZAKK.SL.0162, ISO/IEC 17025)"
+        "text": "O'ZAKK qayta akkreditatsiyasi: sertifikatlashtirish organi (O'ZAKK.MS.0052, ISO/IEC 17065) va sinov laboratoriyasi (O'ZAKK.SL.0162, ISO/IEC 17025)"
       },
       {
         "year": "2026",
-        "text": "Ikkinçi laboratoriya S-LAB (O'ZAKK.SL.0437), 188 turdagi mahsulotni qamragan akkreditatsiya sohasi, yevropalik hamkorlar bilan hamkorlik"
+        "text": "Ikkinchi laboratoriya S-LAB (O'ZAKK.SL.0437), 188 turdagi mahsulotni qamragan akkreditatsiya sohasi, yevropalik hamkorlar bilan hamkorlik"
       }
     ]
   },
   "certificationBody": {
-    "title": "Sertifikatlaş organi",
-    "intro": "Mahsulotlarni sertifikatlaştiriş organi O'z DSt ISO/IEC 17065:2015 talablariga muvofiq faoliyat yuritadi va O'ZAKK.MS.0052 raqamli guvohnoma asosida akkreditatsiyalangan.",
+    "title": "Sertifikatlash organi",
+    "intro": "Mahsulotlarni sertifikatlashtirish organi O'z DSt ISO/IEC 17065:2015 talablariga muvofiq faoliyat yuritadi va O'ZAKK.MS.0052 raqamli guvohnoma asosida akkreditatsiyalangan.",
     "scopeTitle": "Faoliyat doirasi",
-    "scopeText": "Organ akkreditatsiya sohasiga kiritilgan mahsulot guruhlari böyiça majburiy va ixtiyoriy sertifikatlaştirişni amalga oşiradi: hujjatlarni körib çiqiş, namuna oliş, sinovlarni taşkil etiş, muvofiqlikni baholaş va sertifikat beriş.",
+    "scopeText": "Organ akkreditatsiya sohasiga kiritilgan mahsulot guruhlari bo'yicha majburiy va ixtiyoriy sertifikatlashtirishni amalga oshiradi: hujjatlarni ko'rib chiqish, namuna olish, sinovlarni tashkil etish, muvofiqlikni baholash va sertifikat berish.",
     "impartialityTitle": "Xolislik kafolati",
-    "impartialityText": "Sertifikatlaş qarorlari tijorat, moliyaviy yoki boşqa bosimlardan mustaqil ravişda qabul qilinadi. Xolislikka tahdidlar muntazam tahlil qilinadi va bartaraf etiladi.",
-    "processTitle": "Sertifikatlaş bosqiçlari",
-    "step1": "Ariza topşiriş va hujjatlarni körib çiqiş",
-    "step2": "Namuna oliş va identifikatsiya",
+    "impartialityText": "Sertifikatlash qarorlari tijorat, moliyaviy yoki boshqa bosimlardan mustaqil ravishda qabul qilinadi. Xolislikka tahdidlar muntazam tahlil qilinadi va bartaraf etiladi.",
+    "processTitle": "Sertifikatlash bosqichlari",
+    "step1": "Ariza topshirish va hujjatlarni ko'rib chiqish",
+    "step2": "Namuna olish va identifikatsiya",
     "step3": "Akkreditatsiyalangan laboratoriyada sinovlar",
-    "step4": "Natijalarni tahlil qiliş va qaror qabul qiliş",
-    "step5": "Sertifikat beriş",
-    "downloadScope": "Akkreditatsiya sohasini yuklab oliş (PDF)"
+    "step4": "Natijalarni tahlil qilish va qaror qabul qilish",
+    "step5": "Sertifikat berish",
+    "downloadScope": "Akkreditatsiya sohasini yuklab olish (PDF)"
   },
   "laboratories": {
     "title": "Sinov laboratoriyalari",
-    "intro": "Idoramiz tarkibida ikkita sinov bölinmasi faoliyat yuritadi. Laboratoriyalar zamonaviy uskunalar bilan jihozlangan va malakali mutaxassislar tomonidan boşqariladi.",
+    "intro": "Idoramiz tarkibida ikkita sinov bo'linmasi faoliyat yuritadi. Laboratoriyalar zamonaviy uskunalar bilan jihozlangan va malakali mutaxassislar tomonidan boshqariladi.",
     "lab1Title": "Sinov laboratoriyasi",
-    "lab1Text": "O'z DSt ISO/IEC 17025:2019 böyiça akkreditatsiyalangan (guvohnoma O'ZAKK.SL.0162). Akkreditatsiya sohasiga kiritilgan mahsulotlar böyiça sinov va ölçovlarni amalga oşiradi.",
+    "lab1Text": "O'z DSt ISO/IEC 17025:2019 bo'yicha akkreditatsiyalangan (guvohnoma O'ZAKK.SL.0162). Akkreditatsiya sohasiga kiritilgan mahsulotlar bo'yicha sinov va o'lchovlarni amalga oshiradi.",
     "lab1Badge": "O'ZAKK.SL.0162",
     "lab2Title": "S-Lab sinov laboratoriyasi",
-    "lab2Text": "O'z DSt ISO/IEC 17025:2019 böyiça akkreditatsiyalangan ikkinçi sinov laboratoriyamiz (guvohnoma O'ZAKK.SL.0437). Qöşimça mahsulot guruhlari böyiça sinov va ölçovlarni amalga oşiradi.",
+    "lab2Text": "O'z DSt ISO/IEC 17025:2019 bo'yicha akkreditatsiyalangan ikkinchi sinov laboratoriyamiz (guvohnoma O'ZAKK.SL.0437). Qo'shimcha mahsulot guruhlari bo'yicha sinov va o'lchovlarni amalga oshiradi.",
     "lab2Badge": "O'ZAKK.SL.0437",
-    "downloadCert": "Guvohnomani yuklab oliş",
-    "equipmentTitle": "Nima uçun bizning laboratoriyalar",
+    "downloadCert": "Guvohnomani yuklab olish",
+    "equipmentTitle": "Nima uchun bizning laboratoriyalar",
     "eq1": "Akkreditatsiyalangan sinov usullari",
-    "eq2": "Kuzatuvçanligi taʼminlangan ölçov vositalari",
+    "eq2": "Kuzatuvchanligi ta'minlangan o'lchov vositalari",
     "eq3": "Sinov natijalarining xolisligi va aniqligi",
     "eq4": "Qisqa muddatlarda rasmiy bayonnomalar"
   },
   "team": {
     "title": "Bizning jamoa",
     "subtitle": "Mutaxassislarimiz",
-    "intro": "Sertifikatlaş organi va sinov laboratoriyalarining malakali mutaxassislari.",
-    "deptCertification": "Sertifikatlaş organi",
+    "intro": "Sertifikatlash organi va sinov laboratoriyalarining malakali mutaxassislari.",
+    "deptCertification": "Sertifikatlash organi",
     "deptLaboratory": "Sinov laboratoriyasi",
     "deptManagement": "Rahbariyat",
     "contactTitle": "Aloqa",
-    "relatedTitle": "Boşqa mutaxassislar",
-    "emptyState": "Jamoa aʼzolari tez orada qöşiladi."
+    "relatedTitle": "Boshqa mutaxassislar",
+    "emptyState": "Jamoa a'zolari tez orada qo'shiladi."
   },
   "news": {
     "title": "Blog",
-    "subtitle": "Sönggi xabarlar",
+    "subtitle": "So'nggi xabarlar",
     "intro": "Kompaniya faoliyati, akkreditatsiya va soha yangiliklari.",
-    "latestTitle": "Sönggi maqolalar",
-    "emptyState": "Hozirça maqolalar yöq.",
-    "publishedOn": "Çop etilgan sana"
+    "latestTitle": "So'nggi maqolalar",
+    "emptyState": "Hozircha maqolalar yo'q.",
+    "publishedOn": "Chop etilgan sana"
   },
   "financing": {
-    "title": "Moliyalaştiriş manbalari",
-    "intro": "Idoraning moliyaviy barqarorligi va mustaqilligi haqida maʼlumot.",
-    "p1": "Idora faoliyati sertifikatlaştiriş va sinov xizmatlarini körsatişdan olinadigan daromadlar hisobidan moliyalaştiriladi. Xizmatlar narxi tasdiqlangan tariflar asosida belgilanadi va barça buyurtmaçilar uçun teng qöllaniladi.",
-    "p2": "Moliyalaştiriş tartibi sertifikatlaş qarorlarining xolisligiga taʼsir ötkazmaydi: qarorlar buyurtmaçi bilan moliyaviy munosabatlardan mustaqil ravişda qabul qilinadi.",
-    "p3": "Idora davlat byudjetidan moliyalaştirilmaydi va biron-bir işlab çiqaruvçi yoki savdo taşkilotiga qaram emas."
+    "title": "Moliyalashtirish manbalari",
+    "intro": "Idoraning moliyaviy barqarorligi va mustaqilligi haqida ma'lumot.",
+    "p1": "Idora faoliyati sertifikatlashtirish va sinov xizmatlarini ko'rsatishdan olinadigan daromadlar hisobidan moliyalashtiriladi. Xizmatlar narxi tasdiqlangan tariflar asosida belgilanadi va barcha buyurtmachilar uchun teng qo'llaniladi.",
+    "p2": "Moliyalashtirish tartibi sertifikatlash qarorlarining xolisligiga ta'sir o'tkazmaydi: qarorlar buyurtmachi bilan moliyaviy munosabatlardan mustaqil ravishda qabul qilinadi.",
+    "p3": "Idora davlat byudjetidan moliyalashtirilmaydi va biron-bir ishlab chiqaruvchi yoki savdo tashkilotiga qaram emas."
   },
   "schemes": {
-    "title": "Sertifikatlaş sxemalari",
-    "intro": "Özbekiston Respublikasida amaldagi mahsulotlarni sertifikatlaştiriş sxemalari va ularning farqlari.",
-    "noticeTitle": "2026-yilda nima özgardi",
-    "noticeText": "Vazirlar Mahkamasining 06.07.2004-yildagi 318-son qarori 07.09.2026-yildagi 472-son qaror asosida 2026-yil 9-sentabrdan öz kuçini yöqotdi. Endi mahsulotlarni sertifikatlaştiriş, butun muvofiqlikni baholaş kabi, Mahsulotlarni sertifikatlaştiriş tartibi töğrisidagi nizom (14.08.2024-yildagi 502-son qarorga 2-ilova) asosida ötkaziladi.",
+    "title": "Sertifikatlash sxemalari",
+    "intro": "O'zbekiston Respublikasida amaldagi mahsulotlarni sertifikatlashtirish sxemalari va ularning farqlari.",
+    "noticeTitle": "2026-yilda nima o'zgardi",
+    "noticeText": "Vazirlar Mahkamasining 06.07.2004-yildagi 318-son qarori 07.09.2026-yildagi 472-son qaror asosida 2026-yil 9-sentabrdan o'z kuchini yo'qotdi. Endi mahsulotlarni sertifikatlashtirish, butun muvofiqlikni baholash kabi, Mahsulotlarni sertifikatlashtirish tartibi to'g'risidagi nizom (14.08.2024-yildagi 502-son qarorga 2-ilova) asosida o'tkaziladi.",
     "schemesEyebrow": "Nizomning 93-bandi",
     "schemesTitle": "Amaldagi sxemalar",
-    "schemesText": "Sxema mahsulot turi va yetkazib beriş şakliga qarab tanlanadi: seriyali işlab çiqariş, tovarlar töpi yoki yagona buyum. Agar texnik reglament bir neçta sxemaga yöl qöysa, tanlovni ariza beruvçi qiladi.",
+    "schemesText": "Sxema mahsulot turi va yetkazib berish shakliga qarab tanlanadi: seriyali ishlab chiqarish, tovarlar to'pi yoki yagona buyum. Agar texnik reglament bir nechta sxemaga yo'l qo'ysa, tanlovni ariza beruvchi qiladi.",
     "inScope": "Akkreditatsiya sohamizda",
-    "applicantLabel": "Ariza beruvçi",
+    "applicantLabel": "Ariza beruvchi",
     "markLabel": "Muvofiqlik belgisi",
-    "markYes": "Mahsulot tamğalanadi",
+    "markYes": "Mahsulot tamg'alanadi",
     "markNo": "Nazarda tutilmagan",
-    "applicantMaker": "Işlab çiqaruvçi yoki u vakolat bergan şaxs",
-    "applicantMakerOrSeller": "Işlab çiqaruvçi (vakolatli şaxs) yoki sotuvçi (import qiluvçi)",
+    "applicantMaker": "Ishlab chiqaruvchi yoki u vakolat bergan shaxs",
+    "applicantMakerOrSeller": "Ishlab chiqaruvchi (vakolatli shaxs) yoki sotuvchi (import qiluvchi)",
     "schemes": {
       "1S": {
         "title": "Seriyali mahsulot",
-        "text": "Seriyali işlab çiqariladigan mahsulotlar uçun."
+        "text": "Seriyali ishlab chiqariladigan mahsulotlar uchun."
       },
       "2S": {
         "title": "Sertifikatlangan menejment tizimi mavjud seriyali mahsulot",
-        "text": "Menejment tizimi sertifikatiga ega işlab çiqaruvçining seriyali mahsulotlari uçun."
+        "text": "Menejment tizimi sertifikatiga ega ishlab chiqaruvchining seriyali mahsulotlari uchun."
       },
       "3S": {
-        "title": "Mahsulotlar töpi",
-        "text": "Mahsulotlar töpi uçun. Özbekistonga olib kirilgunga qadar sertifikatlaştiriş mumkin: namunalarni tanlaş va ularni sertifikatlaştiriş organiga yetkaziş uçun ariza beruvçi javobgar. Import mahsulotlar ariza beruvçiga qulay şaklda tamğalanadi."
+        "title": "Mahsulotlar to'pi",
+        "text": "Mahsulotlar to'pi uchun. O'zbekistonga olib kirilgunga qadar sertifikatlashtirish mumkin: namunalarni tanlash va ularni sertifikatlashtirish organiga yetkazish uchun ariza beruvchi javobgar. Import mahsulotlar ariza beruvchiga qulay shaklda tamg'alanadi."
       },
       "3A": {
-        "title": "Bitta taşqi savdo şartnomasi böyiça yetkazib beriş",
-        "text": "Bitta taşqi savdo şartnomasi (kontrakti) doirasida olib kelinadigan aynan bir xil tovarlar uçun (transport vositalaridan taşqari). Sertifikat bir marta, bir kalendar yildan oşmaydigan muddatga beriladi. Sxema 07.09.2026-yildagi 472-son qaror bilan kiritilgan."
+        "title": "Bitta tashqi savdo shartnomasi bo'yicha yetkazib berish",
+        "text": "Bitta tashqi savdo shartnomasi (kontrakti) doirasida olib kelinadigan aynan bir xil tovarlar uchun (transport vositalaridan tashqari). Sertifikat bir marta, bir kalendar yildan oshmaydigan muddatga beriladi. Sxema 07.09.2026-yildagi 472-son qaror bilan kiritilgan."
       },
       "4S": {
         "title": "Yagona buyum",
-        "text": "Agar texnik reglamentdagi sinov va ölçaşlar unga zarar yetkazmasa, bitta buyum uçun."
+        "text": "Agar texnik reglamentdagi sinov va o'lchashlar unga zarar yetkazmasa, bitta buyum uchun."
       },
       "5S": {
-        "title": "Sinovlar bilan töliq tekşirib bölmaydigan seriyali mahsulot",
-        "text": "Tayyor mahsulotni sinaş va ölçaş orqali muvofiqligini töliq tasdiqlab bölmaydigan seriyali mahsulotlar uçun."
+        "title": "Sinovlar bilan to'liq tekshirib bo'lmaydigan seriyali mahsulot",
+        "text": "Tayyor mahsulotni sinash va o'lchash orqali muvofiqligini to'liq tasdiqlab bo'lmaydigan seriyali mahsulotlar uchun."
       },
       "6S": {
-        "title": "Xuddi şu, menejment tizimi mavjud bölganda",
-        "text": "Tayyor mahsulot sinovlari orqali muvofiqligini töliq tasdiqlab bölmaydigan seriyali mahsulotlar uçun, işlab çiqaruvçida menejment tizimi sertifikati bölsa."
+        "title": "Xuddi shu, menejment tizimi mavjud bo'lganda",
+        "text": "Tayyor mahsulot sinovlari orqali muvofiqligini to'liq tasdiqlab bo'lmaydigan seriyali mahsulotlar uchun, ishlab chiqaruvchida menejment tizimi sertifikati bo'lsa."
       },
       "7S": {
         "title": "Modifikatsiyali seriyali mahsulot",
-        "text": "Işlab çiqaruvçi mahsulot modifikatsiyalarini çiqarişni rejalaştirgan seriyali mahsulotlar uçun."
+        "text": "Ishlab chiqaruvchi mahsulot modifikatsiyalarini chiqarishni rejalashtirgan seriyali mahsulotlar uchun."
       },
       "8S": {
-        "title": "Menejment tizimi mavjud bölganda modifikatsiyalar",
-        "text": "Modifikatsiyalari rejalaştirilgan seriyali mahsulotlar uçun, işlab çiqaruvçida menejment tizimi sertifikati bölsa."
+        "title": "Menejment tizimi mavjud bo'lganda modifikatsiyalar",
+        "text": "Modifikatsiyalari rejalashtirilgan seriyali mahsulotlar uchun, ishlab chiqaruvchida menejment tizimi sertifikati bo'lsa."
       },
       "9S": {
-        "title": "Korxonalarni jihozlaş",
-        "text": "Respublika korxonalarini jihozlaş uçun möljallangan yagona buyumlar uçun. Sertifikatlaştiriş texnik hujjatlarni tahlil qiliş asosida ötkaziladi."
+        "title": "Korxonalarni jihozlash",
+        "text": "Respublika korxonalarini jihozlash uchun mo'ljallangan yagona buyumlar uchun. Sertifikatlashtirish texnik hujjatlarni tahlil qilish asosida o'tkaziladi."
       }
     },
-    "validityTitle": "Sertifikatning amal qiliş muddati",
+    "validityTitle": "Sertifikatning amal qilish muddati",
     "validity": [
       {
         "title": "Seriyali mahsulot",
-        "text": "3 yil. Şu davrda işlab çiqarilgan mahsulot sertifikatlangan hisoblanadi va qayta sertifikatlaştirilmaydi."
+        "text": "3 yil. Shu davrda ishlab chiqarilgan mahsulot sertifikatlangan hisoblanadi va qayta sertifikatlashtirilmaydi."
       },
       {
-        "title": "Mahsulotlar töpi",
+        "title": "Mahsulotlar to'pi",
         "text": "Mahsulotning yaroqlilik yoki kafolat muddatiga."
       },
       {
         "title": "3A sxema",
-        "text": "Bir marta, bir kalendar yildan oşmaydigan muddatga beriladi."
+        "text": "Bir marta, bir kalendar yildan oshmaydigan muddatga beriladi."
       }
     ],
     "markTitle": "Muvofiqlik belgisi",
-    "markText1": "1S, 2S, 3S, 3A, 5S, 6S, 7S va 8S sxemalari böyiça sertifikatlangan mahsulot muvofiqlik belgisi bilan tamğalanadi.",
-    "markText2": "2026-yil 12-oktabrdan \"Texnik tartibga soliş\" milliy axborot tizimi uşbu sxemalar böyiça berilgan sertifikatga muvofiqlik belgisini avtomatik qöyadi.",
-    "markText3": "Belgidan foydalaniş huquqi işlab çiqaruvçi yoki import qiluvçiga sertifikat bergan organ bilan tuzilgan kelişuv asosida beriladi; belgidan foydalanganlik uçun bir martalik tölov undiriladi (\"Texnik jihatdan tartibga soliş töğrisida\"gi Qonunning 28-moddasi).",
-    "noteTitle": "Qaysi sxema mos kelişini bilmaysizmi?",
-    "noteText": "Mutaxassislarimiz mos sxema, muddatlar va hujjatlar röyxati böyiça bepul maslahat berişadi — sörov yuboring.",
+    "markText1": "1S, 2S, 3S, 3A, 5S, 6S, 7S va 8S sxemalari bo'yicha sertifikatlangan mahsulot muvofiqlik belgisi bilan tamg'alanadi.",
+    "markText2": "2026-yil 12-oktabrdan \"Texnik tartibga solish\" milliy axborot tizimi ushbu sxemalar bo'yicha berilgan sertifikatga muvofiqlik belgisini avtomatik qo'yadi.",
+    "markText3": "Belgidan foydalanish huquqi ishlab chiqaruvchi yoki import qiluvchiga sertifikat bergan organ bilan tuzilgan kelishuv asosida beriladi; belgidan foydalanganlik uchun bir martalik to'lov undiriladi (\"Texnik jihatdan tartibga solish to'g'risida\"gi Qonunning 28-moddasi).",
+    "noteTitle": "Qaysi sxema mos kelishini bilmaysizmi?",
+    "noteText": "Mutaxassislarimiz mos sxema, muddatlar va hujjatlar ro'yxati bo'yicha bepul maslahat berishadi — so'rov yuboring.",
     "sourcesTitle": "Normativ asos",
     "source502": "VMning 14.08.2024-yildagi 502-son qarori (lex.uz)",
-    "source318": "VMning 06.07.2004-yildagi 318-son qarori — öz kuçini yöqotgan (lex.uz)",
-    "sourceLetter": "Özbekiston texnik jihatdan tartibga soliş agentligining 05.10.2026-yildagi 04-16-4581-son xati"
+    "source318": "VMning 06.07.2004-yildagi 318-son qarori — o'z kuchini yo'qotgan (lex.uz)",
+    "sourceLetter": "O'zbekiston texnik jihatdan tartibga solish agentligining 05.10.2026-yildagi 04-16-4581-son xati"
   },
   "accreditation": {
-    "certTitle": "Sertifikatlaş organining akkreditatsiya sohasi",
-    "certIntro": "Sertifikatlaş organi O'ZAKK.MS.0052 guvohnomasi bilan akkreditatsiyalangan. Akkreditatsiya sohasi guvohnomaning ajralmas qismi hisoblanadi.",
-    "certText": "Akkreditatsiya sohasiga kiritilgan mahsulot guruhlari böyiça töliq röyxat bilan tanişiş uçun rasmiy guvohnoma ilovasini yuklab oling yoki akkred.uz saytida tekşiring.",
+    "certTitle": "Sertifikatlash organining akkreditatsiya sohasi",
+    "certIntro": "Sertifikatlash organi O'ZAKK.MS.0052 guvohnomasi bilan akkreditatsiyalangan. Akkreditatsiya sohasi guvohnomaning ajralmas qismi hisoblanadi.",
+    "certText": "Akkreditatsiya sohasiga kiritilgan mahsulot guruhlari bo'yicha to'liq ro'yxat bilan tanishish uchun rasmiy guvohnoma ilovasini yuklab oling yoki akkred.uz saytida tekshiring.",
     "labTitle": "Sinov laboratoriyalarining akkreditatsiya sohasi",
-    "labIntro": "SQA sinov laboratoriyasi O'ZAKK.SL.0162, S-LAB sinov laboratoriyasi esa O'ZAKK.SL.0437 guvohnomasi bilan akkreditatsiyalangan. Har bir laboratoriyaning akkreditatsiya sohasi tegişli sinov turlari va usullarini belgilaydi.",
-    "labText": "Har ikki laboratoriyaning akkreditatsiya sohasiga kiritilgan sinov usullari rasmiy guvohnoma ilovalarida keltirilgan. Guvohnomalarni quyida körişingiz va yuklab olişingiz yoki akkred.uz orqali tekşirişingiz mumkin.",
+    "labIntro": "SQA sinov laboratoriyasi O'ZAKK.SL.0162, S-LAB sinov laboratoriyasi esa O'ZAKK.SL.0437 guvohnomasi bilan akkreditatsiyalangan. Har bir laboratoriyaning akkreditatsiya sohasi tegishli sinov turlari va usullarini belgilaydi.",
+    "labText": "Har ikki laboratoriyaning akkreditatsiya sohasiga kiritilgan sinov usullari rasmiy guvohnoma ilovalarida keltirilgan. Guvohnomalarni quyida ko'rishingiz va yuklab olishingiz yoki akkred.uz orqali tekshirishingiz mumkin.",
     "labOneTitle": "SQA sinov laboratoriyasi",
-    "labOneText": "Mahsulot namunalarini akkreditatsiya doirasidagi usullar böyiça sinovdan ötkazadi va natijalar asosida rasmiy sinov bayonnomalarini taqdim etadi.",
+    "labOneText": "Mahsulot namunalarini akkreditatsiya doirasidagi usullar bo'yicha sinovdan o'tkazadi va natijalar asosida rasmiy sinov bayonnomalarini taqdim etadi.",
     "labTwoTitle": "S-LAB sinov laboratoriyasi",
-    "labTwoText": "O'z DSt ISO/IEC 17025:2019 talablariga muvofiq faoliyat yurituvçi ikkinçi akkreditatsiyalangan sinov laboratoriyamiz.",
-    "downloadCert": "Guvohnomani köriş",
-    "verifyTitle": "Rasmiy tekşiriş",
-    "verifyText": "Akkreditatsiya holatini Özbekiston akkreditatsiya markazining rasmiy saytida tekşirişingiz mumkin:",
-    "validUntil": "Amal qiliş muddati"
+    "labTwoText": "O'z DSt ISO/IEC 17025:2019 talablariga muvofiq faoliyat yurituvchi ikkinchi akkreditatsiyalangan sinov laboratoriyamiz.",
+    "downloadCert": "Guvohnomani ko'rish",
+    "verifyTitle": "Rasmiy tekshirish",
+    "verifyText": "Akkreditatsiya holatini O'zbekiston akkreditatsiya markazining rasmiy saytida tekshirishingiz mumkin:",
+    "validUntil": "Amal qilish muddati"
   },
   "appeals": {
-    "title": "Şikoyat va takliflar",
-    "intro": "Sertifikatlaş organi qarorlari ustidan apellyatsiya beriş, şikoyat va takliflar yuboriş tartibi.",
-    "processTitle": "Körib çiqiş tartibi",
-    "p1": "Şikoyat yoki apellyatsiya yozma şaklda qabul qilinadi, röyxatga olinadi va murojaatçiga qabul qilingani haqida elektron poçta orqali xabar beriladi.",
-    "p2": "Murojaat masʼul jamoa tomonidan xolislik va maxfiylik tamoyillari asosida körib çiqiladi. Zarur hollarda qöşimça hujjatlar söralişi mumkin, yakuniy javob esa yozma şaklda yuboriladi.",
-    "downloadTitle": "Rasmiy ariza şakli",
-    "downloadText": "Şikoyat yoki apellyatsiya yuboriş uçun rasmiy şaklni yuklab oling, kerakli maʼlumotlarni töldiring va imzolangan nusxasini bizga yuboring.",
-    "downloadCta": "DOCX şaklni yuklab oliş",
-    "downloadNote": "Hujjat Word formatida taqdim etilgan. Töldirgandan söng uni elektron poçta orqali yuborişingiz yoki çop etilgan nusxasini taqdim etişingiz mumkin.",
-    "formTitle": "Şikoyat yoki apellyatsiya yuboriş",
-    "formIntro": "Quyidagi şakl yozma murojaat uçun zarur maʼlumotlarni yiğadi. Yuborilgandan söng murojaat rasmiy DOCX hujjat körinişida kompaniya elektron poçtasiga jönatiladi.",
-    "formLead": "Murojaatni onlayn yuborişingiz yoki DOCX şaklini yuklab olib, yozma ravişda tayyorlaşingiz mumkin.",
+    "title": "Shikoyat va takliflar",
+    "intro": "Sertifikatlash organi qarorlari ustidan apellyatsiya berish, shikoyat va takliflar yuborish tartibi.",
+    "processTitle": "Ko'rib chiqish tartibi",
+    "p1": "Shikoyat yoki apellyatsiya yozma shaklda qabul qilinadi, ro'yxatga olinadi va murojaatchiga qabul qilingani haqida elektron pochta orqali xabar beriladi.",
+    "p2": "Murojaat mas'ul jamoa tomonidan xolislik va maxfiylik tamoyillari asosida ko'rib chiqiladi. Zarur hollarda qo'shimcha hujjatlar so'ralishi mumkin, yakuniy javob esa yozma shaklda yuboriladi.",
+    "downloadTitle": "Rasmiy ariza shakli",
+    "downloadText": "Shikoyat yoki apellyatsiya yuborish uchun rasmiy shaklni yuklab oling, kerakli ma'lumotlarni to'ldiring va imzolangan nusxasini bizga yuboring.",
+    "downloadCta": "DOCX shaklni yuklab olish",
+    "downloadNote": "Hujjat Word formatida taqdim etilgan. To'ldirgandan so'ng uni elektron pochta orqali yuborishingiz yoki chop etilgan nusxasini taqdim etishingiz mumkin.",
+    "formTitle": "Shikoyat yoki apellyatsiya yuborish",
+    "formIntro": "Quyidagi shakl yozma murojaat uchun zarur ma'lumotlarni yig'adi. Yuborilgandan so'ng murojaat rasmiy DOCX hujjat ko'rinishida kompaniya elektron pochtasiga jo'natiladi.",
+    "formLead": "Murojaatni onlayn yuborishingiz yoki DOCX shaklini yuklab olib, yozma ravishda tayyorlashingiz mumkin.",
     "submissionType": "Murojaat turi *",
-    "submissionComplaint": "Şikoyat",
+    "submissionComplaint": "Shikoyat",
     "submissionAppeal": "Apellyatsiya",
-    "applicantName": "Murojaatçining F.I.Ş. *",
-    "organization": "Taşkilot nomi",
-    "applicantRole": "Murojaatçi maqomi",
+    "applicantName": "Murojaatchining F.I.Sh. *",
+    "organization": "Tashkilot nomi",
+    "applicantRole": "Murojaatchi maqomi",
     "phone": "Telefon *",
-    "email": "Elektron poçta *",
-    "postalAddress": "Poçta manzili",
-    "relatedActivity": "Murojaat qaysi faoliyatga tegişli? *",
-    "activityCertification": "Sertifikatlaştiriş işlari",
-    "activityTesting": "Sinov laboratoriyasi işlari",
+    "email": "Elektron pochta *",
+    "postalAddress": "Pochta manzili",
+    "relatedActivity": "Murojaat qaysi faoliyatga tegishli? *",
+    "activityCertification": "Sertifikatlashtirish ishlari",
+    "activityTesting": "Sinov laboratoriyasi ishlari",
     "activitySurveillance": "Inspeksiya nazorati",
-    "activityDecision": "Sertifikatlaştiriş organi qarori",
-    "activityOther": "Boşqa",
+    "activityDecision": "Sertifikatlashtirish organi qarori",
+    "activityOther": "Boshqa",
     "referenceNumber": "Qaror, ariza, sertifikat yoki hujjat raqami",
     "decisionDate": "Qaror sanasi",
     "eventDate": "Voqea yoki holat sanasi",
     "complaintSubject": "Murojaat mavzusi *",
     "details": "Murojaat mazmuni *",
-    "grounds": "Şikoyat sababi yoki apellyatsiya asoslari",
-    "requestedOutcome": "Kutilayotgan natija yoki söralayotgan çora",
-    "attachmentsDescription": "Ilovalar yoki asoslovçi hujjatlar röyxati",
-    "signatureName": "Imzo uçun F.I.Ş. *",
-    "formSubmit": "Murojaatni yuboriş",
+    "grounds": "Shikoyat sababi yoki apellyatsiya asoslari",
+    "requestedOutcome": "Kutilayotgan natija yoki so'ralayotgan chora",
+    "attachmentsDescription": "Ilovalar yoki asoslovchi hujjatlar ro'yxati",
+    "signatureName": "Imzo uchun F.I.Sh. *",
+    "formSubmit": "Murojaatni yuborish",
     "formSending": "Yuborilmoqda...",
-    "formSuccess": "Murojaatingiz qabul qilindi. Rasmiy DOCX şakli kompaniya elektron poçtasiga yuborildi.",
-    "formError": "Xatolik yuz berdi. Iltimos, majburiy maydonlarni tekşiring yoki telefon orqali boğlaning.",
-    "templateTitle": "Murojaat şabloni",
-    "templateText": "Murojaatingizni quyidagi şaklda yuboring — bu körib çiqişni tezlaştiradi:",
-    "templateBody": "Kimga: \"Standart and Quality Assessment Group\" MÇJ\nKimdan: [F.I.Ş. / taşkilot nomi]\nAloqa: [telefon, email]\nMavzu: [Şikoyat / Apellyatsiya / Taklif]\n\nMurojaat mazmuni:\n[Vaziyatni, sanani va tegişli hujjat raqamlarini körsatgan holda batafsil yozing]\n\nIlovalar: [mavjud bölsa]\nSana va imzo",
-    "copyTemplate": "Şablonni nusxalaş",
+    "formSuccess": "Murojaatingiz qabul qilindi. Rasmiy DOCX shakli kompaniya elektron pochtasiga yuborildi.",
+    "formError": "Xatolik yuz berdi. Iltimos, majburiy maydonlarni tekshiring yoki telefon orqali bog'laning.",
+    "templateTitle": "Murojaat shabloni",
+    "templateText": "Murojaatingizni quyidagi shaklda yuboring — bu ko'rib chiqishni tezlashtiradi:",
+    "templateBody": "Kimga: \"Standart and Quality Assessment Group\" MChJ\nKimdan: [F.I.Sh. / tashkilot nomi]\nAloqa: [telefon, email]\nMavzu: [Shikoyat / Apellyatsiya / Taklif]\n\nMurojaat mazmuni:\n[Vaziyatni, sanani va tegishli hujjat raqamlarini ko'rsatgan holda batafsil yozing]\n\nIlovalar: [mavjud bo'lsa]\nSana va imzo",
+    "copyTemplate": "Shablonni nusxalash",
     "copied": "Nusxalandi",
-    "sendTitle": "Murojaatni yuboriş",
-    "sendText": "Murojaatlar yagona elektron poçta orqali qabul qilinadi va masʼul jamoa tomonidan körib çiqiladi:"
+    "sendTitle": "Murojaatni yuborish",
+    "sendText": "Murojaatlar yagona elektron pochta orqali qabul qilinadi va mas'ul jamoa tomonidan ko'rib chiqiladi:"
   },
   "contacts": {
     "title": "Aloqa",
-    "intro": "Savollaringiz bölsa, biz bilan boğlaning — mutaxassislarimiz yordam berişadi.",
+    "intro": "Savollaringiz bo'lsa, biz bilan bog'laning — mutaxassislarimiz yordam berishadi.",
     "addressTitle": "Manzil",
-    "openInMaps": "Xaritada oçiş",
-    "address": "100043, Toşkent şahri, Çilonzor tumani, Zarkand 1-berk köçasi, 11-uy",
+    "openInMaps": "Xaritada ochish",
+    "address": "100043, Toshkent shahri, Chilonzor tumani, Zarkand 1-berk ko'chasi, 11-uy",
     "phoneTitle": "Telefon",
-    "emailTitle": "Elektron poçta",
-    "hoursTitle": "Iş vaqti",
-    "hours": "Duşanba – Juma, 9:00 – 18:00",
+    "emailTitle": "Elektron pochta",
+    "hoursTitle": "Ish vaqti",
+    "hours": "Dushanba – Juma, 9:00 – 18:00",
     "socialTitle": "Ijtimoiy tarmoqlar",
-    "directorEmailLabel": "Rahbariyat bilan boğlaniş"
+    "directorEmailLabel": "Rahbariyat bilan bog'lanish"
   },
   "footer": {
-    "tagline": "Mahsulotlarni sertifikatlaştiriş organi va akkreditatsiyalangan sinov laboratoriyalari.",
+    "tagline": "Mahsulotlarni sertifikatlashtirish organi va akkreditatsiyalangan sinov laboratoriyalari.",
     "navTitle": "Sahifalar",
     "contactsTitle": "Aloqa",
     "officeTitle": "Ofisimiz",
-    "rights": "Barça huquqlar himoyalangan."
+    "rights": "Barcha huquqlar himoyalangan."
   },
   "admin": {
-    "loginTitle": "Administrator kirişi"
+    "loginTitle": "Administrator kirishi"
   },
   "apply": {
-    "title": "Ariza beriş",
-    "intro": "Sertifikatlaş yoki sinov böyiça arizani qoldiring.",
-    "name": "F.I.Ş. *",
+    "title": "Ariza berish",
+    "intro": "Sertifikatlash yoki sinov bo'yicha arizani qoldiring.",
+    "name": "F.I.Sh. *",
     "phone": "Telefon *",
-    "email": "Elektron poçta",
-    "company": "Taşkilot nomi",
+    "email": "Elektron pochta",
+    "company": "Tashkilot nomi",
     "serviceType": "Xizmat turi *",
-    "opt1": "Mahsulot sertifikatlaş",
+    "opt1": "Mahsulot sertifikatlash",
     "opt2": "Laboratoriya sinovi",
     "opt3": "Inspeksiya nazorati",
-    "opt4": "Boşqa / maslahat",
-    "message": "Mahsulot va sörov tafsilotlari *",
-    "submit": "Arizani yuboriş",
+    "opt4": "Boshqa / maslahat",
+    "message": "Mahsulot va so'rov tafsilotlari *",
+    "submit": "Arizani yuborish",
     "sending": "Yuborilmoqda...",
-    "success": "Arizangiz qabul qilindi. Mutaxassislarimiz tez orada boğlanişadi.",
-    "error": "Xatolik yuz berdi. Iltimos, qayta urinib köring yoki telefon orqali boğlaning.",
-    "stateNote": "Majburiy sertifikatlaştiriş böyiça rasmiy ariza \"Yagona darça\" (singlewindow.uz) yoki TRIS tizimi orqali ham topşirilişi mumkin.",
-    "stateCta": "Yagona darça orqali topşiriş",
-    "docsTitle": "Ariza uçun kerakli hujjatlar",
-    "doc1": "Invoys yoki sçyot-faktura",
+    "success": "Arizangiz qabul qilindi. Mutaxassislarimiz tez orada bog'lanishadi.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring yoki telefon orqali bog'laning.",
+    "stateNote": "Majburiy sertifikatlashtirish bo'yicha rasmiy ariza \"Yagona darcha\" (singlewindow.uz) yoki TRIS tizimi orqali ham topshirilishi mumkin.",
+    "stateCta": "Yagona darcha orqali topshirish",
+    "docsTitle": "Ariza uchun kerakli hujjatlar",
+    "doc1": "Invoys yoki schyot-faktura",
     "doc2": "Yuk xati yoki transport hujjati",
     "doc3": "TN VED kodi va mahsulot tavsifi",
-    "doc4": "Mahsulotning normativ hujjati (GOST, TŞ yoki boşqa standart)",
-    "doc5": "Mavjud bölsa — kelib çiqiş sertifikati",
+    "doc4": "Mahsulotning normativ hujjati (GOST, TSh yoki boshqa standart)",
+    "doc5": "Mavjud bo'lsa — kelib chiqish sertifikati",
     "formTitle": "Onlayn ariza"
   },
   "products": {
     "title": "Nimalarni sertifikatlaymiz",
-    "intro": "SQA sertifikatlaştiriş organi akkreditatsiya doirasida sertifikatlaydigan mahsulotlar röyxati. Mahsulotingizni TIF TN kodi yoki nomi böyiça toping.",
-    "sourceNote": "Nomlar, kodlar va meʼyoriy hujjatlar O'ZAKK.MS.0052 akkreditatsiya sohasi (05.08.2026-yildagi 11-sonli tahriri) böyiça keltirilgan.",
-    "searchLabel": "TIF TN kodi yoki nomi böyiça qidiriş",
+    "intro": "SQA sertifikatlashtirish organi akkreditatsiya doirasida sertifikatlaydigan mahsulotlar ro'yxati. Mahsulotingizni TIF TN kodi yoki nomi bo'yicha toping.",
+    "sourceNote": "Nomlar, kodlar va me'yoriy hujjatlar O'ZAKK.MS.0052 akkreditatsiya sohasi (05.08.2026-yildagi 11-sonli tahriri) bo'yicha keltirilgan.",
+    "searchLabel": "TIF TN kodi yoki nomi bo'yicha qidirish",
     "searchPlaceholder": "TIF TN kodi (masalan, 3917) yoki mahsulot nomi",
     "countAll": "Akkreditatsiya sohasida jami: {count} ta pozitsiya",
     "countFound": "Topildi: {count} / {total}",
-    "codeFound": "Kodi {code} bilan boşlanadigan {count} ta pozitsiya",
-    "codeNear": "Aniq moslik yöq. Kodning dastlabki {digits} ta raqami ({prefix}) mos keladigan pozitsiyalar: {count}",
+    "codeFound": "Kodi {code} bilan boshlanadigan {count} ta pozitsiya",
+    "codeNear": "Aniq moslik yo'q. Kodning dastlabki {digits} ta raqami ({prefix}) mos keladigan pozitsiyalar: {count}",
     "codeNone": "{code} kodi akkreditatsiya sohasida topilmadi",
-    "emptyTitle": "Heç narsa topilmadi",
-    "emptyText": "Kodning kamroq raqamini yoki boşqa sözni kiriting. Mahsulotingiz röyxatda bölmasa, biz bilan boğlaning — qayerda sertifikatlaş mumkinligini aytib beramiz.",
-    "contactUs": "Biz bilan boğlaniş",
+    "emptyTitle": "Hech narsa topilmadi",
+    "emptyText": "Kodning kamroq raqamini yoki boshqa so'zni kiriting. Mahsulotingiz ro'yxatda bo'lmasa, biz bilan bog'laning — qayerda sertifikatlash mumkinligini aytib beramiz.",
+    "contactUs": "Biz bilan bog'lanish",
     "codesLabel": "TIF TN kodlari",
-    "normsLabel": "Meʼyoriy hujjatlar",
+    "normsLabel": "Me'yoriy hujjatlar",
     "moreCodes": "yana {count} ta",
     "scheme318": "VMQ № 318",
-    "scheme318Full": "VMning 06.07.2004-yildagi 318-son qarori 2-ilovasi böyiça sertifikatlaş sxemalari (3, 7)",
+    "scheme318Full": "VMning 06.07.2004-yildagi 318-son qarori 2-ilovasi bo'yicha sertifikatlash sxemalari (3, 7)",
     "scheme502": "VMQ № 502",
-    "scheme502Full": "VMning 14.08.2024-yildagi 502-son qarori 2-ilovasi böyiça sertifikatlaş sxemalari (1S, 2S, 3S, 4S, 9S)",
+    "scheme502Full": "VMning 14.08.2024-yildagi 502-son qarori 2-ilovasi bo'yicha sertifikatlash sxemalari (1S, 2S, 3S, 4S, 9S)",
     "ctaTitle": "Mahsulotingizni topdingizmi?",
-    "ctaText": "Sertifikatlaş uçun onlayn ariza yuboring — siz bilan boğlanib, sertifikatlaş sxemasi va muddatlarini aniqlaymiz.",
+    "ctaText": "Sertifikatlash uchun onlayn ariza yuboring — siz bilan bog'lanib, sertifikatlash sxemasi va muddatlarini aniqlaymiz.",
     "homeTitle": "Mahsulotingizni sertifikatlaymizmi?",
-    "homeText": "TIF TN kodi yoki nomini kiriting — akkreditatsiya sohasi böyiça tekşiramiz.",
-    "homeButton": "Qidiriş"
+    "homeText": "TIF TN kodi yoki nomini kiriting — akkreditatsiya sohasi bo'yicha tekshiramiz.",
+    "homeButton": "Qidirish"
   },
   "beyond": {
     "eyebrow": "Nafaqat akkreditatsiyalangan xizmatlar",
-    "title": "Mahsulot sertifikatidan köproq",
+    "title": "Mahsulot sertifikatidan ko'proq",
     "items": [
       {
         "key": "management",
         "title": "Menejment tizimlari",
-        "text": "Menejment tizimlarini sertifikatlaştirişga tayyorlaniş va undan ötişda yordam beramiz — ISO 9001 (sifat), ISO 14001 (ekologiya), ISO 45001 (mehnat muhofazasi), ISO 22000 (oziq-ovqat xavfsizligi): hujjatlar, içki audit va akkreditatsiyalangan organda sertifikat olgunga qadar hamrohlik.",
-        "link": "Sörov yuboriş"
+        "text": "Menejment tizimlarini sertifikatlashtirishga tayyorlanish va undan o'tishda yordam beramiz — ISO 9001 (sifat), ISO 14001 (ekologiya), ISO 45001 (mehnat muhofazasi), ISO 22000 (oziq-ovqat xavfsizligi): hujjatlar, ichki audit va akkreditatsiyalangan organda sertifikat olgunga qadar hamrohlik.",
+        "link": "So'rov yuborish"
       },
       {
         "key": "export",
         "title": "Yevropaga eksport",
-        "text": "Yevropa bozori uçun sertifikatlar va ruxsat beruvçi hujjatlar — Özbekiston va butun Markaziy Osiyo eksportçilari uçun. Yevropalik hamkorlarimiz bilan birga işlaymiz: siz biz bilan Toşkentda muloqot qilasiz, Yevropa tomoni bilan işni esa özimiz olib boramiz.",
-        "link": "Sörov yuboriş"
+        "text": "Yevropa bozori uchun sertifikatlar va ruxsat beruvchi hujjatlar — O'zbekiston va butun Markaziy Osiyo eksportchilari uchun. Yevropalik hamkorlarimiz bilan birga ishlaymiz: siz biz bilan Toshkentda muloqot qilasiz, Yevropa tomoni bilan ishni esa o'zimiz olib boramiz.",
+        "link": "So'rov yuborish"
       },
       {
         "key": "mark",
         "title": "Muvofiqlik belgisi",
-        "text": "1S, 2S, 3S, 3A va 5S–8S sxemalari böyiça sertifikatlangan mahsulot muvofiqlik belgisi bilan tamğalanadi. 2026-yil 12-oktabrdan belgi \"Texnik tartibga soliş\" milliy axborot tizimida sertifikatga avtomatik qöyiladi.",
+        "text": "1S, 2S, 3S, 3A va 5S–8S sxemalari bo'yicha sertifikatlangan mahsulot muvofiqlik belgisi bilan tamg'alanadi. 2026-yil 12-oktabrdan belgi \"Texnik tartibga solish\" milliy axborot tizimida sertifikatga avtomatik qo'yiladi.",
         "link": "Sxemalar haqida batafsil"
       }
     ]

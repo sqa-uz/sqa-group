@@ -20,16 +20,16 @@ import { checkRateLimit } from "@/lib/rate-limit";
 export type ComplaintState = { ok?: boolean; error?: string };
 
 const SUBMISSION_TYPE_UZ: Record<string, string> = {
-  complaint: "Şikoyat",
+  complaint: "Shikoyat",
   appeal: "Apellyatsiya",
 };
 
 const RELATED_ACTIVITY_UZ: Record<string, string> = {
-  certification: "Sertifikatlaştiriş işlari",
-  testing: "Sinov laboratoriyasi işlari",
+  certification: "Sertifikatlashtirish ishlari",
+  testing: "Sinov laboratoriyasi ishlari",
   surveillance: "Inspeksiya nazorati",
-  decision: "Sertifikatlaştiriş organi qarori",
-  other: "Boşqa",
+  decision: "Sertifikatlashtirish organi qarori",
+  other: "Boshqa",
 };
 
 export async function submitComplaint(
@@ -85,16 +85,16 @@ export async function submitComplaint(
       `Sayt orqali yangi ${typeLabel.toLowerCase()} yuborildi.`,
       "",
       `Murojaat turi: ${typeLabel}`,
-      `Murojaatçi: ${data.applicantName}`,
-      `Taşkilot: ${data.organization || "Körsatilmagan"}`,
-      `Maqomi: ${data.applicantRole || "Körsatilmagan"}`,
+      `Murojaatchi: ${data.applicantName}`,
+      `Tashkilot: ${data.organization || "Ko'rsatilmagan"}`,
+      `Maqomi: ${data.applicantRole || "Ko'rsatilmagan"}`,
       `Telefon: ${data.phone}`,
       `Email: ${data.email}`,
-      `Poçta manzili: ${data.postalAddress || "Körsatilmagan"}`,
-      `Boğliq faoliyat: ${relatedActivityLabel(data.relatedActivity)}`,
-      `Hujjat/qaror/sertifikat raqami: ${data.referenceNumber || "Körsatilmagan"}`,
-      `Qaror sanasi: ${data.decisionDate || "Körsatilmagan"}`,
-      `Voqea sanasi: ${data.eventDate || "Körsatilmagan"}`,
+      `Pochta manzili: ${data.postalAddress || "Ko'rsatilmagan"}`,
+      `Bog'liq faoliyat: ${relatedActivityLabel(data.relatedActivity)}`,
+      `Hujjat/qaror/sertifikat raqami: ${data.referenceNumber || "Ko'rsatilmagan"}`,
+      `Qaror sanasi: ${data.decisionDate || "Ko'rsatilmagan"}`,
+      `Voqea sanasi: ${data.eventDate || "Ko'rsatilmagan"}`,
       "",
       `Mavzu: ${data.subject}`,
       "",
@@ -102,18 +102,18 @@ export async function submitComplaint(
       data.details,
       "",
       "Asoslar:",
-      data.grounds || "Körsatilmagan",
+      data.grounds || "Ko'rsatilmagan",
       "",
-      "Söralayotgan natija:",
-      data.requestedOutcome || "Körsatilmagan",
+      "So'ralayotgan natija:",
+      data.requestedOutcome || "Ko'rsatilmagan",
       "",
       "Ilovalar:",
-      data.attachmentsDescription || "Körsatilmagan",
+      data.attachmentsDescription || "Ko'rsatilmagan",
       "",
-      `Imzo uçun F.I.Ş.: ${data.signatureName}`,
-      `Qabul qiluvçi: ${COMPANY_RECEIVER_EMAIL}`,
+      `Imzo uchun F.I.Sh.: ${data.signatureName}`,
+      `Qabul qiluvchi: ${COMPANY_RECEIVER_EMAIL}`,
       "",
-      "Töldirilgan DOCX şakli uşbu xatga ilova qilingan.",
+      "To'ldirilgan DOCX shakli ushbu xatga ilova qilingan.",
       ].join("\n"),
       html: buildComplaintHtml(data, typeLabel),
       attachments: [
@@ -144,16 +144,16 @@ async function buildComplaintDocx(data: Record<string, string>) {
   const typeLabel = SUBMISSION_TYPE_UZ[data.submissionType] ?? data.submissionType;
   const rows: Array<[string, string]> = [
     ["Murojaat turi", typeLabel],
-    ["F.I.Ş.", data.applicantName],
-    ["Taşkilot", data.organization || "Körsatilmagan"],
-    ["Murojaatçi maqomi", data.applicantRole || "Körsatilmagan"],
+    ["F.I.Sh.", data.applicantName],
+    ["Tashkilot", data.organization || "Ko'rsatilmagan"],
+    ["Murojaatchi maqomi", data.applicantRole || "Ko'rsatilmagan"],
     ["Telefon", data.phone],
     ["Email", data.email],
-    ["Poçta manzili", data.postalAddress || "Körsatilmagan"],
-    ["Boğliq faoliyat", relatedActivityLabel(data.relatedActivity)],
-    ["Hujjat/qaror/sertifikat raqami", data.referenceNumber || "Körsatilmagan"],
-    ["Qaror sanasi", data.decisionDate || "Körsatilmagan"],
-    ["Voqea sanasi", data.eventDate || "Körsatilmagan"],
+    ["Pochta manzili", data.postalAddress || "Ko'rsatilmagan"],
+    ["Bog'liq faoliyat", relatedActivityLabel(data.relatedActivity)],
+    ["Hujjat/qaror/sertifikat raqami", data.referenceNumber || "Ko'rsatilmagan"],
+    ["Qaror sanasi", data.decisionDate || "Ko'rsatilmagan"],
+    ["Voqea sanasi", data.eventDate || "Ko'rsatilmagan"],
     ["Mavzu", data.subject],
   ];
 
@@ -167,7 +167,7 @@ async function buildComplaintDocx(data: Record<string, string>) {
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { after: 160 },
-            children: [new TextRun({ text: "Standart and Quality Assessment Group MÇJ", bold: true })],
+            children: [new TextRun({ text: "Standart and Quality Assessment Group MChJ", bold: true })],
           }),
           new Paragraph({
             heading: HeadingLevel.TITLE,
@@ -179,7 +179,7 @@ async function buildComplaintDocx(data: Record<string, string>) {
             spacing: { after: 240 },
             children: [
               new TextRun(
-                "Uşbu hujjat sayt orqali yuborilgan yozma murojaat asosida avtomatik şakllantirildi."
+                "Ushbu hujjat sayt orqali yuborilgan yozma murojaat asosida avtomatik shakllantirildi."
               ),
             ],
           }),
@@ -206,14 +206,14 @@ async function buildComplaintDocx(data: Record<string, string>) {
           }),
           sectionHeading("Murojaat mazmuni"),
           bodyParagraph(data.details),
-          sectionHeading("Apellyatsiya/şikoyat asoslari"),
-          bodyParagraph(data.grounds || "Körsatilmagan"),
-          sectionHeading("Söralayotgan natija"),
-          bodyParagraph(data.requestedOutcome || "Körsatilmagan"),
-          sectionHeading("Ilovalar yoki asoslovçi hujjatlar"),
-          bodyParagraph(data.attachmentsDescription || "Körsatilmagan"),
+          sectionHeading("Apellyatsiya/shikoyat asoslari"),
+          bodyParagraph(data.grounds || "Ko'rsatilmagan"),
+          sectionHeading("So'ralayotgan natija"),
+          bodyParagraph(data.requestedOutcome || "Ko'rsatilmagan"),
+          sectionHeading("Ilovalar yoki asoslovchi hujjatlar"),
+          bodyParagraph(data.attachmentsDescription || "Ko'rsatilmagan"),
           new Paragraph({ spacing: { before: 360 }, children: [new TextRun(`Sana: ${new Date().toLocaleDateString("uz-UZ")}`)] }),
-          new Paragraph({ spacing: { before: 160 }, children: [new TextRun(`Imzo uçun F.I.Ş.: ${data.signatureName}`)] }),
+          new Paragraph({ spacing: { before: 160 }, children: [new TextRun(`Imzo uchun F.I.Sh.: ${data.signatureName}`)] }),
         ],
       },
     ],
@@ -249,22 +249,22 @@ function cellBorders() {
 function buildComplaintHtml(data: Record<string, string>, typeLabel: string) {
   const rows: Array<[string, string]> = [
     ["Murojaat turi", typeLabel],
-    ["F.I.Ş.", data.applicantName],
-    ["Taşkilot", data.organization || "Körsatilmagan"],
-    ["Maqomi", data.applicantRole || "Körsatilmagan"],
+    ["F.I.Sh.", data.applicantName],
+    ["Tashkilot", data.organization || "Ko'rsatilmagan"],
+    ["Maqomi", data.applicantRole || "Ko'rsatilmagan"],
     ["Telefon", data.phone],
     ["Email", data.email],
-    ["Poçta manzili", data.postalAddress || "Körsatilmagan"],
-    ["Boğliq faoliyat", relatedActivityLabel(data.relatedActivity)],
-    ["Raqam", data.referenceNumber || "Körsatilmagan"],
-    ["Qaror sanasi", data.decisionDate || "Körsatilmagan"],
-    ["Voqea sanasi", data.eventDate || "Körsatilmagan"],
+    ["Pochta manzili", data.postalAddress || "Ko'rsatilmagan"],
+    ["Bog'liq faoliyat", relatedActivityLabel(data.relatedActivity)],
+    ["Raqam", data.referenceNumber || "Ko'rsatilmagan"],
+    ["Qaror sanasi", data.decisionDate || "Ko'rsatilmagan"],
+    ["Voqea sanasi", data.eventDate || "Ko'rsatilmagan"],
   ];
 
   return `
     <div style="font-family:Arial,sans-serif;line-height:1.55;color:#1f2937">
       <h2 style="margin:0 0 12px;color:#2003bd">Sayt orqali yangi ${escapeHtml(typeLabel.toLowerCase())} qabul qilindi</h2>
-      <p>Töldirilgan DOCX şakli uşbu xatga ilova qilingan.</p>
+      <p>To'ldirilgan DOCX shakli ushbu xatga ilova qilingan.</p>
       <table style="border-collapse:collapse;width:100%;max-width:760px">
         <tbody>
           ${rows
@@ -280,11 +280,11 @@ function buildComplaintHtml(data: Record<string, string>, typeLabel: string) {
       <h3 style="margin:18px 0 8px">Murojaat mazmuni</h3>
       <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.details)}</div>
       <h3 style="margin:18px 0 8px">Asoslar</h3>
-      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.grounds || "Körsatilmagan")}</div>
-      <h3 style="margin:18px 0 8px">Söralayotgan natija</h3>
-      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.requestedOutcome || "Körsatilmagan")}</div>
+      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.grounds || "Ko'rsatilmagan")}</div>
+      <h3 style="margin:18px 0 8px">So'ralayotgan natija</h3>
+      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.requestedOutcome || "Ko'rsatilmagan")}</div>
       <h3 style="margin:18px 0 8px">Ilovalar</h3>
-      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.attachmentsDescription || "Körsatilmagan")}</div>
+      <div style="white-space:pre-wrap;border:1px solid #e5e7eb;background:#f8fafc;padding:12px">${escapeHtml(data.attachmentsDescription || "Ko'rsatilmagan")}</div>
     </div>
   `;
 }
@@ -298,5 +298,5 @@ function escapeHtml(value: string) {
 }
 
 function relatedActivityLabel(value: string) {
-  return RELATED_ACTIVITY_UZ[value] ?? (value || "Körsatilmagan");
+  return RELATED_ACTIVITY_UZ[value] ?? (value || "Ko'rsatilmagan");
 }

@@ -13,7 +13,7 @@ import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { getTashkentWeather } from "@/lib/weather";
 
 const golos = Golos_Text({
-  subsets: ["latin", "latin-ext", "cyrillic"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-golos",
   display: "swap",

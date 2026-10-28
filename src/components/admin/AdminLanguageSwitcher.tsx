@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { locales } from "@/i18n/routing";
 import type { AdminLocale } from "@/i18n/admin";
 
-const LABELS: Record<AdminLocale, string> = { uz: "Öz", ru: "Рус", en: "Eng" };
+const LABELS: Record<AdminLocale, string> = { uz: "O'z", ru: "Рус", en: "Eng" };
 
 export default function AdminLanguageSwitcher({ locale }: { locale: AdminLocale }) {
   const pathname = usePathname();
