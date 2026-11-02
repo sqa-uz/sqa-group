@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" }, // Legacy URLs remain renderable.
       { protocol: "https", hostname: "**.public.blob.vercel-storage.com" },
+      { protocol: "https", hostname: "images.unsplash.com" }, // Home page service photos (Unsplash License).
     ],
   },
 };
