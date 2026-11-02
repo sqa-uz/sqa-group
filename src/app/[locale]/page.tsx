@@ -195,7 +195,7 @@ export default async function HomePage({
                 sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover object-[65%_center] transition-transform duration-500 group-hover:scale-105"
               />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep via-primary-deep/70 to-primary-deep/5" />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep from-10% via-primary-deep/55 via-45% to-transparent to-80%" />
               <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
                 ISO/IEC 17065
               </span>
