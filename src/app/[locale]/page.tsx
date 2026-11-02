@@ -17,6 +17,16 @@ import { ITEMS } from "@/lib/scopeSearch";
 
 const UNIQUE_CODES = new Set(ITEMS.flatMap((i) => i.codes)).size;
 
+/** Service photos, free under the Unsplash License (unsplash.com/license). */
+const PHOTO = {
+  // unsplash.com/photos/8iDaJg7TPz4: inspector with a checklist
+  certification: "https://images.unsplash.com/photo-1700727448575-6f1680cd7d75?auto=format&fit=crop&w=1600&q=80",
+  // unsplash.com/photos/fXv3QaHccgA: product testing room (bicycles)
+  laboratory: "https://images.unsplash.com/photo-1700727448542-50531bc60211?auto=format&fit=crop&w=1200&q=80",
+  // unsplash.com/photos/PkHf7BUWbtk: electrical measurements with a tester
+  sLab: "https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1200&q=80",
+};
+
 /** Product groups of the accreditation scope, each with a line icon and a search that finds it. */
 const GROUP_LINKS: { q: string; icon: string }[] = [
   { q: "трубы", icon: "M3 9h13a5 5 0 0 1 5 5v1M3 15h11a1 1 0 0 1 1 1v5M3 7v10M21 15h-4v6" },
@@ -179,11 +189,11 @@ export default async function HomePage({
               className="card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
             >
               <Image
-                src="/images/home/certification.jpg"
+                src={PHOTO.certification}
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-[65%_center] transition-transform duration-500 group-hover:scale-105"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep via-primary-deep/70 to-primary-deep/5" />
               <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
@@ -204,8 +214,8 @@ export default async function HomePage({
 
           {/* laboratories */}
           {[
-            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: "/images/office/office.jpg", unit: units[1] },
-            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: "/images/home/s-lab.jpg", unit: units[2] },
+            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1] },
+            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2] },
           ].map((c, i) => (
             <Reveal key={c.title} delay={(i + 1) * 80}>
               <Link href="/laboratories" className="card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
@@ -259,7 +269,7 @@ export default async function HomePage({
                 />
                 <button
                   type="submit"
-                  className="h-14 shrink-0 rounded-card bg-primary-deep px-6 text-sm font-semibold text-white transition-colors hover:bg-ink"
+                  className="h-14 shrink-0 rounded-card border border-white/40 bg-white/15 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/70 hover:bg-white/25"
                 >
                   {tp("homeButton")}
                 </button>
