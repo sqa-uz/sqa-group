@@ -460,7 +460,7 @@
   "products": {
     "title": "What we certify",
     "intro": "Products the SQA certification body certifies within its accreditation. Find your product by its HS (TN VED) code or by name.",
-    "sourceNote": "Names, codes and standards are given as listed in accreditation scope O'ZAKK.MS.0052 (revision 11 of 05.08.2026); product names are in the original language of the scope.",
+    "sourceNote": "Names, codes and standards are given as listed in accreditation scope O'ZAKK.MS.0052 (revision 13 of 15.10.2026); product names are in the original language of the scope.",
     "searchLabel": "Search by HS (TN VED) code or name",
     "searchPlaceholder": "HS / TN VED code (e.g. 3917) or product name",
     "countAll": "{count} positions in the accreditation scope",
