@@ -67,7 +67,37 @@
     "applyTitle": "Sertifikat uchun ariza topshirish",
     "applyText": "Sertifikatlashtirish uchun arizani rasmiy davlat portallari orqali onlayn topshiring.",
     "applySingleWindow": "Yagona darcha — singlewindow.uz",
-    "applyTris": "TRIS — tris.uz"
+    "applyTris": "TRIS — tris.uz",
+    "searchPopular": "Ko'p qidiriladi:",
+    "searchChips": [
+      {
+        "code": "9506",
+        "label": "Sport anjomlari"
+      },
+      {
+        "code": "3917",
+        "label": "Quvurlar"
+      },
+      {
+        "code": "9403",
+        "label": "Mebel"
+      },
+      {
+        "code": "6907",
+        "label": "Keramik plitkalar"
+      },
+      {
+        "code": "9503",
+        "label": "O'yinchoqlar"
+      },
+      {
+        "code": "4411",
+        "label": "MDF / DVP plitalar"
+      }
+    ],
+    "docsEyebrow": "Hujjatlar",
+    "docsTitle": "Hujjatlar va ma'lumotlar",
+    "docsText": "Akkreditatsiya sohalari, sertifikatlashtirish sxemalari va idoraning mustaqilligi haqidagi ma'lumotlar bir joyda."
   },
   "about": {
     "title": "Biz haqimizda",
@@ -425,7 +455,8 @@
     "navTitle": "Sahifalar",
     "contactsTitle": "Aloqa",
     "officeTitle": "Ofisimiz",
-    "rights": "Barcha huquqlar himoyalangan."
+    "rights": "Barcha huquqlar himoyalangan.",
+    "cta": "Sertifikat kerakmi? Qo'ng'iroq qiling yoki so'rov yuboring."
   },
   "admin": {
     "loginTitle": "Administrator kirishi"

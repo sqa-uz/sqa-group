@@ -17,6 +17,16 @@ import { ITEMS } from "@/lib/scopeSearch";
 
 const UNIQUE_CODES = new Set(ITEMS.flatMap((i) => i.codes)).size;
 
+/** Service photos, free under the Unsplash License (unsplash.com/license). */
+const PHOTO = {
+  // unsplash.com/photos/8iDaJg7TPz4: inspector with a checklist
+  certification: "https://images.unsplash.com/photo-1700727448575-6f1680cd7d75?auto=format&fit=crop&w=1600&q=80",
+  // unsplash.com/photos/fXv3QaHccgA: product testing room (bicycles)
+  laboratory: "https://images.unsplash.com/photo-1700727448542-50531bc60211?auto=format&fit=crop&w=1200&q=80",
+  // unsplash.com/photos/PkHf7BUWbtk: electrical measurements with a tester
+  sLab: "https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1200&q=80",
+};
+
 /** Product groups of the accreditation scope, each with a line icon and a search that finds it. */
 const GROUP_LINKS: { q: string; icon: string }[] = [
   { q: "трубы", icon: "M3 9h13a5 5 0 0 1 5 5v1M3 15h11a1 1 0 0 1 1 1v5M3 7v10M21 15h-4v6" },
@@ -32,6 +42,41 @@ const GROUP_LINKS: { q: string; icon: string }[] = [
   { q: "упаковка", icon: "M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8" },
   { q: "термосы", icon: "M9 3h6v3H9zM8 6h8l1 3v11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V9z M7 11h10" },
 ];
+
+/** Reference pages, each with its PDF where the page is built around one. */
+const DOC_ROWS = [
+  {
+    href: "/accreditation/certification",
+    title: "accredCertTitle",
+    teaser: "accredCertTeaser",
+    icon: "M6 3h9l4 4v14H6zM15 3v4h4M9 13l2 2 4-4",
+    pdfs: [{ href: "/documents/sqa-certification-body-scope.pdf", label: "O'ZAKK.MS.0052" }],
+  },
+  {
+    href: "/accreditation/laboratories",
+    title: "accredLabTitle",
+    teaser: "accredLabTeaser",
+    icon: "M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.5 14h9",
+    pdfs: [
+      { href: "/documents/sqa-laboratory-scope.pdf", label: "O'ZAKK.SL.0162" },
+      { href: "/documents/sqa-s-lab-scope.pdf", label: "O'ZAKK.SL.0437" },
+    ],
+  },
+  {
+    href: "/schemes",
+    title: "schemesTitle",
+    teaser: "schemesTeaser",
+    icon: "M4 5h6v5H4zM14 14h6v5h-6zM7 10v3a2 2 0 0 0 2 2h5M14 5h6v5h-6zM17 10v4",
+    pdfs: [],
+  },
+  {
+    href: "/financing",
+    title: "financingTitle",
+    teaser: "financingTeaser",
+    icon: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM14.5 9a2.5 2 0 0 0-2.5-1.5c-1.5 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.9 2.5 2-1 2-2.5 2a2.5 2 0 0 1-2.5-1.5M12 6v1.5M12 16.5V18",
+    pdfs: [],
+  },
+] as const;
 
 export const revalidate = 120;
 
@@ -50,6 +95,8 @@ export default async function HomePage({
   const staffCount = await prisma.staff.count({ where: { published: true } });
   const steps = ta.raw("steps") as { title: string; text: string }[];
   const groups = ta.raw("groups") as string[];
+  const units = ta.raw("units") as { code: string; standard: string; valid: string }[];
+  const chips = t.raw("searchChips") as { code: string; label: string }[];
   const stats = [
     { value: 3, label: ta("statAccreditations") },
     { value: ITEMS.length, label: ta("statProducts") },
@@ -129,44 +176,86 @@ export default async function HomePage({
         </ul>
       </section>
 
-      {/* SERVICES: certification body + two laboratories */}
+      {/* SERVICES: one large card for the certification body, two for the laboratories */}
       <section className="mx-auto max-w-[1200px] px-4 py-16">
         <Reveal>
           <SectionHeading eyebrow={t("servicesSubtitle")} title={t("servicesTitle")} />
         </Reveal>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {[
-            { href: "/certification-body", title: t("certBodyCardTitle"), text: t("certBodyCardText"), badge: "ISO/IEC 17065" },
-            { href: "/laboratories", title: t("lab1CardTitle"), text: t("lab1CardText"), badge: "ISO/IEC 17025" },
-            { href: "/laboratories", title: t("lab2CardTitle"), text: t("lab2CardText"), badge: "O'ZAKK.SL.0437" },
-          ].map((c, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <Link href={c.href} className="card card-hover group block h-full p-6">
-                <span className="inline-block rounded-[2px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
-                  {c.badge}
+        <div className="mt-8 grid gap-5 lg:grid-cols-2 lg:grid-rows-2">
+          {/* certification body: full-bleed photo with the text laid over it */}
+          <Reveal className="lg:row-span-2">
+            <Link
+              href="/certification-body"
+              className="card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
+            >
+              <Image
+                src={PHOTO.certification}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover object-[65%_center] transition-transform duration-500 group-hover:scale-105"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep from-10% via-primary-deep/55 via-45% to-transparent to-80%" />
+              <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+                ISO/IEC 17065
+              </span>
+              <div className="relative p-6 sm:p-8">
+                <p className="text-[11px] font-bold tracking-wide text-white/75">
+                  {units[0]?.code} · {units[0]?.valid}
+                </p>
+                <h3 className="mt-2 text-2xl font-bold sm:text-3xl">{t("certBodyCardTitle")}</h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">{t("certBodyCardText")}</p>
+                <span className="mt-5 inline-flex items-center gap-1 rounded-card bg-white px-4 py-2 text-sm font-semibold text-primary">
+                  {tc("readMore")} <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
-                <h3 className="mt-4 text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{c.text}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-primary">{tc("readMore")} →</span>
+              </div>
+            </Link>
+          </Reveal>
+
+          {/* laboratories */}
+          {[
+            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1] },
+            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2] },
+          ].map((c, i) => (
+            <Reveal key={c.title} delay={(i + 1) * 80}>
+              <Link href="/laboratories" className="card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
+                <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto sm:min-h-[200px]">
+                  <Image
+                    src={c.img}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 240px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-3 top-3 rounded-[2px] bg-white px-2 py-0.5 text-[10px] font-bold tracking-wide text-primary">
+                    ISO/IEC 17025
+                  </span>
+                </div>
+                <div className="flex flex-col p-5">
+                  <p className="text-[11px] font-bold tracking-wide text-ink-soft">{c.unit?.code}</p>
+                  <h3 className="mt-1.5 text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{c.text}</p>
+                  <p className="mt-3 text-xs font-semibold text-primary">{c.unit?.valid}</p>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-primary">
+                    {tc("readMore")} <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
               </Link>
             </Reveal>
           ))}
         </div>
+      </section>
 
-        {/* SCOPE LOOKUP: jump straight into the "what we certify" search */}
-        {!disabledPages.includes("what-we-certify") && (
-          <Reveal delay={120}>
-            <form
-              action={`/${locale}/what-we-certify`}
-              method="get"
-              role="search"
-              className="card mt-6 grid gap-4 p-6 md:grid-cols-[1fr_minmax(0,1.15fr)] md:items-center"
-            >
-              <div>
-                <h3 className="text-lg font-bold text-ink">{tp("homeTitle")}</h3>
-                <p className="mt-1 text-sm text-ink-soft">{tp("homeText")}</p>
-              </div>
-              <div className="flex gap-2">
+      {/* SCOPE LOOKUP: full-width band, big field and one-click popular searches */}
+      {!disabledPages.includes("what-we-certify") && (
+        <section className="guilloche-soft bg-primary text-white">
+          <div className="mx-auto grid max-w-[1200px] gap-8 px-4 py-14 lg:grid-cols-[1fr_1.35fr] lg:items-center">
+            <Reveal>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{tp("homeTitle")}</h2>
+              <p className="mt-3 max-w-md text-white/85">{tp("homeText")}</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <form action={`/${locale}/what-we-certify`} method="get" role="search" className="flex gap-2">
                 <label htmlFor="home-scope-q" className="sr-only">
                   {tp("searchLabel")}
                 </label>
@@ -176,23 +265,35 @@ export default async function HomePage({
                   type="search"
                   autoComplete="off"
                   placeholder={tp("searchPlaceholder")}
-                  className="h-12 min-w-0 flex-1 rounded-card border border-line bg-paper px-4 text-sm text-ink outline-none transition-colors placeholder:text-ink-soft/70 focus:border-primary"
+                  className="h-14 min-w-0 flex-1 rounded-card border-0 bg-paper px-5 text-base text-ink shadow-card outline-none placeholder:text-ink-soft/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 />
                 <button
                   type="submit"
-                  className="h-12 shrink-0 rounded-card bg-primary px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-bright"
+                  className="h-14 shrink-0 rounded-card border border-white/40 bg-white/15 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/70 hover:bg-white/25"
                 >
                   {tp("homeButton")}
                 </button>
+              </form>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="mr-1 text-sm text-white/75">{t("searchPopular")}</span>
+                {chips.map((c) => (
+                  <Link
+                    key={c.code}
+                    href={{ pathname: "/what-we-certify", query: { q: c.code } }}
+                    className="rounded-card border border-white/30 bg-white/10 px-3 py-1.5 text-sm text-white transition-colors hover:border-white/70 hover:bg-white/20"
+                  >
+                    {c.label} <span className="ml-1 text-xs tabular-nums text-white/65">{c.code}</span>
+                  </Link>
+                ))}
               </div>
-            </form>
-          </Reveal>
-        )}
+            </Reveal>
+          </div>
+        </section>
+      )}
 
-        {/* BEYOND: management systems, export to Europe, conformity mark */}
-        <div className="mt-16">
-          <BeyondServices />
-        </div>
+      {/* BEYOND: management systems, export to Europe, conformity mark */}
+      <section className="mx-auto max-w-[1200px] px-4 py-16">
+        <BeyondServices />
       </section>
 
       {/* HOW CERTIFICATION WORKS: the rail fills as you scroll */}
@@ -336,40 +437,55 @@ export default async function HomePage({
         </section>
       )}
 
-      <div className="bg-band">
-      {/* SPLIT: financing / schemes */}
-      <section className="mx-auto grid max-w-[1200px] gap-5 px-4 py-16 md:grid-cols-2">
-        {[
-          { href: "/financing", title: t("financingTitle"), text: t("financingTeaser") },
-          { href: "/schemes", title: t("schemesTitle"), text: t("schemesTeaser") },
-        ].map((c, i) => (
-          <Reveal key={c.href} delay={i * 80}>
-            <Link href={c.href} className="card card-hover group block h-full border-l-4 border-l-primary p-7">
-              <h3 className="text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{c.text}</p>
-              <span className="mt-4 inline-block text-sm font-semibold text-primary">{tc("readMore")} →</span>
-            </Link>
+      {/* DOCUMENTS: one list of scopes, schemes and financing, with the PDFs one click away */}
+      <section className="bg-band">
+        <div className="mx-auto grid max-w-[1200px] gap-8 px-4 py-16 lg:grid-cols-[1fr_2fr]">
+          <Reveal>
+            <SectionHeading eyebrow={t("docsEyebrow")} title={t("docsTitle")} />
+            <p className="mt-3 text-ink-soft">{t("docsText")}</p>
           </Reveal>
-        ))}
-      </section>
-
-      {/* SPLIT: accreditation scopes */}
-      <section className="mx-auto grid max-w-[1200px] gap-5 px-4 pb-16 md:grid-cols-2">
-        {[
-          { href: "/accreditation/certification", title: t("accredCertTitle"), text: t("accredCertTeaser") },
-          { href: "/accreditation/laboratories", title: t("accredLabTitle"), text: t("accredLabTeaser") },
-        ].map((c, i) => (
-          <Reveal key={c.href} delay={i * 80}>
-            <Link href={c.href} className="card card-hover group block h-full border-l-4 border-l-primary-deep p-7">
-              <h3 className="text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{c.text}</p>
-              <span className="mt-4 inline-block text-sm font-semibold text-primary">{tc("readMore")} →</span>
-            </Link>
+          <Reveal delay={80}>
+            <ul className="card divide-y divide-line">
+              {DOC_ROWS.map((r) => (
+                <li key={r.href} className="group relative flex items-start gap-4 p-5 transition-colors hover:bg-band/60 sm:items-center">
+                  <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-card bg-band text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={r.icon} />
+                    </svg>
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <Link href={r.href} className="font-bold text-ink after:absolute after:inset-0 group-hover:text-primary">
+                      {t(r.title)}
+                    </Link>
+                    <p className="mt-0.5 text-sm text-ink-soft">{t(r.teaser)}</p>
+                    {r.pdfs.length > 0 && (
+                      <div className="mt-2.5 flex flex-wrap gap-2">
+                        {r.pdfs.map((f) => (
+                          <a
+                            key={f.href}
+                            href={f.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative z-10 inline-flex items-center gap-1.5 rounded-[2px] border border-line bg-paper px-2 py-1 text-[11px] font-bold tracking-wide text-ink-soft transition-colors hover:border-primary hover:text-primary"
+                          >
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+                            </svg>
+                            PDF · {f.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <span aria-hidden="true" className="hidden text-lg text-ink-soft transition-transform group-hover:translate-x-1 group-hover:text-primary sm:block">
+                    →
+                  </span>
+                </li>
+              ))}
+            </ul>
           </Reveal>
-        ))}
+        </div>
       </section>
-
-      </div>
 
       {/* PARTNERS: one row of logos drifting left */}
       {partners.length > 0 && (

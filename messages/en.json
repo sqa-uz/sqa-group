@@ -67,7 +67,37 @@
     "applyTitle": "Apply for a certificate",
     "applyText": "Submit your certification application online through the official government portals.",
     "applySingleWindow": "Single Window — singlewindow.uz",
-    "applyTris": "TRIS — tris.uz"
+    "applyTris": "TRIS — tris.uz",
+    "searchPopular": "Popular searches:",
+    "searchChips": [
+      {
+        "code": "9506",
+        "label": "Sports equipment"
+      },
+      {
+        "code": "3917",
+        "label": "Pipes"
+      },
+      {
+        "code": "9403",
+        "label": "Furniture"
+      },
+      {
+        "code": "6907",
+        "label": "Ceramic tiles"
+      },
+      {
+        "code": "9503",
+        "label": "Toys"
+      },
+      {
+        "code": "4411",
+        "label": "MDF / fibreboard"
+      }
+    ],
+    "docsEyebrow": "Documents",
+    "docsTitle": "Documents and reference",
+    "docsText": "Accreditation scopes, certification schemes and the body's independence in one place."
   },
   "about": {
     "title": "About us",
@@ -425,7 +455,8 @@
     "navTitle": "Pages",
     "contactsTitle": "Contacts",
     "officeTitle": "Our office",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "cta": "Need a certificate? Call us or send a request."
   },
   "admin": {
     "loginTitle": "Administrator sign in"
