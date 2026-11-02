@@ -2,10 +2,10 @@ import { describe, it, expect } from "vitest";
 import { ITEMS, search, formatCode } from "../../src/lib/scopeSearch";
 
 describe("certification scope data", () => {
-  it("holds every position of scope O'ZAKK.MS.0052 rev. 11", () => {
+  it("holds every position of scope O'ZAKK.MS.0052 rev. 13", () => {
     expect(ITEMS).toHaveLength(188);
     expect(ITEMS[0].n).toBe("1.1");
-    expect(ITEMS.at(-1)?.n).toBe("2.29");
+    expect(ITEMS.at(-1)?.n).toBe("1.188");
   });
   it("has a name, a standard and only 10-digit codes on every position", () => {
     for (const i of ITEMS) {
@@ -70,5 +70,15 @@ describe("search by name", () => {
 describe("formatCode", () => {
   it("groups a 10-digit code like the nomenclature", () => {
     expect(formatCode("3917211000")).toBe("3917 21 100 0");
+  });
+});
+
+describe("scope rev. 13 (15.10.2026)", () => {
+  it("lists every position under PKM-502 schemes", () => {
+    expect(ITEMS.every((i) => i.s === "502")).toBe(true);
+  });
+  it("covers two-wheel bicycles but no longer motor-assisted ones", () => {
+    expect(search("8712003000").items.map((i) => i.n)).toEqual(["1.116", "1.117"]);
+    expect(search("8711601000").items).toHaveLength(0);
   });
 });
