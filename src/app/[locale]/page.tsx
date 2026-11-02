@@ -172,39 +172,30 @@ export default async function HomePage({
           <SectionHeading eyebrow={t("servicesSubtitle")} title={t("servicesTitle")} />
         </Reveal>
         <div className="mt-8 grid gap-5 lg:grid-cols-2 lg:grid-rows-2">
-          {/* certification body */}
+          {/* certification body: full-bleed photo with the text laid over it */}
           <Reveal className="lg:row-span-2">
-            <Link href="/certification-body" className="card card-hover group flex h-full flex-col overflow-hidden">
-              <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:min-h-[260px] lg:flex-1">
-                <Image
-                  src="/images/home/certification.jpg"
-                  alt=""
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 600px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep/80 via-primary-deep/10 to-transparent" />
-                <span className="absolute left-5 top-5 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
-                  ISO/IEC 17065
-                </span>
-                <div className="absolute inset-x-5 bottom-5 flex gap-8 text-white">
-                  <p>
-                    <span className="block text-4xl font-black tracking-tight">{ITEMS.length}</span>
-                    <span className="block max-w-[11rem] text-xs leading-snug text-white/85">{ta("statProducts")}</span>
-                  </p>
-                  <p>
-                    <span className="block text-4xl font-black tracking-tight">{UNIQUE_CODES}</span>
-                    <span className="block max-w-[11rem] text-xs leading-snug text-white/85">{ta("statCodes")}</span>
-                  </p>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-[11px] font-bold tracking-wide text-ink-soft">
+            <Link
+              href="/certification-body"
+              className="card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
+            >
+              <Image
+                src="/images/home/certification.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep via-primary-deep/70 to-primary-deep/5" />
+              <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+                ISO/IEC 17065
+              </span>
+              <div className="relative p-6 sm:p-8">
+                <p className="text-[11px] font-bold tracking-wide text-white/75">
                   {units[0]?.code} · {units[0]?.valid}
                 </p>
-                <h3 className="mt-2 text-xl font-bold text-ink group-hover:text-primary">{t("certBodyCardTitle")}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t("certBodyCardText")}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                <h3 className="mt-2 text-2xl font-bold sm:text-3xl">{t("certBodyCardTitle")}</h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">{t("certBodyCardText")}</p>
+                <span className="mt-5 inline-flex items-center gap-1 rounded-card bg-white px-4 py-2 text-sm font-semibold text-primary">
                   {tc("readMore")} <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </div>
