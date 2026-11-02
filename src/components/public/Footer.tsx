@@ -24,8 +24,8 @@ export default function Footer({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
   const year = new Date().getFullYear();
 
   return (
-    // Fixed brand navy in both themes, so the footer always closes the page with the same dark band.
-    <footer className="bg-[#10153a] text-white">
+    // Fixed brand palette in both themes: navy lit from the corners, guilloche lines and a drifting glow (globals.css).
+    <footer className="footer-art text-white">
       {/* call-to-action row */}
       <div className="border-b border-white/10">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 px-4 py-8">
@@ -128,6 +128,11 @@ export default function Footer({ hiddenHrefs = [] }: { hiddenHrefs?: string[] })
           <span>© {year} Standart and Quality Assessment Group. {t("rights")}</span>
           <span>O&#39;ZAKK.MS.0052 · O&#39;ZAKK.SL.0162 · O&#39;ZAKK.SL.0437</span>
         </div>
+      </div>
+
+      {/* oversized wordmark, cut by the bottom edge of the page */}
+      <div aria-hidden="true" className="mx-auto max-w-[1200px] overflow-hidden px-4 text-center">
+        <p className="footer-wordmark -mb-[0.16em] pt-2">SQA GROUP</p>
       </div>
     </footer>
   );
