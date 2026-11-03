@@ -104,7 +104,7 @@ body {
   text-shadow: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-video { display: none; }
+  .hero-video, .hero-video-toggle { display: none; }
 }
 
 /* quiet guilloche for full-width primary sections */
@@ -155,7 +155,9 @@ body {
 }
 .marquee-track--left { animation: marquee-left 36s linear infinite; }
 .marquee-track--right { animation: marquee-right 36s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee[data-paused="true"] .marquee-track { animation-play-state: paused; }
 .marquee-track--left { animation-duration: 48s; }
 /* logos sit straight on the page; multiply melts the white backgrounds of JPG logos into it */
 .partner-logo img {
@@ -182,6 +184,7 @@ body {
     justify-content: center;
   }
   .marquee { mask-image: none; -webkit-mask-image: none; }
+  .marquee-toggle { display: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -221,6 +224,15 @@ body {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 2px;
+}
+/* On the blue and navy bands a violet ring disappears: switch it to white there. */
+:is(.footer-art, .guilloche, .guilloche-soft, .bg-primary, .bg-primary-deep, .hero-copy) :focus-visible,
+.hero-video-toggle:focus-visible {
+  outline-color: #fff;
+}
+/* Keep focused elements and in-page anchors clear of the sticky header (WCAG 2.4.11). */
+html {
+  scroll-padding-top: 8rem;
 }
 
 /* ---------- prose-lite for article bodies ---------- */
