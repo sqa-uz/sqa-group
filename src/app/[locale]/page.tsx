@@ -128,7 +128,7 @@ export default async function HomePage({
   ]);
 
   const deptLabel = (d: string) =>
-    d === "laboratory" ? tt("deptLaboratory") : d === "slab" ? tt("deptSlab") : d === "management" ? tt("deptManagement") : tt("deptCertification");
+    d === "laboratory" ? tt("deptLaboratory") : d === "slab" ? tt("deptSlab") : d === "specialists" ? tt("deptSpecialists") : d === "management" ? tt("deptManagement") : tt("deptCertification");
 
   const dateFmt = new Intl.DateTimeFormat(locale === "uz" ? "uz-UZ" : locale === "ru" ? "ru-RU" : "en-GB", {
     day: "numeric",

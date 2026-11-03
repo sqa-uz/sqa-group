@@ -56,6 +56,7 @@ export default function StaffForm({ staff, locale }: { staff?: StaffData; locale
             <option value="laboratory">{t.staff.testingLaboratory}</option>
             <option value="slab">{t.staff.slabLaboratory}</option>
             <option value="management">{t.staff.management}</option>
+            <option value="specialists">{t.staff.specialists}</option>
           </Select>
           <Input label={t.staff.sortOrder} name="order" type="number" min={0} max={10000} defaultValue={value("order", String(staff?.order ?? 0))} />
           <label className="flex items-end gap-2 pb-2">

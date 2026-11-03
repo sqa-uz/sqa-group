@@ -1,12 +1,12 @@
 import { prisma } from "@/lib/prisma";
 
-export const STAFF_DEPARTMENTS = ["certification", "laboratory", "slab", "management"] as const;
+export const STAFF_DEPARTMENTS = ["certification", "laboratory", "slab", "management", "specialists"] as const;
 
 let checkReady: Promise<unknown> | null = null;
 
 /**
  * Makes the database CHECK on Staff.department accept every department above.
- * Same SQL as migration 20261103000000_staff_slab_department; runs once per server
+ * Same SQL as the staff department migrations; runs once per server
  * process and only rewrites the constraint when it is missing a department.
  */
 export function ensureStaffDepartmentCheck() {

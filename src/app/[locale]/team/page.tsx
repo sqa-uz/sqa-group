@@ -25,10 +25,11 @@ export default async function TeamPage({ params }: { params: Promise<{ locale: s
   });
 
   const deptLabel = (d: string) =>
-    d === "laboratory" ? t("deptLaboratory") : d === "slab" ? t("deptSlab") : d === "management" ? t("deptManagement") : t("deptCertification");
+    d === "laboratory" ? t("deptLaboratory") : d === "slab" ? t("deptSlab") : d === "specialists" ? t("deptSpecialists") : d === "management" ? t("deptManagement") : t("deptCertification");
 
   const groups: { key: string; label: string }[] = [
     { key: "management", label: t("deptManagement") },
+    { key: "specialists", label: t("deptSpecialists") },
     { key: "certification", label: t("deptCertification") },
     { key: "laboratory", label: t("deptLaboratory") },
     { key: "slab", label: t("deptSlab") },
