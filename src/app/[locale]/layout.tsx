@@ -66,7 +66,7 @@ export default async function LocaleLayout({
       <body className={`${golos.variable} font-sans`}>
         <NextIntlClientProvider>
           <Header hiddenHrefs={hiddenHrefs} weather={weather} />
-          <main>{children}</main>
+          <main id="main" tabIndex={-1} className="outline-none">{children}</main>
           <Footer hiddenHrefs={hiddenHrefs} />
           <PageViewTracker />
         </NextIntlClientProvider>

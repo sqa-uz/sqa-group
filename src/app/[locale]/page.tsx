@@ -358,7 +358,7 @@ export default async function HomePage({
               <a href={c.href} target="_blank" rel="noopener noreferrer" className="card card-hover block overflow-hidden">
                 <figure>
                   <div className="relative aspect-[3/4] bg-white">
-                    <Image src={c.src} alt={c.caption} fill sizes="(max-width: 1024px) 33vw, 240px" className="object-contain p-2" />
+                    <Image src={c.src} alt="" fill sizes="(max-width: 1024px) 33vw, 240px" className="object-contain p-2" />
                   </div>
                   <figcaption className="border-t border-line px-2 py-2 text-center text-[10px] font-bold tracking-wide text-ink-soft sm:text-xs">
                     {c.caption}
