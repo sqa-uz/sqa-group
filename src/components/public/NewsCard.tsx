@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { isLocalMediaUrl } from "@/lib/media-url";
+import LearnChevron from "./LearnChevron";
 
 export default function NewsCard({
   slug,
@@ -18,7 +19,7 @@ export default function NewsCard({
   readMoreLabel: string;
 }) {
   return (
-    <Link href={`/news/${slug}`} className="card card-hover group flex flex-col overflow-hidden">
+    <Link href={`/news/${slug}`} className="t-learn card card-hover group flex flex-col overflow-hidden">
       <div className="relative aspect-[16/9] overflow-hidden bg-band">
         {imageUrl ? (
           <Image
@@ -37,7 +38,9 @@ export default function NewsCard({
         <time className="text-xs font-medium text-ink-soft">{date}</time>
         <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-primary">{title}</h3>
         {summary && <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">{summary}</p>}
-        <span className="mt-auto pt-4 text-sm font-semibold text-primary">{readMoreLabel} →</span>
+        <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
+          {readMoreLabel} <LearnChevron />
+        </span>
       </div>
     </Link>
   );

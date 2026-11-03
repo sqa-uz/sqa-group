@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import SuccessCheck from "./SuccessCheck";
 import { submitComplaint, type ComplaintState } from "@/lib/complaints";
 
 const inputCls =
@@ -15,10 +16,7 @@ export default function ComplaintForm() {
   if (state?.ok) {
     return (
       <div className="rounded-card border border-green-200 bg-green-50 p-6 text-center">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className="mx-auto text-green-600">
-          <circle cx="18" cy="18" r="17" stroke="currentColor" strokeOpacity="0.4" />
-          <path d="M11 18.5l4.5 4.5L25 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <SuccessCheck className="mx-auto text-green-600" />
         <p className="mt-3 font-semibold text-green-800">{t("formSuccess")}</p>
       </div>
     );

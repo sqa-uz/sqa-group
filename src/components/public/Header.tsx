@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -34,6 +34,26 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  // Dropdown phase for the transitions-dev menu: open → closing (plays the close) → rest.
+  const [moreClosing, setMoreClosing] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openMore = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMoreClosing(false);
+    setMoreOpen(true);
+  };
+  const closeMore = () => {
+    if (!moreOpen) return;
+    setMoreOpen(false);
+    setMoreClosing(true);
+    const ms =
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--dropdown-close-dur")) || 150;
+    closeTimer.current = setTimeout(() => setMoreClosing(false), ms);
+  };
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
 
   const hidden = new Set(hiddenHrefs);
   const nav = NAV.filter((i) => !hidden.has(i.href));
@@ -92,32 +112,48 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
             </Link>
           ))}
           {more.length > 0 && (
-          <div className="relative">
+          <div
+            // .t-acc only drives the chevron flip here; the menu itself is a .t-dropdown.
+            className="t-acc relative"
+            data-open={moreOpen}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) closeMore();
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") closeMore();
+            }}
+          >
             <button
+              type="button"
               className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-ink transition-colors hover:text-primary"
-              onClick={() => setMoreOpen((v) => !v)}
-              onBlur={() => setTimeout(() => setMoreOpen(false), 150)}
+              onClick={() => (moreOpen ? closeMore() : openMore())}
               aria-expanded={moreOpen}
               aria-haspopup="true"
             >
               {t("accreditation")}
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              <span className="t-acc-chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </button>
-            {moreOpen && (
-              <div className="absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card">
-                {more.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
-                  >
-                    {t(item.key)}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <div
+              data-origin="top-right"
+              className={`t-dropdown absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card${
+                moreOpen ? " is-open" : moreClosing ? " is-closing" : ""
+              }`}
+            >
+              {more.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMore}
+                  className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
+            </div>
           </div>
           )}
         </nav>
@@ -129,31 +165,41 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
             aria-expanded={open}
             aria-label="Menu"
           >
-            <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
-              {open ? (
-                <path d="M2 2l14 10M16 2L2 12" stroke="currentColor" strokeWidth="2" />
-              ) : (
-                <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" strokeWidth="2" />
-              )}
-            </svg>
+            <span className="t-icon-swap" data-state={open ? "b" : "a"} aria-hidden="true">
+              <span className="t-icon" data-icon="a">
+                <svg width="18" height="14" viewBox="0 0 18 14">
+                  <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </span>
+              <span className="t-icon" data-icon="b">
+                <svg width="18" height="14" viewBox="0 0 18 14">
+                  <path d="M2 2l14 10M16 2L2 12" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </span>
+            </span>
           </button>
         </div>
       </div>
 
-      {open && (
-        <nav className="border-t border-line bg-paper px-4 py-3 xl:hidden" aria-label="Mobile">
-          {[...nav, ...more].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
-            >
-              {t(item.key)}
-            </Link>
-          ))}
-        </nav>
-      )}
+      {/* Mobile menu: grows open as an accordion panel under the header bar. */}
+      <div className="t-acc xl:hidden" data-open={open}>
+        <div className="t-acc-panel">
+          <div className="t-acc-panel-inner" inert={!open}>
+            <nav className="border-t border-line bg-paper px-4 py-3" aria-label="Mobile">
+              {[...nav, ...more].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </div>
     </header>
     </div>
   );
