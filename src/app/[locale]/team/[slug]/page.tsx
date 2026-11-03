@@ -34,7 +34,7 @@ export default async function StaffDetailPage({ params }: { params: Promise<{ lo
   const tr = member.translations[0];
 
   const deptLabel = (d: string) =>
-    d === "laboratory" ? t("deptLaboratory") : d === "management" ? t("deptManagement") : t("deptCertification");
+    d === "laboratory" ? t("deptLaboratory") : d === "slab" ? t("deptSlab") : d === "management" ? t("deptManagement") : t("deptCertification");
 
   const related = await prisma.staff.findMany({
     where: { published: true, department: member.department, NOT: { id: member.id } },
