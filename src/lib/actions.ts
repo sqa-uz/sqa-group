@@ -243,7 +243,7 @@ export async function saveStaff(
   const storedTranslations = nonEmptyTranslations(translations, ["name", "position", "intro", "bio", "expertise"]);
   try {
     // older databases only allow certification | laboratory | management
-    if (parsed.data.department === "slab") await ensureStaffDepartmentCheck();
+    if (!["certification", "laboratory", "management"].includes(parsed.data.department)) await ensureStaffDepartmentCheck();
     await prisma.$transaction(async (tx) => {
       const data = {
         department: parsed.data.department,
