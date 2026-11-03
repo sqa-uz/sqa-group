@@ -21,7 +21,7 @@ test.describe("homepage", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/uz");
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.getByRole("button", { name: "Menu" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Menyuni ochish" })).toBeVisible();
   });
 
   test("carousel rows animate in opposite directions", async ({ page }) => {
