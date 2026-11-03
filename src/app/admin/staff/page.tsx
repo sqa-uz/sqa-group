@@ -27,6 +27,7 @@ export default async function AdminStaffList({
     laboratory: t.staff.testingLaboratory,
     slab: t.staff.slabLaboratory,
     management: t.staff.management,
+    specialists: t.staff.specialists,
   };
 
   const staff = await prisma.staff.findMany({
