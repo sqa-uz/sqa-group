@@ -21,8 +21,8 @@ const UNIQUE_CODES = new Set(ITEMS.flatMap((i) => i.codes)).size;
 
 /** Service photos, free under the Unsplash License (unsplash.com/license). */
 const PHOTO = {
-  // unsplash.com/photos/8iDaJg7TPz4: inspector with a checklist
-  certification: "https://images.unsplash.com/photo-1700727448575-6f1680cd7d75?auto=format&fit=crop&w=1600&q=80",
+  // unsplash.com/photos/yKnIbJV0RbY: a hand ticking off a checklist (no faces)
+  certification: "https://images.unsplash.com/photo-1754548930574-6a995e5eb5a7?auto=format&fit=crop&w=1600&q=80",
   // unsplash.com/photos/fXv3QaHccgA: product testing room (bicycles)
   laboratory: "https://images.unsplash.com/photo-1700727448542-50531bc60211?auto=format&fit=crop&w=1200&q=80",
   // unsplash.com/photos/PkHf7BUWbtk: electrical measurements with a tester
@@ -199,7 +199,7 @@ export default async function HomePage({
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
-                className="object-cover object-[65%_center] transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-[55%_center] transition-transform duration-500 group-hover:scale-105"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep from-10% via-primary-deep/55 via-45% to-transparent to-80%" />
               <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
