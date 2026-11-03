@@ -661,50 +661,6 @@ body {
   .t-success-check svg path { animation: none !important; stroke-dashoffset: 0 !important; }
 }
 
-/* ---- Services cards: certificate tile, icon chips, lab icons ---- */
-/* the tick inside the floating tile draws itself once its card has scrolled in */
-.reveal.is-visible .t-success-check[data-state="on-reveal"] {
-  --cert-delay: 450ms;
-  animation:
-    t-check-fade   var(--check-opacity-dur) var(--check-ease-opacity) var(--cert-delay) forwards,
-    t-check-rotate var(--check-rotate-dur)  var(--check-ease-rotate)  var(--cert-delay) forwards,
-    t-check-blur   var(--check-blur-dur)    var(--check-ease-out)     var(--cert-delay) forwards,
-    t-check-bob    var(--check-bob-dur)     var(--check-ease-bob)     var(--cert-delay) forwards;
-}
-.reveal.is-visible .t-success-check[data-state="on-reveal"] svg path {
-  animation: t-check-draw var(--check-path-dur) var(--check-ease-path) calc(var(--cert-delay) + var(--check-path-delay, 0ms)) forwards;
-}
-/* the tile floats gently above the photo */
-.cert-float { animation: cert-float 6s var(--ease-in-out) infinite; }
-@keyframes cert-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -7px; }
-}
-/* chips rise in one after another as the card reveals */
-.cert-chip {
-  opacity: 0;
-  translate: 0 8px;
-  transition:
-    opacity var(--duration-slow) var(--ease-smooth-out),
-    translate var(--duration-slow) var(--ease-smooth-out),
-    background-color var(--duration-fast) var(--ease-smooth-out),
-    border-color var(--duration-fast) var(--ease-smooth-out);
-  transition-delay: calc(300ms + var(--i, 0) * var(--duration-micro)), calc(300ms + var(--i, 0) * var(--duration-micro)), 0ms, 0ms;
-}
-.reveal.is-visible .cert-chip { opacity: 1; translate: 0 0; }
-.group:hover .cert-chip { background-color: rgb(255 255 255 / 0.18); border-color: rgb(255 255 255 / 0.4); }
-/* lab icon tile fills with brand colour and the icon tips on hover */
-.lab-icon {
-  transition: background-color var(--duration-fast) var(--ease-smooth-out), color var(--duration-fast) var(--ease-smooth-out);
-}
-.lab-icon svg { transition: rotate var(--duration-slow) var(--ease-bounce), scale var(--duration-slow) var(--ease-bounce); }
-.group:hover .lab-icon svg { rotate: -12deg; scale: 1.12; }
-@media (prefers-reduced-motion: reduce) {
-  .cert-float { animation: none; }
-  .cert-chip { opacity: 1; translate: none; transition: none; }
-  .lab-icon svg { transition: none; }
-}
-
 /* ---- Spinning counter ---- */
 .t-reel { display: inline-flex; align-items: center; height: var(--reel-cell); font-variant-numeric: tabular-nums; }
 .t-reel-col {
