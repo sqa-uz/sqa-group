@@ -12,6 +12,7 @@ import { prisma } from "@/lib/prisma";
 import { missingTranslations } from "@/lib/publish";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { slugify } from "@/lib/slug";
+import { ensureStaffDepartmentCheck, STAFF_DEPARTMENTS } from "@/lib/staffDepartments";
 import {
   deleteStoredMedia,
   isManagedMediaUrl,
@@ -36,7 +37,7 @@ const NEWS_REQUIRED = ["title", "body"] as const;
 const PARTNER_REQUIRED = ["name"] as const;
 
 const staffInput = z.object({
-  department: z.enum(["certification", "laboratory", "slab", "management"]),
+  department: z.enum(STAFF_DEPARTMENTS),
   email: z.string().trim().max(320).refine((value) => !value || z.email().safeParse(value).success, "Invalid email"),
   linkedin: z.string().trim().max(2_048).refine(isOptionalHttpUrl, "Invalid LinkedIn URL"),
   order: z.coerce.number().int().min(0).max(10_000),
@@ -241,6 +242,8 @@ export async function saveStaff(
 
   const storedTranslations = nonEmptyTranslations(translations, ["name", "position", "intro", "bio", "expertise"]);
   try {
+    // older databases only allow certification | laboratory | management
+    if (parsed.data.department === "slab") await ensureStaffDepartmentCheck();
     await prisma.$transaction(async (tx) => {
       const data = {
         department: parsed.data.department,
