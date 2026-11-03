@@ -47,6 +47,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
             n.translations[0] ? (
               <Reveal key={n.id} delay={(i % 3) * 70}>
                 <NewsCard
+                  headingLevel={2}
                   slug={n.slug}
                   title={n.translations[0].title}
                   summary={n.translations[0].summary}
