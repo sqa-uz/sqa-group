@@ -25,6 +25,7 @@ export default async function AdminStaffList({
   const departmentLabel: Record<string, string> = {
     certification: t.staff.certificationBody,
     laboratory: t.staff.testingLaboratory,
+    slab: t.staff.slabLaboratory,
     management: t.staff.management,
   };
 
