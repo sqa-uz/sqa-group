@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useLayoutEffect, useRef } from "react";
+import { cssNumber, cssTimeMs } from "@/lib/motion";
 
 const SPINS = 1; // full turns of 0-9 before each reel lands
 
@@ -28,10 +29,9 @@ export default function SpinningCounter({ value, className = "" }: { value: numb
   useEffect(() => {
     const el = root.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const css = getComputedStyle(el);
-    const dur = parseFloat(css.getPropertyValue("--reel-dur")) || 1400;
-    const stagger = parseFloat(css.getPropertyValue("--reel-stagger")) || 90;
-    const maxBlur = parseFloat(css.getPropertyValue("--reel-spin-blur")) || 3;
+    const dur = cssTimeMs(el, "--reel-dur", 1400);
+    const stagger = cssTimeMs(el, "--reel-stagger", 90);
+    const maxBlur = cssNumber(el, "--reel-spin-blur", 3);
     let raf = 0;
 
     const spin = () => {

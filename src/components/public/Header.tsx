@@ -8,6 +8,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import TashkentNow from "./TashkentNow";
 import type { Weather } from "@/lib/weather";
+import { cssTimeMs } from "@/lib/motion";
 
 const NAV = [
   { href: "/about", key: "about" },
@@ -47,8 +48,7 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
     if (!moreOpen) return;
     setMoreOpen(false);
     setMoreClosing(true);
-    const ms =
-      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--dropdown-close-dur")) || 150;
+    const ms = cssTimeMs(document.documentElement, "--dropdown-close-dur", 150);
     closeTimer.current = setTimeout(() => setMoreClosing(false), ms);
   };
   useEffect(() => () => {
