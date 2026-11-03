@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/public/Reveal";
 import SectionHeading from "@/components/public/SectionHeading";
+import LearnChevron from "@/components/public/LearnChevron";
 
 type Item = { key: "management" | "export" | "mark"; title: string; text: string; link: string };
 
@@ -34,13 +35,15 @@ export default async function BeyondServices({ heading = true }: { heading?: boo
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         {items.map((it, i) => (
           <Reveal key={it.key} delay={i * 80}>
-            <Link href={HREF[it.key]} className="card card-hover group flex h-full flex-col border-t-2 border-t-primary p-6">
+            <Link href={HREF[it.key]} className="t-learn card card-hover group flex h-full flex-col border-t-2 border-t-primary p-6">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-primary">
                 <path d={ICON[it.key]} />
               </svg>
               <h3 className="mt-4 text-lg font-bold text-ink group-hover:text-primary">{it.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{it.text}</p>
-              <span className="mt-auto pt-4 text-sm font-semibold text-primary">{it.link} →</span>
+              <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
+                {it.link} <LearnChevron />
+              </span>
             </Link>
           </Reveal>
         ))}

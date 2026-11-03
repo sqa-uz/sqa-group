@@ -10,7 +10,9 @@ import SectionHeading from "@/components/public/SectionHeading";
 import StaffCard from "@/components/public/StaffCard";
 import NewsCard from "@/components/public/NewsCard";
 import Reveal from "@/components/public/Reveal";
-import CountUp from "@/components/public/CountUp";
+import SpinningCounter from "@/components/public/SpinningCounter";
+import StaggerReveal from "@/components/public/StaggerReveal";
+import LearnChevron from "@/components/public/LearnChevron";
 import BeyondServices from "@/components/public/BeyondServices";
 import StepsTimeline from "@/components/public/StepsTimeline";
 import { ITEMS } from "@/lib/scopeSearch";
@@ -149,13 +151,17 @@ export default async function HomePage({
         />
         <div aria-hidden="true" className="hero-shade" />
         <div className="hero-copy relative mx-auto max-w-[1200px] px-4 py-20 sm:py-24">
-          <Reveal className="max-w-2xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/85">{t("heroEyebrow")}</p>
-            <h1 className="text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-5xl">
+          <StaggerReveal className="max-w-2xl" stagger="var(--duration-micro)">
+            <p className="t-stagger-line t-stagger-line--1 mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/85">
+              {t("heroEyebrow")}
+            </p>
+            <h1 className="t-stagger-line t-stagger-line--2 text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-5xl">
               {t("heroTitle")}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">{t("heroText")}</p>
-          </Reveal>
+            <p className="t-stagger-line t-stagger-line--3 mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
+              {t("heroText")}
+            </p>
+          </StaggerReveal>
         </div>
       </section>
 
@@ -168,7 +174,7 @@ export default async function HomePage({
           {stats.map((s, i) => (
             <li key={s.label} className={`py-8 lg:py-10 ${i % 2 ? "pl-6" : ""} ${i > 0 ? "lg:border-l lg:border-line lg:pl-8" : ""}`}>
               <p className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
-                <CountUp value={s.value} />
+                <SpinningCounter value={s.value} />
               </p>
               <p className="mt-1 max-w-[14rem] text-sm text-ink-soft">{s.label}</p>
             </li>
@@ -186,7 +192,7 @@ export default async function HomePage({
           <Reveal className="lg:row-span-2">
             <Link
               href="/certification-body"
-              className="card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
+              className="t-learn card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
             >
               <Image
                 src={PHOTO.certification}
@@ -206,7 +212,7 @@ export default async function HomePage({
                 <h3 className="mt-2 text-2xl font-bold sm:text-3xl">{t("certBodyCardTitle")}</h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">{t("certBodyCardText")}</p>
                 <span className="mt-5 inline-flex items-center gap-1 rounded-card bg-white px-4 py-2 text-sm font-semibold text-primary">
-                  {tc("readMore")} <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                  {tc("readMore")} <LearnChevron />
                 </span>
               </div>
             </Link>
@@ -218,7 +224,7 @@ export default async function HomePage({
             { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2] },
           ].map((c, i) => (
             <Reveal key={c.title} delay={(i + 1) * 80}>
-              <Link href="/laboratories" className="card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
+              <Link href="/laboratories" className="t-learn card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
                 <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto sm:min-h-[200px]">
                   <Image
                     src={c.img}
@@ -237,7 +243,7 @@ export default async function HomePage({
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{c.text}</p>
                   <p className="mt-3 text-xs font-semibold text-primary">{c.unit?.valid}</p>
                   <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-primary">
-                    {tc("readMore")} <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                    {tc("readMore")} <LearnChevron />
                   </span>
                 </div>
               </Link>
@@ -447,7 +453,7 @@ export default async function HomePage({
           <Reveal delay={80}>
             <ul className="card divide-y divide-line">
               {DOC_ROWS.map((r) => (
-                <li key={r.href} className="group relative flex items-start gap-4 p-5 transition-colors hover:bg-band/60 sm:items-center">
+                <li key={r.href} className="t-learn group relative flex items-start gap-4 p-5 transition-colors hover:bg-band/60 sm:items-center">
                   <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-card bg-band text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                       <path d={r.icon} />
@@ -477,8 +483,8 @@ export default async function HomePage({
                       </div>
                     )}
                   </div>
-                  <span aria-hidden="true" className="hidden text-lg text-ink-soft transition-transform group-hover:translate-x-1 group-hover:text-primary sm:block">
-                    →
+                  <span className="hidden text-ink-soft group-hover:text-primary sm:block">
+                    <LearnChevron size={18} />
                   </span>
                 </li>
               ))}

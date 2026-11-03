@@ -42,18 +42,20 @@ export default function ThemeToggle() {
       title={label}
       className="flex h-8 w-8 items-center justify-center rounded-card border border-line bg-paper text-ink-soft transition-colors hover:border-primary hover:text-primary"
     >
-      {theme === "dark" ? (
-        // sun: switch back to light
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-        </svg>
-      ) : (
-        // moon: switch to dark
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5a8.5 8.5 0 1 0 10.6 10.6z" />
-        </svg>
-      )}
+      {/* moon (a) → sun (b): cross-fade with blur and scale */}
+      <span className="t-icon-swap" data-state={theme === "dark" ? "b" : "a"} aria-hidden="true">
+        <span className="t-icon" data-icon="a">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5a8.5 8.5 0 1 0 10.6 10.6z" />
+          </svg>
+        </span>
+        <span className="t-icon" data-icon="b">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+        </span>
+      </span>
     </button>
   );
 }
