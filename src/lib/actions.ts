@@ -36,7 +36,7 @@ const NEWS_REQUIRED = ["title", "body"] as const;
 const PARTNER_REQUIRED = ["name"] as const;
 
 const staffInput = z.object({
-  department: z.enum(["certification", "laboratory", "management"]),
+  department: z.enum(["certification", "laboratory", "slab", "management"]),
   email: z.string().trim().max(320).refine((value) => !value || z.email().safeParse(value).success, "Invalid email"),
   linkedin: z.string().trim().max(2_048).refine(isOptionalHttpUrl, "Invalid LinkedIn URL"),
   order: z.coerce.number().int().min(0).max(10_000),
