@@ -199,7 +199,7 @@ export default async function HomePage({
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
-                className="object-cover object-[40%_center] transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-[15%_center] transition-transform duration-500 group-hover:scale-105"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-primary-deep from-10% via-primary-deep/55 via-45% to-transparent to-80%" />
               <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
