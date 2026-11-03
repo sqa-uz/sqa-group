@@ -12,7 +12,17 @@
     "themeDark": "Tungi rejimni yoqish",
     "themeLight": "Kunduzgi rejimni yoqish",
     "tashkent": "Toshkent",
-    "weatherLabel": "Toshkentda vaqt va ob-havo"
+    "weatherLabel": "Toshkentda vaqt va ob-havo",
+    "skipToContent": "Asosiy mazmunga o'tish",
+    "menuOpen": "Menyuni ochish",
+    "menuClose": "Menyuni yopish",
+    "language": "Til",
+    "pauseVideo": "Videoni to'xtatish",
+    "playVideo": "Videoni davom ettirish",
+    "pauseLogos": "Logotiplar harakatini to'xtatish",
+    "playLogos": "Logotiplar harakatini davom ettirish",
+    "requiredNote": "* bilan belgilangan maydonlarni to'ldirish majburiy.",
+    "navMain": "Asosiy menyu"
   },
   "nav": {
     "home": "Bosh sahifa",

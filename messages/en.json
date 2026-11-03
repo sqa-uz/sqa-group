@@ -12,7 +12,17 @@
     "themeDark": "Switch to dark theme",
     "themeLight": "Switch to light theme",
     "tashkent": "Tashkent",
-    "weatherLabel": "Time and weather in Tashkent"
+    "weatherLabel": "Time and weather in Tashkent",
+    "skipToContent": "Skip to main content",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "language": "Language",
+    "pauseVideo": "Pause video",
+    "playVideo": "Play video",
+    "pauseLogos": "Pause logo scrolling",
+    "playLogos": "Resume logo scrolling",
+    "requiredNote": "Fields marked * are required.",
+    "navMain": "Main menu"
   },
   "nav": {
     "home": "Home",
