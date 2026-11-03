@@ -9,6 +9,7 @@ export default function NewsCard({
   imageUrl,
   date,
   readMoreLabel,
+  headingLevel = 3,
 }: {
   slug: string;
   title: string;
@@ -16,7 +17,10 @@ export default function NewsCard({
   imageUrl: string | null;
   date: string;
   readMoreLabel: string;
+  /** 2 on the blog index (cards sit right under the page h1), 3 inside a titled section. */
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <Link href={`/news/${slug}`} className="card card-hover group flex flex-col overflow-hidden">
       <div className="relative aspect-[16/9] overflow-hidden bg-band">
@@ -35,7 +39,7 @@ export default function NewsCard({
       </div>
       <div className="flex flex-1 flex-col p-5">
         <time className="text-xs font-medium text-ink-soft">{date}</time>
-        <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-primary">{title}</h3>
+        <Heading className="mt-2 font-bold leading-snug text-ink group-hover:text-primary">{title}</Heading>
         {summary && <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">{summary}</p>}
         <span className="mt-auto pt-4 text-sm font-semibold text-primary">{readMoreLabel} →</span>
       </div>

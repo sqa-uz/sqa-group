@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -34,18 +34,48 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const moreButton = useRef<HTMLButtonElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const moreId = useId();
+  const mobileId = useId();
+
+  // Escape closes whichever menu is open and returns focus to the button that opened it.
+  useEffect(() => {
+    if (!open && !moreOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (moreOpen) {
+        setMoreOpen(false);
+        moreButton.current?.focus();
+      }
+      if (open) {
+        setOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, moreOpen]);
 
   const hidden = new Set(hiddenHrefs);
   const nav = NAV.filter((i) => !hidden.has(i.href));
   const more = MORE.filter((i) => !hidden.has(i.href));
 
+  const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  // The current page is marked by colour and an underline, not by colour alone.
   const linkCls = (href: string) =>
     `whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
-      pathname === href ? "text-primary" : "text-ink"
+      isCurrent(href) ? "text-primary underline decoration-2 underline-offset-[6px]" : "text-ink"
     }`;
 
   return (
-    <div className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50">
+    <a
+      href="#main"
+      className="sr-only rounded-card bg-primary px-4 py-2 text-sm font-semibold text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-[60]"
+    >
+      {tc("skipToContent")}
+    </a>
     {/* Utility bar: contacts, theme, language and the request button */}
     <div className="border-b border-line bg-band">
       <div className="mx-auto flex h-11 max-w-[1320px] items-center justify-between gap-3 px-4">
@@ -74,7 +104,7 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
       </div>
     </div>
 
-    <header className="relative border-b border-line bg-paper/90 backdrop-blur">
+    <div className="relative border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-4 px-4">
         <Link href="/" className="flex items-center gap-3" aria-label={tc("companyName")}>
           <Image src="/images/logo/logo-black.jpg" alt="" width={42} height={42} className="rounded-[2px]" priority />
@@ -85,20 +115,34 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label={tc("navMain")}>
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className={linkCls(item.href)}>
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className={linkCls(item.href)}
+            >
               {t(item.key)}
             </Link>
           ))}
           {more.length > 0 && (
-          <div className="relative">
+          <div
+            className="relative"
+            // Close only when focus leaves the button and its menu, so Tab can walk into the links.
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setMoreOpen(false);
+            }}
+          >
             <button
-              className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-ink transition-colors hover:text-primary"
+              ref={moreButton}
+              type="button"
+              className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
+                more.some((i) => isCurrent(i.href)) ? "text-primary" : "text-ink"
+              }`}
               onClick={() => setMoreOpen((v) => !v)}
-              onBlur={() => setTimeout(() => setMoreOpen(false), 150)}
               aria-expanded={moreOpen}
-              aria-haspopup="true"
+              aria-controls={moreId}
             >
               {t("accreditation")}
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
@@ -106,12 +150,16 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
               </svg>
             </button>
             {moreOpen && (
-              <div className="absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card">
+              <div id={moreId} className="absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card">
                 {more.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
+                    onClick={() => setMoreOpen(false)}
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    className={`block rounded-[2px] px-3 py-2 text-sm hover:bg-band hover:text-primary ${
+                      isCurrent(item.href) ? "font-semibold text-primary" : "text-ink"
+                    }`}
                   >
                     {t(item.key)}
                   </Link>
@@ -124,10 +172,13 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
 
         <div className="flex items-center gap-3 xl:hidden">
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-card border border-line xl:hidden"
+            ref={menuButton}
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-card border border-line xl:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label="Menu"
+            aria-controls={mobileId}
+            aria-label={tc(open ? "menuClose" : "menuOpen")}
           >
             <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
               {open ? (
@@ -141,20 +192,23 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-paper px-4 py-3 xl:hidden" aria-label="Mobile">
+        <nav id={mobileId} className="border-t border-line bg-paper px-4 py-3 xl:hidden" aria-label={tc("navMain")}>
           {[...nav, ...more].map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className={`block rounded-[2px] px-2 py-3 text-sm font-medium hover:bg-band hover:text-primary ${
+                isCurrent(item.href) ? "bg-band text-primary" : "text-ink"
+              }`}
             >
               {t(item.key)}
             </Link>
           ))}
         </nav>
       )}
-    </header>
     </div>
+    </header>
   );
 }

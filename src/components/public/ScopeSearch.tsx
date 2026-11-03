@@ -49,9 +49,9 @@ function ItemCard({ item, prefix, tokens }: { item: ScopeItem; prefix: string; t
   return (
     <li className="card p-5 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-        <h3 className="max-w-3xl text-[15px] font-semibold leading-snug text-ink">
+        <h2 className="max-w-3xl text-[15px] font-semibold leading-snug text-ink">
           <Highlight text={item.name} tokens={tokens} />
-        </h3>
+        </h2>
         <span
           className="shrink-0 rounded-[2px] bg-band px-2 py-0.5 text-[11px] font-semibold tracking-wide text-ink-soft"
           title={t(item.s === "502" ? "scheme502Full" : "scheme318Full")}
