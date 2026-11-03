@@ -29,16 +29,6 @@ const PHOTO = {
   sLab: "https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1200&q=80",
 };
 
-/** Line icons (24px grid) for the services cards. */
-const ICON = {
-  globe: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3.6 9h16.8M3.6 15h16.8M12 3c-2.5 2.5-3.5 5.5-3.5 9s1 6.5 3.5 9M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9",
-  box: "M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8",
-  scales: "M12 3v18M8 21h8M4 7h16M4 7l-2.5 7a2.5 2.5 0 0 0 5 0zM20 7l-2.5 7a2.5 2.5 0 0 0 5 0z",
-  flask: "M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.5 14h9",
-  gauge: "M3.5 16a9 9 0 1 1 17 0M12 15l4.5-5M13.5 15a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM6.4 10.2l1.3.9M12 6.6v1.6",
-  shield: "M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6zM9 12l2 2 4-4",
-};
-
 /** Product groups of the accreditation scope, each with a line icon and a search that finds it. */
 const GROUP_LINKS: { q: string; icon: string }[] = [
   { q: "трубы", icon: "M3 9h13a5 5 0 0 1 5 5v1M3 15h11a1 1 0 0 1 1 1v5M3 7v10M21 15h-4v6" },
@@ -202,7 +192,7 @@ export default async function HomePage({
           <Reveal className="lg:row-span-2">
             <Link
               href="/certification-body"
-              className="t-learn card card-hover group relative flex h-full min-h-[520px] sm:min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
+              className="t-learn card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
             >
               <Image
                 src={PHOTO.certification}
@@ -215,47 +205,12 @@ export default async function HomePage({
               <span className="absolute left-6 top-6 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
                 ISO/IEC 17065
               </span>
-              {/* floating "certificate" tile: the tick strokes itself on when the card scrolls in */}
-              <div
-                aria-hidden="true"
-                className="cert-float absolute left-6 top-[60px] flex items-center gap-3 rounded-card bg-white/95 py-2.5 pl-2.5 pr-4 shadow-[0_18px_40px_-16px_rgb(8_4_60/0.75)] backdrop-blur-md sm:left-auto sm:right-6 sm:top-6"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-                  <span className="t-success-check" data-state="on-reveal">
-                    <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-                      <path d="M11 18.5l4.5 4.5L25 13" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-[#4a5072]">{t("certFloatLabel")}</span>
-                  <span className="mt-0.5 block text-sm font-bold text-[#10153a]">{t("certFloatValue")}</span>
-                </span>
-              </div>
               <div className="relative p-6 sm:p-8">
                 <p className="text-[11px] font-bold tracking-wide text-white/75">
                   {units[0]?.code} · {units[0]?.valid}
                 </p>
                 <h3 className="mt-2 text-2xl font-bold sm:text-3xl">{t("certBodyCardTitle")}</h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">{t("certBodyCardText")}</p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {[
-                    { icon: ICON.globe, label: t("certChipOrigin") },
-                    { icon: ICON.box, label: t("certChipProducts", { n: ITEMS.length }) },
-                    { icon: ICON.scales, label: t("certChipImpartial") },
-                  ].map((chip, i) => (
-                    <li
-                      key={chip.label}
-                      className="cert-chip inline-flex items-center gap-1.5 rounded-card border border-white/25 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white backdrop-blur-sm"
-                      style={{ "--i": i } as React.CSSProperties}
-                    >
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
-                        <path d={chip.icon} />
-                      </svg>
-                      {chip.label}
-                    </li>
-                  ))}
-                </ul>
                 <span className="mt-5 inline-flex items-center gap-1 rounded-card bg-white px-4 py-2 text-sm font-semibold text-primary">
                   {tc("readMore")} <LearnChevron />
                 </span>
@@ -265,8 +220,8 @@ export default async function HomePage({
 
           {/* laboratories */}
           {[
-            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1], icon: ICON.flask },
-            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2], icon: ICON.gauge },
+            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1] },
+            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2] },
           ].map((c, i) => (
             <Reveal key={c.title} delay={(i + 1) * 80}>
               <Link href="/laboratories" className="t-learn card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
@@ -283,22 +238,10 @@ export default async function HomePage({
                   </span>
                 </div>
                 <div className="flex flex-col p-5">
-                  <div className="flex items-center gap-3">
-                    <span className="lab-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-card bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d={c.icon} />
-                      </svg>
-                    </span>
-                    <p className="text-[11px] font-bold tracking-wide text-ink-soft">{c.unit?.code}</p>
-                  </div>
-                  <h3 className="mt-3 text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
+                  <p className="text-[11px] font-bold tracking-wide text-ink-soft">{c.unit?.code}</p>
+                  <h3 className="mt-1.5 text-lg font-bold text-ink group-hover:text-primary">{c.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{c.text}</p>
-                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
-                      <path d={ICON.shield} />
-                    </svg>
-                    {c.unit?.valid}
-                  </p>
+                  <p className="mt-3 text-xs font-semibold text-primary">{c.unit?.valid}</p>
                   <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-primary">
                     {tc("readMore")} <LearnChevron />
                   </span>
