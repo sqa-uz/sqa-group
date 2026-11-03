@@ -202,7 +202,7 @@ export default async function HomePage({
           <Reveal className="lg:row-span-2">
             <Link
               href="/certification-body"
-              className="t-learn card card-hover group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
+              className="t-learn card card-hover group relative flex h-full min-h-[520px] sm:min-h-[380px] flex-col justify-end overflow-hidden border-0 text-white"
             >
               <Image
                 src={PHOTO.certification}
@@ -218,9 +218,9 @@ export default async function HomePage({
               {/* floating "certificate" tile: the tick strokes itself on when the card scrolls in */}
               <div
                 aria-hidden="true"
-                className="cert-float absolute left-6 top-[60px] flex items-center gap-3 rounded-card border border-white/30 bg-white/15 py-2.5 pl-2.5 pr-4 shadow-[0_14px_34px_-14px_rgb(8_4_60/0.7)] backdrop-blur-md sm:left-auto sm:right-6 sm:top-6"
+                className="cert-float absolute left-6 top-[60px] flex items-center gap-3 rounded-card bg-white/95 py-2.5 pl-2.5 pr-4 shadow-[0_18px_40px_-16px_rgb(8_4_60/0.75)] backdrop-blur-md sm:left-auto sm:right-6 sm:top-6"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-primary">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-white">
                   <span className="t-success-check" data-state="on-reveal">
                     <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
                       <path d="M11 18.5l4.5 4.5L25 13" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -228,8 +228,8 @@ export default async function HomePage({
                   </span>
                 </span>
                 <span className="leading-tight">
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-white/70">{t("certFloatLabel")}</span>
-                  <span className="mt-0.5 block text-sm font-semibold">{t("certFloatValue")}</span>
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-[#4a5072]">{t("certFloatLabel")}</span>
+                  <span className="mt-0.5 block text-sm font-bold text-[#10153a]">{t("certFloatValue")}</span>
                 </span>
               </div>
               <div className="relative p-6 sm:p-8">
