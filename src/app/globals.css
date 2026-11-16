@@ -696,3 +696,52 @@ body {
 .t-dropdown:not(.is-open):not(.is-closing) { visibility: hidden; }
 /* Stats: reels sized to the figure's font, a little taller than the glyphs so the edge fade never dims them. */
 .stat-reel { --reel-cell: 1.3em; }
+
+/* ---- Visual article editor (admin): looks like the article on the site ---- */
+.article-editor .ProseMirror {
+  min-height: 420px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  outline: none;
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+.article-editor .ProseMirror > * + * { margin-top: 0.85rem; }
+.article-editor .ProseMirror h2 { margin-top: 1.8rem; font-size: 1.5rem; font-weight: 900; line-height: 1.3; color: var(--color-ink); }
+.article-editor .ProseMirror h3 { margin-top: 1.4rem; font-size: 1.2rem; font-weight: 700; line-height: 1.35; color: var(--color-ink); }
+.article-editor .ProseMirror strong { color: var(--color-ink); }
+.article-editor .ProseMirror mark { border-radius: 3px; background: rgb(32 3 189 / 0.15); padding: 0 0.2em; color: var(--color-ink); }
+.article-editor .ProseMirror a { color: var(--color-primary); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.article-editor .ProseMirror ul { list-style: disc; padding-left: 1.5rem; }
+.article-editor .ProseMirror ol { list-style: decimal; padding-left: 1.5rem; }
+.article-editor .ProseMirror li::marker { color: var(--color-primary); }
+.article-editor .ProseMirror li p { margin: 0; }
+.article-editor .ProseMirror blockquote { border-left: 4px solid var(--color-primary); background: var(--color-band); padding: 0.9rem 1.25rem; font-style: italic; color: var(--color-ink); }
+.article-editor .ProseMirror hr { border: 0; border-top: 1px solid var(--color-line); margin: 1.75rem 0; }
+.article-editor .ProseMirror hr.ProseMirror-selectednode { border-top: 2px solid var(--color-primary); }
+.article-editor .ProseMirror img { max-height: 420px; width: 100%; object-fit: cover; border-radius: var(--radius-card); border: 1px solid var(--color-line); }
+.article-editor .ProseMirror img.ProseMirror-selectednode { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.article-editor .ProseMirror div[data-youtube-video] iframe { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: var(--radius-card); }
+.article-editor .ProseMirror div[data-youtube-video].ProseMirror-selectednode iframe { outline: 3px solid var(--color-primary); }
+.article-editor .ProseMirror table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.article-editor .ProseMirror th,
+.article-editor .ProseMirror td { border: 1px solid var(--color-line); padding: 0.45rem 0.7rem; vertical-align: top; }
+.article-editor .ProseMirror th { background: var(--color-primary); color: #fff; font-weight: 600; text-align: left; }
+.article-editor .ProseMirror th p, .article-editor .ProseMirror td p { margin: 0; }
+.article-editor .ProseMirror .selectedCell { background: rgb(32 3 189 / 0.08); }
+.article-editor .ProseMirror .editor-callout { border-radius: var(--radius-card); border: 1px solid rgb(32 3 189 / 0.25); background: rgb(32 3 189 / 0.06); padding: 0.9rem 1.1rem; color: var(--color-ink); }
+.article-editor .ProseMirror .editor-callout[data-callout="success"] { border-color: rgb(16 185 129 / 0.35); background: rgb(16 185 129 / 0.08); }
+.article-editor .ProseMirror .editor-callout[data-callout="warning"] { border-color: rgb(245 158 11 / 0.4); background: rgb(245 158 11 / 0.1); }
+.article-editor .ProseMirror .editor-callout > * + * { margin-top: 0.5rem; }
+.article-editor .ProseMirror .editor-button span { display: inline-flex; border-radius: var(--radius-card); background: var(--color-primary); padding: 0.6rem 1.1rem; font-size: 0.875rem; font-weight: 600; color: #fff; }
+.article-editor .ProseMirror .editor-button.ProseMirror-selectednode span { outline: 3px solid rgb(32 3 189 / 0.35); outline-offset: 2px; }
+.article-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: var(--color-ink-soft);
+  opacity: 0.6;
+}

@@ -1,16 +1,61 @@
 "use client";
 
 import { useRef, useState, useTransition } from "react";
+import { EditorContent, useEditor, type Editor } from "@tiptap/react";
+import { Node, mergeAttributes } from "@tiptap/core";
+import StarterKit from "@tiptap/starter-kit";
+import Link from "@tiptap/extension-link";
+import Highlight from "@tiptap/extension-highlight";
+import Image from "@tiptap/extension-image";
+import Table from "@tiptap/extension-table";
+import TableRow from "@tiptap/extension-table-row";
+import TableHeader from "@tiptap/extension-table-header";
+import TableCell from "@tiptap/extension-table-cell";
+import Youtube from "@tiptap/extension-youtube";
+import Placeholder from "@tiptap/extension-placeholder";
 import { uploadArticleImage } from "@/lib/actions";
-import { parseArticle, readingMinutes, articleWordCount } from "@/lib/article";
+import { articleWordCount, readingMinutes, safeHref, youtubeId } from "@/lib/article";
+import { docToMarkup, markupToDoc, type PMNode } from "@/lib/articleDoc";
 import { adminMessages, type AdminLocale } from "@/i18n/admin";
-import ArticleBody from "@/components/public/ArticleBody";
 
 type EditorText = (typeof adminMessages)[AdminLocale]["news"]["editor"];
+type Tone = "info" | "success" | "warning";
+
+/** Coloured box ("::: info" in the stored markup). */
+const Callout = Node.create({
+  name: "callout",
+  group: "block",
+  content: "block+",
+  defining: true,
+  addAttributes() {
+    return { tone: { default: "info" } };
+  },
+  parseHTML() {
+    return [{ tag: "div[data-callout]", getAttrs: (el) => ({ tone: (el as HTMLElement).dataset.callout ?? "info" }) }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["div", mergeAttributes({ "data-callout": HTMLAttributes.tone, class: "editor-callout" }), 0];
+  },
+});
+
+/** Call-to-action button ("[[Text|url]]" in the stored markup). */
+const ArticleButton = Node.create({
+  name: "articleButton",
+  group: "block",
+  atom: true,
+  selectable: true,
+  addAttributes() {
+    return { label: { default: "" }, href: { default: "" } };
+  },
+  parseHTML() {
+    return [{ tag: "div[data-article-button]" }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["div", { "data-article-button": "", class: "editor-button" }, ["span", {}, `${HTMLAttributes.label} →`]];
+  },
+});
 
 const ICONS: Record<string, string> = {
-  h2: "M4 6v12M12 6v12M4 12h8M16 10l2.5-1.5V18M15.5 18h5",
-  h3: "M4 6v12M11 6v12M4 12h7M15.5 9.5c.6-.6 1.3-1 2.2-1 1.2 0 2 .8 2 1.8s-.8 1.7-2 1.7c1.3 0 2.3.8 2.3 2s-1 2-2.3 2c-1 0-1.8-.4-2.4-1.1",
   bold: "M7 5h6a3.5 3.5 0 0 1 0 7H7zM7 12h7a3.5 3.5 0 0 1 0 7H7z",
   italic: "M10 5h8M6 19h8M14 5l-4 14",
   highlight: "M9 11l-5 5v3h3l5-5M14 6l4 4M12 8l4 4-5 5-4-4z",
@@ -23,20 +68,66 @@ const ICONS: Record<string, string> = {
   button: "M3 8h18v8H3zM8 12h8",
   image: "M4 5h16v14H4zM4 16l5-5 4 4 2-2 5 5M15 9h.01",
   video: "M3 6h18v12H3zM10 9.5v5l4.5-2.5z",
-  divider: "M3 12h18M7 7h10M7 17h10",
+  divider: "M3 12h18",
+  undo: "M9 14L4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3",
+  redo: "M15 14l5-5-5-5M20 9H9a5 5 0 0 0 0 10h3",
 };
 
 function Icon({ name }: { name: string }) {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d={ICONS[name]} />
     </svg>
   );
 }
 
+function ToolButton({
+  icon,
+  label,
+  active,
+  disabled,
+  withText,
+  onClick,
+}: {
+  icon: string;
+  label: string;
+  active?: boolean;
+  disabled?: boolean;
+  withText?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      title={label}
+      aria-label={label}
+      aria-pressed={active}
+      disabled={disabled}
+      onMouseDown={(e) => e.preventDefault()}
+      onClick={onClick}
+      className={`flex h-8 items-center gap-1.5 rounded-card px-2 text-xs font-semibold transition-colors disabled:opacity-40 ${
+        active ? "bg-primary text-white" : "text-ink-soft hover:bg-white hover:text-primary"
+      }`}
+    >
+      <Icon name={icon} />
+      {withText && <span className="hidden sm:inline">{label}</span>}
+    </button>
+  );
+}
+
+const Divider = () => <span className="mx-1 h-6 w-px bg-line" aria-hidden="true" />;
+
+type Panel =
+  | { kind: "link"; href: string }
+  | { kind: "video"; url: string }
+  | { kind: "button"; label: string; href: string }
+  | { kind: "caption"; alt: string }
+  | { kind: "callout" }
+  | null;
+
 /**
- * Article body editor: a plain textarea (the form submits it as is) with a toolbar
- * that inserts the article markup, image upload, and a live preview of the public page.
+ * Visual article editor. People see formatted text while they write; the form receives
+ * the article markup in a hidden field, which the site renders (and old articles use).
  */
 export default function ArticleEditor({
   name,
@@ -50,123 +141,80 @@ export default function ArticleEditor({
   adminLocale: AdminLocale;
 }) {
   const t: EditorText = adminMessages[adminLocale].news.editor;
-  const [value, setValue] = useState(defaultValue);
-  const [mode, setMode] = useState<"write" | "preview">("write");
-  const [calloutOpen, setCalloutOpen] = useState(false);
+  const [markup, setMarkup] = useState(defaultValue);
+  const [panel, setPanel] = useState<Panel>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [uploading, startUpload] = useTransition();
-  const area = useRef<HTMLTextAreaElement>(null);
+  const [, force] = useState(0);
   const fileInput = useRef<HTMLInputElement>(null);
 
-  /** Replace the current selection, then put the caret/selection back where it is useful. */
-  function apply(edit: (before: string, selected: string, after: string) => { text: string; selStart: number; selEnd: number }) {
-    const el = area.current;
-    if (!el) return;
-    const start = el.selectionStart;
-    const end = el.selectionEnd;
-    const { text, selStart, selEnd } = edit(value.slice(0, start), value.slice(start, end), value.slice(end));
-    setValue(text);
-    setMode("write");
-    requestAnimationFrame(() => {
-      el.focus();
-      el.setSelectionRange(selStart, selEnd);
-    });
+  const editor = useEditor({
+    immediatelyRender: false,
+    extensions: [
+      StarterKit.configure({ heading: { levels: [2, 3] }, code: false, codeBlock: false, strike: false }),
+      Link.configure({ openOnClick: false, autolink: true, protocols: ["mailto", "tel"] }),
+      Highlight,
+      Image.configure({ inline: false }),
+      Table.configure({ resizable: false }),
+      TableRow,
+      TableHeader,
+      TableCell,
+      Youtube.configure({ nocookie: true, controls: true, width: 640, height: 360 }),
+      Placeholder.configure({ placeholder: t.placeholder }),
+      Callout,
+      ArticleButton,
+    ],
+    content: markupToDoc(defaultValue),
+    editorProps: { attributes: { class: "article-editor-content", "aria-label": label } },
+    onUpdate: ({ editor }) => setMarkup(docToMarkup(editor.getJSON() as PMNode)),
+    onSelectionUpdate: () => force((n) => n + 1),
+    onTransaction: () => force((n) => n + 1),
+  });
+
+  const chain = () => (editor as Editor).chain().focus();
+  const style = editor?.isActive("heading", { level: 2 }) ? "h2" : editor?.isActive("heading", { level: 3 }) ? "h3" : "p";
+  const inTable = !!editor?.isActive("table");
+  const imageSelected = !!editor?.isActive("image");
+
+  function openPanel(next: Panel) {
+    setStatus(null);
+    setPanel((cur) => (cur && next && cur.kind === next.kind ? null : next));
   }
 
-  const wrap = (open: string, close: string, placeholder: string) =>
-    apply((before, selected, after) => {
-      const inner = selected || placeholder;
-      return {
-        text: before + open + inner + close + after,
-        selStart: before.length + open.length,
-        selEnd: before.length + open.length + inner.length,
-      };
-    });
+  function applyPanel() {
+    if (!editor || !panel) return;
+    if (panel.kind === "link") {
+      const href = safeHref(panel.href.trim());
+      if (!panel.href.trim()) chain().extendMarkRange("link").unsetLink().run();
+      else if (href) chain().extendMarkRange("link").setLink({ href }).run();
+      else return setStatus(t.invalidLink);
+    }
+    if (panel.kind === "video") {
+      const id = youtubeId(panel.url.trim());
+      if (!id) return setStatus(t.invalidVideo);
+      chain().setYoutubeVideo({ src: `https://www.youtube.com/watch?v=${id}` }).run();
+    }
+    if (panel.kind === "button") {
+      const href = safeHref(panel.href.trim());
+      if (!panel.label.trim() || !href) return setStatus(t.invalidButton);
+      chain().insertContent({ type: "articleButton", attrs: { label: panel.label.trim(), href } }).run();
+    }
+    if (panel.kind === "caption") chain().updateAttributes("image", { alt: panel.alt.trim() || null }).run();
+    setPanel(null);
+    setStatus(null);
+  }
 
-  /** Prefix every selected line (or the current line). */
-  const prefixLines = (prefix: (i: number) => string, placeholder: string) =>
-    apply((before, selected, after) => {
-      const lineStart = before.lastIndexOf("\n") + 1;
-      const head = before.slice(0, lineStart);
-      const lineHead = before.slice(lineStart);
-      const nextBreak = after.indexOf("\n");
-      const lineTail = nextBreak === -1 ? after : after.slice(0, nextBreak);
-      const tail = nextBreak === -1 ? "" : after.slice(nextBreak);
-      const source = lineHead + selected + lineTail || placeholder;
-      const lines = source.split("\n").map((l, i) => prefix(i) + l.replace(/^(#{2,3}\s+|[-*•]\s+|\d+[.)]\s+|>\s?)/, ""));
-      const block = lines.join("\n");
-      return { text: head + block + tail, selStart: head.length + block.length, selEnd: head.length + block.length };
-    });
-
-  /** Insert a standalone block on its own lines. */
-  const insertBlock = (block: string, selectFrom?: number, selectLength?: number) =>
-    apply((before, selected, after) => {
-      const lead = before === "" || before.endsWith("\n\n") ? "" : before.endsWith("\n") ? "\n" : "\n\n";
-      const trail = after.startsWith("\n\n") ? "" : after.startsWith("\n") ? "\n" : "\n\n";
-      void selected;
-      const at = before.length + lead.length;
-      return {
-        text: before + lead + block + trail + after,
-        selStart: selectFrom !== undefined ? at + selectFrom : at + block.length,
-        selEnd: selectFrom !== undefined ? at + selectFrom + (selectLength ?? 0) : at + block.length,
-      };
-    });
-
-  const toolRunners = (): { key: string; title: string; run: () => void }[] => [
-    { key: "h2", title: t.h2, run: () => prefixLines(() => "## ", t.h2) },
-    { key: "h3", title: t.h3, run: () => prefixLines(() => "### ", t.h3) },
-    { key: "bold", title: t.bold, run: () => wrap("**", "**", t.bold) },
-    { key: "italic", title: t.italic, run: () => wrap("*", "*", t.italic) },
-    { key: "highlight", title: t.highlight, run: () => wrap("==", "==", t.highlight) },
-    {
-      key: "link",
-      title: t.link,
-      run: () => {
-        const url = window.prompt(t.linkPrompt, "https://");
-        if (url && url !== "https://") wrap("[", `](${url.trim()})`, t.link);
-      },
-    },
-    { key: "bulletList", title: t.bulletList, run: () => prefixLines(() => "- ", t.bulletList) },
-    { key: "numberedList", title: t.numberedList, run: () => prefixLines((i) => `${i + 1}. `, t.numberedList) },
-    { key: "quote", title: t.quote, run: () => prefixLines(() => "> ", t.quote) },
-    { key: "callout", title: t.callout, run: () => setCalloutOpen((o) => !o) },
-    {
-      key: "table",
-      title: t.table,
-      run: () => insertBlock("| A | B | C |\n|---|---|---|\n| 1 | 2 | 3 |\n| 4 | 5 | 6 |", 2, 1),
-    },
-    {
-      key: "button",
-      title: t.button,
-      run: () => {
-        const text = window.prompt(t.buttonTextPrompt);
-        if (!text) return;
-        const url = window.prompt(t.buttonUrlPrompt, "https://");
-        if (url && url !== "https://") insertBlock(`[[${text.trim()}|${url.trim()}]]`);
-      },
-    },
-    { key: "image", title: t.image, run: () => fileInput.current?.click() },
-    {
-      key: "video",
-      title: t.video,
-      run: () => {
-        const url = window.prompt(t.videoPrompt, "https://www.youtube.com/watch?v=");
-        if (url && /youtu/.test(url)) insertBlock(url.trim());
-      },
-    },
-    { key: "divider", title: t.divider, run: () => insertBlock("---") },
-  ];
-  const runTool = (key: string) => toolRunners().find((tool) => tool.key === key)?.run();
-  const tools = (
-    [
-      ["h2", t.h2], ["h3", t.h3], ["bold", t.bold], ["italic", t.italic], ["highlight", t.highlight], ["link", t.link],
-      ["bulletList", t.bulletList], ["numberedList", t.numberedList], ["quote", t.quote], ["callout", t.callout],
-      ["table", t.table], ["button", t.button], ["image", t.image], ["video", t.video], ["divider", t.divider],
-    ] as const
-  ).map(([key, title]) => ({ key, title }));
+  function insertCallout(tone: Tone) {
+    if (!editor) return;
+    const text = editor.state.doc.textBetween(editor.state.selection.from, editor.state.selection.to, " ");
+    chain()
+      .insertContent({ type: "callout", attrs: { tone }, content: [{ type: "paragraph", content: text ? [{ type: "text", text }] : [] }] })
+      .run();
+    setPanel(null);
+  }
 
   function onImage(file: File | undefined) {
-    if (!file) return;
+    if (!file || !editor) return;
     const data = new FormData();
     data.set("image", file);
     data.set("adminLang", adminLocale);
@@ -175,7 +223,7 @@ export default function ArticleEditor({
       const res = await uploadArticleImage(data);
       if (res.url) {
         setStatus(null);
-        insertBlock(`![](${res.url})`, 2, 0);
+        chain().setImage({ src: res.url }).run();
       } else {
         setStatus(res.error ?? t.uploadFailed);
       }
@@ -183,106 +231,176 @@ export default function ArticleEditor({
     });
   }
 
-  const words = articleWordCount(value);
-  const blocks = mode === "preview" ? parseArticle(value) : [];
-  const tab = (m: "write" | "preview", text: string) => (
-    <button
-      type="button"
-      onClick={() => setMode(m)}
-      aria-pressed={mode === m}
-      className={`rounded-card px-3 py-1.5 text-xs font-semibold transition-colors ${mode === m ? "bg-primary text-white" : "text-ink-soft hover:text-ink"}`}
-    >
-      {text}
-    </button>
-  );
+  const input = "min-w-0 flex-1 rounded-card border border-line bg-white px-3 py-1.5 text-sm text-ink outline-none focus:border-primary";
+  const okButton = "rounded-card bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-bright";
+  const enter = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      applyPanel();
+    }
+  };
 
   return (
     <div>
-      <div className="mb-1 flex flex-wrap items-end justify-between gap-2">
-        <span className="block text-xs font-semibold uppercase tracking-wide text-ink-soft">{label}</span>
-        <div className="flex gap-1 rounded-card border border-line p-0.5">
-          {tab("write", t.write)}
-          {tab("preview", t.preview)}
-        </div>
-      </div>
-
+      <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-soft">{label}</span>
       <div className="rounded-card border border-line bg-white focus-within:border-primary">
-        <div className="sticky top-0 z-10 flex flex-wrap items-center gap-0.5 border-b border-line bg-band/80 px-1.5 py-1 backdrop-blur" role="toolbar" aria-label={label}>
-          {tools.map((tool) => (
-            <button
-              key={tool.key}
-              type="button"
-              title={tool.title}
-              aria-label={tool.title}
-              aria-expanded={tool.key === "callout" ? calloutOpen : undefined}
-              disabled={tool.key === "image" && uploading}
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={() => runTool(tool.key)}
-              className="flex h-8 w-8 items-center justify-center rounded-card text-ink-soft transition-colors hover:bg-white hover:text-primary disabled:opacity-40"
+        <div className="sticky top-0 z-10 rounded-t-card border-b border-line bg-band/95 backdrop-blur">
+          <div className="flex flex-wrap items-center gap-0.5 px-1.5 py-1" role="toolbar" aria-label={label}>
+            <select
+              aria-label={t.textStyle}
+              value={style}
+              disabled={!editor}
+              onChange={(e) => {
+                const v = e.target.value;
+                if (v === "p") chain().setParagraph().run();
+                else chain().setHeading({ level: v === "h2" ? 2 : 3 }).run();
+              }}
+              className="h-8 rounded-card border border-line bg-white px-2 text-xs font-semibold text-ink outline-none focus:border-primary"
             >
-              <Icon name={tool.key} />
-            </button>
-          ))}
-          {calloutOpen && (
-            <div className="flex items-center gap-1 pl-1">
-              {(
-                [
-                  ["info", t.calloutInfo, "bg-primary"],
-                  ["success", t.calloutSuccess, "bg-emerald-600"],
-                  ["warning", t.calloutWarning, "bg-amber-500"],
-                ] as const
-              ).map(([tone, text, dot]) => (
-                <button
-                  key={tone}
-                  type="button"
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => {
-                    setCalloutOpen(false);
-                    insertBlock(`::: ${tone}\n${text}\n:::`, tone.length + 5, text.length);
-                  }}
-                  className="inline-flex items-center gap-1.5 rounded-card border border-line bg-white px-2 py-1 text-xs font-semibold text-ink hover:border-primary"
-                >
-                  <span className={`h-2 w-2 rounded-full ${dot}`} />
-                  {text}
+              <option value="p">{t.paragraph}</option>
+              <option value="h2">{t.h2}</option>
+              <option value="h3">{t.h3}</option>
+            </select>
+            <Divider />
+            <ToolButton icon="bold" label={t.bold} active={editor?.isActive("bold")} onClick={() => chain().toggleBold().run()} />
+            <ToolButton icon="italic" label={t.italic} active={editor?.isActive("italic")} onClick={() => chain().toggleItalic().run()} />
+            <ToolButton icon="highlight" label={t.highlight} active={editor?.isActive("highlight")} onClick={() => chain().toggleHighlight().run()} />
+            <ToolButton
+              icon="link"
+              label={t.link}
+              active={editor?.isActive("link")}
+              onClick={() => openPanel({ kind: "link", href: String(editor?.getAttributes("link").href ?? "") })}
+            />
+            <Divider />
+            <ToolButton icon="bulletList" label={t.bulletList} active={editor?.isActive("bulletList")} onClick={() => chain().toggleBulletList().run()} />
+            <ToolButton icon="numberedList" label={t.numberedList} active={editor?.isActive("orderedList")} onClick={() => chain().toggleOrderedList().run()} />
+            <ToolButton icon="quote" label={t.quote} active={editor?.isActive("blockquote")} onClick={() => chain().toggleBlockquote().run()} />
+            <Divider />
+            <ToolButton icon="image" label={t.image} withText disabled={uploading} onClick={() => fileInput.current?.click()} />
+            <ToolButton icon="video" label={t.video} withText onClick={() => openPanel({ kind: "video", url: "" })} />
+            <ToolButton icon="table" label={t.table} withText onClick={() => chain().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()} />
+            <ToolButton icon="callout" label={t.callout} withText active={editor?.isActive("callout")} onClick={() => openPanel({ kind: "callout" })} />
+            <ToolButton icon="button" label={t.button} withText onClick={() => openPanel({ kind: "button", label: "", href: "" })} />
+            <ToolButton icon="divider" label={t.divider} onClick={() => chain().setHorizontalRule().run()} />
+            <Divider />
+            <ToolButton icon="undo" label={t.undo} disabled={!editor?.can().undo()} onClick={() => chain().undo().run()} />
+            <ToolButton icon="redo" label={t.redo} disabled={!editor?.can().redo()} onClick={() => chain().redo().run()} />
+          </div>
+
+          {(inTable || imageSelected || panel) && (
+            <div className="flex flex-wrap items-center gap-2 border-t border-line px-2.5 py-2 text-xs">
+              {panel?.kind === "link" && (
+                <>
+                  <span className="font-semibold text-ink">{t.link}:</span>
+                  <input autoFocus className={input} placeholder="https://..." value={panel.href} onChange={(e) => setPanel({ kind: "link", href: e.target.value })} onKeyDown={enter} />
+                  <button type="button" className={okButton} onClick={applyPanel}>{t.apply}</button>
+                  {editor?.isActive("link") && (
+                    <button type="button" className="font-semibold text-ink-soft hover:text-primary" onClick={() => { chain().extendMarkRange("link").unsetLink().run(); setPanel(null); }}>
+                      {t.removeLink}
+                    </button>
+                  )}
+                </>
+              )}
+              {panel?.kind === "video" && (
+                <>
+                  <span className="font-semibold text-ink">{t.video}:</span>
+                  <input autoFocus className={input} placeholder={t.videoPlaceholder} value={panel.url} onChange={(e) => setPanel({ kind: "video", url: e.target.value })} onKeyDown={enter} />
+                  <button type="button" className={okButton} onClick={applyPanel}>{t.apply}</button>
+                </>
+              )}
+              {panel?.kind === "button" && (
+                <>
+                  <input autoFocus className={input} placeholder={t.buttonText} value={panel.label} onChange={(e) => setPanel({ ...panel, label: e.target.value })} onKeyDown={enter} />
+                  <input className={input} placeholder={t.buttonUrl} value={panel.href} onChange={(e) => setPanel({ ...panel, href: e.target.value })} onKeyDown={enter} />
+                  <button type="button" className={okButton} onClick={applyPanel}>{t.apply}</button>
+                </>
+              )}
+              {panel?.kind === "callout" && (
+                <>
+                  <span className="font-semibold text-ink">{t.calloutChoose}</span>
+                  {(
+                    [
+                      ["info", t.calloutInfo, "bg-primary"],
+                      ["success", t.calloutSuccess, "bg-emerald-600"],
+                      ["warning", t.calloutWarning, "bg-amber-500"],
+                    ] as const
+                  ).map(([tone, text, dot]) => (
+                    <button
+                      key={tone}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => insertCallout(tone)}
+                      className="inline-flex items-center gap-1.5 rounded-card border border-line bg-white px-2.5 py-1 font-semibold text-ink hover:border-primary"
+                    >
+                      <span className={`h-2.5 w-2.5 rounded-full ${dot}`} />
+                      {text}
+                    </button>
+                  ))}
+                </>
+              )}
+              {!panel && imageSelected && (
+                <>
+                  <span className="font-semibold text-ink">{t.image}:</span>
+                  <button type="button" className="font-semibold text-primary hover:underline" onClick={() => openPanel({ kind: "caption", alt: String(editor?.getAttributes("image").alt ?? "") })}>
+                    {t.caption}
+                  </button>
+                  <button type="button" className="font-semibold text-ink-soft hover:text-primary" onClick={() => chain().deleteSelection().run()}>
+                    {t.remove}
+                  </button>
+                </>
+              )}
+              {panel?.kind === "caption" && (
+                <>
+                  <span className="font-semibold text-ink">{t.caption}:</span>
+                  <input autoFocus className={input} value={panel.alt} onChange={(e) => setPanel({ kind: "caption", alt: e.target.value })} onKeyDown={enter} />
+                  <button type="button" className={okButton} onClick={applyPanel}>{t.apply}</button>
+                </>
+              )}
+              {!panel && inTable && (
+                <>
+                  <span className="font-semibold text-ink">{t.table}:</span>
+                  {(
+                    [
+                      [t.addRow, () => chain().addRowAfter().run()],
+                      [t.addColumn, () => chain().addColumnAfter().run()],
+                      [t.deleteRow, () => chain().deleteRow().run()],
+                      [t.deleteColumn, () => chain().deleteColumn().run()],
+                      [t.deleteTable, () => chain().deleteTable().run()],
+                    ] as const
+                  ).map(([text, run]) => (
+                    <button key={text} type="button" onMouseDown={(e) => e.preventDefault()} onClick={run} className="rounded-card border border-line bg-white px-2 py-1 font-semibold text-ink hover:border-primary">
+                      {text}
+                    </button>
+                  ))}
+                </>
+              )}
+              {panel && (
+                <button type="button" className="ml-auto text-ink-soft hover:text-ink" onClick={() => { setPanel(null); setStatus(null); }}>
+                  {t.cancel}
                 </button>
-              ))}
+              )}
             </div>
           )}
         </div>
 
-        <textarea
-          ref={area}
-          name={name}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          rows={18}
-          hidden={mode === "preview"}
-          className="block w-full resize-y bg-transparent px-4 py-3 font-mono text-[13px] leading-relaxed text-ink outline-none"
-        />
-        {mode === "preview" && (
-          <div className="max-h-[70vh] overflow-y-auto px-6 py-5">
-            {blocks.length ? <ArticleBody blocks={blocks} /> : <p className="text-sm text-ink-soft">{t.emptyPreview}</p>}
-          </div>
-        )}
+        <EditorContent editor={editor} className="article-editor" />
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-2 text-xs text-ink-soft">
+          <span>{t.hint}</span>
           <span>
-            {words} {t.words} · {readingMinutes(value)} {t.minRead}
+            {status ? (
+              <span className={uploading ? "text-primary" : "text-amber-700"}>{status}</span>
+            ) : (
+              <>
+                {articleWordCount(markup)} {t.words} · {readingMinutes(markup)} {t.minRead}
+              </>
+            )}
           </span>
-          {status && <span className={uploading ? "text-primary" : "text-amber-700"}>{status}</span>}
         </div>
       </div>
 
+      <input type="hidden" name={name} value={markup} />
       <input ref={fileInput} type="file" accept="image/jpeg,image/png,image/webp" hidden onChange={(e) => onImage(e.target.files?.[0])} />
-
-      <details className="mt-2 text-xs text-ink-soft">
-        <summary className="cursor-pointer font-semibold hover:text-primary">{t.help}</summary>
-        <ul className="mt-2 space-y-1 rounded-card bg-band px-4 py-3 font-mono leading-relaxed">
-          {t.helpLines.map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
-      </details>
     </div>
   );
 }
