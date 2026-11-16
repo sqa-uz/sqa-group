@@ -282,7 +282,20 @@
     "intro": "Company activities, accreditation and industry news.",
     "latestTitle": "Latest posts",
     "emptyState": "No posts yet.",
-    "publishedOn": "Published on"
+    "publishedOn": "Published on",
+    "minRead": "{n} min read",
+    "contents": "Contents",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "featured": "Featured",
+    "allPosts": "All posts",
+    "previous": "Previous post",
+    "next": "Next post",
+    "morePosts": "More posts",
+    "searchPlaceholder": "Search posts",
+    "allYears": "All",
+    "nothingFound": "Nothing found. Try another word or year."
   },
   "financing": {
     "title": "Sources of financing",

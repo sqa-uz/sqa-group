@@ -10,6 +10,7 @@ export default function NewsCard({
   imageUrl,
   date,
   readMoreLabel,
+  meta,
 }: {
   slug: string;
   title: string;
@@ -17,6 +18,7 @@ export default function NewsCard({
   imageUrl: string | null;
   date: string;
   readMoreLabel: string;
+  meta?: string;
 }) {
   return (
     <Link href={`/news/${slug}`} className="t-learn card card-hover group flex flex-col overflow-hidden">
@@ -35,7 +37,15 @@ export default function NewsCard({
         )}
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <time className="text-xs font-medium text-ink-soft">{date}</time>
+        <p className="flex flex-wrap items-center gap-x-2 text-xs font-medium text-ink-soft">
+          <time>{date}</time>
+          {meta && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{meta}</span>
+            </>
+          )}
+        </p>
         <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-primary">{title}</h3>
         {summary && <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">{summary}</p>}
         <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">

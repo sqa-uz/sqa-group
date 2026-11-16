@@ -282,7 +282,20 @@
     "intro": "Kompaniya faoliyati, akkreditatsiya va soha yangiliklari.",
     "latestTitle": "So'nggi maqolalar",
     "emptyState": "Hozircha maqolalar yo'q.",
-    "publishedOn": "Chop etilgan sana"
+    "publishedOn": "Chop etilgan sana",
+    "minRead": "{n} daqiqa o'qish",
+    "contents": "Mundarija",
+    "share": "Ulashish",
+    "copyLink": "Havolani nusxalash",
+    "linkCopied": "Havola nusxalandi",
+    "featured": "Asosiy",
+    "allPosts": "Barcha maqolalar",
+    "previous": "Oldingi maqola",
+    "next": "Keyingi maqola",
+    "morePosts": "Boshqa maqolalar",
+    "searchPlaceholder": "Maqolalar bo'yicha qidirish",
+    "allYears": "Hammasi",
+    "nothingFound": "Hech narsa topilmadi. Boshqa so'z yoki yilni tanlang."
   },
   "financing": {
     "title": "Moliyalashtirish manbalari",

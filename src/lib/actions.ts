@@ -132,6 +132,7 @@ async function cleanupUnreferencedMedia(url: string | null | undefined) {
     prisma.partner.count({ where: { logoUrl: url } }),
   ]);
   if (staffReferences + newsReferences + partnerReferences > 0) return;
+  if (await prisma.newsTranslation.count({ where: { body: { contains: url } } })) return;
 
   try {
     await deleteStoredMedia(url);
@@ -313,6 +314,9 @@ export async function saveNews(
   const adminLocale = adminLocaleFromForm(formData);
   const id = String(formData.get("id") ?? "").trim();
   const wantPublish = formData.get("publish") === "on";
+  const featured = formData.get("featured") === "on";
+  const dateRaw = String(formData.get("publishedAt") ?? "").trim();
+  const chosenDate = /^\d{4}-\d{2}-\d{2}$/.test(dateRaw) ? new Date(`${dateRaw}T12:00:00+05:00`) : null;
   const translations = translationFields(formData, ["title", "summary", "body"]);
   if (wantPublish) {
     const problems = missingTranslations(translations, [...NEWS_REQUIRED]);
@@ -337,6 +341,7 @@ export async function saveNews(
     await prisma.$transaction(async (tx) => {
       const data = {
         status: wantPublish ? "published" : "draft",
+        featured,
         ...(imageUrl ? { imageUrl } : {}),
       };
       const translationData = storedTranslations.map((translation) => ({
@@ -346,12 +351,14 @@ export async function saveNews(
         body: translation.body,
       }));
 
+      if (featured) await tx.news.updateMany({ where: { featured: true, ...(id ? { NOT: { id } } : {}) }, data: { featured: false } });
+
       if (id) {
         await tx.news.update({
           where: { id },
           data: {
             ...data,
-            publishedAt: wantPublish ? existing?.publishedAt ?? new Date() : existing?.publishedAt,
+            publishedAt: chosenDate ?? (wantPublish ? existing?.publishedAt ?? new Date() : existing?.publishedAt),
             translations: { deleteMany: {}, create: translationData },
           },
         });
@@ -364,7 +371,7 @@ export async function saveNews(
         data: {
           ...data,
           slug: await uniqueSlug(tx, "news", en?.title || uz?.title || "news"),
-          publishedAt: wantPublish ? new Date() : null,
+          publishedAt: chosenDate ?? (wantPublish ? new Date() : null),
           translations: { create: translationData },
         },
       });
@@ -379,6 +386,22 @@ export async function saveNews(
   if (imageUrl && existing?.imageUrl !== imageUrl) await cleanupUnreferencedMedia(existing?.imageUrl);
   revalidatePublic();
   redirect(adminHref("/admin/news", adminLocale));
+}
+
+/** Uploads an image placed inside an article body; the editor inserts the returned URL. */
+export async function uploadArticleImage(formData: FormData): Promise<{ url?: string; error?: string }> {
+  await requireAdmin();
+  const adminLocale = adminLocaleFromForm(formData);
+  const file = formData.get("image");
+  if (!(file instanceof File) || file.size === 0) return { error: adminMessages[adminLocale].news.editor.uploadFailed };
+  try {
+    const url = await storeImage(file, "news");
+    logInfo("admin.news.body_image_uploaded");
+    return { url };
+  } catch (error) {
+    logError("admin.news.body_image_failed", error);
+    return { error: localizedStorageError(error, adminLocale) };
+  }
 }
 
 export async function deleteNews(formData: FormData) {
@@ -497,7 +520,8 @@ export async function deleteMedia(
     prisma.news.count({ where: { imageUrl: url } }),
     prisma.partner.count({ where: { logoUrl: url } }),
   ]);
-  if (staffReferences + newsReferences + partnerReferences > 0) {
+  const bodyReferences = await prisma.newsTranslation.count({ where: { body: { contains: url } } });
+  if (staffReferences + newsReferences + partnerReferences + bodyReferences > 0) {
     return { error: adminMessages[adminLocale].common.mediaInUse };
   }
 
