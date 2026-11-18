@@ -18,7 +18,7 @@
     "home": "Bosh sahifa",
     "about": "Biz haqimizda",
     "certificationBody": "Sertifikatlash organi",
-    "products": "Nimalarni sertifikatlaymiz",
+    "products": "Akkreditatsiya sohamiz",
     "laboratories": "Laboratoriyalar",
     "team": "Jamoa",
     "news": "Blog",
@@ -504,7 +504,7 @@
     "formTitle": "Onlayn ariza"
   },
   "products": {
-    "title": "Nimalarni sertifikatlaymiz",
+    "title": "Akkreditatsiya sohamiz",
     "intro": "SQA sertifikatlashtirish organi akkreditatsiya doirasida sertifikatlaydigan mahsulotlar ro'yxati. Mahsulotingizni TIF TN kodi yoki nomi bo'yicha toping.",
     "sourceNote": "Nomlar, kodlar va me'yoriy hujjatlar O'ZAKK.MS.0052 akkreditatsiya sohasi (15.10.2026-yildagi 13-sonli tahriri) bo'yicha keltirilgan.",
     "searchLabel": "TIF TN kodi yoki nomi bo'yicha qidirish",
