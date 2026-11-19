@@ -64,6 +64,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className={`${golos.variable} font-sans`}>
+        <div aria-hidden="true" className="site-texture" />
         <NextIntlClientProvider>
           <Header hiddenHrefs={hiddenHrefs} weather={weather} />
           <main>{children}</main>
