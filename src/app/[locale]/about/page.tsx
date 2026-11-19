@@ -7,6 +7,7 @@ import Reveal from "@/components/public/Reveal";
 import SectionHeading from "@/components/public/SectionHeading";
 import { ITEMS } from "@/lib/scopeSearch";
 import BeyondServices from "@/components/public/BeyondServices";
+import CertificateBackdrop from "@/components/public/CertificateBackdrop";
 
 type Unit = { title: string; code: string; standard: string; text: string; valid: string; href: string };
 type Card = { title: string; text: string };
@@ -124,8 +125,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* accredited units */}
-      <section className="bg-band">
-        <div className="mx-auto max-w-[1200px] px-4 py-16">
+      <section className="relative overflow-hidden bg-band">
+        <CertificateBackdrop side="left" />
+        <div className="relative mx-auto max-w-[1200px] px-4 py-16">
           <Reveal>
             <SectionHeading eyebrow={t("unitsEyebrow")} title={t("unitsTitle")} />
           </Reveal>
