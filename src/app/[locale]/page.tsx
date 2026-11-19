@@ -15,6 +15,7 @@ import StaggerReveal from "@/components/public/StaggerReveal";
 import LearnChevron from "@/components/public/LearnChevron";
 import BeyondServices from "@/components/public/BeyondServices";
 import StepsTimeline from "@/components/public/StepsTimeline";
+import CertificateBackdrop from "@/components/public/CertificateBackdrop";
 import { ITEMS } from "@/lib/scopeSearch";
 
 const UNIQUE_CODES = new Set(ITEMS.flatMap((i) => i.codes)).size;
@@ -303,8 +304,9 @@ export default async function HomePage({
       </section>
 
       {/* HOW CERTIFICATION WORKS: the rail fills as you scroll */}
-      <section className="bg-band">
-        <div className="mx-auto max-w-[1200px] px-4 py-16">
+      <section className="relative overflow-hidden bg-band">
+        <CertificateBackdrop />
+        <div className="relative mx-auto max-w-[1200px] px-4 py-16">
           <Reveal>
             <SectionHeading eyebrow={ta("stepsEyebrow")} title={ta("stepsTitle")} />
           </Reveal>
