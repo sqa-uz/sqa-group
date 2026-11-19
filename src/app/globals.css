@@ -745,3 +745,49 @@ body {
   color: var(--color-ink-soft);
   opacity: 0.6;
 }
+
+/* ---------- site-wide texture: faint trade icons and a dot grid, strongest at the page edges ---------- */
+:root {
+  --site-icons: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke='%232003bd' stroke-opacity='0.1' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate%2840 50%29 rotate%28-12 12 12%29 scale%282.4%29'%3E%3Cpath d='M9 3h6l-1 7h-4z'/%3E%3Cpath d='M5 14h14v3H5z'/%3E%3Cpath d='M4 21h16'/%3E%3C/g%3E%3Cg transform='translate%28300 30%29 rotate%288 12 12%29 scale%282.0%29'%3E%3Cpath d='M11 4.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13z'/%3E%3Cpath d='m20 20-4.2-4.2'/%3E%3C/g%3E%3Cg transform='translate%28170 200%29 rotate%2814 12 12%29 scale%281.9%29'%3E%3Cpath d='M9 3h6M10 3v6.2L4.8 18.4A1.7 1.7 0 0 0 6.3 21h11.4a1.7 1.7 0 0 0 1.5-2.6L14 9.2V3'/%3E%3Cpath d='M7.2 15h9.6'/%3E%3C/g%3E%3Cg transform='translate%28420 170%29 rotate%28-6 12 12%29 scale%282.2%29'%3E%3Cpath d='M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/g%3E%3Cg transform='translate%2860 370%29 rotate%2810 12 12%29 scale%282.3%29'%3E%3Cpath d='M4 4h16v12H4z'/%3E%3Cpath d='M8 8h8M8 11h5'/%3E%3Cpath d='m14 16 1 5 2-1.5 2 1.5 1-5'/%3E%3C/g%3E%3Cg transform='translate%28300 330%29 rotate%28-10 12 12%29 scale%281.9%29'%3E%3Cpath d='M4 15a8 8 0 1 1 16 0'/%3E%3Cpath d='m12 15 4-5'/%3E%3C/g%3E%3Cg transform='translate%28460 440%29 rotate%286 12 12%29 scale%281.8%29'%3E%3Cpath d='M3 21V10l5 3V10l5 3V10l5 3V5h3v16z'/%3E%3C/g%3E%3Cg transform='translate%28200 470%29 rotate%28-14 12 12%29 scale%281.8%29'%3E%3Cpath d='M6 3h9l4 4v14H6z'/%3E%3Cpath d='M9 12h7M9 16h5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  --site-dots: radial-gradient(rgb(32 3 189 / 0.07) 1px, transparent 1.3px);
+}
+:root[data-theme="dark"] {
+  --site-icons: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke='%23ab9fff' stroke-opacity='0.1' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate%2840 50%29 rotate%28-12 12 12%29 scale%282.4%29'%3E%3Cpath d='M9 3h6l-1 7h-4z'/%3E%3Cpath d='M5 14h14v3H5z'/%3E%3Cpath d='M4 21h16'/%3E%3C/g%3E%3Cg transform='translate%28300 30%29 rotate%288 12 12%29 scale%282.0%29'%3E%3Cpath d='M11 4.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13z'/%3E%3Cpath d='m20 20-4.2-4.2'/%3E%3C/g%3E%3Cg transform='translate%28170 200%29 rotate%2814 12 12%29 scale%281.9%29'%3E%3Cpath d='M9 3h6M10 3v6.2L4.8 18.4A1.7 1.7 0 0 0 6.3 21h11.4a1.7 1.7 0 0 0 1.5-2.6L14 9.2V3'/%3E%3Cpath d='M7.2 15h9.6'/%3E%3C/g%3E%3Cg transform='translate%28420 170%29 rotate%28-6 12 12%29 scale%282.2%29'%3E%3Cpath d='M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/g%3E%3Cg transform='translate%2860 370%29 rotate%2810 12 12%29 scale%282.3%29'%3E%3Cpath d='M4 4h16v12H4z'/%3E%3Cpath d='M8 8h8M8 11h5'/%3E%3Cpath d='m14 16 1 5 2-1.5 2 1.5 1-5'/%3E%3C/g%3E%3Cg transform='translate%28300 330%29 rotate%28-10 12 12%29 scale%281.9%29'%3E%3Cpath d='M4 15a8 8 0 1 1 16 0'/%3E%3Cpath d='m12 15 4-5'/%3E%3C/g%3E%3Cg transform='translate%28460 440%29 rotate%286 12 12%29 scale%281.8%29'%3E%3Cpath d='M3 21V10l5 3V10l5 3V10l5 3V5h3v16z'/%3E%3C/g%3E%3Cg transform='translate%28200 470%29 rotate%28-14 12 12%29 scale%281.8%29'%3E%3Cpath d='M6 3h9l4 4v14H6z'/%3E%3Cpath d='M9 12h7M9 16h5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  --site-dots: radial-gradient(rgb(171 159 255 / 0.07) 1px, transparent 1.3px);
+}
+.site-texture {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--site-icons), var(--site-dots);
+  background-size: 560px 560px, 20px 20px;
+  /* the reading column stays clean; the texture lives in the margins */
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.35) 22%, transparent 34%, transparent 66%, rgb(0 0 0 / 0.35) 78%, #000 100%);
+  mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.35) 22%, transparent 34%, transparent 66%, rgb(0 0 0 / 0.35) 78%, #000 100%);
+}
+/* light bands are opaque, so they carry the same texture themselves */
+section.bg-band {
+  position: relative;
+  isolation: isolate;
+}
+section.bg-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--site-icons), var(--site-dots);
+  background-size: 560px 560px, 20px 20px;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.35) 22%, transparent 34%, transparent 66%, rgb(0 0 0 / 0.35) 78%, #000 100%);
+  mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.35) 22%, transparent 34%, transparent 66%, rgb(0 0 0 / 0.35) 78%, #000 100%);
+}
+@media (max-width: 767px) {
+  /* phones have no margins to fill: dots only, lighter */
+  .site-texture,
+  section.bg-band::before {
+    background-image: var(--site-dots);
+    background-size: 20px 20px;
+    opacity: 0.6;
+  }
+}
