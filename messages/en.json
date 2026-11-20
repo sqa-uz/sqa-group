@@ -245,7 +245,84 @@
     "step3": "Testing in an accredited laboratory",
     "step4": "Evaluation of results and decision",
     "step5": "Certificate issuance",
-    "downloadScope": "Download accreditation scope (PDF)"
+    "downloadScope": "Download accreditation scope (PDF)",
+    "structureEyebrow": "Regulations of the body · SQA.MS-N",
+    "structureTitle": "Organisational structure",
+    "structureIntro": "The certification body operates within Standart and Quality Assessment Group LLC as an independent third party: it is independent of the manufacturers, suppliers and sellers of products. The structure includes the body itself, two in-house testing laboratories and a quality manager responsible for the management system. Information about clients is kept confidential.",
+    "structure": {
+      "hint": "Click a unit to see its role and links.",
+      "legendSubordination": "reports to",
+      "legendInteraction": "works with",
+      "reportsTo": "Reports to",
+      "manages": "Manages",
+      "interacts": "Works with",
+      "nodes": {
+        "regulators": {
+          "label": "Technical Regulation Agency, Accreditation Centre, Standards Institute",
+          "text": "Government bodies for technical regulation and accreditation. The Accreditation Centre carries out surveillance of the body's work."
+        },
+        "director": {
+          "label": "Director, SQA Group LLC",
+          "text": "Runs the company, approves the regulations of the body, and appoints and dismisses the head of the body."
+        },
+        "partners": {
+          "label": "Accredited bodies and laboratories",
+          "text": "Where needed, specific tests are subcontracted to other accredited laboratories."
+        },
+        "accounting": {
+          "label": "Accounting",
+          "text": "Keeps the company's accounting, economic and statistical records."
+        },
+        "labSqa": {
+          "label": "SQA testing laboratory",
+          "text": "The company's own accredited laboratory (O'z DSt ISO/IEC 17025). Tests product samples as part of certification."
+        },
+        "organ": {
+          "label": "Certification body",
+          "text": "Certifies products strictly within its accreditation scope, recognises foreign certificates of conformity and carries out surveillance of certified products."
+        },
+        "quality": {
+          "label": "Quality manager",
+          "text": "Responsible for the body's management system; works with the body, its head, its specialists and the laboratories."
+        },
+        "slab": {
+          "label": "S-LAB testing laboratory",
+          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025)."
+        },
+        "hr": {
+          "label": "Human resources",
+          "text": "HR support for the company's staff."
+        },
+        "head": {
+          "label": "Head of the body",
+          "text": "Organises the body's work and approves certificates of conformity with a seal or an electronic signature. Appointed by the company director."
+        },
+        "specialists": {
+          "label": "Specialists of the body",
+          "text": "Carry out the certification work. Their functions are divided as shown below."
+        },
+        "fIntake": {
+          "label": "Application intake and review, sampling",
+          "text": "Receive and review applications, take samples and draw up test programmes."
+        },
+        "fDecision": {
+          "label": "Decision",
+          "text": "Decide whether to grant or refuse a certificate of conformity."
+        },
+        "fIssue": {
+          "label": "Issuing and checking certificates",
+          "text": "Draw up certificates of conformity and check them before they are issued."
+        },
+        "fNormative": {
+          "label": "Normative documents",
+          "text": "Responsible for the normative documents used in certification."
+        },
+        "fOther": {
+          "label": "Additional functions",
+          "text": "Staff responsible for the body's other additional functions."
+        }
+      }
+    }
   },
   "laboratories": {
     "title": "Testing laboratories",
