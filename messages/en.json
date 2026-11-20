@@ -30,7 +30,10 @@
     "appeals": "Appeals & complaints",
     "contacts": "Contacts",
     "apply": "Apply",
-    "request": "Send a request"
+    "request": "Send a request",
+    "labSqa": "SQA testing laboratory",
+    "labSlab": "S-LAB testing laboratory",
+    "labsAll": "All laboratories"
   },
   "home": {
     "heroEyebrow": "Accredited by the Uzbek Accreditation Centre (O'ZAKK)",
