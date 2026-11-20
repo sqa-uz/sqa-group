@@ -109,3 +109,46 @@ export const sqaLabChart: OrgChart = {
   external: ["regulators", "partners"],
   functions: ["fTesting", "fReports", "fEquipment", "fNormative", "fUncertainty", "fOther"],
 };
+
+/** S-LAB testing laboratory: same structure as the SQA laboratory, with S-LAB as the unit in focus. */
+const UNDER_SLAB = "col-span-2 sm:col-span-1 sm:col-start-2 lg:col-start-5";
+
+export const sLabChart: OrgChart = {
+  main: "slab",
+  solid: [
+    ["director", "accounting"],
+    ["director", "organ"],
+    ["director", "lab"],
+    ["director", "quality"],
+    ["director", "slab"],
+    ["director", "hr"],
+    ["slab", "head"],
+    ["head", "specialists"],
+    ["specialists", "fTesting"],
+    ["specialists", "fReports"],
+    ["specialists", "fEquipment"],
+    ["specialists", "fNormative"],
+    ["specialists", "fUncertainty"],
+    ["specialists", "fOther"],
+  ],
+  dashed: [
+    ["regulators", "director"],
+    ["director", "partners"],
+    ["lab", "quality"],
+    ["quality", "slab"],
+    ["quality", "head"],
+    ["quality", "specialists"],
+  ],
+  rows: [
+    TOP_ROW,
+    {
+      cols: "lg:grid-cols-6",
+      items: [{ id: "accounting" }, { id: "organ" }, { id: "lab" }, { id: "quality" }, { id: "slab" }, { id: "hr" }],
+    },
+    { cols: "lg:grid-cols-6", items: [{ id: "head", col: UNDER_SLAB }] },
+    { cols: "lg:grid-cols-6", items: [{ id: "specialists", col: UNDER_SLAB }] },
+    sqaLabChart.rows[4],
+  ],
+  external: ["regulators", "partners"],
+  functions: sqaLabChart.functions,
+};
