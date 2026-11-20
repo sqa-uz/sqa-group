@@ -55,7 +55,7 @@ export default async function LaboratoryPage({ params }: { params: Promise<{ loc
       {lab.chart && (
         <Reveal>
           <section id="structure" className="mt-12 scroll-mt-24">
-            <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
+            <p className="eyebrow mb-2">{lab.chartEyebrow ?? t("structureEyebrow")}</p>
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
             <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
             <OrgStructure chart={lab.chart} copy={t.raw("structure") as OrgCopy} />
