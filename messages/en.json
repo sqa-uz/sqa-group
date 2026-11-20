@@ -346,7 +346,7 @@
     "otherLab": "Our other laboratory",
     "structureEyebrow": "Regulations of the laboratory · SQA.SL-N",
     "structureTitle": "Organisational structure",
-    "structureIntro": "The laboratory operates within Standart and Quality Assessment Group LLC and is independent of the manufacturers, suppliers and sellers of products: testing is done as a third party under contract. Test results and client information are kept confidential, and where needed the client can observe the testing of their product.",
+    "structureIntro": "The laboratory operates within Standart and Quality Assessment Group LLC and is independent of the manufacturers, suppliers and sellers of products: testing is done as a third party under contract. Test results and client information are kept confidential.",
     "structure": {
       "hint": "Click a unit to see its role and links.",
       "legendSubordination": "reports to",
@@ -377,7 +377,7 @@
         },
         "lab": {
           "label": "SQA testing laboratory",
-          "text": "Tests products within the accreditation scope approved by the Accreditation Centre and issues official test reports. Where needed, it also tests outside its own premises."
+          "text": "Tests products within the accreditation scope approved by the Accreditation Centre and issues official test reports."
         },
         "quality": {
           "label": "Quality manager",
@@ -385,7 +385,7 @@
         },
         "slab": {
           "label": "S-LAB testing laboratory",
-          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025)."
+          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025). Tests products within its own accreditation scope and issues official test reports."
         },
         "hr": {
           "label": "Human resources",
