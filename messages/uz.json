@@ -346,7 +346,7 @@
     "otherLab": "Boshqa laboratoriya",
     "structureEyebrow": "Laboratoriya nizomi · SQA.SL-N",
     "structureTitle": "Tashkiliy tuzilma",
-    "structureIntro": "Laboratoriya \"Standart and Quality Assessment Group\" MCHJ tarkibida faoliyat yuritadi va mahsulot ishlab chiqaruvchi, yetkazib beruvchi va sotuvchilardan mustaqil: sinovlar uchinchi tomon sifatida shartnomalar asosida o'tkaziladi. Sinov natijalari va buyurtmachilar haqidagi ma'lumotlar maxfiy saqlanadi, zarur bo'lganda buyurtmachi o'z mahsulotining sinov jarayonini kuzatishi mumkin.",
+    "structureIntro": "Laboratoriya \"Standart and Quality Assessment Group\" MCHJ tarkibida faoliyat yuritadi va mahsulot ishlab chiqaruvchi, yetkazib beruvchi va sotuvchilardan mustaqil: sinovlar uchinchi tomon sifatida shartnomalar asosida o'tkaziladi. Sinov natijalari va buyurtmachilar haqidagi ma'lumotlar maxfiy saqlanadi.",
     "structure": {
       "hint": "Bo'linmaning roli va aloqalarini ko'rish uchun ustiga bosing.",
       "legendSubordination": "bo'ysunish",
@@ -377,7 +377,7 @@
         },
         "lab": {
           "label": "SQA sinov laboratoriyasi",
-          "text": "Akkreditatsiya markazi tomonidan tasdiqlangan akkreditatsiya sohasi doirasida mahsulotlarni sinaydi va rasmiy sinov bayonnomalarini beradi. Zarur bo'lganda sinovlarni o'z joylashgan joyidan tashqarida ham o'tkazadi."
+          "text": "Akkreditatsiya markazi tomonidan tasdiqlangan akkreditatsiya sohasi doirasida mahsulotlarni sinaydi va rasmiy sinov bayonnomalarini beradi."
         },
         "quality": {
           "label": "Sifat bo'yicha menejer",
@@ -385,7 +385,7 @@
         },
         "slab": {
           "label": "S-LAB sinov laboratoriyasi",
-          "text": "Kompaniyaning ikkinchi akkreditatsiyadan o'tgan laboratoriyasi (O'z DSt ISO/IEC 17025)."
+          "text": "Kompaniyaning ikkinchi akkreditatsiyadan o'tgan laboratoriyasi (O'z DSt ISO/IEC 17025). O'z akkreditatsiya sohasi doirasida mahsulotlarni sinaydi va rasmiy sinov bayonnomalarini beradi."
         },
         "hr": {
           "label": "Kadrlar bo'limi",
