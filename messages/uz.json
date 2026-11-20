@@ -30,7 +30,10 @@
     "appeals": "Shikoyat va takliflar",
     "contacts": "Aloqa",
     "apply": "Ariza berish",
-    "request": "So'rov yuborish"
+    "request": "So'rov yuborish",
+    "labSqa": "SQA sinov laboratoriyasi",
+    "labSlab": "S-LAB sinov laboratoriyasi",
+    "labsAll": "Barcha laboratoriyalar"
   },
   "home": {
     "heroEyebrow": "O'ZAKK tomonidan akkreditatsiyalangan",
