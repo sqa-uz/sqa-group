@@ -26,7 +26,16 @@ export default async function CertificationBodyPage({ params }: { params: Promis
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{t("intro")}</p>
       </Reveal>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <Reveal>
+        <section id="structure" className="mt-12 scroll-mt-24">
+          <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
+          <OrgStructure copy={t.raw("structure") as OrgCopy} />
+        </section>
+      </Reveal>
+
+      <div className="mt-16 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="space-y-8">
           <Reveal>
             <section className="card p-7">
@@ -79,15 +88,6 @@ export default async function CertificationBodyPage({ params }: { params: Promis
           </a>
         </Reveal>
       </div>
-
-      <Reveal>
-        <section id="structure" className="mt-16 scroll-mt-24">
-          <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
-          <OrgStructure copy={t.raw("structure") as OrgCopy} />
-        </section>
-      </Reveal>
 
       <ApplySection defaultService="certification" />
     </div>
