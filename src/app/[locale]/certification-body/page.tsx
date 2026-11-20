@@ -5,6 +5,7 @@ import Reveal from "@/components/public/Reveal";
 import DocDownload from "@/components/public/DocDownload";
 import ApplySection from "@/components/public/ApplySection";
 import OrgStructure, { type OrgCopy } from "@/components/public/OrgStructure";
+import { certificationBodyChart } from "@/lib/orgCharts";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -31,7 +32,7 @@ export default async function CertificationBodyPage({ params }: { params: Promis
           <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
-          <OrgStructure copy={t.raw("structure") as OrgCopy} />
+          <OrgStructure chart={certificationBodyChart} copy={t.raw("structure") as OrgCopy} />
         </section>
       </Reveal>
 
