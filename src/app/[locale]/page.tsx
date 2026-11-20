@@ -220,11 +220,11 @@ export default async function HomePage({
 
           {/* laboratories */}
           {[
-            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1] },
-            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2] },
+            { title: t("lab1CardTitle"), text: t("lab1CardText"), img: PHOTO.laboratory, unit: units[1], href: "/laboratories/sqa" },
+            { title: t("lab2CardTitle"), text: t("lab2CardText"), img: PHOTO.sLab, unit: units[2], href: "/laboratories/s-lab" },
           ].map((c, i) => (
             <Reveal key={c.title} delay={(i + 1) * 80}>
-              <Link href="/laboratories" className="t-learn card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
+              <Link href={c.href} className="t-learn card card-hover group grid h-full overflow-hidden sm:grid-cols-[40%_1fr]">
                 <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto sm:min-h-[200px]">
                   <Image
                     src={c.img}

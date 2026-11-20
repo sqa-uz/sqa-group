@@ -1,8 +1,12 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { guardPage } from "@/lib/pageSettings";
+import { LABS } from "@/lib/labs";
 import Reveal from "@/components/public/Reveal";
-import { CertificateCard } from "@/components/public/DocDownload";
 import ApplySection from "@/components/public/ApplySection";
+
+type Unit = { code: string; standard: string; valid: string };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,6 +19,9 @@ export default async function LaboratoriesPage({ params }: { params: Promise<{ l
   setRequestLocale(locale);
   await guardPage("laboratories");
   const t = await getTranslations("laboratories");
+  const ta = await getTranslations("about");
+  const tc = await getTranslations("common");
+  const units = ta.raw("units") as Unit[];
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 py-14">
@@ -24,21 +31,40 @@ export default async function LaboratoriesPage({ params }: { params: Promise<{ l
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{t("intro")}</p>
       </Reveal>
 
+      {/* one card per laboratory, each leading to its own page */}
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {([
-          ["lab1Title", "lab1Text", "lab1Badge"],
-          ["lab2Title", "lab2Text", "lab2Badge"],
-        ] as const).map(([title, text, badge], i) => (
-          <Reveal key={title} delay={i * 80}>
-            <section className="card h-full p-7">
-              <span className="inline-block rounded-[2px] bg-band px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
-                {t(badge)}
-              </span>
-              <h2 className="mt-4 text-xl font-bold">{t(title)}</h2>
-              <p className="mt-3 leading-relaxed text-ink-soft">{t(text)}</p>
-            </section>
-          </Reveal>
-        ))}
+        {LABS.map((lab, i) => {
+          const unit = units[lab.unit];
+          return (
+            <Reveal key={lab.slug} delay={i * 80}>
+              <Link href={`/laboratories/${lab.slug}`} className="t-learn card card-hover group flex h-full flex-col overflow-hidden">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={lab.photo}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-4 top-4 rounded-[2px] bg-white px-2.5 py-1 text-[11px] font-bold tracking-wide text-primary">
+                    {unit?.code}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <h2 className="text-xl font-bold text-ink group-hover:text-primary">{t(lab.title)}</h2>
+                  <p className="mt-3 leading-relaxed text-ink-soft">{t(lab.text)}</p>
+                  <p className="mt-4 text-xs font-semibold text-primary">{unit?.valid}</p>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-semibold text-primary">
+                    {tc("readMore")}
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                      <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          );
+        })}
       </div>
 
       <div className="mt-12">
@@ -55,25 +81,6 @@ export default async function LaboratoriesPage({ params }: { params: Promise<{ l
               </li>
             ))}
           </ul>
-        </Reveal>
-      </div>
-
-      <div className="mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
-        <Reveal>
-          <CertificateCard
-            img="/images/certificates/testing-laboratory-2025.jpeg"
-            caption="O'ZAKK.SL.0162"
-            href="/documents/sqa-laboratory-certificate.pdf"
-            downloadLabel={t("downloadCert")}
-          />
-        </Reveal>
-        <Reveal delay={80}>
-          <CertificateCard
-            img="/images/certificates/s-lab-2026.jpeg"
-            caption="O'ZAKK.SL.0437"
-            href="/documents/sqa-s-lab-certificate.pdf"
-            downloadLabel={t("downloadCert")}
-          />
         </Reveal>
       </div>
 

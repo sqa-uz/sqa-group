@@ -8,6 +8,8 @@ const STATIC_PATHS = [
   "/certification-body",
   "/what-we-certify",
   "/laboratories",
+  "/laboratories/sqa",
+  "/laboratories/s-lab",
   "/team",
   "/news",
   "/financing",

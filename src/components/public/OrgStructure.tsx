@@ -1,24 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 
-export type OrgNodeId =
-  | "regulators"
-  | "director"
-  | "partners"
-  | "accounting"
-  | "labSqa"
-  | "organ"
-  | "quality"
-  | "slab"
-  | "hr"
-  | "head"
-  | "specialists"
-  | "fIntake"
-  | "fDecision"
-  | "fIssue"
-  | "fNormative"
-  | "fOther";
+export type OrgNodeCopy = { label: string; text: string };
 
 export type OrgCopy = {
   hint: string;
@@ -27,96 +11,58 @@ export type OrgCopy = {
   reportsTo: string;
   manages: string;
   interacts: string;
-  nodes: Record<OrgNodeId, { label: string; text: string }>;
+  nodes: Record<string, OrgNodeCopy>;
 };
 
-/* Structure of the certification body, as in annex A of its regulations (SQA.MS-N). */
-const SOLID: [OrgNodeId, OrgNodeId][] = [
-  ["director", "accounting"],
-  ["director", "labSqa"],
-  ["director", "organ"],
-  ["director", "quality"],
-  ["director", "slab"],
-  ["director", "hr"],
-  ["organ", "head"],
-  ["head", "specialists"],
-  ["specialists", "fIntake"],
-  ["specialists", "fDecision"],
-  ["specialists", "fIssue"],
-  ["specialists", "fNormative"],
-  ["specialists", "fOther"],
-];
-const DASHED: [OrgNodeId, OrgNodeId][] = [
-  ["regulators", "director"],
-  ["director", "partners"],
-  ["labSqa", "organ"],
-  ["organ", "quality"],
-  ["quality", "slab"],
-  ["quality", "head"],
-  ["quality", "specialists"],
-];
+/** Shape of a chart: who reports to whom (solid), who works with whom (dashed), and the layout rows. */
+export type OrgChart = {
+  solid: [string, string][];
+  dashed: [string, string][];
+  /** rows on wide screens; `col` places a node in the row's grid */
+  rows: { cols: string; items: { id: string; col?: string }[] }[];
+  external: string[];
+  functions: string[];
+  /** the unit the page is about: highlighted and selected first */
+  main: string;
+};
 
-/* Rows on wide screens; `col` places a node in a 6-column grid. */
-const ROWS: { cols: string; items: { id: OrgNodeId; col?: string }[] }[] = [
-  {
-    cols: "lg:grid-cols-6",
-    items: [
-      { id: "regulators", col: "lg:col-span-2" },
-      { id: "director", col: "order-first col-span-2 sm:order-none sm:col-span-1 lg:col-span-2" },
-      { id: "partners", col: "lg:col-span-2" },
-    ],
-  },
-  {
-    cols: "lg:grid-cols-6",
-    items: [{ id: "accounting" }, { id: "labSqa" }, { id: "organ" }, { id: "quality" }, { id: "slab" }, { id: "hr" }],
-  },
-  { cols: "lg:grid-cols-6", items: [{ id: "head", col: "col-span-2 sm:col-span-1 sm:col-start-2 lg:col-start-3" }] },
-  { cols: "lg:grid-cols-6", items: [{ id: "specialists", col: "col-span-2 sm:col-span-1 sm:col-start-2 lg:col-start-3" }] },
-  {
-    cols: "lg:grid-cols-5",
-    items: [{ id: "fIntake" }, { id: "fDecision" }, { id: "fIssue" }, { id: "fNormative" }, { id: "fOther" }],
-  },
-];
+type Line = { d: string; a: string; b: string; dashed: boolean };
 
-const EXTERNAL: OrgNodeId[] = ["regulators", "partners"];
-const FUNCTIONS: OrgNodeId[] = ["fIntake", "fDecision", "fIssue", "fNormative", "fOther"];
-
-type Line = { d: string; a: OrgNodeId; b: OrgNodeId; dashed: boolean };
-
-function linked(id: OrgNodeId) {
+function linked(chart: OrgChart, id: string) {
   return {
-    parents: SOLID.filter(([, c]) => c === id).map(([p]) => p),
-    children: SOLID.filter(([p]) => p === id).map(([, c]) => c),
-    partners: DASHED.filter(([a, b]) => a === id || b === id).map(([a, b]) => (a === id ? b : a)),
+    parents: chart.solid.filter(([, c]) => c === id).map(([p]) => p),
+    children: chart.solid.filter(([p]) => p === id).map(([, c]) => c),
+    partners: chart.dashed.filter(([a, b]) => a === id || b === id).map(([a, b]) => (a === id ? b : a)),
   };
 }
 
-export default function OrgStructure({ copy }: { copy: OrgCopy }) {
+export default function OrgStructure({ chart, copy }: { chart: OrgChart; copy: OrgCopy }) {
+  const uid = useId().replace(/:/g, "");
   const wrap = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLElement>(null);
-  const nodes = useRef(new Map<OrgNodeId, HTMLButtonElement>());
+  const nodes = useRef(new Map<string, HTMLButtonElement>());
   const [lines, setLines] = useState<Line[]>([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
-  const [selected, setSelected] = useState<OrgNodeId>("organ");
-  const [hovered, setHovered] = useState<OrgNodeId | null>(null);
+  const [selected, setSelected] = useState<string>(chart.main);
+  const [hovered, setHovered] = useState<string | null>(null);
   const active = hovered ?? selected;
 
   const measure = useCallback(() => {
     const box = wrap.current;
     if (!box) return;
     const o = box.getBoundingClientRect();
-    const r = (id: OrgNodeId) => {
+    const r = (id: string) => {
       const b = nodes.current.get(id)!.getBoundingClientRect();
       return { l: b.left - o.left, r: b.right - o.left, t: b.top - o.top, b: b.bottom - o.top, cx: (b.left + b.right) / 2 - o.left, cy: (b.top + b.bottom) / 2 - o.top };
     };
     const out: Line[] = [];
-    for (const [p, c] of SOLID) {
+    for (const [p, c] of chart.solid) {
       const a = r(p);
       const b = r(c);
       const mid = (a.b + b.t) / 2;
       out.push({ a: p, b: c, dashed: false, d: `M${a.cx} ${a.b}V${mid}H${b.cx}V${b.t - 6}` });
     }
-    for (const [x, y] of DASHED) {
+    for (const [x, y] of chart.dashed) {
       const a = r(x);
       const b = r(y);
       let d: string;
@@ -134,7 +80,7 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
     }
     setLines(out);
     setSize({ w: o.width, h: o.height });
-  }, []);
+  }, [chart]);
 
   useLayoutEffect(() => {
     measure();
@@ -149,12 +95,12 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
     return () => ro.disconnect();
   }, [measure]);
 
-  const rel = linked(active);
-  const near = new Set<OrgNodeId>([active, ...rel.parents, ...rel.children, ...rel.partners]);
+  const rel = linked(chart, active);
+  const near = new Set<string>([active, ...rel.parents, ...rel.children, ...rel.partners]);
   const info = copy.nodes[selected];
-  const sel = linked(selected);
+  const sel = linked(chart, selected);
 
-  const chipGroup = (title: string, ids: OrgNodeId[]) =>
+  const chipGroup = (title: string, ids: string[]) =>
     ids.length > 0 && (
       <div>
         <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">{title}</p>
@@ -196,10 +142,10 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
           {/* connectors, wide screens only */}
           <svg aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block" width={size.w} height={size.h}>
             <defs>
-              <marker id="org-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <marker id={`${uid}-arrow`} viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto">
                 <path d="M0 0 8 4 0 8z" className="fill-ink-soft" opacity="0.5" />
               </marker>
-              <marker id="org-arrow-on" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <marker id={`${uid}-arrow-on`} viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto">
                 <path d="M0 0 8 4 0 8z" className="fill-primary" />
               </marker>
             </defs>
@@ -212,7 +158,7 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
                   fill="none"
                   strokeWidth={on ? 2 : 1.25}
                   strokeDasharray={l.dashed ? "5 4" : undefined}
-                  markerEnd={l.dashed ? undefined : on ? "url(#org-arrow-on)" : "url(#org-arrow)"}
+                  markerEnd={l.dashed ? undefined : on ? `url(#${uid}-arrow-on)` : `url(#${uid}-arrow)`}
                   className={`transition-[stroke,opacity] duration-300 ${on ? "stroke-primary" : "stroke-ink-soft"} ${on ? "opacity-100" : "opacity-35"}`}
                 />
               );
@@ -220,14 +166,14 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
           </svg>
 
           <div className="relative space-y-4 lg:space-y-10">
-            {ROWS.map((row, ri) => (
+            {chart.rows.map((row, ri) => (
               <div key={ri} className={`grid grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-x-4 ${row.cols}`}>
                 {row.items.map(({ id, col }) => {
                   const isActive = id === active;
                   const isSelected = id === selected;
-                  const external = EXTERNAL.includes(id);
-                  const fn = FUNCTIONS.includes(id);
-                  const main = id === "organ";
+                  const external = chart.external.includes(id);
+                  const fn = chart.functions.includes(id);
+                  const main = id === chart.main;
                   return (
                     <button
                       key={id}
@@ -246,7 +192,7 @@ export default function OrgStructure({ copy }: { copy: OrgCopy }) {
                       onMouseEnter={() => setHovered(id)}
                       onFocus={() => setHovered(id)}
                       onBlur={() => setHovered(null)}
-                      className={`relative flex min-h-[64px] items-center justify-center rounded-[2px] border px-3 py-3 text-center text-[13px] font-semibold leading-snug transition-all duration-300 ${
+                      className={`relative flex min-h-[64px] items-center justify-center rounded-[2px] border px-3 py-3 text-center text-[13px] font-semibold leading-snug hyphens-auto transition-all duration-300 ${
                         col ?? ""
                       } ${
                         main

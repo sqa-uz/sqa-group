@@ -30,7 +30,10 @@
     "appeals": "Appeals & complaints",
     "contacts": "Contacts",
     "apply": "Apply",
-    "request": "Send a request"
+    "request": "Send a request",
+    "labSqa": "SQA testing laboratory",
+    "labSlab": "S-LAB testing laboratory",
+    "labsAll": "All laboratories"
   },
   "home": {
     "heroEyebrow": "Accredited by the Uzbek Accreditation Centre (O'ZAKK)",
@@ -123,7 +126,7 @@
         "standard": "O'z DSt ISO/IEC 17025:2019",
         "text": "Testing and measurement of product samples for certification.",
         "valid": "Certificate valid until 10.01.2027",
-        "href": "/laboratories"
+        "href": "/laboratories/sqa"
       },
       {
         "title": "S-LAB testing laboratory",
@@ -131,7 +134,7 @@
         "standard": "O'z DSt ISO/IEC 17025:2019",
         "text": "The group's second accredited testing laboratory.",
         "valid": "Certificate valid until 11.05.2031",
-        "href": "/laboratories"
+        "href": "/laboratories/s-lab"
       }
     ],
     "groupsEyebrow": "Accreditation scope",
@@ -327,10 +330,10 @@
   "laboratories": {
     "title": "Testing laboratories",
     "intro": "Two testing units operate within the company. The laboratories are equipped with modern instruments and staffed by qualified specialists.",
-    "lab1Title": "Testing laboratory",
+    "lab1Title": "SQA testing laboratory",
     "lab1Text": "Accredited to O'z DSt ISO/IEC 17025:2019 (certificate O'ZAKK.SL.0162). Performs tests and measurements for products included in the accreditation scope.",
     "lab1Badge": "O'ZAKK.SL.0162",
-    "lab2Title": "S-Lab testing laboratory",
+    "lab2Title": "S-LAB testing laboratory",
     "lab2Text": "Our second testing laboratory, accredited to O'z DSt ISO/IEC 17025:2019 (certificate O'ZAKK.SL.0437). Performs tests and measurements across additional product groups.",
     "lab2Badge": "O'ZAKK.SL.0437",
     "downloadCert": "Download certificate",
@@ -338,7 +341,90 @@
     "eq1": "Accredited testing methods",
     "eq2": "Measuring instruments with assured traceability",
     "eq3": "Impartial and accurate results",
-    "eq4": "Official test reports within short timeframes"
+    "eq4": "Official test reports within short timeframes",
+    "allLabs": "All laboratories",
+    "otherLab": "Our other laboratory",
+    "structureEyebrow": "Regulations of the laboratory · SQA.SL-N",
+    "structureTitle": "Organisational structure",
+    "structureIntro": "The laboratory operates within Standart and Quality Assessment Group LLC and is independent of the manufacturers, suppliers and sellers of products: testing is done as a third party under contract. Test results and client information are kept confidential.",
+    "structure": {
+      "hint": "Click a unit to see its role and links.",
+      "legendSubordination": "reports to",
+      "legendInteraction": "works with",
+      "reportsTo": "Reports to",
+      "manages": "Manages",
+      "interacts": "Works with",
+      "nodes": {
+        "regulators": {
+          "label": "Technical Regulation Agency, Accreditation Centre, Standards Institute",
+          "text": "Government bodies for technical regulation and accreditation. The Accreditation Centre assesses the laboratory and approves its accreditation scope."
+        },
+        "director": {
+          "label": "Director, SQA Group LLC",
+          "text": "Runs the company and appoints the head of the laboratory and the quality manager."
+        },
+        "partners": {
+          "label": "Accredited bodies and laboratories",
+          "text": "Where needed, and only with the client's consent, specific tests are subcontracted to other accredited laboratories."
+        },
+        "accounting": {
+          "label": "Accounting",
+          "text": "Keeps the company's accounting, economic and statistical records."
+        },
+        "organ": {
+          "label": "SQA certification body",
+          "text": "The company's certification body (O'z DSt ISO/IEC 17065). The laboratory's test results are used in product certification."
+        },
+        "lab": {
+          "label": "SQA testing laboratory",
+          "text": "Tests products within the accreditation scope approved by the Accreditation Centre and issues official test reports."
+        },
+        "quality": {
+          "label": "Quality manager",
+          "text": "Implements, maintains and improves the laboratory's management system, identifies deviations, proposes risk-reduction measures and reports to the laboratory management."
+        },
+        "slab": {
+          "label": "S-LAB testing laboratory",
+          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025). Tests products within its own accreditation scope and issues official test reports."
+        },
+        "hr": {
+          "label": "Human resources",
+          "text": "HR support for the company's staff."
+        },
+        "head": {
+          "label": "Head of the laboratory",
+          "text": "Runs the laboratory, is responsible for its work and approves test reports with the laboratory's seal. Appointed by the company director."
+        },
+        "specialists": {
+          "label": "Laboratory specialists",
+          "text": "Carry out testing and related work. Their functions are divided as shown below."
+        },
+        "fTesting": {
+          "label": "Testing",
+          "text": "Test product samples using accredited methods."
+        },
+        "fReports": {
+          "label": "Issuing and checking reports",
+          "text": "Draw up test reports and check them before they are issued."
+        },
+        "fEquipment": {
+          "label": "Equipment",
+          "text": "Make sure testing and measuring equipment is checked on time and kept in good order."
+        },
+        "fNormative": {
+          "label": "Normative documents",
+          "text": "Responsible for the normative documents and methods the laboratory uses."
+        },
+        "fUncertainty": {
+          "label": "Uncertainty, decisions, verification",
+          "text": "Calculate measurement uncertainty, make decisions on results, and carry out verification and incoming inspection."
+        },
+        "fOther": {
+          "label": "Additional functions",
+          "text": "Staff responsible for the laboratory's other additional functions."
+        }
+      }
+    }
   },
   "team": {
     "title": "Our team",

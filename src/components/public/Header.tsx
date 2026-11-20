@@ -20,6 +20,13 @@ const NAV = [
   { href: "/contacts", key: "contacts" },
 ] as const;
 
+/** Laboratories open as a menu so a visitor can go straight to one of them. */
+const LABS_MENU = [
+  { href: "/laboratories/sqa", key: "labSqa", code: "O'ZAKK.SL.0162" },
+  { href: "/laboratories/s-lab", key: "labSlab", code: "O'ZAKK.SL.0437" },
+  { href: "/laboratories", key: "labsAll", code: "" },
+] as const;
+
 const MORE = [
   { href: "/apply", key: "apply" },
   { href: "/financing", key: "financing" },
@@ -29,39 +36,105 @@ const MORE = [
   { href: "/appeals", key: "appeals" },
 ] as const;
 
+type MenuItem = { href: string; label: string; hint?: string };
+
+/** Header drop-down ("Laboratories", "Accreditation"): click to open, closes on blur, Escape or choice. */
+function NavDropdown({
+  label,
+  items,
+  active,
+  align = "right",
+  width = "w-72",
+}: {
+  label: string;
+  items: MenuItem[];
+  active?: boolean;
+  align?: "left" | "right";
+  width?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  // Dropdown phase for the transitions-dev menu: open → closing (plays the close) → rest.
+  const [closing, setClosing] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const show = () => {
+    if (timer.current) clearTimeout(timer.current);
+    setClosing(false);
+    setOpen(true);
+  };
+  const hide = () => {
+    if (!open) return;
+    setOpen(false);
+    setClosing(true);
+    const ms = cssTimeMs(document.documentElement, "--dropdown-close-dur", 150);
+    timer.current = setTimeout(() => setClosing(false), ms);
+  };
+  useEffect(() => () => {
+    if (timer.current) clearTimeout(timer.current);
+  }, []);
+
+  return (
+    <div
+      // .t-acc only drives the chevron flip here; the menu itself is a .t-dropdown.
+      className="t-acc relative"
+      data-open={open}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) hide();
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") hide();
+      }}
+    >
+      <button
+        type="button"
+        className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
+          active ? "text-primary" : "text-ink"
+        }`}
+        onClick={() => (open ? hide() : show())}
+        aria-expanded={open}
+        aria-haspopup="true"
+      >
+        {label}
+        <span className="t-acc-chevron" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </button>
+      <div
+        data-origin={align === "right" ? "top-right" : "top-left"}
+        className={`t-dropdown absolute ${align === "right" ? "right-0" : "left-0"} top-full mt-2 ${width} rounded-card border border-line bg-paper p-2 shadow-card${
+          open ? " is-open" : closing ? " is-closing" : ""
+        }`}
+      >
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={hide}
+            className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
+          >
+            {item.label}
+            {item.hint && <span className="mt-0.5 block text-[11px] font-semibold tracking-wide text-ink-soft">{item.hint}</span>}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHrefs?: string[]; weather?: Weather | null }) {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [moreOpen, setMoreOpen] = useState(false);
-  // Dropdown phase for the transitions-dev menu: open → closing (plays the close) → rest.
-  const [moreClosing, setMoreClosing] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const openMore = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setMoreClosing(false);
-    setMoreOpen(true);
-  };
-  const closeMore = () => {
-    if (!moreOpen) return;
-    setMoreOpen(false);
-    setMoreClosing(true);
-    const ms = cssTimeMs(document.documentElement, "--dropdown-close-dur", 150);
-    closeTimer.current = setTimeout(() => setMoreClosing(false), ms);
-  };
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }, []);
-
   const hidden = new Set(hiddenHrefs);
   const nav = NAV.filter((i) => !hidden.has(i.href));
   const more = MORE.filter((i) => !hidden.has(i.href));
 
   const linkCls = (href: string) =>
     `whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
-      pathname === href ? "text-primary" : "text-ink"
+      pathname === href || pathname.startsWith(`${href}/`) ? "text-primary" : "text-ink"
     }`;
 
   return (
@@ -106,55 +179,24 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
         </Link>
 
         <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
-          {nav.map((item) => (
-            <Link key={item.href} href={item.href} className={linkCls(item.href)}>
-              {t(item.key)}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            item.href === "/laboratories" ? (
+              <NavDropdown
+                key={item.href}
+                label={t(item.key)}
+                active={pathname === item.href || pathname.startsWith(`${item.href}/`)}
+                align="left"
+                width="w-80"
+                items={LABS_MENU.map((l) => ({ href: l.href, label: t(l.key), hint: l.code || undefined }))}
+              />
+            ) : (
+              <Link key={item.href} href={item.href} className={linkCls(item.href)}>
+                {t(item.key)}
+              </Link>
+            )
+          )}
           {more.length > 0 && (
-          <div
-            // .t-acc only drives the chevron flip here; the menu itself is a .t-dropdown.
-            className="t-acc relative"
-            data-open={moreOpen}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) closeMore();
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") closeMore();
-            }}
-          >
-            <button
-              type="button"
-              className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-ink transition-colors hover:text-primary"
-              onClick={() => (moreOpen ? closeMore() : openMore())}
-              aria-expanded={moreOpen}
-              aria-haspopup="true"
-            >
-              {t("accreditation")}
-              <span className="t-acc-chevron" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                  <path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </button>
-            <div
-              data-origin="top-right"
-              className={`t-dropdown absolute right-0 top-full mt-2 w-72 rounded-card border border-line bg-paper p-2 shadow-card${
-                moreOpen ? " is-open" : moreClosing ? " is-closing" : ""
-              }`}
-            >
-              {more.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMore}
-                  className="block rounded-[2px] px-3 py-2 text-sm text-ink hover:bg-band hover:text-primary"
-                >
-                  {t(item.key)}
-                </Link>
-              ))}
-            </div>
-          </div>
+            <NavDropdown label={t("accreditation")} items={more.map((i) => ({ href: i.href, label: t(i.key) }))} />
           )}
         </nav>
 
@@ -187,14 +229,29 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
           <div className="t-acc-panel-inner" inert={!open}>
             <nav className="border-t border-line bg-paper px-4 py-3" aria-label="Mobile">
               {[...nav, ...more].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
-                >
-                  {t(item.key)}
-                </Link>
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-[2px] px-2 py-2.5 text-sm font-medium text-ink hover:bg-band hover:text-primary"
+                  >
+                    {t(item.key)}
+                  </Link>
+                  {item.href === "/laboratories" && (
+                    <div className="mb-1 ml-3 border-l border-line pl-2">
+                      {LABS_MENU.filter((l) => l.href !== "/laboratories").map((l) => (
+                        <Link
+                          key={l.href}
+                          href={l.href}
+                          onClick={() => setOpen(false)}
+                          className="block rounded-[2px] px-2 py-2 text-sm text-ink-soft hover:bg-band hover:text-primary"
+                        >
+                          {t(l.key)}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
           </div>
