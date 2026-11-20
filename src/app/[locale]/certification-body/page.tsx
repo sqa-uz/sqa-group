@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/public/Reveal";
 import DocDownload from "@/components/public/DocDownload";
 import ApplySection from "@/components/public/ApplySection";
+import OrgStructure, { type OrgCopy } from "@/components/public/OrgStructure";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -78,6 +79,15 @@ export default async function CertificationBodyPage({ params }: { params: Promis
           </a>
         </Reveal>
       </div>
+
+      <Reveal>
+        <section id="structure" className="mt-16 scroll-mt-24">
+          <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
+          <OrgStructure copy={t.raw("structure") as OrgCopy} />
+        </section>
+      </Reveal>
 
       <ApplySection defaultService="certification" />
     </div>
