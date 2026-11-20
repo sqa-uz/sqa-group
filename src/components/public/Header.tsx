@@ -61,7 +61,7 @@ export default function Header({ hiddenHrefs = [], weather = null }: { hiddenHre
 
   const linkCls = (href: string) =>
     `whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
-      pathname === href ? "text-primary" : "text-ink"
+      pathname === href || pathname.startsWith(`${href}/`) ? "text-primary" : "text-ink"
     }`;
 
   return (
