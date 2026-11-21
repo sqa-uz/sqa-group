@@ -33,7 +33,8 @@
     "request": "So'rov yuborish",
     "labSqa": "SQA sinov laboratoriyasi",
     "labSlab": "S-LAB sinov laboratoriyasi",
-    "labsAll": "Barcha laboratoriyalar"
+    "labsAll": "Barcha laboratoriyalar",
+    "structure": "Tashkiliy tuzilma"
   },
   "home": {
     "heroEyebrow": "O'ZAKK tomonidan akkreditatsiyalangan",
@@ -324,7 +325,8 @@
           "label": "Qo'shimcha funksiyalar",
           "text": "Organning boshqa qo'shimcha funksiyalari bo'yicha mas'ul xodimlar."
         }
-      }
+      },
+      "peopleLink": "Xodimlar bilan tuzilma"
     }
   },
   "laboratories": {
@@ -423,7 +425,8 @@
           "label": "Qo'shimcha funksiyalar",
           "text": "Laboratoriyaning boshqa qo'shimcha funksiyalari bo'yicha mas'ul xodimlar."
         }
-      }
+      },
+      "peopleLink": "Xodimlar bilan tuzilma"
     }
   },
   "team": {
@@ -716,5 +719,98 @@
         "link": "Sxemalar haqida batafsil"
       }
     ]
+  },
+  "structurePage": {
+    "metaTitle": "Tashkiliy tuzilma",
+    "eyebrow": "SQA Group · Toshkent",
+    "title": "Tashkiliy tuzilma",
+    "lead": "\"Standart and Quality Assessment Group\" MCHJ: mahsulotni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi. Tuzilmasi va xodimlarini ko'rish uchun bo'linmani bosing.",
+    "back": "Butun tuzilma",
+    "root": "Tuzilma",
+    "open": "Tuzilmani ochish",
+    "solid": "Bo'ysunish",
+    "dashed": "O'zaro hamkorlik",
+    "acc": "Akkreditatsiya",
+    "std": "Standart",
+    "valid": "Amal qilish muddati",
+    "staffL": "Xodimlar",
+    "functions": "Organ mutaxassislarining vazifalari",
+    "related": "Hamkorlikda ishlaydi",
+    "support": "Yordamchi bo'linma",
+    "more": "Bo'linma haqida batafsil",
+    "statStaff": "nafar xodim",
+    "statCertificates": "ta O'ZAKK akkreditatsiya guvohnomasi",
+    "statLabs": "ta sinov laboratoriyasi",
+    "statFounded": "tashkil topgan yil",
+    "nodes": {
+      "director": {
+        "title": "Direktor",
+        "sub": "\"Standart and Quality Assessment Group\" MCHJ"
+      },
+      "organ": {
+        "title": "Mahsulotni sertifikatlashtirish organi",
+        "short": "Sertifikatlashtirish organi",
+        "desc": "Mustaqil uchinchi tomon: mahalliy ishlab chiqaruvchilar va importyorlar mahsulotlarini majburiy va ixtiyoriy tizimlarda sertifikatlaydi.",
+        "functions": [
+          "Arizalarni qabul qilish va tahlil qilish, namunalar tanlash",
+          "Sertifikatlashtirish bo'yicha qaror qabul qilish",
+          "Sertifikatlarni rasmiylashtirish va tekshirish",
+          "Me'yoriy hujjatlar bilan ishlash"
+        ]
+      },
+      "lab-sqa": {
+        "title": "SQA sinov laboratoriyasi",
+        "short": "SQA laboratoriyasi",
+        "desc": "Akkreditatsiya sohasidagi mahsulotlarni sinaydi va o'lchaydi, rasmiy sinov bayonnomalarini beradi."
+      },
+      "s-lab": {
+        "title": "S-LAB sinov laboratoriyasi",
+        "short": "S-LAB laboratoriyasi",
+        "desc": "Kompaniyaning ikkinchi akkreditatsiyalangan laboratoriyasi: qo'shimcha mahsulot guruhlari bo'yicha sinov va o'lchovlar."
+      },
+      "quality": {
+        "title": "Sifat menejmenti tizimi",
+        "short": "Sifat menejmenti",
+        "sub": "Sifat bo'yicha menejer",
+        "rel": "Organ va SQA laboratoriyasi bilan ishlaydi",
+        "desc": "Tashkilotning menejment tizimi uchun javob beradi, sertifikatlashtirish organi va SQA laboratoriyasi bilan birga ishlaydi."
+      },
+      "accounting": {
+        "title": "Buxgalteriya"
+      },
+      "hr": {
+        "title": "Kadrlar bo'limi"
+      },
+      "organ-head": {
+        "title": "Sertifikatlashtirish bo'limi rahbari"
+      },
+      "organ-lead": {
+        "title": "Yetakchi mutaxassis"
+      },
+      "organ-spec": {
+        "title": "Mutaxassislar"
+      },
+      "organ-intern": {
+        "title": "Stajyorlar"
+      },
+      "lab-head": {
+        "title": "Laboratoriya rahbari"
+      },
+      "lab-tech": {
+        "title": "Texnik xodim"
+      },
+      "lab-lead": {
+        "title": "Yetakchi mutaxassislar"
+      },
+      "lab-spec": {
+        "title": "Mutaxassislar"
+      },
+      "slab-head": {
+        "title": "Laboratoriya rahbari"
+      },
+      "qm-lead": {
+        "title": "Sifat menejmenti tizimi bo'yicha yetakchi mutaxassis"
+      }
+    }
   }
 }
