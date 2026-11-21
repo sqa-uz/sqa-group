@@ -30,6 +30,30 @@ export const PEOPLE: Record<string, [string, string]> = {
   iskandarov: ["Suhrob Iskandarov", "Сухроб Искандаров"],
 };
 
+/** Staff slugs on the team page; the photos come from there. */
+export const STAFF_SLUG: Record<string, string> = {
+  valiyev: "valiev-xojiakbar",
+  inagamov: "inagamov-shuxrat",
+  gulyamov: "saidgani-gulyamov",
+  daminjonov: "ibroxim-daminjonov",
+  fjorabekov: "firdavs-jorabekov",
+  tohirov: "mirsaid-toxirov",
+  ojorabekov: "omon-jorabekov",
+  qodirjonov: "ibrohim-qodirjonov",
+  habibullayev: "khurshid-habibullaev",
+  ubaydullayev: "xamidulla-ubaydullaev",
+  majidov: "xamidulla-madjidov",
+  ikromov: "abbos-ikromov",
+  raupova: "dilfuza-raupova",
+  gadoyev: "shodibek-gadoyev",
+  toyshiyeva: "ziyodaxon-toyshiyeva",
+  abdumavlonova: "munisa-abdumavlonova",
+  abdusalomov: "sherzod-abdusalomov",
+  mahmadaliyeva: "fayziniso-mahmadaliyeva",
+  sabitov: "gayrat-sabitov",
+  iskandarov: "suhrob-iskandarov",
+};
+
 /** A person in a role card; `as` names their position (a key under structurePage.positions). */
 export type Member = { id: string; as?: string };
 
