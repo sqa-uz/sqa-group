@@ -54,6 +54,19 @@ const ICONS: Record<IconId, React.ReactNode> = {
       <path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01" />
     </>
   ),
+  regulator: (
+    <>
+      <path d="M3 10 12 4l9 6" />
+      <path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" />
+    </>
+  ),
+  partner: (
+    <>
+      <circle cx="12" cy="9" r="5" />
+      <path d="m9.8 9 1.5 1.5 2.9-2.9" />
+      <path d="M8.6 13 7.5 20l4.5-2.2 4.5 2.2-1.1-7" />
+    </>
+  ),
   hr: (
     <>
       <circle cx="9" cy="8" r="3.2" />
@@ -151,18 +164,10 @@ export default function OrgExplorer() {
     if (!st || !s) return [];
     const v = VIEWS[view];
     const mobile = window.matchMedia("(max-width: 900px)").matches;
-    st.querySelectorAll<HTMLElement>("[data-id]").forEach((c) => (c.style.left = ""));
-    if (!mobile && v.align) {
-      for (const [id, refs] of Object.entries(v.align)) {
-        const el = card(id);
-        const rs = refs.map((r) => card(r)).filter(Boolean) as HTMLElement[];
-        if (!el || !rs.length) continue;
-        const target = rs.map(box).reduce((a, b) => a + b.x + b.w / 2, 0) / rs.length;
-        const b = box(el);
-        el.style.left = `${target - (b.x + b.w / 2)}px`;
-      }
-    }
     s.innerHTML = "";
+    // drop the previous view's size first, so it does not stretch the stage
+    s.setAttribute("width", "0");
+    s.setAttribute("height", "0");
     const W = st.scrollWidth;
     const H = st.scrollHeight;
     s.setAttribute("width", String(W));
@@ -178,15 +183,21 @@ export default function OrgExplorer() {
       if (!ea || !eb) continue;
       const pa = box(ea);
       const pb = box(eb);
+      const sameRow = Math.abs(pa.y + pa.h / 2 - (pb.y + pb.h / 2)) < 30;
       const p = document.createElementNS(ns, "path");
-      p.setAttribute(
-        "d",
-        mobile ? spine(pa.x + 14, pa.y + pa.h, pb.x, pb.y + Math.min(pb.h / 2, 26)) : elbow(pa.x + pa.w / 2, pa.y + pa.h, pb.x + pb.w / 2, pb.y),
-      );
+      let d: string;
+      if (mobile) d = spine(pa.x + 14, pa.y + pa.h, pb.x, pb.y + Math.min(pb.h / 2, 26));
+      else if (sameRow) {
+        // neighbours in one row (as in the annexes): a straight dashed line between facing sides
+        const [l, r] = pa.x < pb.x ? [pa, pb] : [pb, pa];
+        const y = Math.max(l.y, r.y) + Math.min(l.h, r.h) / 2;
+        d = `M${l.x + l.w},${y} H${r.x}`;
+      } else d = elbow(pa.x + pa.w / 2, pa.y + pa.h, pb.x + pb.w / 2, pb.y);
+      p.setAttribute("d", d);
       p.setAttribute("class", dashed ? "org-link is-dashed" : "org-link");
       s.appendChild(p);
       let dot: SVGCircleElement | null = null;
-      if (!mobile) {
+      if (!mobile && !sameRow) {
         dot = document.createElementNS(ns, "circle");
         dot.setAttribute("cx", String(pb.x + pb.w / 2));
         dot.setAttribute("cy", String(pb.y - 1));
@@ -361,7 +372,7 @@ export default function OrgExplorer() {
 
   const renderCard = (id: string) => {
     const n = NODES[id];
-    const common = "relative z-[1] w-[var(--unit-w)] rounded-card border border-line bg-paper p-4 text-left shadow-card max-[900px]:w-auto";
+    const common = "relative z-[1] rounded-card border border-line bg-paper p-4 text-left shadow-card max-[900px]:w-auto";
     if (n.type === "director") {
       return (
         <div key={id} data-id={id} className={`${common} flex w-[300px] items-center gap-3.5 border-transparent bg-primary text-white`}>
@@ -377,7 +388,7 @@ export default function OrgExplorer() {
     }
     if (n.type === "support") {
       return (
-        <div key={id} data-id={id} className={`${common} flex min-h-[150px] flex-col border-dashed bg-transparent shadow-none max-[900px]:min-h-0`}>
+        <div key={id} data-id={id} className={`${common} flex min-h-[150px] w-[var(--unit-w)] flex-col border-dashed bg-transparent shadow-none max-[900px]:min-h-0`}>
           <span className="grid h-10 w-10 place-items-center rounded-card border border-line text-ink-soft">
             <Icon id={n.icon} />
           </span>
@@ -408,7 +419,7 @@ export default function OrgExplorer() {
           </span>
         </>
       );
-      const cls = `${common} flex min-h-[176px] flex-col max-[900px]:min-h-0 ${
+      const cls = `${common} flex min-h-[176px] w-[var(--unit-w)] flex-col max-[900px]:min-h-0 ${
         isHead ? "border-primary shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-primary)_14%,transparent)]" : ""
       }`;
       return target ? (
@@ -428,31 +439,57 @@ export default function OrgExplorer() {
         </div>
       );
     }
-    const people = n.people;
+    if (n.type === "external") {
+      return (
+        <div key={id} data-id={id} className={`${common} flex w-[240px] items-center gap-3 border-dashed bg-band shadow-none`}>
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-card border border-line bg-paper text-ink-soft">
+            <Icon id={n.icon} className="h-[18px] w-[18px]" />
+          </span>
+          <span className="text-[13px] font-semibold leading-snug text-ink">{nt(id, "title")}</span>
+        </div>
+      );
+    }
+    if (n.type === "function") {
+      return (
+        <div
+          key={id}
+          data-id={id}
+          className="relative z-[1] w-[var(--fn-w)] hyphens-auto rounded-card border border-line bg-band px-2 py-3 text-center text-[12.5px] font-semibold leading-snug text-ink max-[900px]:w-auto max-[900px]:text-left"
+        >
+          {nt(id, "title")}
+        </div>
+      );
+    }
+    const members = n.members;
     return (
-      <div key={id} data-id={id} className={`${common} w-[248px] ${n.lead ? "border-t-[3px] border-t-primary" : ""}`}>
+      <div key={id} data-id={id} className={`${common} ${members.length > 5 ? "w-[460px]" : "w-[260px]"} ${n.lead ? "border-t-[3px] border-t-primary" : ""}`}>
         <div className="flex items-start justify-between gap-2 text-[11px] font-bold uppercase leading-snug tracking-wide text-primary">
           <span>{nt(id, "title")}</span>
-          {people.length > 1 && <span className="rounded-card bg-band px-1.5 py-0.5 tabular-nums tracking-normal">{people.length}</span>}
+          {members.length > 1 && <span className="rounded-card bg-band px-1.5 py-0.5 tabular-nums tracking-normal">{members.length}</span>}
         </div>
-        <ul className="mt-3 grid gap-2">
-          {people.map((p) => {
-            const name = person(p);
-            return (
-              <li key={p} className="flex items-center gap-2.5 text-sm font-medium leading-snug text-ink">
-                <span
-                  aria-hidden="true"
-                  className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-full text-[11px] font-extrabold ${
-                    n.lead ? "bg-primary text-white" : "bg-band text-primary"
-                  }`}
-                >
-                  {initials(name)}
-                </span>
-                {name}
-              </li>
-            );
-          })}
-        </ul>
+        {members.length > 0 && (
+          <ul className={`mt-3 grid gap-2 ${members.length > 5 ? "grid-cols-2 gap-x-4 max-[560px]:grid-cols-1" : ""}`}>
+            {members.map(({ id: p, as }) => {
+              const name = person(p);
+              return (
+                <li key={p} className="flex items-center gap-2.5 text-sm font-medium leading-snug text-ink">
+                  <span
+                    aria-hidden="true"
+                    className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-full text-[11px] font-extrabold ${
+                      n.lead ? "bg-primary text-white" : "bg-band text-primary"
+                    }`}
+                  >
+                    {initials(name)}
+                  </span>
+                  <span>
+                    {name}
+                    {as && <span className="block text-[11.5px] font-normal text-ink-soft">{t(`positions.${as}`)}</span>}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     );
   };
@@ -480,7 +517,6 @@ export default function OrgExplorer() {
     const icon = node.type === "unit" ? node.icon : "organ";
     const page = node.type === "unit" ? node.page : undefined;
     const facts: [string, string][] = [[t("staffL"), staff(headcount(view))], ...(FACTS[view] ?? []).map((f) => [t(f.key), f.value] as [string, string])];
-    const functions = t.has(`nodes.${view}.functions`) ? (t.raw(`nodes.${view}.functions`) as string[]) : null;
     return (
       <>
         <section className="card p-5">
@@ -506,19 +542,6 @@ export default function OrgExplorer() {
             </Link>
           )}
         </section>
-        {functions && (
-          <section className="card p-5">
-            <h3 className="text-[11px] font-bold uppercase tracking-wide text-ink-soft">{t("functions")}</h3>
-            <ul className="mt-3 grid gap-2.5 text-sm text-ink">
-              {functions.map((f) => (
-                <li key={f} className="flex gap-2.5">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-[1px] bg-primary-bright" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
         {RELATED[view] && (
           <section className="card p-5">
             <h3 className="text-[11px] font-bold uppercase tracking-wide text-ink-soft">{t("related")}</h3>
@@ -547,7 +570,7 @@ export default function OrgExplorer() {
   };
 
   return (
-    <div className="org-explorer mt-8 grid gap-4">
+    <div className="org-explorer mt-8 grid gap-4" data-view={view}>
       <nav ref={bar} aria-label="breadcrumb" className="flex min-h-[42px] flex-wrap items-center gap-3.5">
         {view !== "home" && (
           <button
