@@ -1,9 +1,10 @@
-/* Company structure for the /structure page: units, the people in each role, and the
-   drill-down views. Names come from the company's own staff list; labels and texts live in
-   messages (structurePage). Keep this in step with the team page when staff change. */
+/* Company structure for the /structure page. The overview and each unit's tree follow the
+   organisational charts in the annexes of the regulations (SQA.MS-N for the certification body,
+   SQA.SL-N for the laboratory); the people come from the company's staff list. Labels and texts
+   live in messages (structurePage). Keep the names in step with the team page when staff change. */
 
 export type ViewId = "home" | "organ" | "lab-sqa" | "s-lab" | "quality";
-export type IconId = "director" | "organ" | "lab" | "quality" | "accounting" | "hr";
+export type IconId = "director" | "organ" | "lab" | "quality" | "accounting" | "hr" | "regulator" | "partner";
 
 /** [Latin, Cyrillic] */
 export const PEOPLE: Record<string, [string, string]> = {
@@ -29,85 +30,127 @@ export const PEOPLE: Record<string, [string, string]> = {
   iskandarov: ["Suhrob Iskandarov", "Сухроб Искандаров"],
 };
 
+/** A person in a role card; `as` names their position (a key under structurePage.positions). */
+export type Member = { id: string; as?: string };
+
 export type OrgNode =
   | { type: "director"; icon: IconId }
+  | { type: "external"; icon: IconId }
   | { type: "unit"; icon: IconId; code?: string; page?: string }
   | { type: "support"; icon: IconId }
-  | { type: "role"; people: string[]; lead?: boolean };
+  | { type: "role"; members: Member[]; lead?: boolean }
+  | { type: "function" };
 
 /** Node ids double as message keys under structurePage.nodes. */
 export const NODES: Record<string, OrgNode> = {
+  regulators: { type: "external", icon: "regulator" },
   director: { type: "director", icon: "director" },
-  organ: { type: "unit", icon: "organ", code: "O'ZAKK.MS.0052", page: "/certification-body" },
-  "lab-sqa": { type: "unit", icon: "lab", code: "O'ZAKK.SL.0162", page: "/laboratories/sqa" },
-  "s-lab": { type: "unit", icon: "lab", code: "O'ZAKK.SL.0437", page: "/laboratories/s-lab" },
-  quality: { type: "unit", icon: "quality" },
+  partners: { type: "external", icon: "partner" },
   accounting: { type: "support", icon: "accounting" },
+  "lab-sqa": { type: "unit", icon: "lab", code: "O'ZAKK.SL.0162", page: "/laboratories/sqa" },
+  organ: { type: "unit", icon: "organ", code: "O'ZAKK.MS.0052", page: "/certification-body" },
+  quality: { type: "unit", icon: "quality" },
+  "s-lab": { type: "unit", icon: "lab", code: "O'ZAKK.SL.0437", page: "/laboratories/s-lab" },
   hr: { type: "support", icon: "hr" },
 
-  "organ-head": { type: "role", lead: true, people: ["valiyev"] },
-  "organ-lead": { type: "role", people: ["inagamov"] },
-  "organ-spec": { type: "role", people: ["gulyamov", "daminjonov", "fjorabekov", "tohirov"] },
-  "organ-intern": { type: "role", people: ["ojorabekov", "qodirjonov", "habibullayev"] },
+  // certification body (annex A of SQA.MS-N)
+  "organ-head": { type: "role", lead: true, members: [{ id: "valiyev" }] },
+  "organ-staff": {
+    type: "role",
+    members: [
+      { id: "inagamov", as: "lead" },
+      { id: "gulyamov" },
+      { id: "daminjonov" },
+      { id: "fjorabekov" },
+      { id: "tohirov" },
+      { id: "ojorabekov", as: "intern" },
+      { id: "qodirjonov", as: "intern" },
+      { id: "habibullayev", as: "intern" },
+    ],
+  },
+  "of-intake": { type: "function" },
+  "of-decision": { type: "function" },
+  "of-issue": { type: "function" },
+  "of-normative": { type: "function" },
+  "of-other": { type: "function" },
 
-  "lab-head": { type: "role", lead: true, people: ["ubaydullayev"] },
-  "lab-tech": { type: "role", people: ["majidov"] },
-  "lab-lead": { type: "role", people: ["ikromov", "raupova"] },
-  "lab-spec": { type: "role", people: ["gadoyev", "toyshiyeva", "abdumavlonova", "abdusalomov", "mahmadaliyeva"] },
+  // testing laboratories (annex of SQA.SL-N; S-LAB follows the same scheme)
+  "lab-head": { type: "role", lead: true, members: [{ id: "ubaydullayev" }] },
+  "lab-staff": {
+    type: "role",
+    members: [
+      { id: "majidov", as: "technical" },
+      { id: "ikromov", as: "lead" },
+      { id: "raupova", as: "lead" },
+      { id: "gadoyev" },
+      { id: "toyshiyeva" },
+      { id: "abdumavlonova" },
+      { id: "abdusalomov" },
+      { id: "mahmadaliyeva" },
+    ],
+  },
+  "slab-head": { type: "role", lead: true, members: [{ id: "sabitov" }] },
+  "slab-staff": { type: "role", members: [] },
+  "lf-testing": { type: "function" },
+  "lf-reports": { type: "function" },
+  "lf-equipment": { type: "function" },
+  "lf-normative": { type: "function" },
+  "lf-uncertainty": { type: "function" },
+  "lf-other": { type: "function" },
 
-  "slab-head": { type: "role", lead: true, people: ["sabitov"] },
-  "qm-lead": { type: "role", lead: true, people: ["iskandarov"] },
+  // quality management
+  "qm-lead": { type: "role", lead: true, members: [{ id: "iskandarov" }] },
 };
+
+export type Edge = [string, string, ("d" | undefined)?];
 
 export type View = {
   /** the unit this view opens (absent on the overview) */
   head?: string;
   tiers: string[][];
   /** [from, to, "d" for a dashed link (works with)] */
-  edges: [string, string, ("d" | undefined)?][];
-  /** centre a card under the given cards on wide screens */
-  align?: Record<string, string[]>;
+  edges: Edge[];
   /** indentation level per tier on phones (defaults to the tier index) */
   mobileDepth?: Record<number, number>;
 };
 
+const ORGAN_FUNCTIONS = ["of-intake", "of-decision", "of-issue", "of-normative", "of-other"];
+const LAB_FUNCTIONS = ["lf-testing", "lf-reports", "lf-equipment", "lf-normative", "lf-uncertainty", "lf-other"];
+
+const fan = (from: string, to: string[]): Edge[] => to.map((t) => [from, t]);
+
 export const VIEWS: Record<ViewId, View> = {
+  // the top of both annexes: director, the units below, the outside bodies beside
   home: {
-    tiers: [["director"], ["organ", "lab-sqa", "s-lab", "accounting", "hr"], ["quality"]],
-    edges: [
-      ["director", "organ"],
-      ["director", "lab-sqa"],
-      ["director", "s-lab"],
-      ["director", "accounting"],
-      ["director", "hr"],
-      ["organ", "quality", "d"],
-      ["lab-sqa", "quality", "d"],
+    tiers: [
+      ["regulators", "director", "partners"],
+      ["accounting", "lab-sqa", "organ", "quality", "s-lab", "hr"],
     ],
-    align: { quality: ["organ", "lab-sqa"] },
-    mobileDepth: { 2: 1 },
+    edges: [
+      ["regulators", "director", "d"],
+      ["director", "partners", "d"],
+      ...fan("director", ["accounting", "lab-sqa", "organ", "quality", "s-lab", "hr"]),
+      ["lab-sqa", "organ", "d"],
+      ["organ", "quality", "d"],
+      ["quality", "s-lab", "d"],
+    ],
+    mobileDepth: { 0: 0, 1: 1 },
   },
   organ: {
     head: "organ",
-    tiers: [["organ"], ["organ-head"], ["organ-lead"], ["organ-spec"], ["organ-intern"]],
-    edges: [
-      ["organ", "organ-head"],
-      ["organ-head", "organ-lead"],
-      ["organ-lead", "organ-spec"],
-      ["organ-spec", "organ-intern"],
-    ],
+    tiers: [["organ"], ["organ-head"], ["organ-staff"], ORGAN_FUNCTIONS],
+    edges: [["organ", "organ-head"], ["organ-head", "organ-staff"], ...fan("organ-staff", ORGAN_FUNCTIONS)],
   },
   "lab-sqa": {
     head: "lab-sqa",
-    tiers: [["lab-sqa"], ["lab-head"], ["lab-tech", "lab-lead"], ["lab-spec"]],
-    edges: [
-      ["lab-sqa", "lab-head"],
-      ["lab-head", "lab-tech"],
-      ["lab-head", "lab-lead"],
-      ["lab-lead", "lab-spec"],
-    ],
-    align: { "lab-spec": ["lab-lead"] },
+    tiers: [["lab-sqa"], ["lab-head"], ["lab-staff"], LAB_FUNCTIONS],
+    edges: [["lab-sqa", "lab-head"], ["lab-head", "lab-staff"], ...fan("lab-staff", LAB_FUNCTIONS)],
   },
-  "s-lab": { head: "s-lab", tiers: [["s-lab"], ["slab-head"]], edges: [["s-lab", "slab-head"]] },
+  "s-lab": {
+    head: "s-lab",
+    tiers: [["s-lab"], ["slab-head"], ["slab-staff"], LAB_FUNCTIONS],
+    edges: [["s-lab", "slab-head"], ["slab-head", "slab-staff"], ...fan("slab-staff", LAB_FUNCTIONS)],
+  },
   quality: { head: "quality", tiers: [["quality"], ["qm-lead"]], edges: [["quality", "qm-lead"]] },
 };
 
@@ -130,11 +173,12 @@ export const FACTS: Partial<Record<ViewId, { key: "acc" | "std" | "valid"; value
   ],
 };
 
+/** Units each one works with (the dashed lines of the annexes). */
 export const RELATED: Partial<Record<ViewId, ViewId[]>> = {
-  organ: ["lab-sqa", "s-lab", "quality"],
-  "lab-sqa": ["organ", "s-lab", "quality"],
-  "s-lab": ["organ", "lab-sqa"],
-  quality: ["organ", "lab-sqa"],
+  organ: ["lab-sqa", "quality"],
+  "lab-sqa": ["organ", "quality"],
+  "s-lab": ["quality"],
+  quality: ["organ", "lab-sqa", "s-lab"],
 };
 
 export const isView = (v: string): v is ViewId => v in VIEWS;
@@ -142,7 +186,7 @@ export const isView = (v: string): v is ViewId => v in VIEWS;
 export function headcount(view: ViewId): number {
   return VIEWS[view].tiers.flat().reduce((n, id) => {
     const node = NODES[id];
-    return n + (node.type === "role" ? node.people.length : 0);
+    return n + (node.type === "role" ? node.members.length : 0);
   }, 0);
 }
 
