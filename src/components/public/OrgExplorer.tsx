@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { isLocalMediaUrl } from "@/lib/media-url";
 import {
   FACTS,
   NODES,
@@ -108,7 +110,7 @@ function spine(x: number, y1: number, cx: number, cy: number) {
 
 type Drawn = { p: SVGPathElement; dot: SVGCircleElement | null; tier: number; dashed: boolean };
 
-export default function OrgExplorer() {
+export default function OrgExplorer({ photos = {} }: { photos?: Record<string, string> }) {
   const t = useTranslations("structurePage");
   const locale = useLocale();
   const [view, setView] = useState<ViewId>("home");
@@ -462,7 +464,7 @@ export default function OrgExplorer() {
     }
     const members = n.members;
     return (
-      <div key={id} data-id={id} className={`${common} ${members.length > 5 ? "w-[460px]" : "w-[260px]"} ${n.lead ? "border-t-[3px] border-t-primary" : ""}`}>
+      <div key={id} data-id={id} className={`${common} ${members.length > 5 ? "w-[500px]" : "w-[300px]"} ${n.lead ? "border-t-[3px] border-t-primary" : ""}`}>
         <div className="flex items-start justify-between gap-2 text-[11px] font-bold uppercase leading-snug tracking-wide text-primary">
           <span>{nt(id, "title")}</span>
           {members.length > 1 && <span className="rounded-card bg-band px-1.5 py-0.5 tabular-nums tracking-normal">{members.length}</span>}
@@ -471,15 +473,29 @@ export default function OrgExplorer() {
           <ul className={`mt-3 grid gap-2 ${members.length > 5 ? "grid-cols-2 gap-x-4 max-[560px]:grid-cols-1" : ""}`}>
             {members.map(({ id: p, as }) => {
               const name = person(p);
+              const photo = photos[p];
+              const size = n.lead ? 52 : 40;
               return (
-                <li key={p} className="flex items-center gap-2.5 text-sm font-medium leading-snug text-ink">
+                <li key={p} className="flex items-center gap-3 text-sm font-medium leading-snug text-ink">
                   <span
                     aria-hidden="true"
-                    className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-full text-[11px] font-extrabold ${
-                      n.lead ? "bg-primary text-white" : "bg-band text-primary"
+                    style={{ width: size, height: size }}
+                    className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full text-[12px] font-extrabold ${
+                      n.lead ? "bg-primary text-white ring-2 ring-primary ring-offset-2" : "bg-band text-primary ring-1 ring-line"
                     }`}
                   >
-                    {initials(name)}
+                    {photo ? (
+                      <Image
+                        src={photo}
+                        alt=""
+                        fill
+                        sizes={`${size * 2}px`}
+                        unoptimized={isLocalMediaUrl(photo)}
+                        className="object-cover object-top"
+                      />
+                    ) : (
+                      initials(name)
+                    )}
                   </span>
                   <span>
                     {name}
