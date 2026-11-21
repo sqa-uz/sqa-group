@@ -1,3 +1,4 @@
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { guardPage } from "@/lib/pageSettings";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -32,6 +33,12 @@ export default async function CertificationBodyPage({ params }: { params: Promis
           <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
+          <Link href="/structure#organ" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+            {t("structure.peopleLink")}
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
           <OrgStructure chart={certificationBodyChart} copy={t.raw("structure") as OrgCopy} />
         </section>
       </Reveal>
