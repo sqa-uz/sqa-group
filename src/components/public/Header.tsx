@@ -28,6 +28,7 @@ const LABS_MENU = [
 ] as const;
 
 const MORE = [
+  { href: "/structure", key: "structure" },
   { href: "/apply", key: "apply" },
   { href: "/financing", key: "financing" },
   { href: "/schemes", key: "schemes" },
