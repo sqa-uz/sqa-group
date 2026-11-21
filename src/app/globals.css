@@ -749,15 +749,25 @@ body {
 /* ---------- company structure explorer (/structure) ---------- */
 .org-explorer {
   --unit-w: 206px;
+  --fn-w: 112px;
+}
+.org-explorer[data-view="home"] {
+  --unit-w: 162px;
 }
 @media (max-width: 1180px) {
   .org-explorer {
     --unit-w: 172px;
+    --fn-w: 104px;
+  }
+  .org-explorer[data-view="home"] {
+    --unit-w: 148px;
   }
 }
 @media (max-width: 1020px) and (min-width: 901px) {
-  .org-explorer {
-    --unit-w: 150px;
+  .org-explorer,
+  .org-explorer[data-view="home"] {
+    --unit-w: 132px;
+    --fn-w: 104px;
   }
 }
 .org-link {
