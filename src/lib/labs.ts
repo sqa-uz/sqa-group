@@ -1,6 +1,3 @@
-import type { OrgChart } from "@/components/public/OrgStructure";
-import { sLabChart, sqaLabChart } from "@/lib/orgCharts";
-
 /** The two accredited testing laboratories, each with its own page under /laboratories/<slug>. */
 export type Lab = {
   slug: "sqa" | "s-lab";
@@ -10,10 +7,6 @@ export type Lab = {
   text: "lab1Text" | "lab2Text";
   photo: string;
   certificate: { img: string; caption: string; href: string };
-  /** organisational chart of the laboratory, when we have one */
-  chart?: OrgChart;
-  /** line above the chart title; defaults to the regulations reference (laboratories.structureEyebrow) */
-  chartEyebrow?: string;
 };
 
 export const LABS: Lab[] = [
@@ -29,7 +22,6 @@ export const LABS: Lab[] = [
       caption: "O'ZAKK.SL.0162",
       href: "/documents/sqa-laboratory-certificate.pdf",
     },
-    chart: sqaLabChart,
   },
   {
     slug: "s-lab",
@@ -43,8 +35,6 @@ export const LABS: Lab[] = [
       caption: "O'ZAKK.SL.0437",
       href: "/documents/sqa-s-lab-certificate.pdf",
     },
-    chart: sLabChart,
-    chartEyebrow: "S-LAB · O'ZAKK.SL.0437",
   },
 ];
 

@@ -1,11 +1,10 @@
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { guardPage } from "@/lib/pageSettings";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/public/Reveal";
 import DocDownload from "@/components/public/DocDownload";
 import ApplySection from "@/components/public/ApplySection";
-import OrgStructure, { type OrgCopy } from "@/components/public/OrgStructure";
-import { certificationBodyChart } from "@/lib/orgCharts";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -25,18 +24,18 @@ export default async function CertificationBodyPage({ params }: { params: Promis
         <p className="eyebrow mb-2">O&#39;ZAKK.MS.0052 · O&#39;z DSt ISO/IEC 17065:2015</p>
         <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{t("title")}</h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{t("intro")}</p>
+        <Link
+          href="/structure#organ"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-card border border-line bg-band px-3 py-2 text-sm font-semibold text-primary transition-colors hover:border-primary"
+        >
+          {t("structureLink")}
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </Link>
       </Reveal>
 
-      <Reveal>
-        <section id="structure" className="mt-12 scroll-mt-24">
-          <p className="eyebrow mb-2">{t("structureEyebrow")}</p>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
-          <OrgStructure chart={certificationBodyChart} copy={t.raw("structure") as OrgCopy} />
-        </section>
-      </Reveal>
-
-      <div className="mt-16 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="space-y-8">
           <Reveal>
             <section className="card p-7">

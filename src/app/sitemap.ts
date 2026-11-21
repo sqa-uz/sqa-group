@@ -11,6 +11,7 @@ const STATIC_PATHS = [
   "/laboratories/sqa",
   "/laboratories/s-lab",
   "/team",
+  "/structure",
   "/news",
   "/financing",
   "/schemes",

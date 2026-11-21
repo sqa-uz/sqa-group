@@ -12,6 +12,7 @@ import { cssTimeMs } from "@/lib/motion";
 
 const NAV = [
   { href: "/about", key: "about" },
+  { href: "/structure", key: "structureShort" },
   { href: "/certification-body", key: "certificationBody" },
   { href: "/what-we-certify", key: "products" },
   { href: "/laboratories", key: "laboratories" },

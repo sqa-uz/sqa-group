@@ -33,7 +33,9 @@
     "request": "So'rov yuborish",
     "labSqa": "SQA sinov laboratoriyasi",
     "labSlab": "S-LAB sinov laboratoriyasi",
-    "labsAll": "Barcha laboratoriyalar"
+    "labsAll": "Barcha laboratoriyalar",
+    "structure": "Tashkiliy tuzilma",
+    "structureShort": "Tuzilma"
   },
   "home": {
     "heroEyebrow": "O'ZAKK tomonidan akkreditatsiyalangan",
@@ -249,83 +251,7 @@
     "step4": "Natijalarni tahlil qilish va qaror qabul qilish",
     "step5": "Sertifikat berish",
     "downloadScope": "Akkreditatsiya sohasini yuklab olish (PDF)",
-    "structureEyebrow": "Organ nizomi · SQA.MS-N",
-    "structureTitle": "Tashkiliy tuzilma",
-    "structureIntro": "Sertifikatlashtirish organi \"Standart and Quality Assessment Group\" MCHJ tarkibida mustaqil uchinchi tomon sifatida faoliyat yuritadi: u mahsulot ishlab chiqaruvchi, yetkazib beruvchi va sotuvchilardan mustaqil. Tuzilma organning o'zi, ikkita o'z sinov laboratoriyasi va boshqaruv tizimi uchun mas'ul sifat bo'yicha menejerni o'z ichiga oladi. Buyurtmachilar haqidagi ma'lumotlar maxfiy saqlanadi.",
-    "structure": {
-      "hint": "Bo'linmaning roli va aloqalarini ko'rish uchun ustiga bosing.",
-      "legendSubordination": "bo'ysunish",
-      "legendInteraction": "hamkorlik",
-      "reportsTo": "Bo'ysunadi",
-      "manages": "Rahbarlik qiladi",
-      "interacts": "Hamkorlik qiladi",
-      "nodes": {
-        "regulators": {
-          "label": "Texnik jihatdan tartibga solish agentligi, Akkreditatsiya markazi, Standartlar instituti",
-          "text": "Texnik jihatdan tartibga solish va akkreditatsiya sohasidagi davlat tashkilotlari. Akkreditatsiya markazi organ faoliyati ustidan inspeksiya nazoratini amalga oshiradi."
-        },
-        "director": {
-          "label": "\"SQA Group\" MCHJ direktori",
-          "text": "Kompaniyaga rahbarlik qiladi, organ nizomini tasdiqlaydi, organ rahbarini lavozimga tayinlaydi va lavozimidan ozod etadi."
-        },
-        "partners": {
-          "label": "Akkreditatsiyadan o'tgan organlar va laboratoriyalar",
-          "text": "Zarur bo'lganda ayrim turdagi sinovlar boshqa akkreditatsiyadan o'tgan laboratoriyalarda subpudrat shartnomalari asosida o'tkaziladi."
-        },
-        "accounting": {
-          "label": "Buxgalteriya",
-          "text": "Kompaniyaning buxgalteriya, iqtisodiy va statistik hisobini yuritadi."
-        },
-        "labSqa": {
-          "label": "SQA sinov laboratoriyasi",
-          "text": "Kompaniyaning o'z akkreditatsiyadan o'tgan laboratoriyasi (O'z DSt ISO/IEC 17025). Sertifikatlash doirasida mahsulot namunalarini sinaydi."
-        },
-        "organ": {
-          "label": "Sertifikatlashtirish organi",
-          "text": "Mahsulotlarni akkreditatsiya sohasidan og'ishmay sertifikatlaydi, xorijiy muvofiqlik sertifikatlarini tan oladi va sertifikatlangan mahsulotlar ustidan inspeksiya nazoratini olib boradi."
-        },
-        "quality": {
-          "label": "Sifat bo'yicha menejer",
-          "text": "Organ boshqaruv tizimi uchun mas'ul; organ, uning rahbari, mutaxassislari va laboratoriyalar bilan hamkorlik qiladi."
-        },
-        "slab": {
-          "label": "S-LAB sinov laboratoriyasi",
-          "text": "Kompaniyaning ikkinchi akkreditatsiyadan o'tgan laboratoriyasi (O'z DSt ISO/IEC 17025)."
-        },
-        "hr": {
-          "label": "Kadrlar bo'limi",
-          "text": "Kompaniya xodimlarini kadrlar bo'yicha qo'llab-quvvatlaydi."
-        },
-        "head": {
-          "label": "Organ rahbari",
-          "text": "Organ ishini tashkil etadi va muvofiqlik sertifikatlarini muhr yoki elektron imzo bilan tasdiqlaydi. Kompaniya direktori tomonidan tayinlanadi."
-        },
-        "specialists": {
-          "label": "Organ mutaxassislari",
-          "text": "Sertifikatlash ishlarini bajaradi. Vazifalar ular o'rtasida quyida ko'rsatilgandek taqsimlangan."
-        },
-        "fIntake": {
-          "label": "Buyurtmalarni qabul qilish va tahlil, namuna tanlash",
-          "text": "Buyurtmalarni qabul qiladi va tahlil qiladi, namunalar tanlaydi va sinov dasturlarini tuzadi."
-        },
-        "fDecision": {
-          "label": "Qaror qabul qilish",
-          "text": "Muvofiqlik sertifikatini berish yoki berishni rad etish to'g'risida qaror qabul qiladi."
-        },
-        "fIssue": {
-          "label": "Sertifikatlarni rasmiylashtirish va tekshirish",
-          "text": "Muvofiqlik sertifikatlarini rasmiylashtiradi va berishdan oldin tekshiradi."
-        },
-        "fNormative": {
-          "label": "Me'yoriy hujjatlar",
-          "text": "Sertifikatlashda qo'llaniladigan me'yoriy hujjatlar uchun mas'ul."
-        },
-        "fOther": {
-          "label": "Qo'shimcha funksiyalar",
-          "text": "Organning boshqa qo'shimcha funksiyalari bo'yicha mas'ul xodimlar."
-        }
-      }
-    }
+    "structureLink": "Tashkiliy tuzilma"
   },
   "laboratories": {
     "title": "Sinov laboratoriyalari",
@@ -344,87 +270,7 @@
     "eq4": "Qisqa muddatlarda rasmiy bayonnomalar",
     "allLabs": "Barcha laboratoriyalar",
     "otherLab": "Boshqa laboratoriya",
-    "structureEyebrow": "Laboratoriya nizomi · SQA.SL-N",
-    "structureTitle": "Tashkiliy tuzilma",
-    "structureIntro": "Laboratoriya \"Standart and Quality Assessment Group\" MCHJ tarkibida faoliyat yuritadi va mahsulot ishlab chiqaruvchi, yetkazib beruvchi va sotuvchilardan mustaqil: sinovlar uchinchi tomon sifatida shartnomalar asosida o'tkaziladi. Sinov natijalari va buyurtmachilar haqidagi ma'lumotlar maxfiy saqlanadi.",
-    "structure": {
-      "hint": "Bo'linmaning roli va aloqalarini ko'rish uchun ustiga bosing.",
-      "legendSubordination": "bo'ysunish",
-      "legendInteraction": "hamkorlik",
-      "reportsTo": "Bo'ysunadi",
-      "manages": "Rahbarlik qiladi",
-      "interacts": "Hamkorlik qiladi",
-      "nodes": {
-        "regulators": {
-          "label": "Texnik jihatdan tartibga solish agentligi, Akkreditatsiya markazi, Standartlar instituti",
-          "text": "Texnik jihatdan tartibga solish va akkreditatsiya sohasidagi davlat tashkilotlari. Akkreditatsiya markazi laboratoriyani baholaydi va uning akkreditatsiya sohasini tasdiqlaydi."
-        },
-        "director": {
-          "label": "\"SQA Group\" MCHJ direktori",
-          "text": "Kompaniyaga rahbarlik qiladi, laboratoriya boshlig'i va sifat bo'yicha menejerni tayinlaydi."
-        },
-        "partners": {
-          "label": "Akkreditatsiyadan o'tgan organlar va laboratoriyalar",
-          "text": "Zarur bo'lganda ayrim sinovlar faqat buyurtmachining roziligi bilan boshqa akkreditatsiyadan o'tgan laboratoriyalarga subpudrat asosida beriladi."
-        },
-        "accounting": {
-          "label": "Buxgalteriya",
-          "text": "Kompaniyaning buxgalteriya, iqtisodiy va statistik hisobini yuritadi."
-        },
-        "organ": {
-          "label": "SQA sertifikatlashtirish organi",
-          "text": "Kompaniyaning sertifikatlashtirish organi (O'z DSt ISO/IEC 17065). Laboratoriya sinov natijalari mahsulotlarni sertifikatlashda qo'llaniladi."
-        },
-        "lab": {
-          "label": "SQA sinov laboratoriyasi",
-          "text": "Akkreditatsiya markazi tomonidan tasdiqlangan akkreditatsiya sohasi doirasida mahsulotlarni sinaydi va rasmiy sinov bayonnomalarini beradi."
-        },
-        "quality": {
-          "label": "Sifat bo'yicha menejer",
-          "text": "Laboratoriya menejment tizimini joriy etadi, qo'llab-quvvatlaydi va takomillashtiradi, og'ishlarni aniqlaydi, risklarni kamaytirish choralarini taklif qiladi va laboratoriya rahbariyatiga hisobot beradi."
-        },
-        "slab": {
-          "label": "S-LAB sinov laboratoriyasi",
-          "text": "Kompaniyaning ikkinchi akkreditatsiyadan o'tgan laboratoriyasi (O'z DSt ISO/IEC 17025). O'z akkreditatsiya sohasi doirasida mahsulotlarni sinaydi va rasmiy sinov bayonnomalarini beradi."
-        },
-        "hr": {
-          "label": "Kadrlar bo'limi",
-          "text": "Kompaniya xodimlarini kadrlar bo'yicha qo'llab-quvvatlaydi."
-        },
-        "head": {
-          "label": "Laboratoriya boshlig'i",
-          "text": "Laboratoriyaga rahbarlik qiladi va uning faoliyati uchun javob beradi, sinov bayonnomalarini laboratoriya muhri bilan tasdiqlaydi. Kompaniya direktori tomonidan tayinlanadi."
-        },
-        "specialists": {
-          "label": "Laboratoriya mutaxassislari",
-          "text": "Sinovlar va ular bilan bog'liq ishlarni bajaradi. Vazifalar ular o'rtasida quyida ko'rsatilgandek taqsimlangan."
-        },
-        "fTesting": {
-          "label": "Sinovlarni o'tkazish",
-          "text": "Mahsulot namunalarini akkreditatsiyalangan usullar bo'yicha sinaydi."
-        },
-        "fReports": {
-          "label": "Bayonnomalarni rasmiylashtirish va tekshirish",
-          "text": "Sinov bayonnomalarini rasmiylashtiradi va berishdan oldin tekshiradi."
-        },
-        "fEquipment": {
-          "label": "Uskunalar",
-          "text": "Sinov va o'lchov vositalarining o'z vaqtida tekshiruvdan o'tishi va soz holatda saqlanishini ta'minlaydi."
-        },
-        "fNormative": {
-          "label": "Me'yoriy hujjatlar",
-          "text": "Laboratoriyada qo'llaniladigan me'yoriy hujjatlar va usullar uchun mas'ul."
-        },
-        "fUncertainty": {
-          "label": "Noaniqlik, qarorlar, verifikatsiya",
-          "text": "O'lchash noaniqligini hisoblaydi, natijalar bo'yicha qaror qabul qiladi, verifikatsiya va kirish nazoratini o'tkazadi."
-        },
-        "fOther": {
-          "label": "Qo'shimcha funksiyalar",
-          "text": "Laboratoriyaning boshqa qo'shimcha funksiyalari bo'yicha mas'ul xodimlar."
-        }
-      }
-    }
+    "structureLink": "Tashkiliy tuzilma"
   },
   "team": {
     "title": "Bizning jamoa",
@@ -716,5 +562,126 @@
         "link": "Sxemalar haqida batafsil"
       }
     ]
+  },
+  "structurePage": {
+    "metaTitle": "Tashkiliy tuzilma",
+    "eyebrow": "SQA Group · Toshkent",
+    "title": "Tashkiliy tuzilma",
+    "lead": "\"Standart and Quality Assessment Group\" MCHJ: mahsulotni sertifikatlashtirish organi va ikkita akkreditatsiyalangan sinov laboratoriyasi. Tuzilmasi va xodimlarini ko'rish uchun bo'linmani bosing.",
+    "back": "Butun tuzilma",
+    "root": "Tuzilma",
+    "open": "Tuzilmani ochish",
+    "solid": "Bo'ysunish",
+    "dashed": "O'zaro hamkorlik",
+    "acc": "Akkreditatsiya",
+    "std": "Standart",
+    "valid": "Amal qilish muddati",
+    "staffL": "Xodimlar",
+    "related": "Hamkorlikda ishlaydi",
+    "support": "Yordamchi bo'linma",
+    "more": "Bo'linma haqida batafsil",
+    "statStaff": "nafar xodim",
+    "statCertificates": "ta O'ZAKK akkreditatsiya guvohnomasi",
+    "statLabs": "ta sinov laboratoriyasi",
+    "statFounded": "tashkil topgan yil",
+    "nodes": {
+      "director": {
+        "title": "Direktor",
+        "sub": "\"Standart and Quality Assessment Group\" MCHJ"
+      },
+      "organ": {
+        "title": "Mahsulotni sertifikatlashtirish organi",
+        "short": "Sertifikatlashtirish organi",
+        "desc": "Mustaqil uchinchi tomon: mahalliy ishlab chiqaruvchilar va importyorlar mahsulotlarini majburiy va ixtiyoriy tizimlarda sertifikatlaydi."
+      },
+      "lab-sqa": {
+        "title": "SQA sinov laboratoriyasi",
+        "short": "SQA laboratoriyasi",
+        "desc": "Akkreditatsiya sohasidagi mahsulotlarni sinaydi va o'lchaydi, rasmiy sinov bayonnomalarini beradi."
+      },
+      "s-lab": {
+        "title": "S-LAB sinov laboratoriyasi",
+        "short": "S-LAB laboratoriyasi",
+        "desc": "Kompaniyaning ikkinchi akkreditatsiyalangan laboratoriyasi: qo'shimcha mahsulot guruhlari bo'yicha sinov va o'lchovlar."
+      },
+      "quality": {
+        "title": "Sifat menejmenti tizimi",
+        "short": "Sifat menejmenti",
+        "sub": "Sifat bo'yicha menejer",
+        "rel": "Organ va SQA laboratoriyasi bilan ishlaydi",
+        "desc": "Tashkilotning menejment tizimi uchun javob beradi, sertifikatlashtirish organi va SQA laboratoriyasi bilan birga ishlaydi."
+      },
+      "accounting": {
+        "title": "Buxgalteriya"
+      },
+      "hr": {
+        "title": "Kadrlar bo'limi"
+      },
+      "organ-head": {
+        "title": "Organ rahbari"
+      },
+      "lab-head": {
+        "title": "Laboratoriya boshlig'i"
+      },
+      "slab-head": {
+        "title": "Laboratoriya boshlig'i"
+      },
+      "qm-lead": {
+        "title": "Sifat menejmenti tizimi bo'yicha yetakchi mutaxassis"
+      },
+      "regulators": {
+        "title": "Texnik jihatdan tartibga solish agentligi, Akkreditatsiya markazi, Standartlar instituti"
+      },
+      "partners": {
+        "title": "Akkreditatsiyadan o'tgan sertifikatlashtirish organlari va sinov laboratoriyalari"
+      },
+      "organ-staff": {
+        "title": "Organ mutaxassislari"
+      },
+      "of-intake": {
+        "title": "Buyurtmalarni qabul qilish, tahlil, namuna tanlash, sinov dasturlari"
+      },
+      "of-decision": {
+        "title": "Sertifikat berish yoki rad etish to'g'risida qaror"
+      },
+      "of-issue": {
+        "title": "Sertifikatlarni rasmiylashtirish va tekshirish"
+      },
+      "of-normative": {
+        "title": "Me'yoriy hujjatlar uchun mas'ullar"
+      },
+      "of-other": {
+        "title": "Boshqa funksiyalar bo'yicha mas'ullar"
+      },
+      "lab-staff": {
+        "title": "Laboratoriya mutaxassislari"
+      },
+      "slab-staff": {
+        "title": "Laboratoriya mutaxassislari"
+      },
+      "lf-testing": {
+        "title": "Sinovlarni o'tkazuvchilar"
+      },
+      "lf-reports": {
+        "title": "Sinov bayonnomalarini rasmiylashtirish va tekshirish"
+      },
+      "lf-equipment": {
+        "title": "Uskunalar uchun mas'ullar"
+      },
+      "lf-normative": {
+        "title": "Me'yoriy hujjatlar uchun mas'ullar"
+      },
+      "lf-uncertainty": {
+        "title": "O'lchash noaniqligi, qarorlar, verifikatsiya va kirish nazorati"
+      },
+      "lf-other": {
+        "title": "Boshqa funksiyalar bo'yicha mas'ullar"
+      }
+    },
+    "positions": {
+      "lead": "Yetakchi mutaxassis",
+      "intern": "Stajyor",
+      "technical": "Texnik xodim"
+    }
   }
 }

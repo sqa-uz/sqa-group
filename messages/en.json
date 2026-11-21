@@ -33,7 +33,9 @@
     "request": "Send a request",
     "labSqa": "SQA testing laboratory",
     "labSlab": "S-LAB testing laboratory",
-    "labsAll": "All laboratories"
+    "labsAll": "All laboratories",
+    "structure": "Organisational structure",
+    "structureShort": "Structure"
   },
   "home": {
     "heroEyebrow": "Accredited by the Uzbek Accreditation Centre (O'ZAKK)",
@@ -249,83 +251,7 @@
     "step4": "Evaluation of results and decision",
     "step5": "Certificate issuance",
     "downloadScope": "Download accreditation scope (PDF)",
-    "structureEyebrow": "Regulations of the body · SQA.MS-N",
-    "structureTitle": "Organisational structure",
-    "structureIntro": "The certification body operates within Standart and Quality Assessment Group LLC as an independent third party: it is independent of the manufacturers, suppliers and sellers of products. The structure includes the body itself, two in-house testing laboratories and a quality manager responsible for the management system. Information about clients is kept confidential.",
-    "structure": {
-      "hint": "Click a unit to see its role and links.",
-      "legendSubordination": "reports to",
-      "legendInteraction": "works with",
-      "reportsTo": "Reports to",
-      "manages": "Manages",
-      "interacts": "Works with",
-      "nodes": {
-        "regulators": {
-          "label": "Technical Regulation Agency, Accreditation Centre, Standards Institute",
-          "text": "Government bodies for technical regulation and accreditation. The Accreditation Centre carries out surveillance of the body's work."
-        },
-        "director": {
-          "label": "Director, SQA Group LLC",
-          "text": "Runs the company, approves the regulations of the body, and appoints and dismisses the head of the body."
-        },
-        "partners": {
-          "label": "Accredited bodies and laboratories",
-          "text": "Where needed, specific tests are subcontracted to other accredited laboratories."
-        },
-        "accounting": {
-          "label": "Accounting",
-          "text": "Keeps the company's accounting, economic and statistical records."
-        },
-        "labSqa": {
-          "label": "SQA testing laboratory",
-          "text": "The company's own accredited laboratory (O'z DSt ISO/IEC 17025). Tests product samples as part of certification."
-        },
-        "organ": {
-          "label": "Certification body",
-          "text": "Certifies products strictly within its accreditation scope, recognises foreign certificates of conformity and carries out surveillance of certified products."
-        },
-        "quality": {
-          "label": "Quality manager",
-          "text": "Responsible for the body's management system; works with the body, its head, its specialists and the laboratories."
-        },
-        "slab": {
-          "label": "S-LAB testing laboratory",
-          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025)."
-        },
-        "hr": {
-          "label": "Human resources",
-          "text": "HR support for the company's staff."
-        },
-        "head": {
-          "label": "Head of the body",
-          "text": "Organises the body's work and approves certificates of conformity with a seal or an electronic signature. Appointed by the company director."
-        },
-        "specialists": {
-          "label": "Specialists of the body",
-          "text": "Carry out the certification work. Their functions are divided as shown below."
-        },
-        "fIntake": {
-          "label": "Application intake and review, sampling",
-          "text": "Receive and review applications, take samples and draw up test programmes."
-        },
-        "fDecision": {
-          "label": "Decision",
-          "text": "Decide whether to grant or refuse a certificate of conformity."
-        },
-        "fIssue": {
-          "label": "Issuing and checking certificates",
-          "text": "Draw up certificates of conformity and check them before they are issued."
-        },
-        "fNormative": {
-          "label": "Normative documents",
-          "text": "Responsible for the normative documents used in certification."
-        },
-        "fOther": {
-          "label": "Additional functions",
-          "text": "Staff responsible for the body's other additional functions."
-        }
-      }
-    }
+    "structureLink": "Organisational structure"
   },
   "laboratories": {
     "title": "Testing laboratories",
@@ -344,87 +270,7 @@
     "eq4": "Official test reports within short timeframes",
     "allLabs": "All laboratories",
     "otherLab": "Our other laboratory",
-    "structureEyebrow": "Regulations of the laboratory · SQA.SL-N",
-    "structureTitle": "Organisational structure",
-    "structureIntro": "The laboratory operates within Standart and Quality Assessment Group LLC and is independent of the manufacturers, suppliers and sellers of products: testing is done as a third party under contract. Test results and client information are kept confidential.",
-    "structure": {
-      "hint": "Click a unit to see its role and links.",
-      "legendSubordination": "reports to",
-      "legendInteraction": "works with",
-      "reportsTo": "Reports to",
-      "manages": "Manages",
-      "interacts": "Works with",
-      "nodes": {
-        "regulators": {
-          "label": "Technical Regulation Agency, Accreditation Centre, Standards Institute",
-          "text": "Government bodies for technical regulation and accreditation. The Accreditation Centre assesses the laboratory and approves its accreditation scope."
-        },
-        "director": {
-          "label": "Director, SQA Group LLC",
-          "text": "Runs the company and appoints the head of the laboratory and the quality manager."
-        },
-        "partners": {
-          "label": "Accredited bodies and laboratories",
-          "text": "Where needed, and only with the client's consent, specific tests are subcontracted to other accredited laboratories."
-        },
-        "accounting": {
-          "label": "Accounting",
-          "text": "Keeps the company's accounting, economic and statistical records."
-        },
-        "organ": {
-          "label": "SQA certification body",
-          "text": "The company's certification body (O'z DSt ISO/IEC 17065). The laboratory's test results are used in product certification."
-        },
-        "lab": {
-          "label": "SQA testing laboratory",
-          "text": "Tests products within the accreditation scope approved by the Accreditation Centre and issues official test reports."
-        },
-        "quality": {
-          "label": "Quality manager",
-          "text": "Implements, maintains and improves the laboratory's management system, identifies deviations, proposes risk-reduction measures and reports to the laboratory management."
-        },
-        "slab": {
-          "label": "S-LAB testing laboratory",
-          "text": "The company's second accredited laboratory (O'z DSt ISO/IEC 17025). Tests products within its own accreditation scope and issues official test reports."
-        },
-        "hr": {
-          "label": "Human resources",
-          "text": "HR support for the company's staff."
-        },
-        "head": {
-          "label": "Head of the laboratory",
-          "text": "Runs the laboratory, is responsible for its work and approves test reports with the laboratory's seal. Appointed by the company director."
-        },
-        "specialists": {
-          "label": "Laboratory specialists",
-          "text": "Carry out testing and related work. Their functions are divided as shown below."
-        },
-        "fTesting": {
-          "label": "Testing",
-          "text": "Test product samples using accredited methods."
-        },
-        "fReports": {
-          "label": "Issuing and checking reports",
-          "text": "Draw up test reports and check them before they are issued."
-        },
-        "fEquipment": {
-          "label": "Equipment",
-          "text": "Make sure testing and measuring equipment is checked on time and kept in good order."
-        },
-        "fNormative": {
-          "label": "Normative documents",
-          "text": "Responsible for the normative documents and methods the laboratory uses."
-        },
-        "fUncertainty": {
-          "label": "Uncertainty, decisions, verification",
-          "text": "Calculate measurement uncertainty, make decisions on results, and carry out verification and incoming inspection."
-        },
-        "fOther": {
-          "label": "Additional functions",
-          "text": "Staff responsible for the laboratory's other additional functions."
-        }
-      }
-    }
+    "structureLink": "Organisational structure"
   },
   "team": {
     "title": "Our team",
@@ -716,5 +562,126 @@
         "link": "More about the schemes"
       }
     ]
+  },
+  "structurePage": {
+    "metaTitle": "Organisational structure",
+    "eyebrow": "SQA Group · Tashkent",
+    "title": "Organisational structure",
+    "lead": "Standart and Quality Assessment Group LLC: a product certification body and two accredited testing laboratories. Select a unit to open its structure and people.",
+    "back": "Full structure",
+    "root": "Structure",
+    "open": "Open structure",
+    "solid": "Reporting line",
+    "dashed": "Collaboration",
+    "acc": "Accreditation",
+    "std": "Standard",
+    "valid": "Valid until",
+    "staffL": "Staff",
+    "related": "Works with",
+    "support": "Support unit",
+    "more": "More about this unit",
+    "statStaff": "employees",
+    "statCertificates": "O'ZAKK accreditation certificates",
+    "statLabs": "testing laboratories",
+    "statFounded": "year founded",
+    "nodes": {
+      "director": {
+        "title": "Director",
+        "sub": "Standart and Quality Assessment Group LLC"
+      },
+      "organ": {
+        "title": "Product certification body",
+        "short": "Certification body",
+        "desc": "An independent third party certifying products of domestic manufacturers and importers under mandatory and voluntary schemes."
+      },
+      "lab-sqa": {
+        "title": "SQA testing laboratory",
+        "short": "SQA laboratory",
+        "desc": "Tests and measures products within its scope of accreditation and issues official test reports."
+      },
+      "s-lab": {
+        "title": "S-LAB testing laboratory",
+        "short": "S-LAB laboratory",
+        "desc": "The company's second accredited laboratory, testing and measuring additional product groups."
+      },
+      "quality": {
+        "title": "Quality management system",
+        "short": "Quality management",
+        "sub": "Quality manager",
+        "rel": "Works with the body and the SQA laboratory",
+        "desc": "Responsible for the organisation's management system; works with the certification body and the SQA laboratory."
+      },
+      "accounting": {
+        "title": "Accounting"
+      },
+      "hr": {
+        "title": "Human resources"
+      },
+      "organ-head": {
+        "title": "Head of the body"
+      },
+      "lab-head": {
+        "title": "Head of the laboratory"
+      },
+      "slab-head": {
+        "title": "Head of the laboratory"
+      },
+      "qm-lead": {
+        "title": "Lead specialist, quality management system"
+      },
+      "regulators": {
+        "title": "Technical Regulation Agency, Accreditation Centre, Standards Institute"
+      },
+      "partners": {
+        "title": "Accredited certification bodies and testing laboratories"
+      },
+      "organ-staff": {
+        "title": "Specialists of the body"
+      },
+      "of-intake": {
+        "title": "Application intake and review, sampling, test programmes"
+      },
+      "of-decision": {
+        "title": "Decision to grant or refuse a certificate"
+      },
+      "of-issue": {
+        "title": "Issuing and checking certificates"
+      },
+      "of-normative": {
+        "title": "Responsible for normative documents"
+      },
+      "of-other": {
+        "title": "Responsible for other functions"
+      },
+      "lab-staff": {
+        "title": "Laboratory specialists"
+      },
+      "slab-staff": {
+        "title": "Laboratory specialists"
+      },
+      "lf-testing": {
+        "title": "Testing"
+      },
+      "lf-reports": {
+        "title": "Issuing and checking test reports"
+      },
+      "lf-equipment": {
+        "title": "Responsible for equipment"
+      },
+      "lf-normative": {
+        "title": "Responsible for normative documents"
+      },
+      "lf-uncertainty": {
+        "title": "Measurement uncertainty, decisions, verification and incoming inspection"
+      },
+      "lf-other": {
+        "title": "Responsible for other functions"
+      }
+    },
+    "positions": {
+      "lead": "Lead specialist",
+      "intern": "Intern",
+      "technical": "Technical officer"
+    }
   }
 }

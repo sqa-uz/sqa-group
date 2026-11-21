@@ -7,7 +7,6 @@ import { LABS, labBySlug } from "@/lib/labs";
 import Reveal from "@/components/public/Reveal";
 import { CertificateCard } from "@/components/public/DocDownload";
 import ApplySection from "@/components/public/ApplySection";
-import OrgStructure, { type OrgCopy } from "@/components/public/OrgStructure";
 
 type Unit = { code: string; standard: string; valid: string };
 
@@ -50,20 +49,20 @@ export default async function LaboratoryPage({ params }: { params: Promise<{ loc
         <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{t(lab.title)}</h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{t(lab.text)}</p>
         <p className="mt-3 text-sm font-semibold text-primary">{unit?.valid}</p>
+        <div>
+          <Link
+            href={`/structure#${lab.slug === "sqa" ? "lab-sqa" : "s-lab"}`}
+            className="mt-4 inline-flex items-center gap-1.5 rounded-card border border-line bg-band px-3 py-2 text-sm font-semibold text-primary transition-colors hover:border-primary"
+          >
+            {t("structureLink")}
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </div>
       </Reveal>
 
-      {lab.chart && (
-        <Reveal>
-          <section id="structure" className="mt-12 scroll-mt-24">
-            <p className="eyebrow mb-2">{lab.chartEyebrow ?? t("structureEyebrow")}</p>
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("structureTitle")}</h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{t("structureIntro")}</p>
-            <OrgStructure chart={lab.chart} copy={t.raw("structure") as OrgCopy} />
-          </section>
-        </Reveal>
-      )}
-
-      <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
+      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
         <Reveal>
           <div className="max-w-sm">
             <CertificateCard
