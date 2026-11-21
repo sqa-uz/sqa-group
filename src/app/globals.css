@@ -745,3 +745,37 @@ body {
   color: var(--color-ink-soft);
   opacity: 0.6;
 }
+
+/* ---------- company structure explorer (/structure) ---------- */
+.org-explorer {
+  --unit-w: 206px;
+}
+@media (max-width: 1180px) {
+  .org-explorer {
+    --unit-w: 172px;
+  }
+}
+@media (max-width: 1020px) and (min-width: 901px) {
+  .org-explorer {
+    --unit-w: 150px;
+  }
+}
+.org-link {
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-primary) 35%, var(--color-line));
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.org-link.is-dashed {
+  stroke: var(--color-primary-bright);
+  stroke-dasharray: 5 7;
+}
+.org-dot {
+  fill: var(--color-primary);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.org-dot.is-dashed {
+  fill: var(--color-primary-bright);
+}
