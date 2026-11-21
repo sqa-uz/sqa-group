@@ -33,7 +33,8 @@
     "request": "Send a request",
     "labSqa": "SQA testing laboratory",
     "labSlab": "S-LAB testing laboratory",
-    "labsAll": "All laboratories"
+    "labsAll": "All laboratories",
+    "structure": "Organisational structure"
   },
   "home": {
     "heroEyebrow": "Accredited by the Uzbek Accreditation Centre (O'ZAKK)",
@@ -324,7 +325,8 @@
           "label": "Additional functions",
           "text": "Staff responsible for the body's other additional functions."
         }
-      }
+      },
+      "peopleLink": "Structure with people"
     }
   },
   "laboratories": {
@@ -423,7 +425,8 @@
           "label": "Additional functions",
           "text": "Staff responsible for the laboratory's other additional functions."
         }
-      }
+      },
+      "peopleLink": "Structure with people"
     }
   },
   "team": {
@@ -716,5 +719,98 @@
         "link": "More about the schemes"
       }
     ]
+  },
+  "structurePage": {
+    "metaTitle": "Organisational structure",
+    "eyebrow": "SQA Group · Tashkent",
+    "title": "Organisational structure",
+    "lead": "Standart and Quality Assessment Group LLC: a product certification body and two accredited testing laboratories. Select a unit to open its structure and people.",
+    "back": "Full structure",
+    "root": "Structure",
+    "open": "Open structure",
+    "solid": "Reporting line",
+    "dashed": "Collaboration",
+    "acc": "Accreditation",
+    "std": "Standard",
+    "valid": "Valid until",
+    "staffL": "Staff",
+    "functions": "Functions of the body's specialists",
+    "related": "Works with",
+    "support": "Support unit",
+    "more": "More about this unit",
+    "statStaff": "employees",
+    "statCertificates": "O'ZAKK accreditation certificates",
+    "statLabs": "testing laboratories",
+    "statFounded": "year founded",
+    "nodes": {
+      "director": {
+        "title": "Director",
+        "sub": "Standart and Quality Assessment Group LLC"
+      },
+      "organ": {
+        "title": "Product certification body",
+        "short": "Certification body",
+        "desc": "An independent third party certifying products of domestic manufacturers and importers under mandatory and voluntary schemes.",
+        "functions": [
+          "Receiving and reviewing applications, sampling",
+          "Certification decisions",
+          "Issuing and checking certificates",
+          "Normative documents"
+        ]
+      },
+      "lab-sqa": {
+        "title": "SQA testing laboratory",
+        "short": "SQA laboratory",
+        "desc": "Tests and measures products within its scope of accreditation and issues official test reports."
+      },
+      "s-lab": {
+        "title": "S-LAB testing laboratory",
+        "short": "S-LAB laboratory",
+        "desc": "The company's second accredited laboratory, testing and measuring additional product groups."
+      },
+      "quality": {
+        "title": "Quality management system",
+        "short": "Quality management",
+        "sub": "Quality manager",
+        "rel": "Works with the body and the SQA laboratory",
+        "desc": "Responsible for the organisation's management system; works with the certification body and the SQA laboratory."
+      },
+      "accounting": {
+        "title": "Accounting"
+      },
+      "hr": {
+        "title": "Human resources"
+      },
+      "organ-head": {
+        "title": "Head of certification department"
+      },
+      "organ-lead": {
+        "title": "Lead specialist"
+      },
+      "organ-spec": {
+        "title": "Specialists"
+      },
+      "organ-intern": {
+        "title": "Interns"
+      },
+      "lab-head": {
+        "title": "Head of laboratory"
+      },
+      "lab-tech": {
+        "title": "Technical officer"
+      },
+      "lab-lead": {
+        "title": "Lead specialists"
+      },
+      "lab-spec": {
+        "title": "Specialists"
+      },
+      "slab-head": {
+        "title": "Head of laboratory"
+      },
+      "qm-lead": {
+        "title": "Lead specialist, quality management system"
+      }
+    }
   }
 }
