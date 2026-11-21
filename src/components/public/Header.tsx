@@ -12,6 +12,7 @@ import { cssTimeMs } from "@/lib/motion";
 
 const NAV = [
   { href: "/about", key: "about" },
+  { href: "/structure", key: "structureShort" },
   { href: "/certification-body", key: "certificationBody" },
   { href: "/what-we-certify", key: "products" },
   { href: "/laboratories", key: "laboratories" },
@@ -28,7 +29,6 @@ const LABS_MENU = [
 ] as const;
 
 const MORE = [
-  { href: "/structure", key: "structure" },
   { href: "/apply", key: "apply" },
   { href: "/financing", key: "financing" },
   { href: "/schemes", key: "schemes" },
