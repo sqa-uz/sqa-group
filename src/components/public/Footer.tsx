@@ -9,6 +9,7 @@ const NAV = [
   { href: "/what-we-certify", key: "products" },
   { href: "/laboratories", key: "laboratories" },
   { href: "/team", key: "team" },
+  { href: "/structure", key: "structure" },
   { href: "/news", key: "news" },
   { href: "/schemes", key: "schemes" },
   { href: "/apply", key: "apply" },
